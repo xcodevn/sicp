@@ -4,7 +4,7 @@
 @comment
 @comment             **********************************************************
 @setfilename         html
-@settitle            Structure and Interpretation of Computer Programs, 2e
+@settitle            Cau truc va Y nghia cua Chuong Trinh May tinh, 2e
 @comment             Unofficial Texinfo Format
 @comment
 @set utfversion      2.andresraba6
@@ -95,16 +95,16 @@
 
 @titlepage
 
-@titlefont{Structure and Interpretation@* of Computer Programs}
+@titlefont{Cấu trúc và Ý nghĩa@* của Chương Trình Máy tính}
 
-@subtitle @abbr{Second Edition}@* Unofficial Texinfo Format @value{utfversion}
+@subtitle @abbr{Xuất bản lần thứ hai}@* Unofficial Texinfo Format @value{utfversion}
 
-@author Harold Abelson and Gerald Jay Sussman with Julie Sussman, foreword by Alan J. Perlis
+@author Harold Abelson và Gerald Jay Sussman cùng với Julie Sussman, lời tựa bởi Alan J. Perlis
 
 @page
 @vskip 0pt plus 1filll
 @noindent
-@copyright{}1996 by The Massachusetts Institute of Technology
+@copyright{}1996 bởi The Massachusetts Institute of Technology
 
 @noindent
 @image{fig/icons/cc, 6mm,,,.std.svg}
@@ -127,14 +127,14 @@ New York, St. Louis, San Francisco,@*
 Montreal, Toronto
 
 @noindent
-This book is one of a series of texts written by faculty of the Electrical
-Engineering and Computer Science Department at the Massachusetts Institute of
-Technology.  It was edited and produced by The @abbr{MIT} Press under a
-joint production-distribution arrangement with the McGraw-Hill Book Company.
+Quyển sách này là một trong loạt sách giáo khoa được viết bởi khoa Kỹ thuật 
+điện tử và Khoa học máy tính tại học viện công nghệ Massachusetts. Sách được
+chỉnh sửa và xuất bản bởi The @abbr{MIT} Press dưới sự cộng tác với 
+McGraw-Hill Book Company.
 
 @noindent
 Unofficial Texinfo Format @url{http://sicpebook.wordpress.com, @value{utfversion}} (@value{utfversiondate}),
-based on @url{http://www.neilvandyke.org/sicp-texi/, 2.neilvandyke4} (January 10, 2007).
+dựa trên @url{http://www.neilvandyke.org/sicp-texi/, 2.neilvandyke4} (10 tháng một, 2007).
 
 @end titlepage
 
@@ -150,65 +150,65 @@ based on @url{http://www.neilvandyke.org/sicp-texi/, 2.neilvandyke4} (January 10
 
 @ifinfo
 
-@heading Structure and Interpretation of Computer Programs
+@heading Cấu trúc và Ý nghĩa của Chương trình Máy tính
 
 @noindent
-Second Edition@*
-by Harold Abelson and Gerald Jay Sussman, with Julie Sussman@*
-foreword by Alan J. Perlis@*
+Xuất bản lần thứ hai@*
+bởi Harold Abelson và Gerald Jay Sussman, cùng với Julie Sussman@*
+lời tựa bởi Alan J. Perlis@*
 @copyright{} 1996 Massachusetts Institute of Technology
 
 @noindent
-Unofficial Texinfo Format version @value{utfversion} (@value{utfversiondate})
+phiên bản Unofficial Texinfo Format @value{utfversion} (@value{utfversiondate})
 
 @end ifinfo
 
 @menu
 * UTF::              Unofficial Texinfo Format
-* Dedication::       Dedication
-* Foreword::         Foreword
-* Preface::          Preface to the Second Edition
-* Preface 1e::       Preface to the First Edition
-* Acknowledgments::  Acknowledgments
-* Chapter 1::        Building Abstractions with Procedures
-* Chapter 2::        Building Abstractions with Data
-* Chapter 3::        Modularity, Objects, and State
-* Chapter 4::        Metalinguistic Abstraction
-* Chapter 5::        Computing with Register Machines
-* References::       References
-* Exercises::        List of Exercises
-* Figures::          List of Figures
-* Term Index::       Term Index
-* Colophon::         Colophon
+* Dedication::       Đóng góp
+* Foreword::         Lời tựa
+* Preface::          Lời nói đầu xuất bản lần thứ hai
+* Preface 1e::       Lời nói đầu xuất bản lần thứ nhất
+* Acknowledgments::  Lời cảm ơn
+* Chapter 1::        Xây dựng Trừu tượng với Thủ tục
+* Chapter 2::        Xây dựng Trừu tượng với Dữ liệu
+* Chapter 3::        Tính mô-đun, Đối tượng, và Trạng thái
+* Chapter 4::        Trừu tượng siêu ngôn ngữ
+* Chapter 5::        Tính toán với máy thanh ghi
+* References::       Tham khảo
+* Exercises::        Danh sách bài tập
+* Figures::          Danh sách hình ảnh
+* Term Index::       Chỉ số từ khoá
+* Colophon::         Lời cuối
 
 @detailmenu
- --- The Detailed Node Listing ---
+ --- Danh sách chi tiết đề mục ---
 
-Programming in Lisp
+Lập trình bằng Lisp
 
-* 1.1::              The Elements of Programming
-* 1.2::              Procedures and the Processes They Generate
-* 1.3::              Formulating Abstractions with Higher-Order Procedures
+* 1.1::              Những cấu thành cơ bản của Lập trình
+* 1.2::              Thủ tục và Tiến trình sinh ra
+* 1.3::              Công thức của Trừu tượng với các thủ tục bậc cao (Higher-Order Procedures)
 
-The Elements of Programming
+Các thành phần cơ bản của Lập trình
 
-* 1.1.1::            Expressions
-* 1.1.2::            Naming and the Environment
-* 1.1.3::            Evaluating Combinations
-* 1.1.4::            Compound Procedures
-* 1.1.5::            The Substitution Model for Procedure Application
-* 1.1.6::            Conditional Expressions and Predicates
-* 1.1.7::            Example: Square Roots by Newton's Method
-* 1.1.8::            Procedures as Black-Box Abstractions
+* 1.1.1::            Biểu thức
+* 1.1.2::            Tên và Môi trường
+* 1.1.3::            Đánh giá tổ hợp 
+* 1.1.4::            Kết hợp các thủ tục Compound Procedures
+* 1.1.5::            Mô hình Thay thế cho Áp dụng Thủ tục - The Substitution Model for Procedure Application
+* 1.1.6::            Biểu thức điều kiện và vị từ 
+* 1.1.7::            Ví dụ: Căn bậc hai dùng phương pháp của Newton
+* 1.1.8::            Thủ tục như Trừu tượng hộp đen - Procedures as Black-Box Abstractions
 
-Procedures and the Processes They Generate
+Thủ túc và Tiến trình sinh ra Procedures and the Processes They Generate
 
-* 1.2.1::            Linear Recursion and Iteration
-* 1.2.2::            Tree Recursion
-* 1.2.3::            Orders of Growth
-* 1.2.4::            Exponentiation
-* 1.2.5::            Greatest Common Divisors
-* 1.2.6::            Example: Testing for Primality
+* 1.2.1::            Đệ qui tuyến tính và lặp
+* 1.2.2::            Đệ qui cây
+* 1.2.3::            Bậc của lớn lên - Orders of Growth
+* 1.2.4::            Bùng nổ lũy thừa
+* 1.2.5::            Ước chung lớn nhất - Greatest Common Divisors
+* 1.2.6::            Ví dụ: Kiểm tra số nguyên tố
 
 Formulating Abstractions with Higher-Order Procedures
 
@@ -399,12 +399,12 @@ An overview of the compiler
 @node    UTF, Dedication, Top, Top
 @unnumbered Unofficial Texinfo Format
 
-This is the second edition @abbr{SICP} book,@* from Unofficial Texinfo
+Đây là lần xuất bản thứ hai của sách @abbr{SICP},@* dưới định dạng Unofficial Texinfo
 Format.
 
-You are probably reading it in an Info hypertext browser, such as the Info
-mode of Emacs.  You might alternatively be reading it @TeX{}-formatted on your
-screen or printer, though that would be silly.  And, if printed, expensive. 
+Bạn có lẽ đang đọc nó bằng một Info hypertext browser, như là Info
+mode của Emacs.  Bạn cũng có thể đọc nó đưới định dạng @TeX{} trên màn hình máy tính 
+hay máy in, mặc dù điều này hơi ngốc nghếch.  Và, nếu in, thì đắt. 
 
 The freely-distributed official @abbr{HTML}-and-@abbr{GIF} format was
 first converted personally to Unofficial Texinfo Format (@abbr{UTF})
@@ -473,48 +473,47 @@ fire up a @abbr{REPL}!
 @i{A.R, January, 2014}
 
 @node    Dedication, Foreword, UTF, Top
-@unnumbered Dedication
+@unnumbered Đề tặng
 
-This book is dedicated, in respect and admiration, to the spirit that lives in
-the computer.
+Quyển sách này để dành tặng, với sự tôn trọng và ngưỡng mộ, tới những linh hồn sống trong máy tính.
 
 @quotation
-``I think that it's extraordinarily important that we in computer science keep
-fun in computing.  When it started out, it was an awful lot of fun.  Of course,
-the paying customers got shafted every now and then, and after a while we began
-to take their complaints seriously.  We began to feel as if we really were
-responsible for the successful, error-free perfect use of these machines.  I
-don't think we are.  I think we're responsible for stretching them, setting
-them off in new directions, and keeping fun in the house.  I hope the field of
-computer science never loses its sense of fun.  Above all, I hope we don't
-become missionaries.  Don't feel as if you're Bible salesmen.  The world has
-too many of those already.  What you know about computing other people will
-learn.  Don't feel as if the key to successful computing is only in your hands.
-What's in your hands, I think and hope, is intelligence: the ability to see the
-machine as more than when you were first led up to it, that you can make it
-more.''
+``Tôi nghĩ rằng rất quan trọng khi chúng ta trong ngành khoa học máy tính 
+giữ được niềm vui thích với tính toán (computing). Khi điều đó xãy ra, đó là một thứ
+tràn đầy niềm vui.  Tất nhiên, những khách hàng trả tiền luôn phàn nàn ở hiện tại
+hay tương lai, và sau đó ta bắt đầu chú trọng tới những lời phàn nàn. Ta bắt đầu
+cảm thấy có trách nhiệm cho việc sử dụng những chiếc máy một cách thành công và không bị lỗi.
+Tôi không nghĩ rằng ta cần phải như vậy. Tôi nghĩ rằng chúng ta có trách nhiệm phát thảo máy tính,
+vạch ra lối đi mới cho máy tính, và giữ niềm vui ở lại. Tôi hi vọng lĩnh vực khoa học
+máy tính sẽ không bao giờ mất đi niềm vui của nó. Trên tất cả, tôi hi vọng ta sẽ không trở nên 
+quá ám ảnh. Đừng cho mình là người bán kinh thánh. Thế giới đã có rất nhiều người bán rồi. Cái bạn
+biết về tính toán những người khác sẽ học. Đừng cho rằng chìa khóa của thành công ở trên tay bạn.
+Cái trong tay bạn, tôi nghĩ và hi vọng, là trí tuệ: khả năng nhận ra những điều chiếc máy có thể làm xa hơn lần đầu tiên
+bạn bật nó lên, rằng bạn có thể làm nó tốt hơn nữa.''
 
 @noindent
----Alan J. Perlis (April 1, 1922 -- February 7, 1990)
+---Alan J. Perlis (ngày 1 tháng tư, 1922 -- ngày 7 tháng hai, 1990)
 @end quotation
 
 @node    Foreword, Preface, Dedication, Top
-@unnumbered Foreword
+@unnumbered Lời tựa đề
 
-Educators, generals, dieticians, psychologists, and parents program.  Armies,
-students, and some societies are programmed.  An assault on large problems
+Chương trình giáo dục, chương trình quân sự, chương trình kế hoạch hóa, chương trình 
+ăn chay. Quân đội, học sinh và một vài cộng đồng được lập trình sẵn (Educators, 
+generals, dieticians, psychologists, and parents program.  Armies,
+students, and some societies are programmed.)  An assault on large problems
 employs a succession of programs, most of which spring into existence en route.
 These programs are rife with issues that appear to be particular to the problem
-at hand.  To appreciate programming as an intellectual activity in its own
-right you must turn to computer programming; you must read and write computer
-programs---many of them.  It doesn't matter much what the programs are about or
-what applications they serve.  What does matter is how well they perform and
-how smoothly they fit with other programs in the creation of still greater
-programs.  The programmer must seek both perfection of part and adequacy of
-collection.  In this book the use of ``program'' is focused on the creation,
-execution, and study of programs written in a dialect of Lisp for execution on
-a digital computer.  Using Lisp we restrict or limit not what we may program,
-but only the notation for our program descriptions.
+at hand.  Để coi lập trình như một hoạt động trí tuệ khi đứng riêng lẻ bạn phải 
+kể tới lập trình máy tính; bạn phải đọc và viết nhiều chương trình máy tính.
+Vấn đề không nằm ở việc các chương trình máy tính làm gì, phục vụ cho mục đích nào.
+Điều quan trọng là nó hoạt động tốt ra sao, nó kết liên kết với các chương trình khác
+để tạo ra chương trình lớn hơn ra sao. Những lập trình viên phải quan tâm đến cả sự
+hoàn thiện của những phần riêng lẻ, và đồng thời sự vừa vặn của cả tổng thể. Trong
+quyển sách này ``chương trình'' được tập trung vào sự tạo ra, sự thực thi, và nghiên
+cứu những chương trình được viết bằng ngôn ngữ Lisp thực thi trên một máy tính số.
+Sử dụng Lisp chúng ta không giới hạn những chương trình có thể lập trình mà chỉ giới
+hạn là những ký hiệu dùng để mô tả chương trình.
 
 Our traffic with the subject matter of this book involves us with three foci of
 phenomena: the human mind, collections of computer programs, and the computer.
@@ -661,7 +660,7 @@ Alan J. Perlis@*
 New Haven, Connecticut
 
 @node    Preface, Preface 1e, Foreword, Top
-@unnumbered Preface to the Second Edition
+@unnumbered Lời mới đầu cho lần xuất bản thứ hai
 
 @quotation
 Is it possible that software is not like anything else, that it is meant to be
@@ -715,7 +714,7 @@ programming assignments, supplementary materials, and downloadable
 implementations of the Scheme dialect of Lisp.
 
 @node    Preface 1e, Acknowledgments, Preface, Top
-@unnumbered Preface to the First Edition
+@unnumbered Lời mở đầu cho lần xuất bản thứ nhất
 
 @quotation
 A computer is like a violin.  You can imagine a novice trying first a
@@ -816,7 +815,7 @@ this territory decades before computers appeared on the scene.  These pioneers
 include Alonzo Church, Barkley Rosser, Stephen Kleene, and Haskell Curry.
 
 @node       Acknowledgments, Chapter 1, Preface 1e, Top
-@unnumbered Acknowledgments
+@unnumbered Lời cảm ơn
 
 We would like to thank the many people who have helped us develop this book and
 this curriculum.
@@ -927,7 +926,7 @@ Hewlett-Packard, made possible by Ira Goldstein and Joel Birnbaum, and support
 from @abbr{DARPA}, made possible by Bob Kahn.
 
 @node    Chapter 1, 1.1, Acknowledgments, Top
-@chapter Building Abstractions with Procedures
+@chapter Xây dựng Trừu tượng với Thủ tục (Building Abstractions with Procedures)
 
 @quotation
 The acts of the mind, wherein it exerts its power over simple ideas, are
