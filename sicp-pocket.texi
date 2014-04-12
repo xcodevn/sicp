@@ -1,10 +1,12 @@
+@documentencoding UTF-8
+
 \input texinfo
 @comment  To crop page margins:
 @comment  @input marginless
 @comment
 @comment             **********************************************************
 @setfilename         html
-@settitle            Cau truc va Y nghia cua Chuong Trinh May tinh, 2e
+@settitle            Cấu trúc và ý nghĩa của chương trình máy tính, 2e
 @comment             Unofficial Texinfo Format
 @comment
 @set utfversion      2.andresraba6
@@ -79,8 +81,6 @@
 @comment   with MathML and MathJax.
 
 
-@documentencoding UTF-8
-
 @dircategory The Algorithmic Language Scheme
 @direntry
 * SICP: (sicp). Structure and Interpretation of Computer Programs
@@ -95,7 +95,7 @@
 
 @titlepage
 
-@titlefont{Cấu trúc và Ý nghĩa@* của Chương Trình Máy tính}
+@titlefont{Cấu Trúc và Ý Nghĩa@* của Chương Trình Máy Tính}
 
 @subtitle @abbr{Xuất bản lần thứ hai}@* Unofficial Texinfo Format @value{utfversion}
 
