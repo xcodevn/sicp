@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.5.3</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.5.3</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.5.3" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.5.3" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e5.xhtml#g_t3_002e5" rel="prev" title="3.5" />
-<link href="3_002e5_002e4.xhtml#g_t3_002e5_002e4" rel="next" title="3.5.4" />
-<link href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" rel="prev" title="3.5.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.5.3"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.5.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e5.xhtml#g_t3_002e5" rel="prev" title="3.5"/>
+<link href="3_002e5_002e4.xhtml#g_t3_002e5_002e4" rel="next" title="3.5.4"/>
+<link href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" rel="prev" title="3.5.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e5_002e3"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e5_002e4.xhtml#g_t3_002e5_002e4" accesskey="n" rel="next">3.5.4</a>, Previous: <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" accesskey="p" rel="prev">3.5.2</a>, Up: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="u" rel="prev">3.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e5_002e4.xhtml#g_t3_002e5_002e4" accesskey="n" rel="next">3.5.4</a>, Previous: <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" accesskey="p" rel="prev">3.5.2</a>, Up: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="u" rel="prev">3.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Exploiting-the-Stream-Paradigm"></a>
 <h4 class="subsection"><span class="secnum">3.5.3</span><span class="sectitle">Exploiting the Stream Paradigm</span></h4>
@@ -56,36 +54,35 @@ updating state variables.  We know now that we can represent state as a
 “timeless” stream of values rather than as a set of variables to be updated.
 Let’s adopt this perspective in revisiting the square-root procedure from
 <a href="1_002e1_002e7.xhtml#g_t1_002e1_002e7">1.1.7</a>.  Recall that the idea is to generate a sequence of better
-and better guesses for the square root of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> by applying over and over again
+and better guesses for the square root of \( x \) by applying over and over again
 the procedure that improves guesses:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt-improve guess x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">average guess </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> x guess</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (sqrt-improve guess x)
+  (average guess (/ x guess)))
+</pre></div>
 
 <p>In our original <code>sqrt</code> procedure, we made these guesses be the successive
 values of a state variable. Instead we can generate the infinite stream of
 guesses, starting with an initial guess of 1:<a class="footnote_link" id="DOCF193" href="#FOOT193"><sup>193</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt-stream x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> guesses
-    </span><span class="opn">(</span><span class="pln">cons-stream 
-     </span><span class="lit">1.0</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-map
-          </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">guess</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">sqrt-improve guess x</span><span class="clo">))</span><span class="pln">
-          guesses</span><span class="clo">)))</span><span class="pln">
-  guesses</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (sqrt-stream x)
+  (define guesses
+    (cons-stream 
+     1.0 (stream-map
+          (lambda (guess)
+            (sqrt-improve guess x))
+          guesses)))
+  guesses)
 
-</span><span class="opn">(</span><span class="pln">display-stream </span><span class="opn">(</span><span class="pln">sqrt-stream </span><span class="lit">2</span><span class="clo">))</span><span class="pln">
-</span><i><span class="lit">1.</span></i><span class="pln">
-</span><i><span class="lit">1.5</span></i><span class="pln">
-</span><i><span class="lit">1.4166666666666665</span></i><span class="pln">
-</span><i><span class="lit">1.4142156862745097</span></i><span class="pln">
-</span><i><span class="lit">1.4142135623746899</span></i><span class="pln">
-</span><span class="roman"><span class="pun">…</span></span>
+(display-stream (sqrt-stream 2))
+<i>1.</i>
+<i>1.5</i>
+<i>1.4166666666666665</i>
+<i>1.4142156862745097</i>
+<i>1.4142135623746899</i>
+<span class="roman">…</span>
 </pre></div>
 
 <p>We can generate more and more terms of the stream to get better and better
@@ -93,82 +90,40 @@ guesses.  If we like, we can write a procedure that keeps generating terms
 until the answer is good enough.  (See <a href="#Exercise-3_002e64">Exercise 3.64</a>.)
 </p>
 <p>Another iteration that we can treat in the same way is to generate an
-approximation to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math>, based upon the alternating series that we saw in
+approximation to \( \pi \), based upon the alternating series that we saw in
 <a href="1_002e3_002e1.xhtml#g_t1_002e3_002e1">1.3.1</a>:
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mi>π<!-- π --></mi>
-      <mn>4</mn>
-    </mfrac>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mn>1</mn>
-  <mo>−<!-- − --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mn>1</mn>
-      <mn>3</mn>
-    </mfrac>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mn>1</mn>
-      <mn>5</mn>
-    </mfrac>
-  </mrow>
-  <mo>−<!-- − --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mn>1</mn>
-      <mn>7</mn>
-    </mfrac>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo>…<!-- … --></mo>
-    <mo>.</mo>
-  </mrow>
-</math>
+\[ % :66:
+  {\pi\over4} \,=\, 1 - {1\over3} + {1\over5} - {1\over7} + {\dots.}  \]
 We first generate the stream of summands of the series (the reciprocals of the
 odd integers, with alternating signs).  Then we take the stream of sums of more
 and more terms (using the <code>partial-sums</code> procedure of <a href="3_002e5_002e2.xhtml#Exercise-3_002e55">Exercise 3.55</a>)
 and scale the result by 4:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pi-summands n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">cons-stream 
-   </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="lit">1.0</span><span class="pln"> n</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">stream-map </span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pi-summands </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> n </span><span class="lit">2</span><span class="clo">)))))</span><span class="pln">
+<pre class="lisp">(define (pi-summands n)
+  (cons-stream 
+   (/ 1.0 n)
+   (stream-map - (pi-summands (+ n 2)))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> pi-stream
-  </span><span class="opn">(</span><span class="pln">scale-stream 
-   </span><span class="opn">(</span><span class="pln">partial-sums </span><span class="opn">(</span><span class="pln">pi-summands </span><span class="lit">1</span><span class="clo">))</span><span class="pln"> </span><span class="lit">4</span><span class="clo">))</span><span class="pln">
+(define pi-stream
+  (scale-stream 
+   (partial-sums (pi-summands 1)) 4))
 
-</span><span class="opn">(</span><span class="pln">display-stream pi-stream</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">4.</span></i><span class="pln">
-</span><i><span class="lit">2.666666666666667</span></i><span class="pln">
-</span><i><span class="lit">3.466666666666667</span></i><span class="pln">
-</span><i><span class="lit">2.8952380952380956</span></i><span class="pln">
-</span><i><span class="lit">3.3396825396825403</span></i><span class="pln">
-</span><i><span class="lit">2.9760461760461765</span></i><span class="pln">
-</span><i><span class="lit">3.2837384837384844</span></i><span class="pln">
-</span><i><span class="lit">3.017071817071818</span></i><span class="pln">
-</span><span class="roman"><span class="pun">…</span></span>
+(display-stream pi-stream)
+<i>4.</i>
+<i>2.666666666666667</i>
+<i>3.466666666666667</i>
+<i>2.8952380952380956</i>
+<i>3.3396825396825403</i>
+<i>2.9760461760461765</i>
+<i>3.2837384837384844</i>
+<i>3.017071817071818</i>
+<span class="roman">…</span>
 </pre></div>
 
-<p>This gives us a stream of better and better approximations to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math>,
+<p>This gives us a stream of better and better approximations to \( \pi \),
 although the approximations converge rather slowly.  Eight terms of the
-sequence bound the value of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math> between 3.284 and 3.017.
+sequence bound the value of \( \pi \) between 3.284 and 3.017.
 </p>
 <p>So far, our use of the stream of states approach is not much different from
 updating state variables.  But streams give us an opportunity to do some
@@ -180,113 +135,39 @@ new sequence that converges to the same value as the original, only faster.
 <p>One such accelerator, due to the eighteenth-century Swiss mathematician
 Leonhard Euler, works well with sequences that are partial sums of alternating
 series (series of terms with alternating signs).  In Euler’s technique, if
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>S</mi>
-    <mi>n</mi>
-  </msub>
-</math> is the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mi>n</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mtext>th</mtext>
-    </mrow>
-  </msup>
-</math> term of the original sum sequence, then the
+\( S_n \) is the \( n^{\text{th}} \) term of the original sum sequence, then the
 accelerated sequence has terms
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <msub>
-    <mi>S</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi>n</mi>
-      <mo>+</mo>
-      <mn>1</mn>
-    </mrow>
-  </msub>
-  <mo>−<!-- − --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mrow class="MJX-TeXAtom-ORD">
-      <mfrac>
-        <mrow>
-          <mo stretchy="false">(</mo>
-          <msub>
-            <mi>S</mi>
-            <mrow class="MJX-TeXAtom-ORD">
-              <mi>n</mi>
-              <mo>+</mo>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>−<!-- − --></mo>
-          <msub>
-            <mi>S</mi>
-            <mi>n</mi>
-          </msub>
-          <msup>
-            <mo stretchy="false">)</mo>
-            <mn>2</mn>
-          </msup>
-        </mrow>
-        <mrow>
-          <msub>
-            <mi>S</mi>
-            <mrow class="MJX-TeXAtom-ORD">
-              <mi>n</mi>
-              <mo>−<!-- − --></mo>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-          <mo>−<!-- − --></mo>
-          <mn>2</mn>
-          <msub>
-            <mi>S</mi>
-            <mi>n</mi>
-          </msub>
-          <mo>+</mo>
-          <msub>
-            <mi>S</mi>
-            <mrow class="MJX-TeXAtom-ORD">
-              <mi>n</mi>
-              <mo>+</mo>
-              <mn>1</mn>
-            </mrow>
-          </msub>
-        </mrow>
-      </mfrac>
-    </mrow>
-    <mo>.</mo>
-  </mrow>
-</math>
+\[ % :67:
+  S_{n+1} - {{(S_{n+1} - S_n)^2 \over S_{n-1} - 2S_n + S_{n+1}}.}  \]
 Thus, if the original sequence is represented as a stream of values, the
 transformed sequence is given by
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">euler-transform s</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">s0 </span><span class="opn">(</span><span class="pln">stream-ref s </span><span class="lit">0</span><span class="clo">))</span><span class="pln">     </span><span class="com">; </span><var><span class="com">Sₙ</span></var><span class="com">₋₁</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">s1 </span><span class="opn">(</span><span class="pln">stream-ref s </span><span class="lit">1</span><span class="clo">))</span><span class="pln">     </span><span class="com">; </span><var><span class="com">Sₙ</span></var><span class="pln">
-        </span><span class="opn">(</span><span class="pln">s2 </span><span class="opn">(</span><span class="pln">stream-ref s </span><span class="lit">2</span><span class="clo">)))</span><span class="pln">    </span><span class="com">; </span><var><span class="com">Sₙ</span></var><span class="com">₊₁</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">cons-stream 
-     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> s2 </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> s2 s1</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> s0 </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">-2</span><span class="pln"> s1</span><span class="clo">)</span><span class="pln"> s2</span><span class="clo">)))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">euler-transform </span><span class="opn">(</span><span class="pln">stream-cdr s</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (euler-transform s)
+  (let ((s0 (stream-ref s 0))     ; <var>Sₙ</var>₋₁
+        (s1 (stream-ref s 1))     ; <var>Sₙ</var>
+        (s2 (stream-ref s 2)))    ; <var>Sₙ</var>₊₁
+    (cons-stream 
+     (- s2 (/ (square (- s2 s1))
+              (+ s0 (* -2 s1) s2)))
+     (euler-transform (stream-cdr s)))))
+</pre></div>
 
 <p>We can demonstrate Euler acceleration with our sequence of approximations to
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math>:
+\( \pi \):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">display-stream 
- </span><span class="opn">(</span><span class="pln">euler-transform pi-stream</span><span class="clo">))</span><span class="pln">
-</span><i><span class="lit">3.166666666666667</span></i><span class="pln">
-</span><i><span class="lit">3.1333333333333337</span></i><span class="pln">
-</span><i><span class="lit">3.1452380952380956</span></i><span class="pln">
-</span><i><span class="lit">3.13968253968254</span></i><span class="pln">
-</span><i><span class="lit">3.1427128427128435</span></i><span class="pln">
-</span><i><span class="lit">3.1408813408813416</span></i><span class="pln">
-</span><i><span class="lit">3.142071817071818</span></i><span class="pln">
-</span><i><span class="lit">3.1412548236077655</span></i><span class="pln">
-</span><span class="roman"><span class="pun">…</span></span>
+<pre class="lisp">(display-stream 
+ (euler-transform pi-stream))
+<i>3.166666666666667</i>
+<i>3.1333333333333337</i>
+<i>3.1452380952380956</i>
+<i>3.13968253968254</i>
+<i>3.1427128427128435</i>
+<i>3.1408813408813416</i>
+<i>3.142071817071818</i>
+<i>3.1412548236077655</i>
+<span class="roman">…</span>
 </pre></div>
 
 <p>Even better, we can accelerate the accelerated sequence, and recursively
@@ -296,194 +177,56 @@ we’ll call a <a id="index-tableau"></a>
 preceding one:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-tableau transform s</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">cons-stream 
+<pre class="lisp">(define (make-tableau transform s)
+  (cons-stream 
    s
-   </span><span class="opn">(</span><span class="pln">make-tableau
+   (make-tableau
     transform
-    </span><span class="opn">(</span><span class="pln">transform s</span><span class="clo">))))</span></pre></div>
+    (transform s))))
+</pre></div>
 
 <p>The tableau has the form
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="center center center center center center" rowspacing="4pt" columnspacing="1em">
-    <mtr>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>00</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>01</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>02</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>03</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>04</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>10</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>11</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>12</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>13</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd/>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>20</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>21</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <msub>
-          <mi>s</mi>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mn>22</mn>
-          </mrow>
-        </msub>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd/>
-      <mtd/>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-      <mtd/>
-      <mtd/>
-    </mtr>
-  </mtable>
-</math>
+\[ % :68:
+
+\begin{array}{cccccc}
+ s_{00} 	&amp;   s_{01}  	&amp;   s_{02}  	&amp;   s_{03}  	&amp;   s_{04}  	&amp;   \dots  \\
+		&amp;   s_{10}  	&amp;   s_{11}  	&amp;   s_{12}  	&amp;   s_{13}  	&amp;   \dots  \\
+		&amp; 		&amp;   s_{20}  	&amp;   s_{21}  	&amp;   s_{22}  	&amp;   \dots  \\
+		&amp; 		&amp; 		&amp;   \dots  	&amp; 		&amp;   
+\end{array}
+\]
 Finally, we form a sequence by taking the first term in each row of the
 tableau:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">accelerated-sequence transform s</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">stream-map stream-car
-              </span><span class="opn">(</span><span class="pln">make-tableau transform s</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (accelerated-sequence transform s)
+  (stream-map stream-car
+              (make-tableau transform s)))
+</pre></div>
 
-<p>We can demonstrate this kind of “super-acceleration” of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math>
+<p>We can demonstrate this kind of “super-acceleration” of the \( \pi \)
 sequence:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">display-stream 
- </span><span class="opn">(</span><span class="pln">accelerated-sequence euler-transform
-                       pi-stream</span><span class="clo">))</span><span class="pln">
-</span><i><span class="lit">4.</span></i><span class="pln">
-</span><i><span class="lit">3.166666666666667</span></i><span class="pln">
-</span><i><span class="lit">3.142105263157895</span></i><span class="pln">
-</span><i><span class="lit">3.141599357319005</span></i><span class="pln">
-</span><i><span class="lit">3.1415927140337785</span></i><span class="pln">
-</span><i><span class="lit">3.1415926539752927</span></i><span class="pln">
-</span><i><span class="lit">3.1415926535911765</span></i><span class="pln">
-</span><i><span class="lit">3.141592653589778</span></i><span class="pln">
-</span><span class="roman"><span class="pun">…</span></span>
+<pre class="lisp">(display-stream 
+ (accelerated-sequence euler-transform
+                       pi-stream))
+<i>4.</i>
+<i>3.166666666666667</i>
+<i>3.142105263157895</i>
+<i>3.141599357319005</i>
+<i>3.1415927140337785</i>
+<i>3.1415926539752927</i>
+<i>3.1415926535911765</i>
+<i>3.141592653589778</i>
+<span class="roman">…</span>
 </pre></div>
 
 <p>The result is impressive.  Taking eight terms of the sequence yields the
-correct value of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math> to 14 decimal places.  If we had used only the
-original <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math> sequence, we would need to compute on the order of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mn>10</mn>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mn>13</mn>
-    </mrow>
-  </msup>
-</math>
+correct value of \( \pi \) to 14 decimal places.  If we had used only the
+original \( \pi \) sequence, we would need to compute on the order of \( 10^{13} \)
 terms (i.e., expanding the series far enough so that the individual terms are
-less than <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mn>10</mn>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>−<!-- − --></mo>
-      <mn>13</mn>
-    </mrow>
-  </msup>
-</math>) to get that much accuracy!
+less than \( 10^{-13} \)) to get that much accuracy!
 </p>
 <p>We could have implemented these acceleration techniques without using streams.
 But the stream formulation is particularly elegant and convenient because the
@@ -496,12 +239,13 @@ manipulated with a uniform set of operations.
 straightforward way, without the local variable <code>guesses</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt-stream x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">cons-stream 
-   </span><span class="lit">1.0</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">stream-map </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">guess</span><span class="clo">)</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">sqrt-improve guess x</span><span class="clo">))</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">sqrt-stream x</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (sqrt-stream x)
+  (cons-stream 
+   1.0
+   (stream-map (lambda (guess)
+                 (sqrt-improve guess x))
+               (sqrt-stream x))))
+</pre></div>
 
 <p>Alyssa P. Hacker replies that this version of the procedure is considerably
 less efficient because it performs redundant computation.  Explain Alyssa’s
@@ -519,48 +263,17 @@ the second of the two elements.  Using this, we could compute square roots up
 to a given tolerance by
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt x tolerance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">stream-limit </span><span class="opn">(</span><span class="pln">sqrt-stream x</span><span class="clo">)</span><span class="pln"> tolerance</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (sqrt x tolerance)
+  (stream-limit (sqrt-stream x) tolerance))
+</pre></div>
 </blockquote>
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e65"></a>Exercise 3.65:</strong> Use the series
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mi>ln</mi>
-  <mo>⁡<!-- ⁡ --></mo>
-  <mn>2</mn>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mn>1</mn>
-  <mo>−<!-- − --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mn>1</mn>
-      <mn>2</mn>
-    </mfrac>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mn>1</mn>
-      <mn>3</mn>
-    </mfrac>
-  </mrow>
-  <mo>−<!-- − --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mn>1</mn>
-      <mn>4</mn>
-    </mfrac>
-  </mrow>
-  <mo>+</mo>
-  <mo>…<!-- … --></mo>
-</math>
+\[ % :69:
+  \ln 2 \,=\, 1 - {1\over2} + {1\over3} - {1\over4} + \dots  \]
 to compute three sequences of approximations to the natural logarithm of 2, in
-the same way we did above for <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math>.  How rapidly do these sequences
+the same way we did above for \( \pi \).  How rapidly do these sequences
 converge?
 </p></blockquote>
 
@@ -574,502 +287,101 @@ represented as loops, because the “looping” must range over an infinite set.
 </p>
 <p>For example, suppose we want to generalize the <code>prime-sum-pairs</code> procedure
 of <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3">2.2.3</a> to produce the stream of pairs of <em>all</em> integers
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>j</mi>
-  </mrow>
-</math> such that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>+</mo>
-    <mi>j</mi>
-  </mrow>
-</math> is prime.  If
-<code>int-pairs</code> is the sequence of all pairs of integers <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> with
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>j</mi>
-  </mrow>
-</math>, then our required stream is simply<a class="footnote_link" id="DOCF194" href="#FOOT194"><sup>194</sup></a>
+\( {(i, j)} \) with \( {i \le j} \) such that \( {i + j} \) is prime.  If
+<code>int-pairs</code> is the sequence of all pairs of integers \( {(i, j)} \) with
+\( {i \le j} \), then our required stream is simply<a class="footnote_link" id="DOCF194" href="#FOOT194"><sup>194</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">stream-filter 
- </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pair</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">prime? </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> pair</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> pair</span><span class="clo">))))</span><span class="pln">
- int-pairs</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(stream-filter 
+ (lambda (pair)
+   (prime? (+ (car pair) (cadr pair))))
+ int-pairs)
+</pre></div>
 
 <p>Our problem, then, is to produce the stream <code>int-pairs</code>.  More generally,
-suppose we have two streams <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>S</mi>
-    <mo>=</mo>
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>S</mi>
-      <mi>i</mi>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>T</mi>
-    <mo>=</mo>
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>T</mi>
-      <mi>j</mi>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>,
+suppose we have two streams \( {S = (S_i)} \) and \( {T = (T_j)} \),
 and imagine the infinite rectangular array
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="center center center center" rowspacing="4pt" columnspacing="1em">
-    <mtr>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>0</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>0</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>0</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-      <mtd/>
-      <mtd/>
-      <mtd/>
-    </mtr>
-  </mtable>
-</math>
+\[ % :70:
+
+\begin{array}{cccc}
+	 (S_0, T_0)  &amp;  (S_0, T_1)  &amp;  (S_0, T_2)  &amp;  \dots  \\
+	 (S_1, T_0)  &amp;  (S_1, T_1)  &amp;  (S_1, T_2)  &amp;  \dots  \\
+	 (S_2, T_0)  &amp;  (S_2, T_1)  &amp;  (S_2, T_2)  &amp;  \dots  \\
+	 \dots  &amp; &amp; &amp; 
+\end{array}
+\]
 We wish to generate a stream that contains all the pairs in the array that lie
 on or above the diagonal, i.e., the pairs
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="center center center center" rowspacing="4pt" columnspacing="1em">
-    <mtr>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>0</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd/>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd/>
-      <mtd/>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
-(If we take both <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>S</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>T</mi>
-</math> to be the stream of integers, then this will
+\[ % :71:
+
+\begin{array}{cccc}
+ (S_0, T_0)  	&amp;  (S_0, T_1)  	&amp;  (S_0, T_2)  	&amp;  \dots  \\
+		&amp;  (S_1, T_1)  	&amp;  (S_1, T_2)  	&amp;  \dots  \\
+		&amp; 		&amp;  (S_2, T_2)  	&amp;  \dots  \\
+		&amp; 		&amp; 		&amp;  \dots 
+\end{array}
+\]
+(If we take both \( S \) and \( T \) to be the stream of integers, then this will
 be our desired stream <code>int-pairs</code>.)
 </p>
 <p>Call the general stream of pairs <code>(pairs S T)</code>, and consider it to be
-composed of three parts: the pair <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>S</mi>
-      <mn>0</mn>
-    </msub>
-    <mo>,</mo>
-    <msub>
-      <mi>T</mi>
-      <mn>0</mn>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>, the rest of the pairs in
+composed of three parts: the pair \( {(S_0, T_0)} \), the rest of the pairs in
 the first row, and the remaining pairs:<a class="footnote_link" id="DOCF195" href="#FOOT195"><sup>195</sup></a>
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="center center center center" rowspacing="4pt" columnspacing="1em" rowlines="solid none" columnlines="solid none none">
-    <mtr>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>0</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>0</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd/>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>S</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>T</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd/>
-      <mtd/>
-      <mtd>
-        <mo>…<!-- … --></mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
+\[ % :72:
+
+\begin{array}{c|ccc}
+ (S_0, T_0)  	&amp;  (S_0, T_1)  	&amp;  (S_0, T_2)  	&amp;  \dots  \\
+\hline
+		&amp;  (S_1, T_1)  	&amp;  (S_1, T_2)  	&amp;  \dots  \\
+		&amp; 		&amp;  (S_2, T_2)  	&amp;  \dots  \\
+		&amp; 		&amp; 		&amp;  \dots  
+\end{array}
+\]
 Observe that the third piece in this decomposition (pairs that are not in the
 first row) is (recursively) the pairs formed from <code>(stream-cdr S)</code> and
 <code>(stream-cdr T)</code>.  Also note that the second piece (the rest of the first
 row) is
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">stream-map </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> 
-              </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">stream-cdr t</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(stream-map (lambda (x) 
+              (list (stream-car s) x))
+            (stream-cdr t))
+</pre></div>
 
 <p>Thus we can form our stream of pairs as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pairs s t</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">cons-stream
-   </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-car t</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">combine-in-some-way</span></var><span class="pln">⟩
-    </span><span class="opn">(</span><span class="pln">stream-map </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> 
-                  </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-                </span><span class="opn">(</span><span class="pln">stream-cdr t</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">pairs </span><span class="opn">(</span><span class="pln">stream-cdr s</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">stream-cdr t</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (pairs s t)
+  (cons-stream
+   (list (stream-car s) (stream-car t))
+   (⟨<var>combine-in-some-way</var>⟩
+    (stream-map (lambda (x) 
+                  (list (stream-car s) x))
+                (stream-cdr t))
+    (pairs (stream-cdr s)
+           (stream-cdr t)))))
+</pre></div>
 
 <p>In order to complete the procedure, we must choose some way to combine the two
 inner streams.  One idea is to use the stream analog of the <code>append</code>
 procedure from <a href="2_002e2_002e1.xhtml#g_t2_002e2_002e1">2.2.1</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-append s1 s2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-null? s1</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (stream-append s1 s2)
+  (if (stream-null? s1)
       s2
-      </span><span class="opn">(</span><span class="pln">cons-stream 
-       </span><span class="opn">(</span><span class="pln">stream-car s1</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="pln">stream-append </span><span class="opn">(</span><span class="pln">stream-cdr s1</span><span class="clo">)</span><span class="pln"> s2</span><span class="clo">))))</span></pre></div>
+      (cons-stream 
+       (stream-car s1)
+       (stream-append (stream-cdr s1) s2))))
+</pre></div>
 
 <p>This is unsuitable for infinite streams, however, because it takes all the
 elements from the first stream before incorporating the second stream.  In
 particular, if we try to generate all pairs of positive integers using
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">pairs integers integers</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(pairs integers integers)
+</pre></div>
 
 <p>our stream of results will first try to run through all pairs with the first
 integer equal to 1, and hence will never produce pairs with any other value of
@@ -1081,12 +393,13 @@ long enough.  An elegant way to accomplish this is with the following
 <code>interleave</code> procedure:<a class="footnote_link" id="DOCF196" href="#FOOT196"><sup>196</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">interleave s1 s2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-null? s1</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (interleave s1 s2)
+  (if (stream-null? s1)
       s2
-      </span><span class="opn">(</span><span class="pln">cons-stream 
-       </span><span class="opn">(</span><span class="pln">stream-car s1</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="pln">interleave s2 </span><span class="opn">(</span><span class="pln">stream-cdr s1</span><span class="clo">)))))</span></pre></div>
+      (cons-stream 
+       (stream-car s1)
+       (interleave s2 (stream-cdr s1)))))
+</pre></div>
 
 <p>Since <code>interleave</code> takes elements alternately from the two streams, every
 element of the second stream will eventually find its way into the interleaved
@@ -1095,14 +408,15 @@ stream, even if the first stream is infinite.
 <p>We can thus generate the required stream of pairs as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pairs s t</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">cons-stream
-   </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-car t</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">interleave
-    </span><span class="opn">(</span><span class="pln">stream-map </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> 
-                  </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-                </span><span class="opn">(</span><span class="pln">stream-cdr t</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">pairs </span><span class="opn">(</span><span class="pln">stream-cdr s</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-cdr t</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (pairs s t)
+  (cons-stream
+   (list (stream-car s) (stream-car t))
+   (interleave
+    (stream-map (lambda (x) 
+                  (list (stream-car s) x))
+                (stream-cdr t))
+    (pairs (stream-cdr s) (stream-cdr t)))))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e66"></a>Exercise 3.66:</strong> Examine the stream <code>(pairs
@@ -1116,53 +430,26 @@ more qualitative answers if you find yourself getting bogged down.)
 <blockquote>
 <p><strong><a id="Exercise-3_002e67"></a>Exercise 3.67:</strong> Modify the <code>pairs</code> procedure
 so that <code>(pairs integers integers)</code> will produce the stream of <em>all</em>
-pairs of integers <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> (without the condition <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>j</mi>
-  </mrow>
-</math>).  Hint:
+pairs of integers \( {(i, j)} \) (without the condition \( {i \le j} \)).  Hint:
 You will need to mix in an additional stream.
 </p></blockquote>
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e68"></a>Exercise 3.68:</strong> Louis Reasoner thinks that
 building a stream of pairs from three parts is unnecessarily complicated.
-Instead of separating the pair <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>S</mi>
-      <mn>0</mn>
-    </msub>
-    <mo>,</mo>
-    <msub>
-      <mi>T</mi>
-      <mn>0</mn>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> from the rest of the pairs in
+Instead of separating the pair \( {(S_0, T_0)} \) from the rest of the pairs in
 the first row, he proposes to work with the whole first row, as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pairs s t</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">interleave
-   </span><span class="opn">(</span><span class="pln">stream-map
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> 
-      </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-    t</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">pairs </span><span class="opn">(</span><span class="pln">stream-cdr s</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">stream-cdr t</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (pairs s t)
+  (interleave
+   (stream-map
+    (lambda (x) 
+      (list (stream-car s) x))
+    t)
+   (pairs (stream-cdr s)
+          (stream-cdr t))))
+</pre></div>
 
 <p>Does this work?  Consider what happens if we evaluate <code>(pairs integers
 integers)</code> using Louis’s definition of <code>pairs</code>.
@@ -1170,77 +457,11 @@ integers)</code> using Louis’s definition of <code>pairs</code>.
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e69"></a>Exercise 3.69:</strong> Write a procedure <code>triples</code>
-that takes three infinite streams, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>S</mi>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>T</mi>
-</math>, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>U</mi>
-</math>, and produces the
-stream of triples <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>S</mi>
-      <mi>i</mi>
-    </msub>
-    <mo>,</mo>
-    <msub>
-      <mi>T</mi>
-      <mi>j</mi>
-    </msub>
-    <mo>,</mo>
-    <msub>
-      <mi>U</mi>
-      <mi>k</mi>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> such that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>j</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>k</mi>
-  </mrow>
-</math>.  
+that takes three infinite streams, \( S \), \( T \), and \( U \), and produces the
+stream of triples \( {(S_i, T_j, U_k)} \) such that \( {i \le j \le k} \).  
 Use <code>triples</code> to generate the stream of all Pythagorean
-triples of positive integers, i.e., the triples <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo>,</mo>
-    <mi>k</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> such that
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>j</mi>
-  </mrow>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>i</mi>
-      <mn>2</mn>
-    </msup>
-    <mo>+</mo>
-    <msup>
-      <mi>j</mi>
-      <mn>2</mn>
-    </msup>
-    <mo>=</mo>
-    <msup>
-      <mi>k</mi>
-      <mn>2</mn>
-    </msup>
-  </mrow>
-</math>.
+triples of positive integers, i.e., the triples \( {(i, j, k)} \) such that
+\( {i \le j} \) and \( {i^2 + j^2 = k^2} \).
 </p></blockquote>
 
 <blockquote>
@@ -1249,76 +470,9 @@ generate streams in which the pairs appear in some useful order, rather than in
 the order that results from an <em>ad hoc</em> interleaving process.  We can use
 a technique similar to the <code>merge</code> procedure of <a href="3_002e5_002e2.xhtml#Exercise-3_002e56">Exercise 3.56</a>, if we
 define a way to say that one pair of integers is “less than” another.  One
-way to do this is to define a “weighting function” <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>W</mi>
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> and
-stipulate that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>i</mi>
-      <mn>1</mn>
-    </msub>
-    <mo>,</mo>
-    <msub>
-      <mi>j</mi>
-      <mn>1</mn>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> is less than <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>i</mi>
-      <mn>2</mn>
-    </msub>
-    <mo>,</mo>
-    <msub>
-      <mi>j</mi>
-      <mn>2</mn>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> if
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>W</mi>
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>i</mi>
-      <mn>1</mn>
-    </msub>
-    <mo>,</mo>
-    <msub>
-      <mi>j</mi>
-      <mn>1</mn>
-    </msub>
-    <mo stretchy="false">)</mo>
-    <mo>&lt;</mo>
-  </mrow>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>W</mi>
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>i</mi>
-      <mn>2</mn>
-    </msub>
-    <mo>,</mo>
-    <msub>
-      <mi>j</mi>
-      <mn>2</mn>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  Write a procedure
+way to do this is to define a “weighting function” \( {W(i, j)} \) and
+stipulate that \( {(i_1, j_1)} \) is less than \( {(i_2, j_2)} \) if
+\( {W(i_1, j_1) &lt;} {W(i_2, j_2)} \).  Write a procedure
 <code>merge-weighted</code> that is like <code>merge</code>, except that
 <code>merge-weighted</code> takes an additional argument <code>weight</code>, which is a
 procedure that computes the weight of a pair, and is used to determine the
@@ -1329,62 +483,12 @@ computes a weighting function, and generates the stream of pairs, ordered
 according to weight.  Use your procedure to generate
 </p>
 <ol>
-<li> the stream of all pairs of positive integers <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>j</mi>
-  </mrow>
-</math>
-ordered according to the sum <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>+</mo>
-    <mi>j</mi>
-  </mrow>
-</math>,
+<li> the stream of all pairs of positive integers \( {(i, j)} \) with \( {i \le j} \)
+ordered according to the sum \( {i + j} \),
 
-</li><li> the stream of all pairs of positive integers <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>j</mi>
-  </mrow>
-</math>,
-where neither <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>i</mi>
-</math> nor <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>j</mi>
-</math> is divisible by 2, 3, or 5, and the pairs are
-ordered according to the sum <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>2</mn>
-    <mi>i</mi>
-    <mo>+</mo>
-    <mn>3</mn>
-    <mi>j</mi>
-    <mo>+</mo>
-    <mn>5</mn>
-    <mi>i</mi>
-    <mi>j</mi>
-  </mrow>
-</math>.
+</li><li> the stream of all pairs of positive integers \( {(i, j)} \) with \( {i \le j} \),
+where neither \( i \) nor \( j \) is divisible by 2, 3, or 5, and the pairs are
+ordered according to the sum \( {2i + 3j + 5ij} \).
 
 </li></ol>
 </blockquote>
@@ -1397,28 +501,8 @@ the sum of two cubes in more than one way are sometimes called
 Ramanujan.<a class="footnote_link" id="DOCF198" href="#FOOT198"><sup>198</sup></a> Ordered streams of pairs provide an elegant
 solution to the problem of computing these numbers.  To find a number that can
 be written as the sum of two cubes in two different ways, we need only generate
-the stream of pairs of integers <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> weighted according to the sum
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>i</mi>
-      <mn>3</mn>
-    </msup>
-    <mo>+</mo>
-    <msup>
-      <mi>j</mi>
-      <mn>3</mn>
-    </msup>
-  </mrow>
-</math> (see <a href="#Exercise-3_002e70">Exercise 3.70</a>), then search the stream for two
+the stream of pairs of integers \( {(i, j)} \) weighted according to the sum
+\( {i^3 + j^3} \) (see <a href="#Exercise-3_002e70">Exercise 3.70</a>), then search the stream for two
 consecutive pairs with the same weight.  Write a procedure to generate the
 Ramanujan numbers.  The first such number is 1,729.  What are the next five?
 </p></blockquote>
@@ -1439,88 +523,26 @@ values of a signal at successive time intervals as consecutive elements of a
 stream.  For instance, we can implement an <a id="index-integrator"></a>
 <em>integrator</em> or
 <a id="index-summer"></a>
-<em>summer</em> that, for an input stream <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mo>=</mo>
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>x</mi>
-      <mi>i</mi>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>, an initial
-value <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>C</mi>
-</math>, and a small increment <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>d</mi>
-    <mi>t</mi>
-  </mrow>
-</math>, accumulates the sum
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <msub>
-    <mi>S</mi>
-    <mi>i</mi>
-  </msub>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mi>C</mi>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <munderover>
-      <mo>∑<!-- ∑ --></mo>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mi>j</mi>
-        <mspace width="0.07em"/>
-        <mo>=</mo>
-        <mspace width="0.03em"/>
-        <mn>1</mn>
-      </mrow>
-      <mi>i</mi>
-    </munderover>
-    <msub>
-      <mi>x</mi>
-      <mi>j</mi>
-    </msub>
-    <mspace width="0.1em"/>
-    <mi>d</mi>
-    <mi>t</mi>
-  </mrow>
-</math>
-and returns the stream of values <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>S</mi>
-    <mo>=</mo>
-    <mo stretchy="false">(</mo>
-    <msub>
-      <mi>S</mi>
-      <mi>i</mi>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  The following
+<em>summer</em> that, for an input stream \( {x = (x_i)} \), an initial
+value \( C \), and a small increment \( {dt} \), accumulates the sum
+\[ % :73:
+  S_i \,=\, C + {\sum_{j\kern0.07em = \kern0.03em 1}^i x_j \kern0.1em dt}  \]
+and returns the stream of values \( {S = (S_i)} \).  The following
 <code>integral</code> procedure is reminiscent of the “implicit style” definition
 of the stream of integers (<a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2">3.5.2</a>):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">integral integrand initial-value dt</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> int
-    </span><span class="opn">(</span><span class="pln">cons-stream 
+<pre class="lisp">(define (integral integrand initial-value dt)
+  (define int
+    (cons-stream 
      initial-value
-     </span><span class="opn">(</span><span class="pln">add-streams </span><span class="opn">(</span><span class="pln">scale-stream integrand dt</span><span class="clo">)</span><span class="pln">
-                  int</span><span class="clo">)))</span><span class="pln">
-  int</span><span class="clo">)</span></pre></div>
+     (add-streams (scale-stream integrand dt)
+                  int)))
+  int)
+</pre></div>
 
 <p><a href="#Figure-3_002e32">Figure 3.32</a> is a picture of a signal-processing system that corresponds
-to the <code>integral</code> procedure.  The input stream is scaled by <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>d</mi>
-    <mi>t</mi>
-  </mrow>
-</math> and
+to the <code>integral</code> procedure.  The input stream is scaled by \( {dt} \) and
 passed through an adder, whose output is passed back through the same adder.
 The self-reference in the definition of <code>int</code> is reflected in the figure
 by the feedback loop that connects the output of the adder to one of the
@@ -1540,16 +562,8 @@ inputs.
 using streams to represent the values of currents or voltages at a sequence of
 times.  For instance, suppose we have an <a id="index-RC-circuit"></a>
 <em>RC circuit</em> consisting of a
-resistor of resistance <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>R</mi>
-</math> and a capacitor of capacitance <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>C</mi>
-</math> in series.
-The voltage response <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>v</mi>
-</math> of the circuit to an injected current <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>i</mi>
-</math> is
+resistor of resistance \( R \) and a capacitor of capacitance \( C \) in series.
+The voltage response \( v \) of the circuit to an injected current \( i \) is
 determined by the formula in <a href="#Figure-3_002e33">Figure 3.33</a>, whose structure is shown by the
 accompanying signal-flow diagram.
 </p>
@@ -1563,33 +577,11 @@ accompanying signal-flow diagram.
 </figure>
 
 <p>Write a procedure <code>RC</code> that models this circuit.  <code>RC</code> should take as
-inputs the values of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>R</mi>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>C</mi>
-</math>, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>d</mi>
-    <mi>t</mi>
-  </mrow>
-</math> and should return a procedure
-that takes as inputs a stream representing the current <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>i</mi>
-</math> and an initial
-value for the capacitor voltage <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>v</mi>
-    <mn>0</mn>
-  </msub>
-</math> and produces as output the stream of
-voltages <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>v</mi>
-</math>.  For example, you should be able to use <code>RC</code> to model an
-RC circuit with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>R</mi>
-</math> = 5 ohms, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>C</mi>
-</math> = 1 farad, and a 0.5-second time step by
+inputs the values of \( R \), \( C \), and \( {dt} \) and should return a procedure
+that takes as inputs a stream representing the current \( i \) and an initial
+value for the capacitor voltage \( v_0 \) and produces as output the stream of
+voltages \( v \).  For example, you should be able to use <code>RC</code> to model an
+RC circuit with \( R \) = 5 ohms, \( C \) = 1 farad, and a 0.5-second time step by
 evaluating <code>(define RC1 (RC 5 1 0.5))</code>.  This defines <code>RC1</code> as a
 procedure that takes a stream representing the time sequence of currents and an
 initial capacitor voltage and produces the output stream of voltages.
@@ -1600,70 +592,49 @@ initial capacitor voltage and produces the output stream of voltages.
 system to process signals coming from physical sensors.  One important feature
 she wishes to produce is a signal that describes the <a id="index-zero-crossings"></a>
 <em>zero crossings</em>
-of the input signal.  That is, the resulting signal should be <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo>+</mo>
-    <mn>1</mn>
-  </mrow>
-</math> whenever the
-input signal changes from negative to positive, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-  </mrow>
-</math> whenever the input signal
-changes from positive to negative, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mn>0</mn>
-</math> otherwise.  (Assume that the sign of a
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mn>0</mn>
-</math> input is positive.)  For example, a typical input signal with its associated
+of the input signal.  That is, the resulting signal should be \( {+1} \) whenever the
+input signal changes from negative to positive, \( {-1} \) whenever the input signal
+changes from positive to negative, and \( 0 \) otherwise.  (Assume that the sign of a
+\( 0 \) input is positive.)  For example, a typical input signal with its associated
 zero-crossing signal would be
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="roman"><span class="pun">…</span></span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">1.5</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0.5</span><span class="pln"> </span><span class="lit">-0.1</span><span class="pln"> </span><span class="lit">-2</span><span class="pln"> </span><span class="lit">-3</span><span class="pln"> </span><span class="lit">-2</span><span class="pln"> </span><span class="lit">-0.5</span><span class="pln"> </span><span class="lit">0.2</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="pln"> </span><span class="roman"><span class="pun">…</span></span><span class="pln">
-</span><span class="roman"><span class="pun">…</span></span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln">  </span><span class="lit">0</span><span class="pln">  </span><span class="lit">0</span><span class="pln">  </span><span class="lit">0</span><span class="pln">   </span><span class="lit">-1</span><span class="pln">   </span><span class="lit">0</span><span class="pln">  </span><span class="lit">0</span><span class="pln">  </span><span class="lit">0</span><span class="pln">   </span><span class="lit">0</span><span class="pln">   </span><span class="lit">1</span><span class="pln">  </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="roman"><span class="pun">…</span></span>
+<pre class="lisp"><span class="roman">…</span> 1 2 1.5 1 0.5 -0.1 -2 -3 -2 -0.5 0.2 3 4 <span class="roman">…</span>
+<span class="roman">…</span> 0 0  0  0  0   -1   0  0  0   0   1  0 0 <span class="roman">…</span>
 </pre></div>
 
 <p>In Alyssa’s system, the signal from the sensor is represented as a stream
 <code>sense-data</code> and the stream <code>zero-crossings</code> is the corresponding
 stream of zero crossings.  Alyssa first writes a procedure
 <code>sign-change-detector</code> that takes two values as arguments and compares the
-signs of the values to produce an appropriate <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mn>0</mn>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mn>1</mn>
-</math>, or <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-  </mrow>
-</math>.  She then
+signs of the values to produce an appropriate \( 0 \), \( 1 \), or \( {-1} \).  She then
 constructs her zero-crossing stream as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-zero-crossings
-         input-stream last-value</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">cons-stream
-   </span><span class="opn">(</span><span class="pln">sign-change-detector 
-    </span><span class="opn">(</span><span class="pln">stream-car input-stream</span><span class="clo">)</span><span class="pln"> 
-    last-value</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">make-zero-crossings 
-    </span><span class="opn">(</span><span class="pln">stream-cdr input-stream</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">stream-car input-stream</span><span class="clo">))))</span><span class="pln">
+<pre class="lisp">(define (make-zero-crossings
+         input-stream last-value)
+  (cons-stream
+   (sign-change-detector 
+    (stream-car input-stream) 
+    last-value)
+   (make-zero-crossings 
+    (stream-cdr input-stream)
+    (stream-car input-stream))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> zero-crossings 
-  </span><span class="opn">(</span><span class="pln">make-zero-crossings sense-data </span><span class="lit">0</span><span class="clo">))</span></pre></div>
+(define zero-crossings 
+  (make-zero-crossings sense-data 0))
+</pre></div>
 
 <p>Alyssa’s boss, Eva Lu Ator, walks by and suggests that this program is
 approximately equivalent to the following one, which uses the generalized
 version of <code>stream-map</code> from <a href="3_002e5_002e1.xhtml#Exercise-3_002e50">Exercise 3.50</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> zero-crossings
-  </span><span class="opn">(</span><span class="pln">stream-map sign-change-detector 
+<pre class="lisp">(define zero-crossings
+  (stream-map sign-change-detector 
               sense-data 
-              ⟨</span><var><span class="pln">expression</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+              ⟨<var>expression</var>⟩))
+</pre></div>
 
 <p>Complete the program by supplying the indicated <code>⟨</code><var>expression</var><code>⟩</code>.
 </p></blockquote>
@@ -1680,16 +651,17 @@ the problem to her assistant, Louis Reasoner, who attempts to implement the
 idea, altering Alyssa’s program as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-zero-crossings 
-         input-stream last-value</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">avpt 
-         </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-car input-stream</span><span class="clo">)</span><span class="pln"> 
-               last-value</span><span class="clo">)</span><span class="pln"> 
-            </span><span class="lit">2</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">cons-stream 
-     </span><span class="opn">(</span><span class="pln">sign-change-detector avpt last-value</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">make-zero-crossings 
-      </span><span class="opn">(</span><span class="pln">stream-cdr input-stream</span><span class="clo">)</span><span class="pln"> avpt</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (make-zero-crossings 
+         input-stream last-value)
+  (let ((avpt 
+         (/ (+ (stream-car input-stream) 
+               last-value) 
+            2)))
+    (cons-stream 
+     (sign-change-detector avpt last-value)
+     (make-zero-crossings 
+      (stream-cdr input-stream) avpt))))
+</pre></div>
 
 <p>This does not correctly implement Alyssa’s plan.  Find the bug that Louis has
 installed and fix it without changing the structure of the program.  (Hint: You
@@ -1709,7 +681,7 @@ in a more modular style.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -1731,24 +703,9 @@ some insight into why we chose this decomposition.</p>
 <div id="FOOT196"><p><a class="footnote_backlink" href="#DOCF196"><sup>196</sup></a>
 The precise statement of the required
 property on the order of combination is as follows: There should be a function
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> of two arguments such that the pair corresponding to element <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>i</mi>
-</math> of the
-first stream and element <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>j</mi>
-</math> of the second stream will appear as element
-number <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> of the output stream.  The trick of using
+\( f \) of two arguments such that the pair corresponding to element \( i \) of the
+first stream and element \( j \) of the second stream will appear as element
+number \( {f(i, j)} \) of the output stream.  The trick of using
 <code>interleave</code> to accomplish this was shown to us by David Turner, who
 employed it in the language KRC (<a href="References.xhtml#Turner-1981">Turner 1981</a>).</p>
 </div>
@@ -1769,10 +726,10 @@ the smallest number expressible as the sum of two cubes in two different ways.�
 shown to us by Charles Leiserson.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e5_002e4.xhtml#g_t3_002e5_002e4" accesskey="n" rel="next">3.5.4</a>, Previous: <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" accesskey="p" rel="prev">3.5.2</a>, Up: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="u" rel="prev">3.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e5_002e4.xhtml#g_t3_002e5_002e4" accesskey="n" rel="next">3.5.4</a>, Previous: <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" accesskey="p" rel="prev">3.5.2</a>, Up: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="u" rel="prev">3.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

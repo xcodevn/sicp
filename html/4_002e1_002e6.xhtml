@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 4.1.6</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.1.6</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 4.1.6" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 4.1.6" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="4_002e1.xhtml#g_t4_002e1" rel="prev" title="4.1" />
-<link href="4_002e1_002e7.xhtml#g_t4_002e1_002e7" rel="next" title="4.1.7" />
-<link href="4_002e1_002e5.xhtml#g_t4_002e1_002e5" rel="prev" title="4.1.5" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.1.6"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.1.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="4_002e1.xhtml#g_t4_002e1" rel="prev" title="4.1"/>
+<link href="4_002e1_002e7.xhtml#g_t4_002e1_002e7" rel="next" title="4.1.7"/>
+<link href="4_002e1_002e5.xhtml#g_t4_002e1_002e5" rel="prev" title="4.1.5"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t4_002e1_002e6"></a>
 <nav class="header">
 <p>
-Next: <a href="4_002e1_002e7.xhtml#g_t4_002e1_002e7" accesskey="n" rel="next">4.1.7</a>, Previous: <a href="4_002e1_002e5.xhtml#g_t4_002e1_002e5" accesskey="p" rel="prev">4.1.5</a>, Up: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="u" rel="prev">4.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e1_002e7.xhtml#g_t4_002e1_002e7" accesskey="n" rel="next">4.1.7</a>, Previous: <a href="4_002e1_002e5.xhtml#g_t4_002e1_002e5" accesskey="p" rel="prev">4.1.5</a>, Up: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="u" rel="prev">4.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Internal-Definitions-1"></a>
 <h4 class="subsection"><span class="secnum">4.1.6</span><span class="sectitle">Internal Definitions</span></h4>
@@ -48,16 +46,17 @@ not be the best way to define local variables.
 <p>Consider a procedure with internal definitions, such as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">even? n</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (f x)
+  (define (even? n)
+    (if (= n 0)
         true
-        </span><span class="opn">(</span><span class="pln">odd? </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">odd? n</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+        (odd? (- n 1))))
+  (define (odd? n)
+    (if (= n 0)
         false
-        </span><span class="opn">(</span><span class="pln">even? </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-  ⟨</span><var><span class="pln">rest of body of </span><code><span class="pln">f</span></code></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+        (even? (- n 1))))
+  ⟨<var>rest of body of <code>f</code></var>⟩)
+</pre></div>
 
 <p>Our intention here is that the name <code>odd?</code> in the body of the procedure
 <code>even?</code> should refer to the procedure <code>odd?</code> that is defined after
@@ -93,20 +92,22 @@ variables will be created with a <code>let</code> and then set to their values b
 assignment.  For example, the procedure
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> ⟨</span><var><span class="pln">vars</span></var><span class="pln">⟩
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> u ⟨</span><var><span class="pln">e1</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> v ⟨</span><var><span class="pln">e2</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-  ⟨</span><var><span class="pln">e3</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(lambda ⟨<var>vars</var>⟩
+  (define u ⟨<var>e1</var>⟩)
+  (define v ⟨<var>e2</var>⟩)
+  ⟨<var>e3</var>⟩)
+</pre></div>
 
 <p>would be transformed into
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> ⟨</span><var><span class="pln">vars</span></var><span class="pln">⟩
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">u </span><span class="lit">'</span><span class="pun">*</span><span class="pln">unassigned</span><span class="pun">*</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">v </span><span class="lit">'</span><span class="pun">*</span><span class="pln">unassigned</span><span class="pun">*</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> u ⟨</span><var><span class="pln">e1</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> v ⟨</span><var><span class="pln">e2</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-    ⟨</span><var><span class="pln">e3</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(lambda ⟨<var>vars</var>⟩
+  (let ((u '*unassigned*)
+        (v '*unassigned*))
+    (set! u ⟨<var>e1</var>⟩)
+    (set! v ⟨<var>e2</var>⟩)
+    ⟨<var>e3</var>⟩))
+</pre></div>
 
 <p>where <code>*unassigned*</code> is a special symbol that causes looking up a variable
 to signal an error if an attempt is made to use the value of the
@@ -154,24 +155,26 @@ the extra frame.
 for scanning out definitions that translates the example in the text to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> ⟨</span><var><span class="pln">vars</span></var><span class="pln">⟩
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">u </span><span class="lit">'</span><span class="pun">*</span><span class="pln">unassigned</span><span class="pun">*</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">v </span><span class="lit">'</span><span class="pun">*</span><span class="pln">unassigned</span><span class="pun">*</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">a ⟨</span><var><span class="pln">e1</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">b ⟨</span><var><span class="pln">e2</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> u a</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> v b</span><span class="clo">))</span><span class="pln">
-    ⟨</span><var><span class="pln">e3</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(lambda ⟨<var>vars</var>⟩
+  (let ((u '*unassigned*)
+        (v '*unassigned*))
+    (let ((a ⟨<var>e1</var>⟩)
+          (b ⟨<var>e2</var>⟩))
+      (set! u a)
+      (set! v b))
+    ⟨<var>e3</var>⟩))
+</pre></div>
 
 <p>Here <code>a</code> and <code>b</code> are meant to represent new variable names, created
 by the interpreter, that do not appear in the user’s program.  Consider the
 <code>solve</code> procedure from <a href="3_002e5_002e4.xhtml#g_t3_002e5_002e4">3.5.4</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">solve f y0 dt</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> y </span><span class="opn">(</span><span class="pln">integral </span><span class="opn">(</span><span class="kwd">delay</span><span class="pln"> dy</span><span class="clo">)</span><span class="pln"> y0 dt</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> dy </span><span class="opn">(</span><span class="pln">stream-map f y</span><span class="clo">))</span><span class="pln">
-  y</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (solve f y0 dt)
+  (define y (integral (delay dy) y0 dt))
+  (define dy (stream-map f y))
+  y)
+</pre></div>
 
 <p>Will this procedure work if internal definitions are scanned out as shown in
 this exercise?  What if they are scanned out as shown in the text?  Explain.
@@ -183,12 +186,13 @@ and Eva Lu Ator are arguing about the desired result of evaluating the
 expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">a </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> b </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a x</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> a </span><span class="lit">5</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a b</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">f </span><span class="lit">10</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(let ((a 1))
+  (define (f x)
+    (define b (+ a x))
+    (define a 5)
+    (+ a b))
+  (f 10))
+</pre></div>
 
 <p>Ben asserts that the result should be obtained using the sequential rule for
 <code>define</code>: <code>b</code> is defined to be 11, then <code>a</code> is defined to be 5,
@@ -216,61 +220,40 @@ simultaneously and have the same scope as each other.  The sample procedure
 the same meaning, as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">letrec</span><span class="pln"> </span><span class="opn">((</span><span class="pln">even? </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">n</span><span class="clo">)</span><span class="pln">
-                    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (f x)
+  (letrec ((even? (lambda (n)
+                    (if (= n 0)
                         true
-                        </span><span class="opn">(</span><span class="pln">odd? </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)))))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">odd? </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">n</span><span class="clo">)</span><span class="pln">
-                   </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+                        (odd? (- n 1)))))
+           (odd? (lambda (n)
+                   (if (= n 0)
                        false
-                       </span><span class="opn">(</span><span class="pln">even? </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))))</span><span class="pln">
-    ⟨</span><var><span class="pln">rest of body of </span><code><span class="pln">f</span></code></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+                       (even? (- n 1))))))
+    ⟨<var>rest of body of <code>f</code></var>⟩))
+</pre></div>
 
 <p><code>Letrec</code> expressions, which have the form
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">letrec</span><span class="pln"> </span><span class="opn">((</span><span class="pln">⟨</span><var><span class="pln">var</span><span class="pun">₁</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">exp</span><span class="pun">₁</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln"> </span><span class="roman"><span class="pun">…</span></span><span class="pln"> </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">var</span><span class="pun">ₙ</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">exp</span><span class="pun">ₙ</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-  ⟨</span><var><span class="pln">body</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(letrec ((⟨<var>var₁</var>⟩ ⟨<var>exp₁</var>⟩) <span class="roman">…</span> (⟨<var>varₙ</var>⟩ ⟨<var>expₙ</var>⟩))
+  ⟨<var>body</var>⟩)
+</pre></div>
 
 <p>are a variation on <code>let</code> in which the expressions
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.1em"/>
-    <mi>e</mi>
-    <mi>x</mi>
-    <msub>
-      <mi>p</mi>
-      <mi>k</mi>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> that provide the initial values for the
-variables <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.06em"/>
-    <mi>v</mi>
-    <mi>a</mi>
-    <msub>
-      <mi>r</mi>
-      <mi>k</mi>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> are evaluated in an environment
+\( {⟨\kern0.1em exp_k⟩} \) that provide the initial values for the
+variables \( {⟨\kern0.06em var_k⟩} \) are evaluated in an environment
 that includes all the <code>letrec</code> bindings.  This permits recursion in the
 bindings, such as the mutual recursion of <code>even?</code> and <code>odd?</code> in the
 example above, or the evaluation of 10 factorial with
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">letrec</span><span class="pln"> </span><span class="opn">((</span><span class="pln">fact
-          </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">n</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-                </span><span class="lit">1</span><span class="pln">
-                </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> n </span><span class="opn">(</span><span class="pln">fact </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)))))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">fact </span><span class="lit">10</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(letrec ((fact
+          (lambda (n)
+            (if (= n 1)
+                1
+                (* n (fact (- n 1)))))))
+  (fact 10))
+</pre></div>
 
 <ol>
 <li> Implement <code>letrec</code> as a derived expression, by transforming a
@@ -300,13 +283,14 @@ following expression computes 10 factorial by applying a recursive factorial
 procedure:<a class="footnote_link" id="DOCF231" href="#FOOT231"><sup>231</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">n</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">((</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fact</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fact fact n</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">ft k</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> k </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-          </span><span class="lit">1</span><span class="pln">
-          </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> k </span><span class="opn">(</span><span class="pln">ft ft </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> k </span><span class="lit">1</span><span class="clo">)))))))</span><span class="pln">
- </span><span class="lit">10</span><span class="clo">)</span></pre></div>
+<pre class="lisp">((lambda (n)
+   ((lambda (fact) (fact fact n))
+    (lambda (ft k)
+      (if (= k 1)
+          1
+          (* k (ft ft (- k 1)))))))
+ 10)
+</pre></div>
 
 <ol>
 <li> Check (by evaluating the expression) that this really does compute factorials.
@@ -316,37 +300,39 @@ Devise an analogous expression for computing Fibonacci numbers.
 definitions:
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">even? n</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (f x)
+  (define (even? n)
+    (if (= n 0)
         true
-        </span><span class="opn">(</span><span class="pln">odd? </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">odd? n</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+        (odd? (- n 1))))
+  (define (odd? n)
+    (if (= n 0)
         false
-        </span><span class="opn">(</span><span class="pln">even? </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">even? x</span><span class="clo">))</span></pre></div>
+        (even? (- n 1))))
+  (even? x))
+</pre></div>
 
 <p>Fill in the missing expressions to complete an alternative definition of
 <code>f</code>, which uses neither internal definitions nor <code>letrec</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">even? odd?</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">even? even? odd? x</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">ev? od? n</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> 
+<pre class="lisp">(define (f x)
+  ((lambda (even? odd?)
+     (even? even? odd? x))
+   (lambda (ev? od? n)
+     (if (= n 0) 
          true 
-         </span><span class="opn">(</span><span class="pln">od? ⟨</span><span class="pun">??</span><span class="pln">⟩ ⟨</span><span class="pun">??</span><span class="pln">⟩ ⟨</span><span class="pun">??</span><span class="pln">⟩</span><span class="clo">)))</span><span class="pln">
-   </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">ev? od? n</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> 
+         (od? ⟨??⟩ ⟨??⟩ ⟨??⟩)))
+   (lambda (ev? od? n)
+     (if (= n 0) 
          false 
-         </span><span class="opn">(</span><span class="pln">ev? ⟨</span><span class="pun">??</span><span class="pln">⟩ ⟨</span><span class="pun">??</span><span class="pln">⟩ ⟨</span><span class="pun">??</span><span class="pln">⟩</span><span class="clo">)))))</span></pre></div>
+         (ev? ⟨??⟩ ⟨??⟩ ⟨??⟩)))))
+</pre></div>
 </li></ol>
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -383,21 +369,17 @@ to produce an incorrect answer (as Ben would have it).</p>
 <div id="FOOT231"><p><a class="footnote_backlink" href="#DOCF231"><sup>231</sup></a>
 This example illustrates a programming trick for
 formulating recursive procedures without using <code>define</code>.  The most general
-trick of this sort is the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>Y</mi>
-</math> <a id="index-operator-1"></a>
+trick of this sort is the \( Y \) <a id="index-operator-1"></a>
 <em>operator</em>, which can be used to give a
 “pure λ-calculus” implementation of recursion.  (See <a href="References.xhtml#Stoy-1977">Stoy 1977</a> for
 details on the λ-calculus, and <a href="References.xhtml#Gabriel-1988">Gabriel 1988</a> for an exposition of the
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>Y</mi>
-</math> operator in Scheme.)</p>
+\( Y \) operator in Scheme.)</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="4_002e1_002e7.xhtml#g_t4_002e1_002e7" accesskey="n" rel="next">4.1.7</a>, Previous: <a href="4_002e1_002e5.xhtml#g_t4_002e1_002e5" accesskey="p" rel="prev">4.1.5</a>, Up: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="u" rel="prev">4.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e1_002e7.xhtml#g_t4_002e1_002e7" accesskey="n" rel="next">4.1.7</a>, Previous: <a href="4_002e1_002e5.xhtml#g_t4_002e1_002e5" accesskey="p" rel="prev">4.1.5</a>, Up: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="u" rel="prev">4.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

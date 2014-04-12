@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 4.4.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.4.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 4.4.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 4.4.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="4_002e4.xhtml#g_t4_002e4" rel="prev" title="4.4" />
-<link href="4_002e4_002e3.xhtml#g_t4_002e4_002e3" rel="next" title="4.4.3" />
-<link href="4_002e4_002e1.xhtml#g_t4_002e4_002e1" rel="prev" title="4.4.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.4.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.4.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="4_002e4.xhtml#g_t4_002e4" rel="prev" title="4.4"/>
+<link href="4_002e4_002e3.xhtml#g_t4_002e4_002e3" rel="next" title="4.4.3"/>
+<link href="4_002e4_002e1.xhtml#g_t4_002e4_002e1" rel="prev" title="4.4.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t4_002e4_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="4_002e4_002e3.xhtml#g_t4_002e4_002e3" accesskey="n" rel="next">4.4.3</a>, Previous: <a href="4_002e4_002e1.xhtml#g_t4_002e4_002e1" accesskey="p" rel="prev">4.4.1</a>, Up: <a href="4_002e4.xhtml#g_t4_002e4" accesskey="u" rel="prev">4.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e4_002e3.xhtml#g_t4_002e4_002e3" accesskey="n" rel="next">4.4.3</a>, Previous: <a href="4_002e4_002e1.xhtml#g_t4_002e4_002e1" accesskey="p" rel="prev">4.4.1</a>, Up: <a href="4_002e4.xhtml#g_t4_002e4" accesskey="u" rel="prev">4.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="How-the-Query-System-Works"></a>
 <h4 class="subsection"><span class="secnum">4.4.2</span><span class="sectitle">How the Query System Works</span></h4>
@@ -97,7 +95,8 @@ will return the given frame augmented by a binding of <code>?x</code> to <code>a
 queries that don’t involve rules.  For instance, to process the query
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">job </span><span class="pun">?</span><span class="pln">x </span><span class="opn">(</span><span class="pln">computer programmer</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(job ?x (computer programmer))
+</pre></div>
 
 <p>we scan through all assertions in the data base and select those that match the
 pattern with respect to an initially empty frame.  For each match we find, we
@@ -149,22 +148,25 @@ the ability of our matcher to demand that a match be consistent with a
 specified frame.  For example, to handle the <code>and</code> of two queries, such as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">can-do-job 
-      </span><span class="pun">?</span><span class="pln">x 
-      </span><span class="opn">(</span><span class="pln">computer programmer trainee</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">job </span><span class="pun">?</span><span class="pln">person </span><span class="pun">?</span><span class="pln">x</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(and (can-do-job 
+      ?x 
+      (computer programmer trainee))
+     (job ?person ?x))
+</pre></div>
 
 <p>(informally, “Find all people who can do the job of a computer programmer
 trainee”), we first find all entries that match the pattern
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">can-do-job </span><span class="pun">?</span><span class="pln">x </span><span class="opn">(</span><span class="pln">computer programmer trainee</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(can-do-job ?x (computer programmer trainee))
+</pre></div>
 
 <p>This produces a stream of frames, each of which contains a binding for
 <code>?x</code>.  Then for each frame in the stream we find all entries that match
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">job </span><span class="pun">?</span><span class="pln">person </span><span class="pun">?</span><span class="pln">x</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(job ?person ?x)
+</pre></div>
 
 <p>in a way that is consistent with the given binding for <code>?x</code>.  Each such
 match will produce a frame containing bindings for <code>?x</code> and
@@ -210,7 +212,8 @@ filter that removes all frames for which the query can be satisfied.  For
 instance, given the pattern
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">not </span><span class="opn">(</span><span class="pln">job </span><span class="pun">?</span><span class="pln">x </span><span class="opn">(</span><span class="pln">computer programmer</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(not (job ?x (computer programmer)))
+</pre></div>
 
 <p>we attempt, for each frame in the input stream, to produce extension frames
 that satisfy <code>(job ?x (computer programmer))</code>.  We remove from the input
@@ -220,8 +223,9 @@ satisfy <code>(job ?x (computer programmer))</code>.  For example, in processing
 query
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">supervisor </span><span class="pun">?</span><span class="pln">x </span><span class="pun">?</span><span class="pln">y</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">not </span><span class="opn">(</span><span class="pln">job </span><span class="pun">?</span><span class="pln">x </span><span class="opn">(</span><span class="pln">computer programmer</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(and (supervisor ?x ?y)
+     (not (job ?x (computer programmer))))
+</pre></div>
 
 <p>the first clause will generate frames with bindings for <code>?x</code> and
 <code>?y</code>.  The <code>not</code> clause will then filter these by removing all frames
@@ -268,23 +272,27 @@ manipulation to solve.<a class="footnote_link" id="DOCF275" href="#FOOT275"><sup
 equations
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pun">?</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">a </span><span class="pun">?</span><span class="pln">y c</span><span class="clo">)</span><span class="pln">
-</span><span class="pun">?</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">a b </span><span class="pun">?</span><span class="pln">z</span><span class="clo">)</span></pre></div>
+<pre class="lisp">?x = (a ?y c)
+?x = (a b ?z)
+</pre></div>
 
 <p>These equations imply that
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">a </span><span class="pun">?</span><span class="pln">y c</span><span class="clo">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">a b </span><span class="pun">?</span><span class="pln">z</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(a ?y c) = (a b ?z)
+</pre></div>
 
 <p>which in turn implies that
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">a </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">,</span><span class="pln"> </span><span class="pun">?</span><span class="pln">y </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">,</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="pun">?</span><span class="pln">z</span><span class="pun">,</span></pre></div>
+<pre class="lisp">a = a, ?y = b, c = ?z,
+</pre></div>
 
 <p>and hence that
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pun">?</span><span class="pln">x </span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">a b c</span><span class="clo">)</span></pre></div>
+<pre class="lisp">?x = (a b c)
+</pre></div>
 
 <p>In a successful pattern match, all pattern variables become bound, and the
 values to which they are bound contain only constants.  This is also true of
@@ -314,7 +322,8 @@ inferences from rules. To see how this is accomplished, consider processing a
 query that involves applying a rule, such as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">lives-near </span><span class="pun">?</span><span class="pln">x </span><span class="opn">(</span><span class="pln">Hacker Alyssa P</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(lives-near ?x (Hacker Alyssa P))
+</pre></div>
 
 <p>To process this query, we first use the ordinary pattern-match procedure
 described above to see if there are any assertions in the data base that match
@@ -324,12 +333,13 @@ attempt to unify the query pattern with the conclusion of each rule.  We find
 that the pattern unifies with the conclusion of the rule
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">rule </span><span class="opn">(</span><span class="pln">lives-near </span><span class="pun">?</span><span class="pln">person-1 </span><span class="pun">?</span><span class="pln">person-2</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">address </span><span class="pun">?</span><span class="pln">person-1 
-                    </span><span class="opn">(</span><span class="pun">?</span><span class="pln">town </span><span class="pun">.</span><span class="pln"> </span><span class="pun">?</span><span class="pln">rest-1</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">address </span><span class="pun">?</span><span class="pln">person-2 
-                    </span><span class="opn">(</span><span class="pun">?</span><span class="pln">town </span><span class="pun">.</span><span class="pln"> </span><span class="pun">?</span><span class="pln">rest-2</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">not </span><span class="opn">(</span><span class="pln">same </span><span class="pun">?</span><span class="pln">person-1 </span><span class="pun">?</span><span class="pln">person-2</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(rule (lives-near ?person-1 ?person-2)
+      (and (address ?person-1 
+                    (?town . ?rest-1))
+           (address ?person-2 
+                    (?town . ?rest-2))
+           (not (same ?person-1 ?person-2))))
+</pre></div>
 
 <p>resulting in a frame specifying that <code>?person-2</code> is bound to <code>(Hacker
 Alyssa P)</code> and that <code>?x</code> should be bound to (have the same value as)
@@ -424,17 +434,18 @@ that the input is not a query but rather an assertion or rule to be added to
 the data base.  For instance,
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assert! </span><span class="opn">(</span><span class="pln">job </span><span class="opn">(</span><span class="pln">Bitdiddle Ben</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">computer wizard</span><span class="clo">)))</span><span class="pln">
+<pre class="lisp">(assert! (job (Bitdiddle Ben)
+              (computer wizard)))
 
-</span><span class="opn">(</span><span class="pln">assert! </span><span class="opn">(</span><span class="pln">rule </span><span class="opn">(</span><span class="pln">wheel </span><span class="pun">?</span><span class="pln">person</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">supervisor 
-                     </span><span class="pun">?</span><span class="pln">middle-manager </span><span class="pun">?</span><span class="pln">person</span><span class="clo">)</span><span class="pln">
-                    </span><span class="opn">(</span><span class="pln">supervisor
-                     </span><span class="pun">?</span><span class="pln">x </span><span class="pun">?</span><span class="pln">middle-manager</span><span class="clo">))))</span></pre></div>
+(assert! (rule (wheel ?person)
+               (and (supervisor 
+                     ?middle-manager ?person)
+                    (supervisor
+                     ?x ?middle-manager))))
+</pre></div>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -494,10 +505,10 @@ here: The system will print responses one by one as they are generated,
 regardless of whether there are a finite or infinite number of responses.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="4_002e4_002e3.xhtml#g_t4_002e4_002e3" accesskey="n" rel="next">4.4.3</a>, Previous: <a href="4_002e4_002e1.xhtml#g_t4_002e4_002e1" accesskey="p" rel="prev">4.4.1</a>, Up: <a href="4_002e4.xhtml#g_t4_002e4" accesskey="u" rel="prev">4.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e4_002e3.xhtml#g_t4_002e4_002e3" accesskey="n" rel="next">4.4.3</a>, Previous: <a href="4_002e4_002e1.xhtml#g_t4_002e4_002e1" accesskey="p" rel="prev">4.4.1</a>, Up: <a href="4_002e4.xhtml#g_t4_002e4" accesskey="u" rel="prev">4.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 2.4.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.4.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 2.4.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 2.4.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="2_002e4.xhtml#g_t2_002e4" rel="prev" title="2.4" />
-<link href="2_002e4_002e2.xhtml#g_t2_002e4_002e2" rel="next" title="2.4.2" />
-<link href="2_002e4.xhtml#g_t2_002e4" rel="prev" title="2.4" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.4.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.4.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="2_002e4.xhtml#g_t2_002e4" rel="prev" title="2.4"/>
+<link href="2_002e4_002e2.xhtml#g_t2_002e4_002e2" rel="next" title="2.4.2"/>
+<link href="2_002e4.xhtml#g_t2_002e4" rel="prev" title="2.4"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t2_002e4_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="2_002e4_002e2.xhtml#g_t2_002e4_002e2" accesskey="n" rel="next">2.4.2</a>, Previous: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="p" rel="prev">2.4</a>, Up: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="u" rel="prev">2.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e4_002e2.xhtml#g_t2_002e4_002e2" accesskey="n" rel="next">2.4.2</a>, Previous: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="p" rel="prev">2.4</a>, Up: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="u" rel="prev">2.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Representations-for-Complex-Numbers"></a>
 <h4 class="subsection"><span class="secnum">2.4.1</span><span class="sectitle">Representations for Complex Numbers</span></h4>
@@ -48,125 +46,18 @@ single system through the use of type tags and generic operations.
 pairs.  The set of complex numbers can be thought of as a two-dimensional space
 with two orthogonal axes, the “real” axis and the “imaginary” axis. (See
 <a href="#Figure-2_002e20">Figure 2.20</a>.)  From this point of view, the complex number 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>z</mi>
-    <mo>=</mo>
-    <mi>x</mi>
-    <mo>+</mo>
-    <mi>i</mi>
-    <mi>y</mi>
-  </mrow>
-</math> (where <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>i</mi>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mspace width="0.1em"/>
-        <mn>2</mn>
-      </mrow>
-    </msup>
-    <mo>=</mo>
-    <mtext>−1</mtext>
-  </mrow>
-</math>) can be thought of as the point in the plane
-whose real coordinate is <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> and whose imaginary coordinate is <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math>.
+\( {z = x + iy} \) (where \( {i^{\kern0.1em 2} = \text{−1}} \)) can be thought of as the point in the plane
+whose real coordinate is \( x \) and whose imaginary coordinate is \( y \).
 Addition of complex numbers reduces in this representation to addition of
 coordinates:
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right center left" rowspacing="3pt" columnspacing="thickmathspace">
-    <mtr>
-      <mtd>
-        <mtext>Real-part</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>+</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mtext>Real-part</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>+</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd/>
-      <mtd>
-        <mtext>Real-part</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>,</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mtext>Imaginary-part</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>+</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mtext>Imaginary-part</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>+</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd/>
-      <mtd>
-        <mtext>Imaginary-part</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>.</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
+\[ % :46:
+\begin{eqnarray}
+\text{Real-part} (z_1 + z_2) 	    &amp;=&amp; \text{Real-part} (z_1) + \\
+                                    &amp; &amp; \text{Real-part} (z_2),  \\
+\text{Imaginary-part} (z_1 + z_2)   &amp;=&amp; \text{Imaginary-part} (z_1) + \\
+                                    &amp; &amp; \text{Imaginary-part} (z_2).
+\end{eqnarray}
+\]
 </p>
 <figure class="float">
 <a id="Figure-2_002e20"></a>
@@ -178,92 +69,18 @@ coordinates:
 </figure>
 
 <p>When multiplying complex numbers, it is more natural to think in terms of
-representing a complex number in polar form, as a magnitude and an angle (<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>r</mi>
-</math>
-and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> in <a href="#Figure-2_002e20">Figure 2.20</a>).  The product of two complex numbers is the
+representing a complex number in polar form, as a magnitude and an angle (\( r \)
+and \( A \) in <a href="#Figure-2_002e20">Figure 2.20</a>).  The product of two complex numbers is the
 vector obtained by stretching one complex number by the length of the other and
 then rotating it through the angle of the other:
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right center left" rowspacing="3pt" columnspacing="thickmathspace">
-    <mtr>
-      <mtd>
-        <mtext>Magnitude</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>⋅<!-- ⋅ --></mo>
-        <msub>
-          <mi>z</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mtext>Magnitude</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mtext>Magnitude</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>,</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mtext>Angle</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>⋅<!-- ⋅ --></mo>
-        <msub>
-          <mi>z</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mtext>Angle</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>+</mo>
-        <mtext>Angle</mtext>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>z</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>.</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
+\[ % :47:
+\begin{eqnarray}
+  \text{Magnitude} (z_1 \cdot z_2)  &amp;=&amp; 
+    \text{Magnitude} (z_1) \cdot \text{Magnitude} (z_2), \\
+  \text{Angle} (z_1 \cdot z_2)      &amp;=&amp; 
+    \text{Angle} (z_1) + \text{Angle} (z_2).
+\end{eqnarray}
+\]
 </p>
 <p>Thus, there are two different representations for complex numbers, which are
 appropriate for different operations.  Yet, from the viewpoint of someone
@@ -286,14 +103,16 @@ with specified magnitude and angle.  These procedures have the property that,
 for any complex number <code>z</code>, both
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">make-from-real-imag </span><span class="opn">(</span><span class="pln">real-part z</span><span class="clo">)</span><span class="pln"> 
-                     </span><span class="opn">(</span><span class="pln">imag-part z</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(make-from-real-imag (real-part z) 
+                     (imag-part z))
+</pre></div>
 
 <p>and
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">make-from-mag-ang </span><span class="opn">(</span><span class="pln">magnitude z</span><span class="clo">)</span><span class="pln"> 
-                   </span><span class="opn">(</span><span class="pln">angle z</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(make-from-mag-ang (magnitude z) 
+                   (angle z))
+</pre></div>
 
 <p>produce complex numbers that are equal to <code>z</code>.
 </p>
@@ -305,25 +124,26 @@ of real and imaginary parts while multiplying and dividing complex numbers in
 terms of magnitudes and angles:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add-complex z1 z2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">make-from-real-imag 
-   </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z2</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z2</span><span class="clo">))))</span><span class="pln">
+<pre class="lisp">(define (add-complex z1 z2)
+  (make-from-real-imag 
+   (+ (real-part z1) (real-part z2))
+   (+ (imag-part z1) (imag-part z2))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sub-complex z1 z2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">make-from-real-imag 
-   </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z2</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z2</span><span class="clo">))))</span><span class="pln">
+(define (sub-complex z1 z2)
+  (make-from-real-imag 
+   (- (real-part z1) (real-part z2))
+   (- (imag-part z1) (imag-part z2))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">mul-complex z1 z2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">make-from-mag-ang 
-   </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z2</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z2</span><span class="clo">))))</span><span class="pln">
+(define (mul-complex z1 z2)
+  (make-from-mag-ang 
+   (* (magnitude z1) (magnitude z2))
+   (+ (angle z1) (angle z2))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">div-complex z1 z2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">make-from-mag-ang 
-   </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z2</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z2</span><span class="clo">))))</span></pre></div>
+(define (div-complex z1 z2)
+  (make-from-mag-ang 
+   (/ (magnitude z1) (magnitude z2))
+   (- (angle z1) (angle z2))))
+</pre></div>
 
 <p>To complete the complex-number package, we must choose a representation and we
 must implement the constructors and selectors in terms of primitive numbers and
@@ -341,117 +161,36 @@ constructing a complex number with given real and imaginary parts.  To find the
 magnitude and the angle, or to construct a complex number with a given
 magnitude and angle, he uses the trigonometric relations
 </p>
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right center left" rowspacing="3pt" columnspacing="thickmathspace">
-    <mtr>
-      <mtd>
-        <mi>x</mi>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mi>r</mi>
-        <mi>cos</mi>
-        <mo>⁡<!-- ⁡ --></mo>
-        <mi>A</mi>
-        <mo>,</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mi>y</mi>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mi>r</mi>
-        <mi>sin</mi>
-        <mo>⁡<!-- ⁡ --></mo>
-        <mi>A</mi>
-        <mo>,</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mi>r</mi>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <msqrt>
-          <msup>
-            <mi>x</mi>
-            <mn>2</mn>
-          </msup>
-          <mo>+</mo>
-          <msup>
-            <mi>y</mi>
-            <mn>2</mn>
-          </msup>
-          <mo>,</mo>
-        </msqrt>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mi>A</mi>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mi>arctan</mi>
-        <mo>⁡<!-- ⁡ --></mo>
-        <mo stretchy="false">(</mo>
-        <mi>y</mi>
-        <mo>,</mo>
-        <mi>x</mi>
-        <mo stretchy="false">)</mo>
-        <mo>,</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
+\[ % :48:
+\begin{eqnarray}
+  x &amp;=&amp; r \cos A, \\
+  y &amp;=&amp; r \sin A, \\
+  r &amp;=&amp; \sqrt{x^2 + y^2,} \\
+  A &amp;=&amp; \arctan(y, x),
+\end{eqnarray}
+\]
 
-<p>which relate the real and imaginary parts <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo>,</mo>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> to the magnitude and
-the angle <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>r</mi>
-    <mo>,</mo>
-    <mi>A</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.<a class="footnote_link" id="DOCF110" href="#FOOT110"><sup>110</sup></a>  Ben’s
+<p>which relate the real and imaginary parts \( {(x, y)} \) to the magnitude and
+the angle \( {(r, A)} \).<a class="footnote_link" id="DOCF110" href="#FOOT110"><sup>110</sup></a>  Ben’s
 representation is therefore given by the following selectors and constructors:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> z</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> z</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (real-part z) (car z))
+(define (imag-part z) (cdr z))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">sqrt </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square </span><span class="opn">(</span><span class="pln">real-part z</span><span class="clo">))</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">square </span><span class="opn">(</span><span class="pln">imag-part z</span><span class="clo">)))))</span><span class="pln">
+(define (magnitude z)
+  (sqrt (+ (square (real-part z)) 
+           (square (imag-part z)))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">atan </span><span class="opn">(</span><span class="pln">imag-part z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z</span><span class="clo">)))</span><span class="pln">
+(define (angle z)
+  (atan (imag-part z) (real-part z)))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-from-real-imag x y</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln">
+(define (make-from-real-imag x y) 
+  (cons x y))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-from-mag-ang r a</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> r </span><span class="opn">(</span><span class="pln">cos a</span><span class="clo">))</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> r </span><span class="opn">(</span><span class="pln">sin a</span><span class="clo">))))</span></pre></div>
+(define (make-from-mag-ang r a)
+  (cons (* r (cos a)) (* r (sin a))))
+</pre></div>
 
 <p>Alyssa, in contrast, chooses to represent complex numbers in polar form.  For
 her, selecting the magnitude and angle is straightforward, but she has to use
@@ -459,21 +198,22 @@ the trigonometric relations to obtain the real and imaginary parts.  Alyssa’s
 representation is:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">cos </span><span class="opn">(</span><span class="pln">angle z</span><span class="clo">))))</span><span class="pln">
+<pre class="lisp">(define (real-part z)
+  (* (magnitude z) (cos (angle z))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sin </span><span class="opn">(</span><span class="pln">angle z</span><span class="clo">))))</span><span class="pln">
+(define (imag-part z)
+  (* (magnitude z) (sin (angle z))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> z</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> z</span><span class="clo">))</span><span class="pln">
+(define (magnitude z) (car z))
+(define (angle z) (cdr z))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-from-real-imag x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square y</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">atan y x</span><span class="clo">)))</span><span class="pln">
+(define (make-from-real-imag x y)
+  (cons (sqrt (+ (square x) (square y)))
+        (atan y x)))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-from-mag-ang r a</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> r a</span><span class="clo">))</span></pre></div>
+(define (make-from-mag-ang r a) 
+  (cons r a))
+</pre></div>
 
 <p>The discipline of data abstraction ensures that the same implementation of
 <code>add-complex</code>, <code>sub-complex</code>, <code>mul-complex</code>, and
@@ -481,7 +221,7 @@ representation is:
 representation.
 </p>
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -496,26 +236,14 @@ substantial systems to be developed later in this chapter.</p>
 <div id="FOOT110"><p><a class="footnote_backlink" href="#DOCF110"><sup>110</sup></a>
 The arctangent function referred to here,
 computed by Scheme’s <code>atan</code> procedure, is defined so as to take two
-arguments <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> and to return the angle whose tangent is <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>y</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>x</mi>
-  </mrow>
-</math>.
+arguments \( y \) and \( x \) and to return the angle whose tangent is \( {y / x} \).
 The signs of the arguments determine the quadrant of the angle.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="2_002e4_002e2.xhtml#g_t2_002e4_002e2" accesskey="n" rel="next">2.4.2</a>, Previous: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="p" rel="prev">2.4</a>, Up: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="u" rel="prev">2.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e4_002e2.xhtml#g_t2_002e4_002e2" accesskey="n" rel="next">2.4.2</a>, Previous: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="p" rel="prev">2.4</a>, Up: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="u" rel="prev">2.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

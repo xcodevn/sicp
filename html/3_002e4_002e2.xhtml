@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.4.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.4.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.4.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.4.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e4.xhtml#g_t3_002e4" rel="prev" title="3.4" />
-<link href="3_002e5.xhtml#g_t3_002e5" rel="next" title="3.5" />
-<link href="3_002e4_002e1.xhtml#g_t3_002e4_002e1" rel="prev" title="3.4.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.4.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.4.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e4.xhtml#g_t3_002e4" rel="prev" title="3.4"/>
+<link href="3_002e5.xhtml#g_t3_002e5" rel="next" title="3.5"/>
+<link href="3_002e4_002e1.xhtml#g_t3_002e4_002e1" rel="prev" title="3.4.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e4_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="n" rel="next">3.5</a>, Previous: <a href="3_002e4_002e1.xhtml#g_t3_002e4_002e1" accesskey="p" rel="prev">3.4.1</a>, Up: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="u" rel="prev">3.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="n" rel="next">3.5</a>, Previous: <a href="3_002e4_002e1.xhtml#g_t3_002e4_002e1" accesskey="p" rel="prev">3.4.1</a>, Up: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="u" rel="prev">3.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Mechanisms-for-Controlling-Concurrency"></a>
 <h4 class="subsection"><span class="secnum">3.4.2</span><span class="sectitle">Mechanisms for Controlling Concurrency</span></h4>
@@ -39,28 +37,8 @@ Next: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="n" rel="next">3.5</a>, Previ
 <p>We’ve seen that the difficulty in dealing with concurrent processes is rooted
 in the need to consider the interleaving of the order of events in the
 different processes.  For example, suppose we have two processes, one with
-three ordered events <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>a</mi>
-    <mo>,</mo>
-    <mi>b</mi>
-    <mo>,</mo>
-    <mi>c</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> and one with three ordered events
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo>,</mo>
-    <mi>y</mi>
-    <mo>,</mo>
-    <mi>z</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  If the two processes run concurrently, with no
+three ordered events \( {(a, b, c)} \) and one with three ordered events
+\( {(x, y, z)} \).  If the two processes run concurrently, with no
 constraints on how their execution is interleaved, then there are 20 different
 possible orderings for the events that are consistent with the individual
 orderings for the two processes:
@@ -114,10 +92,11 @@ changed between an access and the corresponding assignment.
 to include a procedure called <code>parallel-execute</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">parallel-execute ⟨</span><var><span class="pln">p</span><span class="pun">₁</span></var><span class="pln">⟩ 
-                  ⟨</span><var><span class="pln">p</span><span class="pun">₂</span></var><span class="pln">⟩ 
-                  </span><span class="roman"><span class="pun">…</span></span><span class="pln"> 
-                  ⟨</span><var><span class="pln">p</span><span class="pun">ₖ</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(parallel-execute ⟨<var>p₁</var>⟩ 
+                  ⟨<var>p₂</var>⟩ 
+                  <span class="roman">…</span> 
+                  ⟨<var>pₖ</var>⟩)
+</pre></div>
 
 <p>Each <code>⟨</code><var>p</var><code>⟩</code> must be a procedure of no arguments.  <code>Parallel-execute</code>
 creates a separate process for each <code>⟨</code><var>p</var><code>⟩</code>, which applies 
@@ -127,107 +106,28 @@ concurrently.<a class="footnote_link" id="DOCF168" href="#FOOT168"><sup>168</sup
 <p>As an example of how this is used, consider
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">parallel-execute </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x</span><span class="clo">)))</span><span class="pln">
-                  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">1</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define x 10)
+(parallel-execute (lambda () (set! x (* x x)))
+                  (lambda () (set! x (+ x 1))))
+</pre></div>
 
-<p>This creates two concurrent processes—<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math>, which sets <code>x</code> to
-<code>x</code> times <code>x</code>, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math>, which increments <code>x</code>.  After
+<p>This creates two concurrent processes—\( P_1 \), which sets <code>x</code> to
+<code>x</code> times <code>x</code>, and \( P_2 \), which increments <code>x</code>.  After
 execution is complete, <code>x</code> will be left with one of five possible values,
-depending on the interleaving of the events of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math>:
+depending on the interleaving of the events of \( P_1 \) and \( P_2 \):
 </p>
 <div class="example">
-<pre class="example">101: <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math> sets <code>x</code> to 100 and then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math> increments
+<pre class="example">101: \( P_1 \) sets <code>x</code> to 100 and then \( P_2 \) increments
      <code>x</code> to 101.
-121: <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math> increments <code>x</code> to 11 and then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math> sets
+121: \( P_2 \) increments <code>x</code> to 11 and then \( P_1 \) sets
      <code>x</code> to <code>x</code> times <code>x</code>.
-110: <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math> changes <code>x</code> from 10 to 11 between the 
-     two times that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math> accesses the value of 
+110: \( P_2 \) changes <code>x</code> from 10 to 11 between the 
+     two times that \( P_1 \) accesses the value of 
      <code>x</code> during the evaluation of <code>(* x x)</code>.
- 11: <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math> accesses <code>x</code>, then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math> sets <code>x</code> to 100, 
-     then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math> sets <code>x</code>.
-100: <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math> accesses <code>x</code> (twice), then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math> sets
-     <code>x</code> to 11, then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math> sets <code>x</code>.
+ 11: \( P_2 \) accesses <code>x</code>, then \( P_1 \) sets <code>x</code> to 100, 
+     then \( P_2 \) sets <code>x</code>.
+100: \( P_1 \) accesses <code>x</code> (twice), then \( P_2 \) sets
+     <code>x</code> to 11, then \( P_1 \) sets <code>x</code>.
 </pre></div>
 
 <p>We can constrain the concurrency by using serialized procedures, which are
@@ -241,52 +141,44 @@ procedures in the same set.
 <p>Thus, in contrast to the example above, executing
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> s </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">parallel-execute 
- </span><span class="opn">(</span><span class="pln">s </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x</span><span class="clo">))))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">s </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">1</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define x 10)
+(define s (make-serializer))
+(parallel-execute 
+ (s (lambda () (set! x (* x x))))
+ (s (lambda () (set! x (+ x 1)))))
+</pre></div>
 
 <p>can produce only two possible values for <code>x</code>, 101 or 121.  The other
-possibilities are eliminated, because the execution of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>1</mn>
-  </msub>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>P</mi>
-    <mn>2</mn>
-  </msub>
-</math>
+possibilities are eliminated, because the execution of \( P_1 \) and \( P_2 \)
 cannot be interleaved.
 </p>
 <p>Here is a version of the <code>make-account</code> procedure from 
 <a href="3_002e1_002e1.xhtml#g_t3_002e1_002e1">3.1.1</a>, where the deposits and withdrawals have been serialized:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-account balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">withdraw amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance 
-                     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-               balance</span><span class="clo">)</span><span class="pln">
-        </span><span class="str">"Insufficient funds"</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">deposit amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-    balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">protected </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">protected withdraw</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">protected deposit</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'balance</span><span class="clo">)</span><span class="pln"> 
-             balance</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                          MAKE-ACCOUNT"</span><span class="pln">
-                         m</span><span class="clo">))))</span><span class="pln">
-    dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-account balance)
+  (define (withdraw amount)
+    (if (&gt;= balance amount)
+        (begin (set! balance 
+                     (- balance amount))
+               balance)
+        &quot;Insufficient funds&quot;))
+  (define (deposit amount)
+    (set! balance (+ balance amount))
+    balance)
+  (let ((protected (make-serializer)))
+    (define (dispatch m)
+      (cond ((eq? m 'withdraw) 
+             (protected withdraw))
+            ((eq? m 'deposit) 
+             (protected deposit))
+            ((eq? m 'balance) 
+             balance)
+            (else (error &quot;Unknown request: 
+                          MAKE-ACCOUNT&quot;
+                         m))))
+    dispatch))
+</pre></div>
 
 <p>With this implementation, two processes cannot be withdrawing from or
 depositing into a single account concurrently.  This eliminates the source of
@@ -302,12 +194,13 @@ in the parallel execution shown above remain if we instead serialize execution
 as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> s </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">parallel-execute 
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> 
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">((</span><span class="pln">s </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x</span><span class="clo">))))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">s </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">1</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define x 10)
+(define s (make-serializer))
+(parallel-execute 
+  (lambda () 
+    (set! x ((s (lambda () (* x x))))))
+  (s (lambda () (set! x (+ x 1)))))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -315,19 +208,21 @@ as follows:
 <code>x</code> that can result from executing
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">parallel-execute 
- </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x</span><span class="clo">)))</span><span class="pln">
- </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x x</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define x 10)
+(parallel-execute 
+ (lambda () (set! x (* x x)))
+ (lambda () (set! x (* x x x))))
+</pre></div>
 
 <p>Which of these possibilities remain if we instead use serialized procedures:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> s </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">parallel-execute 
- </span><span class="opn">(</span><span class="pln">s </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x</span><span class="clo">))))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">s </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x x</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define x 10)
+(define s (make-serializer))
+(parallel-execute 
+ (s (lambda () (set! x (* x x))))
+ (s (lambda () (set! x (* x x x)))))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -336,33 +231,34 @@ would be better to implement the bank account as follows (where the commented
 line has been changed):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-account balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">withdraw amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance 
-                </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-          balance</span><span class="clo">)</span><span class="pln">
-        </span><span class="str">"Insufficient funds"</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">deposit amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-    balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">protected </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">protected withdraw</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">protected deposit</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'balance</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">((</span><span class="pln">protected 
-                </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> 
-                  balance</span><span class="clo">))))</span><span class="pln"> </span><span class="roman"><span class="com">; serialized</span></span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="err">error</span><span class="pln"> 
-              </span><span class="str">"Unknown request: 
-               MAKE-ACCOUNT"</span><span class="pln">
-              m</span><span class="clo">))))</span><span class="pln">
-    dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-account balance)
+  (define (withdraw amount)
+    (if (&gt;= balance amount)
+        (begin 
+          (set! balance 
+                (- balance amount))
+          balance)
+        &quot;Insufficient funds&quot;))
+  (define (deposit amount)
+    (set! balance (+ balance amount))
+    balance)
+  (let ((protected (make-serializer)))
+    (define (dispatch m)
+      (cond ((eq? m 'withdraw) 
+             (protected withdraw))
+            ((eq? m 'deposit) 
+             (protected deposit))
+            ((eq? m 'balance)
+             ((protected 
+                (lambda () 
+                  balance)))) <span class="roman">; serialized</span>
+            (else 
+             (error 
+              &quot;Unknown request: 
+               MAKE-ACCOUNT&quot;
+              m))))
+    dispatch))
+</pre></div>
 
 <p>because allowing unserialized access to the bank balance can result in
 anomalous behavior.  Do you agree?  Is there any scenario that demonstrates
@@ -379,33 +275,34 @@ serialized procedure (which was created at the same time as the account) each
 time it is asked for a withdrawal procedure.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-account balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">withdraw amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance 
-                     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-               balance</span><span class="clo">)</span><span class="pln">
-        </span><span class="str">"Insufficient funds"</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">deposit amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-    balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">protected </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">protected-withdraw 
-           </span><span class="opn">(</span><span class="pln">protected withdraw</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">protected-deposit 
-           </span><span class="opn">(</span><span class="pln">protected deposit</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> 
-               protected-withdraw</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> 
-               protected-deposit</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'balance</span><span class="clo">)</span><span class="pln"> 
-               balance</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                       MAKE-ACCOUNT"</span><span class="pln">
-                      m</span><span class="clo">))))</span><span class="pln">
-      dispatch</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (make-account balance)
+  (define (withdraw amount)
+    (if (&gt;= balance amount)
+        (begin (set! balance 
+                     (- balance amount))
+               balance)
+        &quot;Insufficient funds&quot;))
+  (define (deposit amount)
+    (set! balance (+ balance amount))
+    balance)
+  (let ((protected (make-serializer)))
+    (let ((protected-withdraw 
+           (protected withdraw))
+          (protected-deposit 
+           (protected deposit)))
+      (define (dispatch m)
+        (cond ((eq? m 'withdraw) 
+               protected-withdraw)
+              ((eq? m 'deposit) 
+               protected-deposit)
+              ((eq? m 'balance) 
+               balance)
+              (else 
+               (error &quot;Unknown request: 
+                       MAKE-ACCOUNT&quot;
+                      m))))
+      dispatch)))
+</pre></div>
 
 <p>Is this a safe change to make?  In particular, is there any difference in what
 concurrency is allowed by these two versions of <code>make-account</code>?
@@ -428,41 +325,22 @@ account, and deposit it in the other account.  We could implement this as
 follows:<a class="footnote_link" id="DOCF169" href="#FOOT169"><sup>169</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">exchange account1 account2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">difference </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">account1 </span><span class="lit">'balance</span><span class="clo">)</span><span class="pln">
-                       </span><span class="opn">(</span><span class="pln">account2 </span><span class="lit">'balance</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">((</span><span class="pln">account1 </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> difference</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">((</span><span class="pln">account2 </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> difference</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (exchange account1 account2)
+  (let ((difference (- (account1 'balance)
+                       (account2 'balance))))
+    ((account1 'withdraw) difference)
+    ((account2 'deposit) difference)))
+</pre></div>
 
 <p>This procedure works well when only a single process is trying to do the
 exchange.  Suppose, however, that Peter and Paul both have access to accounts
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>2, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>3, and that Peter exchanges <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1 and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>2 while
-Paul concurrently exchanges <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1 and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>3.  Even with account deposits and
+\( a \)1, \( a \)2, and \( a \)3, and that Peter exchanges \( a \)1 and \( a \)2 while
+Paul concurrently exchanges \( a \)1 and \( a \)3.  Even with account deposits and
 withdrawals serialized for individual accounts (as in the <code>make-account</code>
 procedure shown above in this section), <code>exchange</code> can still produce
 incorrect results.  For example, Peter might compute the difference in the
-balances for <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1 and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>2, but then Paul might change the balance in
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1 before Peter is able to complete the exchange.<a class="footnote_link" id="DOCF170" href="#FOOT170"><sup>170</sup></a>  For correct behavior, we must arrange for the
+balances for \( a \)1 and \( a \)2, but then Paul might change the balance in
+\( a \)1 before Peter is able to complete the exchange.<a class="footnote_link" id="DOCF170" href="#FOOT170"><sup>170</sup></a>  For correct behavior, we must arrange for the
 <code>exchange</code> procedure to lock out any other concurrent accesses to the
 accounts during the entire time of the exchange.
 </p>
@@ -475,28 +353,29 @@ given in <a href="3_002e1_002e1.xhtml#g_t3_002e1_002e1">3.1.1</a>, except that a
 the balance variable, and the serializer is exported via message passing:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-account-and-serializer balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">withdraw amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-          balance</span><span class="clo">)</span><span class="pln">
-        </span><span class="str">"Insufficient funds"</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">deposit amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-    balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">balance-serializer 
-         </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> withdraw</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> deposit</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'balance</span><span class="clo">)</span><span class="pln"> balance</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'serializer</span><span class="clo">)</span><span class="pln"> 
-             balance-serializer</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                          MAKE-ACCOUNT"</span><span class="pln">
-                         m</span><span class="clo">))))</span><span class="pln">
-    dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-account-and-serializer balance)
+  (define (withdraw amount)
+    (if (&gt;= balance amount)
+        (begin 
+          (set! balance (- balance amount))
+          balance)
+        &quot;Insufficient funds&quot;))
+  (define (deposit amount)
+    (set! balance (+ balance amount))
+    balance)
+  (let ((balance-serializer 
+         (make-serializer)))
+    (define (dispatch m)
+      (cond ((eq? m 'withdraw) withdraw)
+            ((eq? m 'deposit) deposit)
+            ((eq? m 'balance) balance)
+            ((eq? m 'serializer) 
+             balance-serializer)
+            (else (error &quot;Unknown request: 
+                          MAKE-ACCOUNT&quot;
+                         m))))
+    dispatch))
+</pre></div>
 
 <p>We can use this to do serialized deposits and withdrawals.  However, unlike our
 earlier serialized account, it is now the responsibility of each user of
@@ -504,22 +383,24 @@ bank-account objects to explicitly manage the serialization, for example as
 follows:<a class="footnote_link" id="DOCF171" href="#FOOT171"><sup>171</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">deposit account amount</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">s </span><span class="opn">(</span><span class="pln">account </span><span class="lit">'serializer</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">d </span><span class="opn">(</span><span class="pln">account </span><span class="lit">'deposit</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">((</span><span class="pln">s d</span><span class="clo">)</span><span class="pln"> amount</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (deposit account amount)
+  (let ((s (account 'serializer))
+        (d (account 'deposit)))
+    ((s d) amount)))
+</pre></div>
 
 <p>Exporting the serializer in this way gives us enough flexibility to implement a
 serialized exchange program.  We simply serialize the original <code>exchange</code>
 procedure with the serializers for both accounts:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">serialized-exchange account1 account2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">serializer1 </span><span class="opn">(</span><span class="pln">account1 </span><span class="lit">'serializer</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">serializer2 </span><span class="opn">(</span><span class="pln">account2 </span><span class="lit">'serializer</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">((</span><span class="pln">serializer1 </span><span class="opn">(</span><span class="pln">serializer2 exchange</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (serialized-exchange account1 account2)
+  (let ((serializer1 (account1 'serializer))
+        (serializer2 (account2 'serializer)))
+    ((serializer1 (serializer2 exchange))
      account1
-     account2</span><span class="clo">)))</span></pre></div>
+     account2)))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e43"></a>Exercise 3.43:</strong> Suppose that the balances in
@@ -544,10 +425,11 @@ any account mechanism that serializes deposit and withdrawal transactions, for
 example, the version of <code>make-account</code> in the text above.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">transfer from-account to-account amount</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">from-account </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> amount</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">to-account </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> amount</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define 
+  (transfer from-account to-account amount)
+  ((from-account 'withdraw) amount)
+  ((to-account 'deposit) amount))
+</pre></div>
 
 <p>Louis Reasoner claims that there is a problem here, and that we need to use a
 more sophisticated method, such as the one required for dealing with the
@@ -566,38 +448,40 @@ instead of) using it to serialize accounts and deposits as <code>make-account</c
 did.  He proposes to redefine accounts as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">make-account-and-serializer balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">withdraw amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance 
-                     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-               balance</span><span class="clo">)</span><span class="pln">
-        </span><span class="str">"Insufficient funds"</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">deposit amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-    balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">balance-serializer 
-         </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">balance-serializer withdraw</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">balance-serializer deposit</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'balance</span><span class="clo">)</span><span class="pln"> 
-             balance</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'serializer</span><span class="clo">)</span><span class="pln"> 
-             balance-serializer</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                          MAKE-ACCOUNT"</span><span class="pln">
-                         m</span><span class="clo">))))</span><span class="pln">
-    dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define 
+  (make-account-and-serializer balance)
+  (define (withdraw amount)
+    (if (&gt;= balance amount)
+        (begin (set! balance 
+                     (- balance amount))
+               balance)
+        &quot;Insufficient funds&quot;))
+  (define (deposit amount)
+    (set! balance (+ balance amount))
+    balance)
+  (let ((balance-serializer 
+         (make-serializer)))
+    (define (dispatch m)
+      (cond ((eq? m 'withdraw) 
+             (balance-serializer withdraw))
+            ((eq? m 'deposit) 
+             (balance-serializer deposit))
+            ((eq? m 'balance) 
+             balance)
+            ((eq? m 'serializer) 
+             balance-serializer)
+            (else (error &quot;Unknown request: 
+                          MAKE-ACCOUNT&quot;
+                         m))))
+    dispatch))
+</pre></div>
 
 <p>Then deposits are handled as with the original <code>make-account</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">deposit account amount</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">account </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> amount</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (deposit account amount)
+  ((account 'deposit) amount))
+</pre></div>
 
 <p>Explain what is wrong with Louis’s reasoning.  In particular, consider what
 happens when <code>serialized-exchange</code> is called.
@@ -621,15 +505,16 @@ serializer can be running at once, which is precisely the serialization
 property that we need to guarantee.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-serializer</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">mutex </span><span class="opn">(</span><span class="pln">make-mutex</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">p</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">serialized-p </span><span class="pun">.</span><span class="pln"> args</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">mutex </span><span class="lit">'acquire</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">val </span><span class="opn">(</span><span class="pln">apply p args</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">mutex </span><span class="lit">'release</span><span class="clo">)</span><span class="pln">
-          val</span><span class="clo">))</span><span class="pln">
-      serialized-p</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (make-serializer)
+  (let ((mutex (make-mutex)))
+    (lambda (p)
+      (define (serialized-p . args)
+        (mutex 'acquire)
+        (let ((val (apply p args)))
+          (mutex 'release)
+          val))
+      serialized-p)))
+</pre></div>
 
 <p>The mutex is a mutable object (here we’ll use a one-element list, which we’ll
 refer to as a <a id="index-cell"></a>
@@ -646,15 +531,16 @@ is available.<a class="footnote_link" id="DOCF173" href="#FOOT173"><sup>173</sup
 mutex, we set the cell contents to false.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-mutex</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">cell </span><span class="opn">(</span><span class="pln">list false</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">the-mutex m</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'acquire</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">test-and-set! cell</span><span class="clo">)</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">the-mutex </span><span class="lit">'acquire</span><span class="clo">)))</span><span class="pln"> </span><span class="roman"><span class="com">; retry</span></span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'release</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">clear! cell</span><span class="clo">))))</span><span class="pln">
-    the-mutex</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">clear! cell</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-car! cell false</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-mutex)
+  (let ((cell (list false)))
+    (define (the-mutex m)
+      (cond ((eq? m 'acquire)
+             (if (test-and-set! cell)
+                 (the-mutex 'acquire))) <span class="roman">; retry</span>
+            ((eq? m 'release) (clear! cell))))
+    the-mutex))
+(define (clear! cell) (set-car! cell false))
+</pre></div>
 
 <p><code>Test-and-set!</code> tests the cell and returns the result of the test.  In
 addition, if the test was false, <code>test-and-set!</code> sets the cell contents to
@@ -662,11 +548,12 @@ true before returning false.  We can express this behavior as the following
 procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">test-and-set! cell</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> cell</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (test-and-set! cell)
+  (if (car cell)
       true
-      </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-car! cell true</span><span class="clo">)</span><span class="pln">
-             false</span><span class="clo">)))</span></pre></div>
+      (begin (set-car! cell true)
+             false)))
+</pre></div>
 
 <p>However, this implementation of <code>test-and-set!</code> does not suffice as it
 stands.  There is a crucial subtlety here, which is the essential place where
@@ -697,13 +584,9 @@ allowing two processes to acquire the mutex at the same time.
 </p></blockquote>
 
 <blockquote>
-<p><strong><a id="Exercise-3_002e47"></a>Exercise 3.47:</strong> A semaphore (of size <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>) is a
+<p><strong><a id="Exercise-3_002e47"></a>Exercise 3.47:</strong> A semaphore (of size \( n \)) is a
 generalization of a mutex.  Like a mutex, a semaphore supports acquire and
-release operations, but it is more general in that up to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> processes can
+release operations, but it is more general in that up to \( n \) processes can
 acquire it concurrently.  Additional processes that attempt to acquire the
 semaphore must wait for release operations.  Give implementations of semaphores
 </p>
@@ -720,32 +603,14 @@ semaphore must wait for release operations.  Give implementations of semaphores
 
 <p>Now that we have seen how to implement serializers, we can see that account
 exchanging still has a problem, even with the <code>serialized-exchange</code>
-procedure above.  Imagine that Peter attempts to exchange <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1 with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>2
-while Paul concurrently attempts to exchange <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>2 with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1.  Suppose that
+procedure above.  Imagine that Peter attempts to exchange \( a \)1 with \( a \)2
+while Paul concurrently attempts to exchange \( a \)2 with \( a \)1.  Suppose that
 Peter’s process reaches the point where it has entered a serialized procedure
-protecting <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1 and, just after that, Paul’s process enters a serialized
-procedure protecting <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>2.  Now Peter cannot proceed (to enter a serialized
-procedure protecting <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>2) until Paul exits the serialized procedure
-protecting <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>2.  Similarly, Paul cannot proceed until Peter exits the
-serialized procedure protecting <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>1.  Each process is stalled forever,
+protecting \( a \)1 and, just after that, Paul’s process enters a serialized
+procedure protecting \( a \)2.  Now Peter cannot proceed (to enter a serialized
+procedure protecting \( a \)2) until Paul exits the serialized procedure
+protecting \( a \)2.  Similarly, Paul cannot proceed until Peter exits the
+serialized procedure protecting \( a \)1.  Each process is stalled forever,
 waiting for the other.  This situation is called a <a id="index-deadlock"></a>
 <em>deadlock</em>.
 Deadlock is always a danger in systems that provide concurrent access to
@@ -822,7 +687,7 @@ complexities we encounter in dealing with time and state in our computational
 models may in fact mirror a fundamental complexity of the physical universe.
 </p>
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -878,13 +743,14 @@ In <abbr>MIT</abbr> Scheme for a single processor, which uses a
 time-slicing model, <code>test-and-set!</code> can be implemented as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">test-and-set! cell</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">without-interrupts
-   </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> cell</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (test-and-set! cell)
+  (without-interrupts
+   (lambda ()
+     (if (car cell)
          true
-         </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-car! cell true</span><span class="clo">)</span><span class="pln">
-                false</span><span class="clo">)))))</span></pre></div>
+         (begin (set-car! cell true)
+                false)))))
+</pre></div>
 
 <p><code>Without-interrupts</code> disables time-slicing interrupts while its procedure
 argument is being executed.</p>
@@ -944,10 +810,10 @@ how to use communication to establish “global clocks” that can be used to
 establish orderings on events in distributed systems.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="n" rel="next">3.5</a>, Previous: <a href="3_002e4_002e1.xhtml#g_t3_002e4_002e1" accesskey="p" rel="prev">3.4.1</a>, Up: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="u" rel="prev">3.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="n" rel="next">3.5</a>, Previous: <a href="3_002e4_002e1.xhtml#g_t3_002e4_002e1" accesskey="p" rel="prev">3.4.1</a>, Up: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="u" rel="prev">3.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

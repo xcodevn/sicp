@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 2.3.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 2.3.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 2.3.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="2_002e3.xhtml#g_t2_002e3" rel="prev" title="2.3" />
-<link href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" rel="next" title="2.3.2" />
-<link href="2_002e3.xhtml#g_t2_002e3" rel="prev" title="2.3" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="2_002e3.xhtml#g_t2_002e3" rel="prev" title="2.3"/>
+<link href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" rel="next" title="2.3.2"/>
+<link href="2_002e3.xhtml#g_t2_002e3" rel="prev" title="2.3"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t2_002e3_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="n" rel="next">2.3.2</a>, Previous: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="p" rel="prev">2.3</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="n" rel="next">2.3.2</a>, Previous: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="p" rel="prev">2.3</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Quotation"></a>
 <h4 class="subsection"><span class="secnum">2.3.1</span><span class="sectitle">Quotation</span></h4>
@@ -39,23 +37,25 @@ Next: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="n" rel="next">2.
 <p>If we can form compound data using symbols, we can have lists such as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">a b c d</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="lit">23</span><span class="pln"> </span><span class="lit">45</span><span class="pln"> </span><span class="lit">17</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">((</span><span class="pln">Norah </span><span class="lit">12</span><span class="clo">)</span><span class="pln"> 
- </span><span class="opn">(</span><span class="pln">Molly </span><span class="lit">9</span><span class="clo">)</span><span class="pln"> 
- </span><span class="opn">(</span><span class="pln">Anna </span><span class="lit">7</span><span class="clo">)</span><span class="pln"> 
- </span><span class="opn">(</span><span class="pln">Lauren </span><span class="lit">6</span><span class="clo">)</span><span class="pln"> 
- </span><span class="opn">(</span><span class="pln">Charlotte </span><span class="lit">4</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(a b c d)
+(23 45 17)
+((Norah 12) 
+ (Molly 9) 
+ (Anna 7) 
+ (Lauren 6) 
+ (Charlotte 4))
+</pre></div>
 
 <p>Lists containing symbols can look just like the expressions of our
 language:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">23</span><span class="pln"> </span><span class="lit">45</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">9</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fact n</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> 
-      </span><span class="lit">1</span><span class="pln"> 
-      </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> n </span><span class="opn">(</span><span class="pln">fact </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(* (+ 23 45) (+ x 9))
+(define (fact n) 
+  (if (= n 1) 
+      1 
+      (* n (fact (- n 1)))))
+</pre></div>
 
 <p>In order to manipulate symbols we need a new element in our language: the
 ability to <a id="index-quote"></a>
@@ -77,7 +77,7 @@ somebody else might say.<a class="footnote_link" id="DOCF98" href="#FOOT98"><sup
 <p>We can follow this same practice to identify lists and symbols that are to be
 treated as data objects rather than as expressions to be evaluated.  However,
 our format for quoting differs from that of natural languages in that we place
-a quotation mark (traditionally, the single quote symbol <code>'</code>)<!-- /@w --> only at the
+a quotation mark (traditionally, the single quote symbol&#160;<code>'</code>)<!-- /@w --> only at the
 beginning of the object to be quoted.  We can get away with this in Scheme
 syntax because we rely on blanks and parentheses to delimit objects.  Thus, the
 meaning of the single quote character is to quote the next object.<a class="footnote_link" id="DOCF99" href="#FOOT99"><sup>99</sup></a>
@@ -85,28 +85,28 @@ meaning of the single quote character is to quote the next object.<a class="foot
 <p>Now we can distinguish between symbols and their values:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> a </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> b </span><span class="lit">2</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define a 1)
+(define b 2)
 
-</span><span class="opn">(</span><span class="pln">list a b</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span></i><span class="pln">
+(list a b)
+<i>(1 2)</i>
 
-</span><span class="opn">(</span><span class="pln">list </span><span class="lit">'a</span><span class="pln"> </span><span class="lit">'b</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">(</span><span class="pln">a b</span><span class="clo">)</span></i><span class="pln">
+(list 'a 'b)
+<i>(a b)</i>
 
-</span><span class="opn">(</span><span class="pln">list </span><span class="lit">'a</span><span class="pln"> b</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">(</span><span class="pln">a </span><span class="lit">2</span><span class="clo">)</span></i>
+(list 'a b)
+<i>(a 2)</i>
 </pre></div>
 
 <p>Quotation also allows us to type in compound objects, using the conventional
 printed representation for lists:<a class="footnote_link" id="DOCF100" href="#FOOT100"><sup>100</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">a b c</span><span class="clo">))</span><span class="pln">
-</span><i><span class="pln">a</span></i><span class="pln">
+<pre class="lisp">(car '(a b c))
+<i>a</i>
 
-</span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">a b c</span><span class="clo">))</span><span class="pln">
-</span><i><span class="opn">(</span><span class="pln">b c</span><span class="clo">)</span></i>
+(cdr '(a b c))
+<i>(b c)</i>
 </pre></div>
 
 <p>In keeping with this, we can obtain the empty list by evaluating <code>'()</code>,
@@ -121,20 +121,23 @@ returns false.  Otherwise, it returns the sublist of the list beginning with
 the first occurrence of the symbol:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">memq item x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? x</span><span class="clo">)</span><span class="pln"> false</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> item </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> x</span><span class="clo">))</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">memq item </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (memq item x)
+  (cond ((null? x) false)
+        ((eq? item (car x)) x)
+        (else (memq item (cdr x)))))
+</pre></div>
 
 <p>For example, the value of
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">memq </span><span class="lit">'apple</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">pear banana prune</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(memq 'apple '(pear banana prune))
+</pre></div>
 
 <p>is false, whereas the value of
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">memq </span><span class="lit">'apple</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">x </span><span class="opn">(</span><span class="pln">apple sauce</span><span class="clo">)</span><span class="pln"> y apple pear</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(memq 'apple '(x (apple sauce) y apple pear))
+</pre></div>
 
 <p>is <code>(apple pear)</code>.
 </p>
@@ -143,13 +146,14 @@ the first occurrence of the symbol:
 in response to evaluating each of the following expressions?
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">list </span><span class="lit">'a</span><span class="pln"> </span><span class="lit">'b</span><span class="pln"> </span><span class="lit">'c</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'george</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> </span><span class="lit">'</span><span class="opn">((</span><span class="pln">x1 x2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">y1 y2</span><span class="clo">)))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> </span><span class="lit">'</span><span class="opn">((</span><span class="pln">x1 x2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">y1 y2</span><span class="clo">)))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">pair? </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">a short list</span><span class="clo">)))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">memq </span><span class="lit">'red</span><span class="pln"> </span><span class="lit">'</span><span class="opn">((</span><span class="pln">red shoes</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">blue socks</span><span class="clo">)))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">memq </span><span class="lit">'red</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">red shoes blue socks</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(list 'a 'b 'c)
+(list (list 'george))
+(cdr '((x1 x2) (y1 y2)))
+(cadr '((x1 x2) (y1 y2)))
+(pair? (car '(a short list)))
+(memq 'red '((red shoes) (blue socks)))
+(memq 'red '(red shoes blue socks))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -158,14 +162,16 @@ in response to evaluating each of the following expressions?
 example,
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">equal</span><span class="pun">?</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">this is a list</span><span class="clo">)</span><span class="pln"> 
-        </span><span class="lit">'</span><span class="opn">(</span><span class="pln">this is a list</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(equal? '(this is a list) 
+        '(this is a list))
+</pre></div>
 
 <p>is true, but
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">equal</span><span class="pun">?</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">this is a list</span><span class="clo">)</span><span class="pln"> 
-        </span><span class="lit">'</span><span class="opn">(</span><span class="pln">this </span><span class="opn">(</span><span class="pln">is a</span><span class="clo">)</span><span class="pln"> list</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(equal? '(this is a list) 
+        '(this (is a) list))
+</pre></div>
 
 <p>is false.  To be more precise, we can define <code>equal?</code>  recursively in
 terms of the basic <code>eq?</code> equality of symbols by saying that <code>a</code> and
@@ -180,13 +186,14 @@ this idea, implement <code>equal?</code> as a procedure.<a class="footnote_link"
 interpreter the expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="lit">''abracadabra</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(car ''abracadabra)
+</pre></div>
 
 <p>To her surprise, the interpreter prints back <code>quote</code>.  Explain.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -245,10 +252,10 @@ the one that comes as a primitive in Scheme) would also stipulate that if
 <code>equal?</code> if they are numerically equal.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="n" rel="next">2.3.2</a>, Previous: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="p" rel="prev">2.3</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="n" rel="next">2.3.2</a>, Previous: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="p" rel="prev">2.3</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

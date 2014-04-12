@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 2.5.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.5.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 2.5.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 2.5.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="2_002e5.xhtml#g_t2_002e5" rel="prev" title="2.5" />
-<link href="2_002e5_002e2.xhtml#g_t2_002e5_002e2" rel="next" title="2.5.2" />
-<link href="2_002e5.xhtml#g_t2_002e5" rel="prev" title="2.5" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.5.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.5.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="2_002e5.xhtml#g_t2_002e5" rel="prev" title="2.5"/>
+<link href="2_002e5_002e2.xhtml#g_t2_002e5_002e2" rel="next" title="2.5.2"/>
+<link href="2_002e5.xhtml#g_t2_002e5" rel="prev" title="2.5"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t2_002e5_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="2_002e5_002e2.xhtml#g_t2_002e5_002e2" accesskey="n" rel="next">2.5.2</a>, Previous: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="p" rel="prev">2.5</a>, Up: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="u" rel="prev">2.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e5_002e2.xhtml#g_t2_002e5_002e2" accesskey="n" rel="next">2.5.2</a>, Previous: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="p" rel="prev">2.5</a>, Up: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="u" rel="prev">2.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Generic-Arithmetic-Operations"></a>
 <h4 class="subsection"><span class="secnum">2.5.1</span><span class="sectitle">Generic Arithmetic Operations</span></h4>
@@ -50,10 +48,11 @@ according to the data type of its arguments.
 <p>The generic arithmetic procedures are defined as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">apply-generic </span><span class="lit">'add</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sub x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">apply-generic </span><span class="lit">'sub</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">mul x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">apply-generic </span><span class="lit">'mul</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">div x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">apply-generic </span><span class="lit">'div</span><span class="pln"> x y</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (add x y) (apply-generic 'add x y))
+(define (sub x y) (apply-generic 'sub x y))
+(define (mul x y) (apply-generic 'mul x y))
+(define (div x y) (apply-generic 'div x y))
+</pre></div>
 
 <p>We begin by installing a package for handling <a id="index-ordinary"></a>
 <em>ordinary</em> numbers, that
@@ -65,27 +64,29 @@ arguments, they are installed in the table keyed by the list
 <code>(scheme-number scheme-number)</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">install-scheme-number-package</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag x</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">attach-tag </span><span class="lit">'scheme-number</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'add</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">scheme-number scheme-number</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'sub</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">scheme-number scheme-number</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'mul</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">scheme-number scheme-number</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'div</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">scheme-number scheme-number</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'make</span><span class="pln"> </span><span class="lit">'scheme-number</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag x</span><span class="clo">)))</span><span class="pln">
-  </span><span class="lit">'done</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (install-scheme-number-package)
+  (define (tag x)
+    (attach-tag 'scheme-number x))
+  (put 'add '(scheme-number scheme-number)
+       (lambda (x y) (tag (+ x y))))
+  (put 'sub '(scheme-number scheme-number)
+       (lambda (x y) (tag (- x y))))
+  (put 'mul '(scheme-number scheme-number)
+       (lambda (x y) (tag (* x y))))
+  (put 'div '(scheme-number scheme-number)
+       (lambda (x y) (tag (/ x y))))
+  (put 'make 'scheme-number
+       (lambda (x) (tag x)))
+  'done)
+</pre></div>
 
 <p>Users of the Scheme-number package will create (tagged) ordinary numbers by
 means of the procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-scheme-number n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">get </span><span class="lit">'make</span><span class="pln"> </span><span class="lit">'scheme-number</span><span class="clo">)</span><span class="pln"> n</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-scheme-number n)
+  ((get 'make 'scheme-number) n))
+</pre></div>
 
 <p>Now that the framework of the generic arithmetic system is in place, we can
 readily include new kinds of numbers.  Here is a package that performs rational
@@ -94,43 +95,44 @@ modification the rational-number code from <a href="2_002e1_002e1.xhtml#g_t2_002
 procedures in the package:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">install-rational-package</span><span class="clo">)</span><span class="pln">
-  </span><span class="roman"><span class="com">;; internal procedures</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-rat n d</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">g </span><span class="opn">(</span><span class="pln">gcd n d</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> n g</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> d g</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add-rat x y</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-rat </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom y</span><span class="clo">))</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom x</span><span class="clo">)))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sub-rat x y</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-rat </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom y</span><span class="clo">))</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom x</span><span class="clo">)))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">mul-rat x y</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-rat </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer y</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">div-rat x y</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-rat </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom y</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">denom x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">numer y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="roman"><span class="com">;; interface to rest of the system</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">attach-tag </span><span class="lit">'rational</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'add</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">rational rational</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">add-rat x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'sub</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">rational rational</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">sub-rat x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'mul</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">rational rational</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">mul-rat x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'div</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">rational rational</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">div-rat x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'make</span><span class="pln"> </span><span class="lit">'rational</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">n d</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">make-rat n d</span><span class="clo">))))</span><span class="pln">
-  </span><span class="lit">'done</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (install-rational-package)
+  <span class="roman">;; internal procedures</span>
+  (define (numer x) (car x))
+  (define (denom x) (cdr x))
+  (define (make-rat n d)
+    (let ((g (gcd n d)))
+      (cons (/ n g) (/ d g))))
+  (define (add-rat x y)
+    (make-rat (+ (* (numer x) (denom y))
+                 (* (numer y) (denom x)))
+              (* (denom x) (denom y))))
+  (define (sub-rat x y)
+    (make-rat (- (* (numer x) (denom y))
+                 (* (numer y) (denom x)))
+              (* (denom x) (denom y))))
+  (define (mul-rat x y)
+    (make-rat (* (numer x) (numer y))
+              (* (denom x) (denom y))))
+  (define (div-rat x y)
+    (make-rat (* (numer x) (denom y))
+              (* (denom x) (numer y))))
+  <span class="roman">;; interface to rest of the system</span>
+  (define (tag x) (attach-tag 'rational x))
+  (put 'add '(rational rational)
+       (lambda (x y) (tag (add-rat x y))))
+  (put 'sub '(rational rational)
+       (lambda (x y) (tag (sub-rat x y))))
+  (put 'mul '(rational rational)
+       (lambda (x y) (tag (mul-rat x y))))
+  (put 'div '(rational rational)
+       (lambda (x y) (tag (div-rat x y))))
+  (put 'make 'rational
+       (lambda (n d) (tag (make-rat n d))))
+  'done)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-rational n d</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">get </span><span class="lit">'make</span><span class="pln"> </span><span class="lit">'rational</span><span class="clo">)</span><span class="pln"> n d</span><span class="clo">))</span></pre></div>
+(define (make-rational n d)
+  ((get 'make 'rational) n d))
+</pre></div>
 
 <p>We can install a similar package to handle complex numbers, using the tag
 <code>complex</code>.  In creating the package, we extract from the table the
@@ -140,54 +142,55 @@ as the internal operations, the same <code>add-complex</code>, <code>sub-complex
 <code>mul-complex</code>, and <code>div-complex</code> procedures from <a href="2_002e4_002e1.xhtml#g_t2_002e4_002e1">2.4.1</a>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">install-complex-package</span><span class="clo">)</span><span class="pln">
-  </span><span class="roman"><span class="com">;; imported procedures from rectangular</span></span><span class="com"> </span><span class="pln">
-  </span><span class="roman"><span class="com">;; and polar packages</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-from-real-imag x y</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">((</span><span class="pln">get </span><span class="lit">'make-from-real-imag</span><span class="pln"> 
-          </span><span class="lit">'rectangular</span><span class="clo">)</span><span class="pln"> 
-     x y</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-from-mag-ang r a</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">((</span><span class="pln">get </span><span class="lit">'make-from-mag-ang</span><span class="pln"> </span><span class="lit">'polar</span><span class="clo">)</span><span class="pln"> 
-     r a</span><span class="clo">))</span><span class="pln">
-  </span><span class="roman"><span class="com">;; internal procedures</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add-complex z1 z2</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-from-real-imag 
-     </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z2</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sub-complex z1 z2</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-from-real-imag 
-     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z2</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">imag-part z2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">mul-complex z1 z2</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-from-mag-ang 
-     </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z2</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">div-complex z1 z2</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-from-mag-ang 
-     </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">magnitude z2</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">angle z2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="roman"><span class="com">;; interface to rest of the system</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tag z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">attach-tag </span><span class="lit">'complex</span><span class="pln"> z</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'add</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex complex</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z1 z2</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">add-complex z1 z2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'sub</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex complex</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z1 z2</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">sub-complex z1 z2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'mul</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex complex</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z1 z2</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">mul-complex z1 z2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'div</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex complex</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z1 z2</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">div-complex z1 z2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'make-from-real-imag</span><span class="pln"> </span><span class="lit">'complex</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">make-from-real-imag x y</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">put </span><span class="lit">'make-from-mag-ang</span><span class="pln"> </span><span class="lit">'complex</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">r a</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">make-from-mag-ang r a</span><span class="clo">))))</span><span class="pln">
-  </span><span class="lit">'done</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (install-complex-package)
+  <span class="roman">;; imported procedures from rectangular</span> 
+  <span class="roman">;; and polar packages</span>
+  (define (make-from-real-imag x y)
+    ((get 'make-from-real-imag 
+          'rectangular) 
+     x y))
+  (define (make-from-mag-ang r a)
+    ((get 'make-from-mag-ang 'polar) 
+     r a))
+  <span class="roman">;; internal procedures</span>
+  (define (add-complex z1 z2)
+    (make-from-real-imag 
+     (+ (real-part z1) (real-part z2))
+     (+ (imag-part z1) (imag-part z2))))
+  (define (sub-complex z1 z2)
+    (make-from-real-imag 
+     (- (real-part z1) (real-part z2))
+     (- (imag-part z1) (imag-part z2))))
+  (define (mul-complex z1 z2)
+    (make-from-mag-ang 
+     (* (magnitude z1) (magnitude z2))
+     (+ (angle z1) (angle z2))))
+  (define (div-complex z1 z2)
+    (make-from-mag-ang 
+     (/ (magnitude z1) (magnitude z2))
+     (- (angle z1) (angle z2))))
+  <span class="roman">;; interface to rest of the system</span>
+  (define (tag z) (attach-tag 'complex z))
+  (put 'add '(complex complex)
+       (lambda (z1 z2) 
+         (tag (add-complex z1 z2))))
+  (put 'sub '(complex complex)
+       (lambda (z1 z2) 
+         (tag (sub-complex z1 z2))))
+  (put 'mul '(complex complex)
+       (lambda (z1 z2) 
+         (tag (mul-complex z1 z2))))
+  (put 'div '(complex complex)
+       (lambda (z1 z2) 
+         (tag (div-complex z1 z2))))
+  (put 'make-from-real-imag 'complex
+       (lambda (x y) 
+         (tag (make-from-real-imag x y))))
+  (put 'make-from-mag-ang 'complex
+       (lambda (r a) 
+         (tag (make-from-mag-ang r a))))
+  'done)
+</pre></div>
 
 <p>Programs outside the complex-number package can construct complex numbers
 either from real and imaginary parts or from magnitudes and angles.  Notice how
@@ -196,20 +199,14 @@ packages, are exported to the complex package, and exported from there to the
 outside world.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-complex-from-real-imag x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">get </span><span class="lit">'make-from-real-imag</span><span class="pln"> </span><span class="lit">'complex</span><span class="clo">)</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-complex-from-mag-ang r a</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">get </span><span class="lit">'make-from-mag-ang</span><span class="pln"> </span><span class="lit">'complex</span><span class="clo">)</span><span class="pln"> r a</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-complex-from-real-imag x y)
+  ((get 'make-from-real-imag 'complex) x y))
+(define (make-complex-from-mag-ang r a)
+  ((get 'make-from-mag-ang 'complex) r a))
+</pre></div>
 
 <p>What we have here is a two-level tag system.  A typical complex number, such as
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>3</mn>
-    <mo>+</mo>
-    <mn>4</mn>
-    <mi>i</mi>
-  </mrow>
-</math> in rectangular form, would be represented as shown in <a href="#Figure-2_002e24">Figure 2.24</a>.  
+\( {3 + 4i} \) in rectangular form, would be represented as shown in <a href="#Figure-2_002e24">Figure 2.24</a>.  
 The outer tag (<code>complex</code>) is used to direct the number to the
 complex package.  Once within the complex package, the next tag
 (<code>rectangular</code>) is used to direct the number to the rectangular package.
@@ -224,14 +221,7 @@ package is stripped off (by applying <code>contents</code>) and the next level o
 <object style="width: 41.53ex; height: 12.00ex;" data="fig/chap2/Fig2.24d.std.svg" type="image/svg+xml">SVG</object>
 
 <figcaption class="float-caption">
-<p><strong>Figure 2.24:</strong> Representation of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>3</mn>
-    <mo>+</mo>
-    <mn>4</mn>
-    <mi>i</mi>
-  </mrow>
-</math> in rectangular form.</p>
+<p><strong>Figure 2.24:</strong> Representation of \( {3 + 4i} \) in rectangular form.</p>
 </figcaption>
 </figure>
 
@@ -253,10 +243,11 @@ were never defined for <code>complex</code> numbers, just for <code>polar</code>
 following to the <code>complex</code> package:”
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">put </span><span class="lit">'real-part</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex</span><span class="clo">)</span><span class="pln"> real-part</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">put </span><span class="lit">'imag-part</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex</span><span class="clo">)</span><span class="pln"> imag-part</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">put </span><span class="lit">'magnitude</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex</span><span class="clo">)</span><span class="pln"> magnitude</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">put </span><span class="lit">'angle</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex</span><span class="clo">)</span><span class="pln"> angle</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(put 'real-part '(complex) real-part)
+(put 'imag-part '(complex) imag-part)
+(put 'magnitude '(complex) magnitude)
+(put 'angle '(complex) angle)
+</pre></div>
 
 <p>Describe in detail why this works.  As an example, trace through all the
 procedures called in evaluating the expression <code>(magnitude z)</code> where
@@ -295,10 +286,10 @@ arithmetic package.  This operation should work for ordinary numbers, rational
 numbers, and complex numbers.
 </p></blockquote>
 
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="2_002e5_002e2.xhtml#g_t2_002e5_002e2" accesskey="n" rel="next">2.5.2</a>, Previous: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="p" rel="prev">2.5</a>, Up: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="u" rel="prev">2.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e5_002e2.xhtml#g_t2_002e5_002e2" accesskey="n" rel="next">2.5.2</a>, Previous: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="p" rel="prev">2.5</a>, Up: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="u" rel="prev">2.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

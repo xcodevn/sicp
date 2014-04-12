@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 1.2.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.2.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 1.2.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 1.2.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="1_002e2.xhtml#g_t1_002e2" rel="prev" title="1.2" />
-<link href="1_002e2_002e3.xhtml#g_t1_002e2_002e3" rel="next" title="1.2.3" />
-<link href="1_002e2_002e1.xhtml#g_t1_002e2_002e1" rel="prev" title="1.2.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.2.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.2.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="1_002e2.xhtml#g_t1_002e2" rel="prev" title="1.2"/>
+<link href="1_002e2_002e3.xhtml#g_t1_002e2_002e3" rel="next" title="1.2.3"/>
+<link href="1_002e2_002e1.xhtml#g_t1_002e2_002e1" rel="prev" title="1.2.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t1_002e2_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="1_002e2_002e3.xhtml#g_t1_002e2_002e3" accesskey="n" rel="next">1.2.3</a>, Previous: <a href="1_002e2_002e1.xhtml#g_t1_002e2_002e1" accesskey="p" rel="prev">1.2.1</a>, Up: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="u" rel="prev">1.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e2_002e3.xhtml#g_t1_002e2_002e3" accesskey="n" rel="next">1.2.3</a>, Previous: <a href="1_002e2_002e1.xhtml#g_t1_002e2_002e1" accesskey="p" rel="prev">1.2.1</a>, Up: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="u" rel="prev">1.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Tree-Recursion"></a>
 <h4 class="subsection"><span class="secnum">1.2.2</span><span class="sectitle">Tree Recursion</span></h4>
@@ -45,82 +43,28 @@ number is the sum of the preceding two:
 </div>
 <p>In general, the Fibonacci numbers can be defined by the rule
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtext>Fib</mtext>
-  <mo stretchy="false">(</mo>
-  <mi>n</mi>
-  <mo stretchy="false">)</mo>
-  <mspace width="thickmathspace"/>
-  <mo>=</mo>
-  <mspace width="thickmathspace"/>
-  <mrow>
-    <mo>{</mo>
-    <mtable columnalign="left left" rowspacing="4pt" columnspacing="1em">
-      <mtr>
-        <mtd>
-          <mn>0</mn>
-        </mtd>
-        <mtd>
-          <mspace width="thickmathspace"/>
-          <mtext>if</mtext>
-          <mspace width="thickmathspace"/>
-          <mspace width="thickmathspace"/>
-          <mi>n</mi>
-          <mo>=</mo>
-          <mn>0</mn>
-          <mo>,</mo>
-        </mtd>
-      </mtr>
-      <mtr>
-        <mtd>
-          <mn>1</mn>
-        </mtd>
-        <mtd>
-          <mspace width="thickmathspace"/>
-          <mtext>if</mtext>
-          <mspace width="thickmathspace"/>
-          <mspace width="thickmathspace"/>
-          <mi>n</mi>
-          <mo>=</mo>
-          <mn>1</mn>
-          <mo>,</mo>
-        </mtd>
-      </mtr>
-      <mtr>
-        <mtd>
-          <mtext>Fib</mtext>
-          <mo stretchy="false">(</mo>
-          <mi>n</mi>
-          <mo>−<!-- − --></mo>
-          <mn>1</mn>
-          <mo stretchy="false">)</mo>
-          <mo>+</mo>
-          <mtext>Fib</mtext>
-          <mo stretchy="false">(</mo>
-          <mi>n</mi>
-          <mo>−<!-- − --></mo>
-          <mn>2</mn>
-          <mo stretchy="false">)</mo>
-        </mtd>
-        <mtd>
-          <mspace width="thickmathspace"/>
-          <mtext>otherwise</mtext>
-          <mo>.</mo>
-        </mtd>
-      </mtr>
-    </mtable>
-  </mrow>
-</math>
+\[ % :7:
+  
+\text{Fib}(n) \; = \;
+  \left\{ 
+    \begin{array}{ll}	 	 
+      0 &amp; \;\text{if} \;\; n = 0, \\
+      1 &amp; \;\text{if} \;\; n = 1, \\
+      \text{Fib}(n-1) + \text{Fib}(n-2) &amp; \;\text{otherwise}. 
+    \end{array} 
+  \right. 
+\]
 
 We can immediately translate this definition into a recursive procedure for
 computing Fibonacci numbers:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fib n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fib </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">fib </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">2</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(define (fib n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+        (else (+ (fib (- n 1))
+                 (fib (- n 2))))))
+</pre></div>
 
 <p>Consider the pattern of this computation.  To compute <code>(fib 5)</code>, we
 compute <code>(fib 4)</code> and <code>(fib 3)</code>.  To compute <code>(fib 4)</code>, we
@@ -144,87 +88,23 @@ computation.  Notice in <a href="#Figure-1_002e5">Figure 1.5</a> that the entire
 <code>(fib 3)</code>—almost half the work—is duplicated.  In fact, it is not hard
 to show that the number of times the procedure will compute <code>(fib 1)</code> or
 <code>(fib 0)</code> (the number of leaves in the above tree, in general) is
-precisely <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>+</mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  To get an idea of how bad this is, one can
-show that the value of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> grows exponentially with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>.  More
-precisely (see <a href="#Exercise-1_002e13">Exercise 1.13</a>), <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> is the closest integer
-to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>φ<!-- φ --></mi>
-      <mi>n</mi>
-    </msup>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <msqrt>
-      <mn>5</mn>
-    </msqrt>
-  </mrow>
-</math>, where
+precisely \( {\text{Fib}(n+1)} \).  To get an idea of how bad this is, one can
+show that the value of \( {\text{Fib}(n)} \) grows exponentially with \( n \).  More
+precisely (see <a href="#Exercise-1_002e13">Exercise 1.13</a>), \( {\text{Fib}(n)} \) is the closest integer
+to \( {\varphi^n / \sqrt{5}} \), where
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mi>φ<!-- φ --></mi>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mfrac>
-    <mrow>
-      <mn>1</mn>
-      <mo>+</mo>
-      <msqrt>
-        <mn>5</mn>
-      </msqrt>
-    </mrow>
-    <mn>2</mn>
-  </mfrac>
-  <mspace width="thinmathspace"/>
-  <mo>≈<!-- ≈ --></mo>
-  <mspace width="thinmathspace"/>
-  <mn>1.6180</mn>
-</math>
+\[ % :8:
+
+\varphi \,=\, \frac{1 + \sqrt{5}}{2} \,\approx\, 1.6180
+\]
 
 is the <a id="index-golden-ratio"></a>
 <em>golden ratio</em>, which satisfies the equation
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <msup>
-    <mi>φ<!-- φ --></mi>
-    <mn>2</mn>
-  </msup>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>φ<!-- φ --></mi>
-    <mo>+</mo>
-    <mn>1.</mn>
-  </mrow>
-</math>
+\[ % :9:
+ 
+\varphi^2 \,=\, {\varphi + 1.}
+\]
 
 Thus, the process uses a number of steps that grows exponentially with the
 input.  On the other hand, the space required grows only linearly with the
@@ -234,105 +114,37 @@ tree-recursive process will be proportional to the number of nodes in the tree,
 while the space required will be proportional to the maximum depth of the tree.
 </p>
 <p>We can also formulate an iterative process for computing the Fibonacci numbers.
-The idea is to use a pair of integers <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math>, initialized to
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib(1) = 1</mtext>
-  </mrow>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib(0) = 0</mtext>
-  </mrow>
-</math>, and to repeatedly apply the
+The idea is to use a pair of integers \( a \) and \( b \), initialized to
+\( {\text{Fib(1) = 1}} \) and \( {\text{Fib(0) = 0}} \), and to repeatedly apply the
 simultaneous transformations
 </p>
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="left" rowspacing="4pt" columnspacing="1em">
-    <mtr>
-      <mtd>
-        <mi>a</mi>
-        <mspace width="thickmathspace"/>
-        <mo stretchy="false">←<!-- ← --></mo>
-        <mspace width="thickmathspace"/>
-        <mi>a</mi>
-        <mo>+</mo>
-        <mi>b</mi>
-        <mo>,</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mi>b</mi>
-        <mspace width="thickmathspace"/>
-        <mo stretchy="false">←<!-- ← --></mo>
-        <mspace width="thickmathspace"/>
-        <mi>a</mi>
-        <mo>.</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
+\[ % :10:
+ 
+\begin{array}{l}
+  a \;\leftarrow\; a + b, \\ 
+  b \;\leftarrow\; a. 
+\end{array}
+\]
 
-<p>It is not hard to show that, after applying this transformation <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> times,
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math> will be equal, respectively, to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>+</mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> and
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  Thus, we can compute Fibonacci numbers iteratively using
+<p>It is not hard to show that, after applying this transformation \( n \) times,
+\( a \) and \( b \) will be equal, respectively, to \( {\text{Fib}(n+1)} \) and
+\( {\text{Fib}(n)} \).  Thus, we can compute Fibonacci numbers iteratively using
 the procedure
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fib n</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">fib-iter </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> n</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (fib n) 
+  (fib-iter 1 0 n))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fib-iter a b count</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> count </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+(define (fib-iter a b count)
+  (if (= count 0)
       b
-      </span><span class="opn">(</span><span class="pln">fib-iter </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a b</span><span class="clo">)</span><span class="pln"> a </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> count </span><span class="lit">1</span><span class="clo">))))</span></pre></div>
+      (fib-iter (+ a b) a (- count 1))))
+</pre></div>
 
-<p>This second method for computing <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> is a linear iteration.  The
+<p>This second method for computing \( {\text{Fib}(n)} \) is a linear iteration.  The
 difference in number of steps required by the two methods—one linear in
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>, one growing as fast as <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> itself—is enormous, even for
+\( n \), one growing as fast as \( {\text{Fib}(n)} \) itself—is enormous, even for
 small inputs.
 </p>
 <p>One should not conclude from this that tree-recursive processes are useless.
@@ -360,30 +172,14 @@ number of ways to change any given amount of money?
 of the types of coins available as arranged in some order.  Then the following
 relation holds:
 </p>
-<p>The number of ways to change amount <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> using <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> kinds of coins equals
+<p>The number of ways to change amount \( a \) using \( n \) kinds of coins equals
 </p>
 <ul>
-<li> the number of ways to change amount <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> using all but the first kind of coin,
+<li> the number of ways to change amount \( a \) using all but the first kind of coin,
 plus
 
-</li><li> the number of ways to change amount <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>a</mi>
-    <mo>−<!-- − --></mo>
-    <mi>d</mi>
-  </mrow>
-</math> using all <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> kinds of
-coins, where <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>d</mi>
-</math> is the denomination of the first kind of coin.
+</li><li> the number of ways to change amount \( {a - d} \) using all \( n \) kinds of
+coins, where \( d \) is the denomination of the first kind of coin.
 
 </li></ul>
 
@@ -402,43 +198,38 @@ reduction rule carefully, and convince yourself that we can use it to describe
 an algorithm if we specify the following degenerate cases:<a class="footnote_link" id="DOCF33" href="#FOOT33"><sup>33</sup></a>
 </p>
 <ul>
-<li> If <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> is exactly 0, we should count that as 1 way to make change.
+<li> If \( a \) is exactly 0, we should count that as 1 way to make change.
 
-</li><li> If <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> is less than 0, we should count that as 0 ways to make change.
+</li><li> If \( a \) is less than 0, we should count that as 0 ways to make change.
 
-</li><li> If <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> is 0, we should count that as 0 ways to make change.
+</li><li> If \( n \) is 0, we should count that as 0 ways to make change.
 
 </li></ul>
 
 <p>We can easily translate this description into a recursive procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-change amount</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">cc amount </span><span class="lit">5</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (count-change amount)
+  (cc amount 5))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">cc amount kinds-of-coins</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> amount </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">or</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&lt;</span><span class="pln"> amount </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> kinds-of-coins </span><span class="lit">0</span><span class="clo">))</span><span class="pln"> 
-         </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">cc amount </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> kinds-of-coins </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">cc </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> amount </span><span class="opn">(</span><span class="pln">first-denomination 
-                           kinds-of-coins</span><span class="clo">))</span><span class="pln">
-                kinds-of-coins</span><span class="clo">)))))</span><span class="pln">
+(define (cc amount kinds-of-coins)
+  (cond ((= amount 0) 1)
+        ((or (&lt; amount 0) 
+             (= kinds-of-coins 0)) 
+         0)
+        (else 
+         (+ (cc amount (- kinds-of-coins 1))
+            (cc (- amount (first-denomination 
+                           kinds-of-coins))
+                kinds-of-coins)))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">first-denomination kinds-of-coins</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> kinds-of-coins </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> kinds-of-coins </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="lit">5</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> kinds-of-coins </span><span class="lit">3</span><span class="clo">)</span><span class="pln"> </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> kinds-of-coins </span><span class="lit">4</span><span class="clo">)</span><span class="pln"> </span><span class="lit">25</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> kinds-of-coins </span><span class="lit">5</span><span class="clo">)</span><span class="pln"> </span><span class="lit">50</span><span class="clo">)))</span></pre></div>
+(define (first-denomination kinds-of-coins)
+  (cond ((= kinds-of-coins 1) 1)
+        ((= kinds-of-coins 2) 5)
+        ((= kinds-of-coins 3) 10)
+        ((= kinds-of-coins 4) 25)
+        ((= kinds-of-coins 5) 50)))
+</pre></div>
 
 <p>(The <code>first-denomination</code> procedure takes as input the number of kinds of
 coins available and returns the denomination of the first kind.  Here we are
@@ -447,8 +238,8 @@ order would do as well.)  We can now answer our original question about
 changing a dollar:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">count-change </span><span class="lit">100</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">292</span></i>
+<pre class="lisp">(count-change 100)
+<i>292</i>
 </pre></div>
 
 <p><code>Count-change</code> generates a tree-recursive process with redundancies
@@ -462,73 +253,10 @@ compiler” that could transform tree-recursive procedures into more efficient
 procedures that compute the same result.<a class="footnote_link" id="DOCF34" href="#FOOT34"><sup>34</sup></a>
 </p>
 <blockquote>
-<p><strong><a id="Exercise-1_002e11"></a>Exercise 1.11:</strong> A function <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> is defined by
-the rule that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-    <mo>=</mo>
-    <mi>n</mi>
-  </mrow>
-</math> if <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>&lt;</mo>
-    <mn>3</mn>
-  </mrow>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>2</mn>
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>2</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>3</mn>
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>3</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> if <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>≥<!-- ≥ --></mo>
-    <mn>3</mn>
-  </mrow>
-</math>.  
-Write a procedure that computes <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> by means of a recursive process.  Write a procedure that
-computes <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> by means of an iterative process.
+<p><strong><a id="Exercise-1_002e11"></a>Exercise 1.11:</strong> A function \( f \) is defined by
+the rule that \( {f(n) = n} \) if \( {n &lt; 3} \) and \( {f(n)} = {f(n-1)} + {2f(n-2)} + {3f(n-3)} \) if \( {n \ge 3} \).  
+Write a procedure that computes \( f \) by means of a recursive process.  Write a procedure that
+computes \( f \) by means of an iterative process.
 </p></blockquote>
 
 <blockquote>
@@ -552,94 +280,15 @@ means of a recursive process.
 </p></blockquote>
 
 <blockquote>
-<p><strong><a id="Exercise-1_002e13"></a>Exercise 1.13:</strong> Prove that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> is
-the closest integer to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>φ<!-- φ --></mi>
-      <mi>n</mi>
-    </msup>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <msqrt>
-      <mn>5</mn>
-    </msqrt>
-  </mrow>
-</math>, where <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>φ<!-- φ --></mi>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo>+</mo>
-    <msqrt>
-      <mn>5</mn>
-    </msqrt>
-    <mo stretchy="false">)</mo>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mn>2</mn>
-  </mrow>
-</math>.  
-Hint: Let <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>ψ<!-- ψ --></mi>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo>−<!-- − --></mo>
-    <msqrt>
-      <mn>5</mn>
-    </msqrt>
-    <mo stretchy="false">)</mo>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mn>2</mn>
-  </mrow>
-</math>.
+<p><strong><a id="Exercise-1_002e13"></a>Exercise 1.13:</strong> Prove that \( {\text{Fib}(n)} \) is
+the closest integer to \( {\varphi^n / \sqrt{5}} \), where \( \varphi = {(1 + \sqrt{5}) / 2} \).  
+Hint: Let \( \psi = {(1 - \sqrt{5}) / 2} \).
 Use induction and the definition of the Fibonacci numbers (see <a href="#g_t1_002e2_002e2">1.2.2</a>) 
-to prove that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Fib</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <msup>
-      <mi>φ<!-- φ --></mi>
-      <mi>n</mi>
-    </msup>
-    <mo>−<!-- − --></mo>
-    <msup>
-      <mi>ψ<!-- ψ --></mi>
-      <mi>n</mi>
-    </msup>
-    <mo stretchy="false">)</mo>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <msqrt>
-      <mn>5</mn>
-    </msqrt>
-  </mrow>
-</math>.
+to prove that \( {\text{Fib}(n)} = {(\varphi^n - \psi^n) / \sqrt{5}} \).
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -670,28 +319,8 @@ linearly with the input.  See <a href="3_002e3_002e3.xhtml#Exercise-3_002e27">Ex
 The elements of
 Pascal’s triangle are called the <a id="index-binomial-coefficients"></a>
 <em>binomial coefficients</em>, because the
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>n</mi>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mtext>th</mtext>
-      </mrow>
-    </msup>
-  </mrow>
-</math> row consists of the coefficients of the terms in the expansion of
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo>+</mo>
-    <mi>y</mi>
-    <msup>
-      <mo stretchy="false">)</mo>
-      <mi>n</mi>
-    </msup>
-  </mrow>
-</math>.  This pattern for computing the coefficients appeared in
+\( {n^{\text{th}}} \) row consists of the coefficients of the terms in the expansion of
+\( {(x + y)^n} \).  This pattern for computing the coefficients appeared in
 Blaise Pascal’s 1653 seminal work on probability theory, <cite>Traité du
 triangle arithmétique</cite>.  According to <a href="References.xhtml#Knuth-_00281973_0029">Knuth (1973)</a>, the same pattern appears
 in the <cite>Szu-yuen Yü-chien</cite> (“The Precious Mirror of the Four
@@ -701,10 +330,10 @@ and in the works of the twelfth-century Hindu mathematician Bháscara
 Áchárya.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="1_002e2_002e3.xhtml#g_t1_002e2_002e3" accesskey="n" rel="next">1.2.3</a>, Previous: <a href="1_002e2_002e1.xhtml#g_t1_002e2_002e1" accesskey="p" rel="prev">1.2.1</a>, Up: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="u" rel="prev">1.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e2_002e3.xhtml#g_t1_002e2_002e3" accesskey="n" rel="next">1.2.3</a>, Previous: <a href="1_002e2_002e1.xhtml#g_t1_002e2_002e1" accesskey="p" rel="prev">1.2.1</a>, Up: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="u" rel="prev">1.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

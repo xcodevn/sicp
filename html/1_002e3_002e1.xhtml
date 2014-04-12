@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 1.3.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 1.3.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 1.3.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="1_002e3.xhtml#g_t1_002e3" rel="prev" title="1.3" />
-<link href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" rel="next" title="1.3.2" />
-<link href="1_002e3.xhtml#g_t1_002e3" rel="prev" title="1.3" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="1_002e3.xhtml#g_t1_002e3" rel="prev" title="1.3"/>
+<link href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" rel="next" title="1.3.2"/>
+<link href="1_002e3.xhtml#g_t1_002e3" rel="prev" title="1.3"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t1_002e3_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="n" rel="next">1.3.2</a>, Previous: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="p" rel="prev">1.3</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="n" rel="next">1.3.2</a>, Previous: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="p" rel="prev">1.3</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Procedures-as-Arguments"></a>
 <h4 class="subsection"><span class="secnum">1.3.1</span><span class="sectitle">Procedures as Arguments</span></h4>
@@ -40,72 +38,38 @@ Next: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="n" rel="next">1.
 integers from <code>a</code> through <code>b</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum-integers a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> a b</span><span class="clo">)</span><span class="pln"> 
-      </span><span class="lit">0</span><span class="pln"> 
-      </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a </span><span class="opn">(</span><span class="pln">sum-integers </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> b</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (sum-integers a b)
+  (if (&gt; a b) 
+      0 
+      (+ a (sum-integers (+ a 1) b))))
+</pre></div>
 
 <p>The second computes the sum of the cubes of the integers in the given range:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum-cubes a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> a b</span><span class="clo">)</span><span class="pln"> 
-      </span><span class="lit">0</span><span class="pln"> 
-      </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">cube a</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">sum-cubes </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> b</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (sum-cubes a b)
+  (if (&gt; a b) 
+      0 
+      (+ (cube a) 
+         (sum-cubes (+ a 1) b))))
+</pre></div>
 
 <p>The third computes the sum of a sequence of terms in the series
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mfrac>
-    <mn>1</mn>
-    <mrow>
-      <mn>1</mn>
-      <mo>⋅<!-- ⋅ --></mo>
-      <mn>3</mn>
-    </mrow>
-  </mfrac>
-  <mo>+</mo>
-  <mfrac>
-    <mn>1</mn>
-    <mrow>
-      <mn>5</mn>
-      <mo>⋅<!-- ⋅ --></mo>
-      <mn>7</mn>
-    </mrow>
-  </mfrac>
-  <mo>+</mo>
-  <mfrac>
-    <mn>1</mn>
-    <mrow>
-      <mn>9</mn>
-      <mo>⋅<!-- ⋅ --></mo>
-      <mn>11</mn>
-    </mrow>
-  </mfrac>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo>…<!-- … --></mo>
-    <mo>,</mo>
-  </mrow>
-</math>
+\[ % :17:
+  
+\frac{1}{1\cdot 3} +  \frac{1}{5\cdot 7} + \frac{1}{9\cdot 11} + {\dots,}
+\]
 
-which converges to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>π<!-- π --></mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mn>8</mn>
-  </mrow>
-</math> (very slowly):<a class="footnote_link" id="DOCF49" href="#FOOT49"><sup>49</sup></a>
+which converges to \( {\pi / 8} \) (very slowly):<a class="footnote_link" id="DOCF49" href="#FOOT49"><sup>49</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pi-sum a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> a b</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">0</span><span class="pln">
-      </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="lit">1.0</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> a </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a </span><span class="lit">2</span><span class="clo">)))</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">pi-sum </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a </span><span class="lit">4</span><span class="clo">)</span><span class="pln"> b</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (pi-sum a b)
+  (if (&gt; a b)
+      0
+      (+ (/ 1.0 (* a (+ a 2))) 
+         (pi-sum (+ a 4) b))))
+</pre></div>
 
 <p>These three procedures clearly share a common underlying pattern.  They are for
 the most part identical, differing only in the name of the procedure, the
@@ -114,11 +78,12 @@ that provides the next value of <code>a</code>.  We could generate each of the
 procedures by filling in slots in the same template:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">name</span></var><span class="pln">⟩ a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> a b</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">0</span><span class="pln">
-      </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">term</span></var><span class="pln">⟩ a</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">name</span></var><span class="pln">⟩ </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">next</span></var><span class="pln">⟩ a</span><span class="clo">)</span><span class="pln"> b</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (⟨<var>name</var>⟩ a b)
+  (if (&gt; a b)
+      0
+      (+ (⟨<var>term</var>⟩ a) 
+         (⟨<var>name</var>⟩ (⟨<var>next</var>⟩ a) b))))
+</pre></div>
 
 <p>The presence of such a common pattern is strong evidence that there is a useful
 abstraction waiting to be brought to the surface.  Indeed, mathematicians long
@@ -126,42 +91,10 @@ ago identified the abstraction of <a id="index-summation-of-a-series"></a>
 <em>summation of a series</em> and invented
 “sigma notation,” for example
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <munderover>
-      <mo>∑<!-- ∑ --></mo>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mi>n</mi>
-        <mo>=</mo>
-        <mi>a</mi>
-      </mrow>
-      <mi>b</mi>
-    </munderover>
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>a</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>+</mo>
-  <mo>⋯<!-- ⋯ --></mo>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>b</mi>
-    <mo stretchy="false">)</mo>
-    <mo>,</mo>
-  </mrow>
-</math>
+\[ % :18:
+ 
+{\sum_{n = a}^b f(n)} \,=\, {f(a)} + \dots + {f(b),}
+\]
 
 to express this concept.  The power of sigma notation is that it allows
 mathematicians to deal with the concept of summation itself rather than only
@@ -175,11 +108,12 @@ readily in our procedural language by taking the common template shown above
 and transforming the “slots” into formal parameters:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum term a next b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> a b</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">0</span><span class="pln">
-      </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">term a</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">sum term </span><span class="opn">(</span><span class="pln">next a</span><span class="clo">)</span><span class="pln"> next b</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (sum term a next b)
+  (if (&gt; a b)
+      0
+      (+ (term a)
+         (sum term (next a) next b))))
+</pre></div>
 
 <p>Notice that <code>sum</code> takes as its arguments the lower and upper bounds
 <code>a</code> and <code>b</code> together with the procedures <code>term</code> and <code>next</code>.
@@ -188,172 +122,81 @@ it (along with a procedure <code>inc</code> that increments its argument by 1) t
 define <code>sum-cubes</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">inc n</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (inc n) (+ n 1))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum-cubes a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">sum cube a inc b</span><span class="clo">))</span></pre></div>
+(define (sum-cubes a b)
+  (sum cube a inc b))
+</pre></div>
 
 <p>Using this, we can compute the sum of the cubes of the integers from 1 to 10:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">sum-cubes </span><span class="lit">1</span><span class="pln"> </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">3025</span></i>
+<pre class="lisp">(sum-cubes 1 10)
+<i>3025</i>
 </pre></div>
 
 <p>With the aid of an identity procedure to compute the term, we can define
 <code>sum-integers</code> in terms of <code>sum</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">identity x</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (identity x) x)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum-integers a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">sum identity a inc b</span><span class="clo">))</span></pre></div>
+(define (sum-integers a b)
+  (sum identity a inc b))
+</pre></div>
 
 <p>Then we can add up the integers from 1 to 10:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">sum-integers </span><span class="lit">1</span><span class="pln"> </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">55</span></i>
+<pre class="lisp">(sum-integers 1 10)
+<i>55</i>
 </pre></div>
 
 <p>We can also define <code>pi-sum</code> in the same way:<a class="footnote_link" id="DOCF50" href="#FOOT50"><sup>50</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pi-sum a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pi-term x</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="lit">1.0</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">2</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pi-next x</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">4</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">sum pi-term a pi-next b</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (pi-sum a b)
+  (define (pi-term x)
+    (/ 1.0 (* x (+ x 2))))
+  (define (pi-next x)
+    (+ x 4))
+  (sum pi-term a pi-next b))
+</pre></div>
 
-<p>Using these procedures, we can compute an approximation to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math>:
+<p>Using these procedures, we can compute an approximation to \( \pi \):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">8</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pi-sum </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1000</span><span class="clo">))</span><span class="pln">
-</span><i><span class="lit">3.139592655589783</span></i>
+<pre class="lisp">(* 8 (pi-sum 1 1000))
+<i>3.139592655589783</i>
 </pre></div>
 
 <p>Once we have <code>sum</code>, we can use it as a building block in formulating
-further concepts.  For instance, the definite integral of a function <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math>
-between the limits <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math> can be approximated numerically using the
+further concepts.  For instance, the definite integral of a function \( f \)
+between the limits \( a \) and \( b \) can be approximated numerically using the
 formula
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msubsup>
-      <mo>∫<!-- ∫ --></mo>
-      <mi>a</mi>
-      <mi>b</mi>
-    </msubsup>
-    <mspace width="-0.3em"/>
-    <mi>f</mi>
-  </mrow>
-  <mspace width="thickmathspace"/>
-  <mo>=</mo>
-  <mspace width="thickmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mrow>
-      <mo>[</mo>
-      <mspace width="thickmathspace"/>
-      <mi>f</mi>
-      <mrow>
-        <mo>(</mo>
-        <mi>a</mi>
-        <mo>+</mo>
-        <mfrac>
-          <mrow>
-            <mi>d</mi>
-            <mi>x</mi>
-          </mrow>
-          <mn>2</mn>
-        </mfrac>
-        <mo>)</mo>
-      </mrow>
-    </mrow>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>+</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mrow>
-      <mo>(</mo>
-      <mi>a</mi>
-      <mo>+</mo>
-      <mi>d</mi>
-      <mi>x</mi>
-      <mo>+</mo>
-      <mfrac>
-        <mrow>
-          <mi>d</mi>
-          <mi>x</mi>
-        </mrow>
-        <mn>2</mn>
-      </mfrac>
-      <mo>)</mo>
-    </mrow>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>+</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mrow>
-      <mi>f</mi>
-      <mrow>
-        <mo>(</mo>
-        <mi>a</mi>
-        <mo>+</mo>
-        <mn>2</mn>
-        <mi>d</mi>
-        <mi>x</mi>
-        <mo>+</mo>
-        <mfrac>
-          <mrow>
-            <mi>d</mi>
-            <mi>x</mi>
-          </mrow>
-          <mn>2</mn>
-        </mfrac>
-        <mo>)</mo>
-      </mrow>
-      <mspace width="thinmathspace"/>
-      <mo>+</mo>
-      <mspace width="thinmathspace"/>
-      <mo>…<!-- … --></mo>
-      <mspace width="thickmathspace"/>
-      <mo>]</mo>
-    </mrow>
-    <mi>d</mi>
-    <mi>x</mi>
-  </mrow>
-</math>
+\[ % :19:
+ 
+{\int_a^b \kern-0.3em f}
+  \;=\; {\left[\;f\left(a + \frac{d x}{2}\right)\right.}
+  \,+\, {f\left(a + dx + \frac{dx}{2}\right)}
+  \,+\, {\left. f\left(a + 2dx + \frac{dx}{2}\right)
+  \,+\, \dots \;\right] dx}
+\]
 
-for small values of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>d</mi>
-    <mi>x</mi>
-  </mrow>
-</math>.  We can express this directly as a procedure:
+for small values of \( {dx} \).  We can express this directly as a procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">integral f a b dx</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add-dx x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x dx</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum f </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> dx </span><span class="lit">2.0</span><span class="clo">))</span><span class="pln"> add-dx b</span><span class="clo">)</span><span class="pln"> 
-     dx</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (integral f a b dx)
+  (define (add-dx x) (+ x dx))
+  (* (sum f (+ a (/ dx 2.0)) add-dx b) 
+     dx))
 
-</span><span class="opn">(</span><span class="pln">integral cube </span><span class="lit">0</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0.01</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">.24998750000000042</span></i><span class="pln">
+(integral cube 0 1 0.01)
+<i>.24998750000000042</i>
 
-</span><span class="opn">(</span><span class="pln">integral cube </span><span class="lit">0</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0.001</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">.249999875000001</span></i>
+(integral cube 0 1 0.001)
+<i>.249999875000001</i>
 </pre></div>
 
 <p>(The exact value of the integral of <code>cube</code> between 0 and 1 is 1/4.)
@@ -361,151 +204,20 @@ for small values of <math xmlns="http://www.w3.org/1998/Math/MathML">
 <blockquote>
 <p><strong><a id="Exercise-1_002e29"></a>Exercise 1.29:</strong> Simpson’s Rule is a more accurate
 method of numerical integration than the method illustrated above.  Using
-Simpson’s Rule, the integral of a function <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> between <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math> is
+Simpson’s Rule, the integral of a function \( f \) between \( a \) and \( b \) is
 approximated as
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mfrac>
-    <mi>h</mi>
-    <mn>3</mn>
-  </mfrac>
-  <mo stretchy="false">(</mo>
-  <msub>
-    <mi>y</mi>
-    <mn>0</mn>
-  </msub>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>4</mn>
-    <msub>
-      <mi>y</mi>
-      <mn>1</mn>
-    </msub>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>2</mn>
-    <msub>
-      <mi>y</mi>
-      <mn>2</mn>
-    </msub>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>4</mn>
-    <msub>
-      <mi>y</mi>
-      <mn>3</mn>
-    </msub>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>2</mn>
-    <msub>
-      <mi>y</mi>
-      <mn>4</mn>
-    </msub>
-  </mrow>
-  <mo>+</mo>
-  <mo>⋯<!-- ⋯ --></mo>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>2</mn>
-    <msub>
-      <mi>y</mi>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mi>n</mi>
-        <mo>−<!-- − --></mo>
-        <mn>2</mn>
-      </mrow>
-    </msub>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>4</mn>
-    <msub>
-      <mi>y</mi>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mi>n</mi>
-        <mo>−<!-- − --></mo>
-        <mn>1</mn>
-      </mrow>
-    </msub>
-    <mo>+</mo>
-    <msub>
-      <mi>y</mi>
-      <mi>n</mi>
-    </msub>
-    <mo stretchy="false">)</mo>
-    <mo>,</mo>
-  </mrow>
-</math>
+\[ % :20:
+  
+\frac{h}{3}(y_0 + {4y_1} + {2y_2} + {4y_3} + {2y_4} + \dots + {2y_{n-2}} + {4y_{n-1} + y_n),}
+\]
 
-where <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>h</mi>
-    <mo>=</mo>
-    <mo stretchy="false">(</mo>
-    <mi>b</mi>
-    <mo>−<!-- − --></mo>
-    <mi>a</mi>
-    <mo stretchy="false">)</mo>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>n</mi>
-  </mrow>
-</math>, for some even integer <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>, and
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>y</mi>
-    <mi>k</mi>
-  </msub>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>a</mi>
-    <mo>+</mo>
-    <mi>k</mi>
-    <mi>h</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  (Increasing <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> increases the
+where \( {h = (b - a)/n} \), for some even integer \( n \), and
+\( y_k = {f(a + kh)} \).  (Increasing \( n \) increases the
 accuracy of the approximation.)  Define a procedure that takes as arguments
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math>, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> and returns the value of the integral, computed
+\( f \), \( a \), \( b \), and \( n \) and returns the value of the integral, computed
 using Simpson’s Rule.  Use your procedure to integrate <code>cube</code> between 0
-and 1 (with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>=</mo>
-    <mn>100</mn>
-  </mrow>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>=</mo>
-    <mn>1000</mn>
-  </mrow>
-</math>), and compare the results to those of
+and 1 (with \( {n = 100} \) and \( {n = 1000} \)), and compare the results to those of
 the <code>integral</code> procedure shown above.
 </p></blockquote>
 
@@ -516,12 +228,13 @@ is performed iteratively.  Show how to do this by filling in the missing
 expressions in the following definition:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum term a next b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">iter a result</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> ⟨</span><span class="pun">??</span><span class="pln">⟩
-        ⟨</span><span class="pun">??</span><span class="pln">⟩
-        </span><span class="opn">(</span><span class="pln">iter ⟨</span><span class="pun">??</span><span class="pln">⟩ ⟨</span><span class="pun">??</span><span class="pln">⟩</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">iter ⟨</span><span class="pun">??</span><span class="pln">⟩ ⟨</span><span class="pun">??</span><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (sum term a next b)
+  (define (iter a result)
+    (if ⟨??⟩
+        ⟨??⟩
+        (iter ⟨??⟩ ⟨??⟩)))
+  (iter ⟨??⟩ ⟨??⟩))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -533,54 +246,13 @@ abstractions that can be captured as higher-order procedures.<a class="footnote_
 procedure called <code>product</code> that returns the product of the values of a
 function at points over a given range.  Show how to define <code>factorial</code> in
 terms of <code>product</code>.  Also use <code>product</code> to compute approximations to
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math> using the formula<a class="footnote_link" id="DOCF52" href="#FOOT52"><sup>52</sup></a>
+\( \pi \) using the formula<a class="footnote_link" id="DOCF52" href="#FOOT52"><sup>52</sup></a>
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mfrac>
-    <mi>π<!-- π --></mi>
-    <mn>4</mn>
-  </mfrac>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mrow>
-        <mn>2</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>4</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>4</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>6</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>6</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>8</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mo>⋯<!-- ⋯ --></mo>
-      </mrow>
-      <mrow>
-        <mn>3</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>3</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>5</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>5</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>7</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mn>7</mn>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mo>⋯<!-- ⋯ --></mo>
-      </mrow>
-    </mfrac>
-    <mo>.</mo>
-  </mrow>
-</math>
+\[ % :21:
+  
+\frac{\pi}{4} \,=\, {\frac{2\cdot 4\cdot 4\cdot 6\cdot 6\cdot 8\cdot\cdots}
+                     {3\cdot 3\cdot 5\cdot 5\cdot 7\cdot 7\cdot\cdots}.}
+\]
 
 </li><li> If your <code>product</code> procedure generates a recursive process, write one that
 generates an iterative process.  If it generates an iterative process, write
@@ -598,8 +270,9 @@ cases of a still more general notion called <code>accumulate</code> that combine
 collection of terms, using some general accumulation function:
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">accumulate 
- combiner null-value term a next b</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(accumulate 
+ combiner null-value term a next b)
+</pre></div>
 
 <p><code>Accumulate</code> takes as arguments the same term and range specifications as
 <code>sum</code> and <code>product</code>, together with a <code>combiner</code> procedure (of
@@ -628,86 +301,25 @@ that specifies the filter.  Write <code>filtered-accumulate</code> as a procedur
 Show how to express the following using <code>filtered-accumulate</code>:
 </p>
 <ol>
-<li> the sum of the squares of the prime numbers in the interval <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math>
+<li> the sum of the squares of the prime numbers in the interval \( a \) to \( b \)
 (assuming that you have a <code>prime?</code> predicate already written)
 
-</li><li> the product of all the positive integers less than <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> that are relatively
-prime to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> (i.e., all positive integers <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>&lt;</mo>
-    <mi>n</mi>
-  </mrow>
-</math> such that
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>GCD</mtext>
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-    <mo>=</mo>
-    <mn>1</mn>
-  </mrow>
-</math>).
+</li><li> the product of all the positive integers less than \( n \) that are relatively
+prime to \( n \) (i.e., all positive integers \( {i &lt; n} \) such that
+\( {\text{GCD}(i, n) = 1} \)).
 
 </li></ol>
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <div id="FOOT49"><p><a class="footnote_backlink" href="#DOCF49"><sup>49</sup></a>
 This series, usually
 written in the equivalent form 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mi>π<!-- π --></mi>
-      <mn>4</mn>
-    </mfrac>
-  </mrow>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>1</mn>
-    <mo>−<!-- − --></mo>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mfrac>
-        <mn>1</mn>
-        <mn>3</mn>
-      </mfrac>
-    </mrow>
-    <mo>+</mo>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mfrac>
-        <mn>1</mn>
-        <mn>5</mn>
-      </mfrac>
-    </mrow>
-  </mrow>
-  <mo>−<!-- − --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mrow class="MJX-TeXAtom-ORD">
-      <mfrac>
-        <mn>1</mn>
-        <mn>7</mn>
-      </mfrac>
-    </mrow>
-    <mo>+</mo>
-    <mo>…<!-- … --></mo>
-  </mrow>
-</math>, 
+\( {\pi\over4} = {1 - {1\over3} + {1\over5}} - {{1\over7} + \dots} \), 
 is due to Leibniz.  We’ll see how to use this as the basis for some
 fancy numerical tricks in <a href="3_002e5_002e3.xhtml#g_t3_002e5_002e3">3.5.3</a>.</p>
 </div>
@@ -737,10 +349,10 @@ This formula was discovered by the
 seventeenth-century English mathematician John Wallis.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="n" rel="next">1.3.2</a>, Previous: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="p" rel="prev">1.3</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="n" rel="next">1.3.2</a>, Previous: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="p" rel="prev">1.3</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

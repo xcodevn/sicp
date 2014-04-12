@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.1.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.1.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.1.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.1.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e1.xhtml#g_t3_002e1" rel="prev" title="3.1" />
-<link href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" rel="next" title="3.1.2" />
-<link href="3_002e1.xhtml#g_t3_002e1" rel="prev" title="3.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.1.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.1.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e1.xhtml#g_t3_002e1" rel="prev" title="3.1"/>
+<link href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" rel="next" title="3.1.2"/>
+<link href="3_002e1.xhtml#g_t3_002e1" rel="prev" title="3.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e1_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" accesskey="n" rel="next">3.1.2</a>, Previous: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="p" rel="prev">3.1</a>, Up: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="u" rel="prev">3.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" accesskey="n" rel="next">3.1.2</a>, Previous: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="p" rel="prev">3.1</a>, Up: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="u" rel="prev">3.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Local-State-Variables"></a>
 <h4 class="subsection"><span class="secnum">3.1.1</span><span class="sectitle">Local State Variables</span></h4>
@@ -47,17 +45,17 @@ account, we should obtain the following sequence of responses using
 <code>withdraw</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">withdraw </span><span class="lit">25</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">75</span></i><span class="pln">
+<pre class="lisp">(withdraw 25)
+<i>75</i>
 
-</span><span class="opn">(</span><span class="pln">withdraw </span><span class="lit">25</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">50</span></i><span class="pln">
+(withdraw 25)
+<i>50</i>
 
-</span><span class="opn">(</span><span class="pln">withdraw </span><span class="lit">60</span><span class="clo">)</span><span class="pln">
-</span><i><span class="str">"Insufficient funds"</span></i><span class="pln">
+(withdraw 60)
+<i>&quot;Insufficient funds&quot;</i>
 
-</span><span class="opn">(</span><span class="pln">withdraw </span><span class="lit">15</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">35</span></i>
+(withdraw 15)
+<i>35</i>
 </pre></div>
 
 <p>Observe that the expression <code>(withdraw 25)</code>, evaluated twice, yields
@@ -77,23 +75,26 @@ value of <code>balance</code>.  Otherwise, <code>withdraw</code> returns the
 and <code>withdraw</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> balance </span><span class="lit">100</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define balance 100)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">withdraw amount</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-             balance</span><span class="clo">)</span><span class="pln">
-      </span><span class="str">"Insufficient funds"</span><span class="clo">))</span></pre></div>
+(define (withdraw amount)
+  (if (&gt;= balance amount)
+      (begin (set! balance (- balance amount))
+             balance)
+      &quot;Insufficient funds&quot;))
+</pre></div>
 
 <p>Decrementing <code>balance</code> is accomplished by the expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(set! balance (- balance amount))
+</pre></div>
 
 <p>This uses the <code>set!</code> special form, whose syntax is
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> ⟨</span><var><span class="pln">name</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">new-value</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(set! ⟨<var>name</var>⟩ ⟨<var>new-value</var>⟩)
+</pre></div>
 
 <p>Here <code>⟨</code><var>name</var><code>⟩</code> is a symbol and <code>⟨</code><var>new-value</var><code>⟩</code> is any expression.
 <code>Set!</code> changes <code>⟨</code><var>name</var><code>⟩</code> so that its value is the result obtained by
@@ -107,43 +108,11 @@ decrementing <code>balance</code> and then returning the value of <code>balance<
 general, evaluating the expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> ⟨</span><var><span class="pln">exp</span><span class="pun">₁</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">exp</span><span class="pun">₂</span></var><span class="pln">⟩ </span><span class="roman"><span class="pun">…</span></span><span class="pln"> ⟨</span><var><span class="pln">exp</span><span class="pun">ₖ</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(begin ⟨<var>exp₁</var>⟩ ⟨<var>exp₂</var>⟩ <span class="roman">…</span> ⟨<var>expₖ</var>⟩)
+</pre></div>
 
-<p>causes the expressions <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mi>e</mi>
-    <mi>x</mi>
-    <msub>
-      <mi>p</mi>
-      <mn>1</mn>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> through <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mi>e</mi>
-    <mi>x</mi>
-    <msub>
-      <mi>p</mi>
-      <mi>k</mi>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> to be evaluated
-in sequence and the value of the final expression <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mi>e</mi>
-    <mi>x</mi>
-    <msub>
-      <mi>p</mi>
-      <mi>k</mi>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> to be
+<p>causes the expressions \( {⟨exp_1⟩} \) through \( {⟨exp_k⟩} \) to be evaluated
+in sequence and the value of the final expression \( {⟨exp_k⟩} \) to be
 returned as the value of the entire <code>begin</code> form.<a class="footnote_link" id="DOCF131" href="#FOOT131"><sup>131</sup></a>
 </p>
 <p>Although <code>withdraw</code> works as desired, the variable <code>balance</code> presents
@@ -161,14 +130,15 @@ account.
 definition as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> new-withdraw
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">balance </span><span class="lit">100</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amount</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance 
-                       </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-                 balance</span><span class="clo">)</span><span class="pln">
-          </span><span class="str">"Insufficient funds"</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define new-withdraw
+  (let ((balance 100))
+    (lambda (amount)
+      (if (&gt;= balance amount)
+          (begin (set! balance 
+                       (- balance amount))
+                 balance)
+          &quot;Insufficient funds&quot;))))
+</pre></div>
 
 <p>What we have done here is use <code>let</code> to establish an environment with a
 local variable <code>balance</code>, bound to the initial value 100.  Within this
@@ -201,32 +171,33 @@ processors.”  The formal parameter <code>balance</code> in <code>make-withdraw
 specifies the initial amount of money in the account.<a class="footnote_link" id="DOCF133" href="#FOOT133"><sup>133</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-withdraw balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance 
-                     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-               balance</span><span class="clo">)</span><span class="pln">
-        </span><span class="str">"Insufficient funds"</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (make-withdraw balance)
+  (lambda (amount)
+    (if (&gt;= balance amount)
+        (begin (set! balance 
+                     (- balance amount))
+               balance)
+        &quot;Insufficient funds&quot;)))
+</pre></div>
 
 <p><code>Make-withdraw</code> can be used as follows to create two objects <code>W1</code> and
 <code>W2</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> W1 </span><span class="opn">(</span><span class="pln">make-withdraw </span><span class="lit">100</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> W2 </span><span class="opn">(</span><span class="pln">make-withdraw </span><span class="lit">100</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define W1 (make-withdraw 100))
+(define W2 (make-withdraw 100))
 
-</span><span class="opn">(</span><span class="pln">W1 </span><span class="lit">50</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">50</span></i><span class="pln">
+(W1 50)
+<i>50</i>
 
-</span><span class="opn">(</span><span class="pln">W2 </span><span class="lit">70</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">30</span></i><span class="pln">
+(W2 70)
+<i>30</i>
 
-</span><span class="opn">(</span><span class="pln">W2 </span><span class="lit">40</span><span class="clo">)</span><span class="pln">
-</span><i><span class="str">"Insufficient funds"</span></i><span class="pln">
+(W2 40)
+<i>&quot;Insufficient funds&quot;</i>
 
-</span><span class="opn">(</span><span class="pln">W1 </span><span class="lit">40</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">10</span></i>
+(W1 40)
+<i>10</i>
 </pre></div>
 
 <p>Observe that <code>W1</code> and <code>W2</code> are completely independent objects, each
@@ -238,22 +209,23 @@ thus we can represent simple bank accounts.  Here is a procedure that returns a
 “bank-account object” with a specified initial balance:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-account balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">withdraw amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance 
-                     </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-               balance</span><span class="clo">)</span><span class="pln">
-        </span><span class="str">"Insufficient funds"</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">deposit amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-    balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> withdraw</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> deposit</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                 MAKE-ACCOUNT"</span><span class="pln"> m</span><span class="clo">))))</span><span class="pln">
-  dispatch</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (make-account balance)
+  (define (withdraw amount)
+    (if (&gt;= balance amount)
+        (begin (set! balance 
+                     (- balance amount))
+               balance)
+        &quot;Insufficient funds&quot;))
+  (define (deposit amount)
+    (set! balance (+ balance amount))
+    balance)
+  (define (dispatch m)
+    (cond ((eq? m 'withdraw) withdraw)
+          ((eq? m 'deposit) deposit)
+          (else (error &quot;Unknown request: 
+                 MAKE-ACCOUNT&quot; m))))
+  dispatch)
+</pre></div>
 
 <p>Each call to <code>make-account</code> sets up an environment with a local state
 variable <code>balance</code>.  Within this environment, <code>make-account</code> defines
@@ -269,19 +241,19 @@ ability to modify local variables.
 <p><code>Make-account</code> can be used as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> acc </span><span class="opn">(</span><span class="pln">make-account </span><span class="lit">100</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define acc (make-account 100))
 
-</span><span class="opn">((</span><span class="pln">acc </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> </span><span class="lit">50</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">50</span></i><span class="pln">
+((acc 'withdraw) 50)
+<i>50</i>
 
-</span><span class="opn">((</span><span class="pln">acc </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> </span><span class="lit">60</span><span class="clo">)</span><span class="pln">
-</span><i><span class="str">"Insufficient funds"</span></i><span class="pln">
+((acc 'withdraw) 60)
+<i>&quot;Insufficient funds&quot;</i>
 
-</span><span class="opn">((</span><span class="pln">acc </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> </span><span class="lit">40</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">90</span></i><span class="pln">
+((acc 'deposit) 40)
+<i>90</i>
 
-</span><span class="opn">((</span><span class="pln">acc </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> </span><span class="lit">60</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">30</span></i>
+((acc 'withdraw) 60)
+<i>30</i>
 </pre></div>
 
 <p>Each call to <code>acc</code> returns the locally defined <code>deposit</code> or
@@ -290,7 +262,8 @@ ability to modify local variables.
 <code>make-account</code>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> acc2 </span><span class="opn">(</span><span class="pln">make-account </span><span class="lit">100</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define acc2 (make-account 100))
+</pre></div>
 
 <p>will produce a completely separate account object, which maintains its own
 local <code>balance</code>.
@@ -306,13 +279,13 @@ generates accumulators, each maintaining an independent sum.  The input to
 example
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> A </span><span class="opn">(</span><span class="pln">make-accumulator </span><span class="lit">5</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define A (make-accumulator 5))
 
-</span><span class="opn">(</span><span class="pln">A </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">15</span></i><span class="pln">
+(A 10)
+<i>15</i>
 
-</span><span class="opn">(</span><span class="pln">A </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">25</span></i>
+(A 10)
+<i>25</i>
 </pre></div>
 </blockquote>
 
@@ -331,13 +304,13 @@ of calling <code>f</code> on that input and increments the counter.  For instanc
 could make a monitored version of the <code>sqrt</code> procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> s </span><span class="opn">(</span><span class="pln">make-monitored sqrt</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define s (make-monitored sqrt))
 
-</span><span class="opn">(</span><span class="pln">s </span><span class="lit">100</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">10</span></i><span class="pln">
+(s 100)
+<i>10</i>
 
-</span><span class="opn">(</span><span class="pln">s </span><span class="lit">'how-many-calls?</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">1</span></i>
+(s 'how-many-calls?)
+<i>1</i>
 </pre></div>
 </blockquote>
 
@@ -347,19 +320,20 @@ procedure so that it creates password-protected accounts.  That is,
 <code>make-account</code> should take a symbol as an additional argument, as in
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> acc 
-  </span><span class="opn">(</span><span class="pln">make-account </span><span class="lit">100</span><span class="pln"> </span><span class="lit">'secret-password</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define acc 
+  (make-account 100 'secret-password))
+</pre></div>
 
 <p>The resulting account object should process a request only if it is accompanied
 by the password with which the account was created, and should otherwise return
 a complaint:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="pln">acc </span><span class="lit">'secret-password</span><span class="pln"> </span><span class="lit">'withdraw</span><span class="clo">)</span><span class="pln"> </span><span class="lit">40</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">60</span></i><span class="pln">
+<pre class="lisp">((acc 'secret-password 'withdraw) 40)
+<i>60</i>
 
-</span><span class="opn">((</span><span class="pln">acc </span><span class="lit">'some-other-password</span><span class="pln"> </span><span class="lit">'deposit</span><span class="clo">)</span><span class="pln"> </span><span class="lit">50</span><span class="clo">)</span><span class="pln">
-</span><i><span class="str">"Incorrect password"</span></i>
+((acc 'some-other-password 'deposit) 50)
+<i>&quot;Incorrect password&quot;</i>
 </pre></div>
 </blockquote>
 
@@ -371,7 +345,7 @@ password, it invokes the procedure <code>call-the-cops</code>.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -421,10 +395,10 @@ This will be clearer after the discussion of the environment model of
 evaluation in <a href="3_002e2.xhtml#g_t3_002e2">3.2</a>.  (See also <a href="3_002e2_002e3.xhtml#Exercise-3_002e10">Exercise 3.10</a>.)</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" accesskey="n" rel="next">3.1.2</a>, Previous: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="p" rel="prev">3.1</a>, Up: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="u" rel="prev">3.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" accesskey="n" rel="next">3.1.2</a>, Previous: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="p" rel="prev">3.1</a>, Up: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="u" rel="prev">3.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

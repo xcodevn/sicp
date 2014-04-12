@@ -1,73 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.4.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.4.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.4.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.4.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e4.xhtml#g_t3_002e4" rel="prev" title="3.4" />
-<link href="3_002e4_002e2.xhtml#g_t3_002e4_002e2" rel="next" title="3.4.2" />
-<link href="3_002e4.xhtml#g_t3_002e4" rel="prev" title="3.4" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.4.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.4.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e4.xhtml#g_t3_002e4" rel="prev" title="3.4"/>
+<link href="3_002e4_002e2.xhtml#g_t3_002e4_002e2" rel="next" title="3.4.2"/>
+<link href="3_002e4.xhtml#g_t3_002e4" rel="prev" title="3.4"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e4_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e4_002e2.xhtml#g_t3_002e4_002e2" accesskey="n" rel="next">3.4.2</a>, Previous: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="p" rel="prev">3.4</a>, Up: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="u" rel="prev">3.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e4_002e2.xhtml#g_t3_002e4_002e2" accesskey="n" rel="next">3.4.2</a>, Previous: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="p" rel="prev">3.4</a>, Up: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="u" rel="prev">3.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="The-Nature-of-Time-in-Concurrent-Systems"></a>
 <h4 class="subsection"><span class="secnum">3.4.1</span><span class="sectitle">The Nature of Time in Concurrent Systems</span></h4>
 
 <p>On the surface, time seems straightforward.  It is an ordering imposed on
-events.<a class="footnote_link" id="DOCF163" href="#FOOT163"><sup>163</sup></a>  For any events <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>B</mi>
-</math>, either <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> occurs before <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>B</mi>
-</math>,
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>B</mi>
-</math> are simultaneous, or <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> occurs after <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>B</mi>
-</math>.  For instance,
+events.<a class="footnote_link" id="DOCF163" href="#FOOT163"><sup>163</sup></a>  For any events \( A \) and \( B \), either \( A \) occurs before \( B \),
+\( A \) and \( B \) are simultaneous, or \( A \) occurs after \( B \).  For instance,
 returning to the bank account example, suppose that Peter withdraws $10 and
 Paul withdraws $25 from a joint account that initially contains $100, leaving
 $65 in the account.  Depending on the order of the two withdrawals, the
-sequence of balances in the account is either $100 <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">→<!-- → --></mo>
-</math> $90 <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">→<!-- → --></mo>
-</math> $65 or $100 <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">→<!-- → --></mo>
-</math> $75
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">→<!-- → --></mo>
-</math> $65.  In a computer implementation of the banking system, this changing
+sequence of balances in the account is either $100 \( \to \) $90 \( \to \) $65 or $100 \( \to \) $75
+\( \to \) $65.  In a computer implementation of the banking system, this changing
 sequence of balances could be modeled by successive assignments to a variable
 <code>balance</code>.
 </p>
@@ -85,13 +59,14 @@ variable <code>balance</code>, each process specified by the procedure given in
 <a href="3_002e1_002e1.xhtml#g_t3_002e1_002e1">3.1.1</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">withdraw amount</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> balance amount</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance 
-              </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-        balance</span><span class="clo">)</span><span class="pln">
-      </span><span class="str">"Insufficient funds"</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (withdraw amount)
+  (if (&gt;= balance amount)
+      (begin 
+        (set! balance 
+              (- balance amount))
+        balance)
+      &quot;Insufficient funds&quot;))
+</pre></div>
 
 <p>If the two processes operate independently, then Peter might test the
 balance and attempt to withdraw a legitimate amount.  However, Paul
@@ -102,7 +77,8 @@ Peter’s test.
 <p>Things can be worse still.  Consider the expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(set! balance (- balance amount))
+</pre></div>
 
 <p>executed as part of each withdrawal process.  This consists of three steps: (1)
 accessing the value of the <code>balance</code> variable; (2) computing the new
@@ -229,7 +205,7 @@ to explain how these values can occur.
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -275,10 +251,10 @@ functions, but by functions whose results are sets of possible values.  In
 computations.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e4_002e2.xhtml#g_t3_002e4_002e2" accesskey="n" rel="next">3.4.2</a>, Previous: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="p" rel="prev">3.4</a>, Up: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="u" rel="prev">3.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e4_002e2.xhtml#g_t3_002e4_002e2" accesskey="n" rel="next">3.4.2</a>, Previous: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="p" rel="prev">3.4</a>, Up: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="u" rel="prev">3.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

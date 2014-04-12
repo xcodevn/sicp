@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.3.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.3.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.3.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3" />
-<link href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" rel="next" title="3.3.3" />
-<link href="3_002e3_002e1.xhtml#g_t3_002e3_002e1" rel="prev" title="3.3.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3"/>
+<link href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" rel="next" title="3.3.3"/>
+<link href="3_002e3_002e1.xhtml#g_t3_002e3_002e1" rel="prev" title="3.3.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e3_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" accesskey="n" rel="next">3.3.3</a>, Previous: <a href="3_002e3_002e1.xhtml#g_t3_002e3_002e1" accesskey="p" rel="prev">3.3.1</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" accesskey="n" rel="next">3.3.3</a>, Previous: <a href="3_002e3_002e1.xhtml#g_t3_002e3_002e1" accesskey="p" rel="prev">3.3.1</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Representing-Queues"></a>
 <h4 class="subsection"><span class="secnum">3.3.2</span><span class="sectitle">Representing Queues</span></h4>
@@ -73,12 +71,14 @@ no items).
 </li><li> two selectors:
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">empty-queue? ⟨</span><var><span class="pln">queue</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(empty-queue? ⟨<var>queue</var>⟩)
+</pre></div>
 
 <p>tests if the queue is empty.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">front-queue ⟨</span><var><span class="pln">queue</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(front-queue ⟨<var>queue</var>⟩)
+</pre></div>
 
 <p>returns the object at the front of the queue, signaling an error if the queue
 is empty; it does not modify the queue.
@@ -86,13 +86,15 @@ is empty; it does not modify the queue.
 </li><li> two mutators:
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">insert-queue! ⟨</span><var><span class="pln">queue</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">item</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(insert-queue! ⟨<var>queue</var>⟩ ⟨<var>item</var>⟩)
+</pre></div>
 
 <p>inserts the item at the rear of the queue and returns the modified queue as its
 value.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">delete-queue! ⟨</span><var><span class="pln">queue</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(delete-queue! ⟨<var>queue</var>⟩)
+</pre></div>
 
 <p>removes the item at the front of the queue and returns the modified queue as
 its value, signaling an error if the queue is empty before the deletion.
@@ -106,26 +108,10 @@ end of the list, and deleting an item from the queue would just be taking the
 <code>cdr</code> of the list.  However, this representation is inefficient, because
 in order to insert an item we must scan the list until we reach the end.  Since
 the only method we have for scanning a list is by successive <code>cdr</code>
-operations, this scanning requires <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> steps for a list of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>
+operations, this scanning requires \( {\Theta(n)} \) steps for a list of \( n \)
 items.  A simple modification to the list representation overcomes this
 disadvantage by allowing the queue operations to be implemented so that they
-require <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> steps; that is, so that the number of steps needed is
+require \( {\Theta(1)} \) steps; that is, so that the number of steps needed is
 independent of the length of the queue.
 </p>
 <p>The difficulty with the list representation arises from the need to scan to
@@ -157,35 +143,39 @@ representation.
 to select and to modify the front and rear pointers of a queue:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">front-ptr queue</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> queue</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">rear-ptr queue</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> queue</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-front-ptr! queue item</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">set-car! queue item</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-rear-ptr! queue item</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">set-cdr! queue item</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (front-ptr queue) (car queue))
+(define (rear-ptr queue) (cdr queue))
+(define (set-front-ptr! queue item) 
+  (set-car! queue item))
+(define (set-rear-ptr! queue item) 
+  (set-cdr! queue item))
+</pre></div>
 
 <p>Now we can implement the actual queue operations.  We will consider a queue to
 be empty if its front pointer is the empty list:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">empty-queue? queue</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">null? </span><span class="opn">(</span><span class="pln">front-ptr queue</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (empty-queue? queue) 
+  (null? (front-ptr queue)))
+</pre></div>
 
 <p>The <code>make-queue</code> constructor returns, as an initially empty queue, a pair
 whose <code>car</code> and <code>cdr</code> are both the empty list:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-queue</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (make-queue) (cons '() '()))
+</pre></div>
 
 <p>To select the item at the front of the queue, we return the <code>car</code> of the
 pair indicated by the front pointer:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">front-queue queue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">empty-queue? queue</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"FRONT called with an 
-              empty queue"</span><span class="pln"> queue</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="opn">(</span><span class="pln">front-ptr queue</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (front-queue queue)
+  (if (empty-queue? queue)
+      (error &quot;FRONT called with an 
+              empty queue&quot; queue)
+      (car (front-ptr queue))))
+</pre></div>
 
 <p>To insert an item in a queue, we follow the method whose result is indicated in
 <a href="#Figure-3_002e20">Figure 3.20</a>.  We first create a new pair whose <code>car</code> is the item to
@@ -204,16 +194,17 @@ also set the rear pointer to the new pair.
 </figure>
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">insert-queue! queue item</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">new-pair </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> item </span><span class="lit">'</span><span class="opn">(</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">empty-queue? queue</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-front-ptr! queue new-pair</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-rear-ptr! queue new-pair</span><span class="clo">)</span><span class="pln">
-           queue</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-cdr! </span><span class="opn">(</span><span class="pln">rear-ptr queue</span><span class="clo">)</span><span class="pln"> 
-                          new-pair</span><span class="clo">)</span><span class="pln">
-                </span><span class="opn">(</span><span class="pln">set-rear-ptr! queue new-pair</span><span class="clo">)</span><span class="pln">
-                queue</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (insert-queue! queue item)
+  (let ((new-pair (cons item '())))
+    (cond ((empty-queue? queue)
+           (set-front-ptr! queue new-pair)
+           (set-rear-ptr! queue new-pair)
+           queue)
+          (else (set-cdr! (rear-ptr queue) 
+                          new-pair)
+                (set-rear-ptr! queue new-pair)
+                queue))))
+</pre></div>
 
 <p>To delete the item at the front of the queue, we merely modify the front
 pointer so that it now points at the second item in the queue, which can be
@@ -221,14 +212,15 @@ found by following the <code>cdr</code> pointer of the first item (see
 <a href="#Figure-3_002e21">Figure 3.21</a>):<a class="footnote_link" id="DOCF150" href="#FOOT150"><sup>150</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">delete-queue! queue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">empty-queue? queue</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"DELETE! called with 
-                 an empty queue"</span><span class="pln"> queue</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-front-ptr! 
+<pre class="lisp">(define (delete-queue! queue)
+  (cond ((empty-queue? queue)
+         (error &quot;DELETE! called with 
+                 an empty queue&quot; queue))
+        (else (set-front-ptr! 
                queue 
-               </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> </span><span class="opn">(</span><span class="pln">front-ptr queue</span><span class="clo">)))</span><span class="pln">
-              queue</span><span class="clo">)))</span></pre></div>
+               (cdr (front-ptr queue)))
+              queue)))
+</pre></div>
 
 <figure class="float">
 <a id="Figure-3_002e21"></a>
@@ -245,19 +237,19 @@ queue implementation described above.  He types in the procedures to the Lisp
 interpreter and proceeds to try them out:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> q1 </span><span class="opn">(</span><span class="pln">make-queue</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define q1 (make-queue))
 
-</span><span class="opn">(</span><span class="pln">insert-queue! q1 </span><span class="lit">'a</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">((</span><span class="pln">a</span><span class="clo">)</span><span class="pln"> a</span><span class="clo">)</span></i><span class="pln">
+(insert-queue! q1 'a)
+<i>((a) a)</i>
 
-</span><span class="opn">(</span><span class="pln">insert-queue! q1 </span><span class="lit">'b</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">((</span><span class="pln">a b</span><span class="clo">)</span><span class="pln"> b</span><span class="clo">)</span></i><span class="pln">
+(insert-queue! q1 'b)
+<i>((a b) b)</i>
 
-</span><span class="opn">(</span><span class="pln">delete-queue! q1</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">((</span><span class="pln">b</span><span class="clo">)</span><span class="pln"> b</span><span class="clo">)</span></i><span class="pln">
+(delete-queue! q1)
+<i>((b) b)</i>
 
-</span><span class="opn">(</span><span class="pln">delete-queue! q1</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">((</span><span class="clo">)</span><span class="pln"> b</span><span class="clo">)</span></i>
+(delete-queue! q1)
+<i>(() b)</i>
 </pre></div>
 
 <p>“It’s all wrong!” he complains.  “The interpreter’s response shows that the
@@ -280,12 +272,13 @@ The local state will consist of pointers to the beginning and the end of an
 ordinary list.  Thus, the <code>make-queue</code> procedure will have the form
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-queue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">front-ptr </span><span class="roman"><span class="pun">…</span></span><span class="pln"> </span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">rear-ptr </span><span class="roman"><span class="pun">…</span></span><span class="pln"> </span><span class="clo">))</span><span class="pln">
-    ⟨</span><var><span class="pln">definitions of internal procedures</span></var><span class="pln">⟩
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln"> </span><span class="roman"><span class="pun">…</span></span><span class="clo">)</span><span class="pln">
-    dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-queue)
+  (let ((front-ptr <span class="roman">…</span> )
+        (rear-ptr <span class="roman">…</span> ))
+    ⟨<var>definitions of internal procedures</var>⟩
+    (define (dispatch m) <span class="roman">…</span>)
+    dispatch))
+</pre></div>
 
 <p>Complete the definition of <code>make-queue</code> and provide implementations of the
 queue operations using this representation.
@@ -301,18 +294,11 @@ the predicate <code>empty-deque?</code>, selectors <code>front-deque</code> and
 <code>rear-insert-deque!</code>, <code>front-delete-deque!</code>, 
 <code>rear-delete-deque!</code>.  Show how to represent deques using pairs, and give
 implementations of the operations.<a class="footnote_link" id="DOCF151" href="#FOOT151"><sup>151</sup></a>  
-All operations should be accomplished in <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> steps.
+All operations should be accomplished in \( {\Theta(1)} \) steps.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -328,10 +314,10 @@ Be careful not to make the
 interpreter try to print a structure that contains cycles.  (See <a href="3_002e3_002e1.xhtml#Exercise-3_002e13">Exercise 3.13</a>.)</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" accesskey="n" rel="next">3.3.3</a>, Previous: <a href="3_002e3_002e1.xhtml#g_t3_002e3_002e1" accesskey="p" rel="prev">3.3.1</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" accesskey="n" rel="next">3.3.3</a>, Previous: <a href="3_002e3_002e1.xhtml#g_t3_002e3_002e1" accesskey="p" rel="prev">3.3.1</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

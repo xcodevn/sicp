@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 2.3.4</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.4</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 2.3.4" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 2.3.4" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="2_002e3.xhtml#g_t2_002e3" rel="prev" title="2.3" />
-<link href="2_002e4.xhtml#g_t2_002e4" rel="next" title="2.4" />
-<link href="2_002e3_002e3.xhtml#g_t2_002e3_002e3" rel="prev" title="2.3.3" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.4"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="2_002e3.xhtml#g_t2_002e3" rel="prev" title="2.3"/>
+<link href="2_002e4.xhtml#g_t2_002e4" rel="next" title="2.4"/>
+<link href="2_002e3_002e3.xhtml#g_t2_002e3_002e3" rel="prev" title="2.3.3"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t2_002e3_002e4"></a>
 <nav class="header">
 <p>
-Next: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="n" rel="next">2.4</a>, Previous: <a href="2_002e3_002e3.xhtml#g_t2_002e3_002e3" accesskey="p" rel="prev">2.3.3</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="n" rel="next">2.4</a>, Previous: <a href="2_002e3_002e3.xhtml#g_t2_002e3_002e3" accesskey="p" rel="prev">2.3.3</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Example_003a-Huffman-Encoding-Trees"></a>
 <h4 class="subsection"><span class="secnum">2.3.4</span><span class="sectitle">Example: Huffman Encoding Trees</span></h4>
@@ -40,25 +38,9 @@ Next: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="n" rel="next">2.4</a>, Previ
 abstraction to manipulate sets and trees.  The application is to methods for
 representing data as sequences of ones and zeros (bits).  For example, the
 ASCII standard code used to represent text in computers encodes each character
-as a sequence of seven bits.  Using seven bits allows us to distinguish <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mn>2</mn>
-    <mn>7</mn>
-  </msup>
-</math>,
+as a sequence of seven bits.  Using seven bits allows us to distinguish \( 2^7 \),
 or 128, possible different characters.  In general, if we want to distinguish
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> different symbols, we will need to use <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msub>
-      <mi>log</mi>
-      <mn>2</mn>
-    </msub>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mi>n</mi>
-  </mrow>
-</math> bits per
+\( n \) different symbols, we will need to use \( {\log_2n} \) bits per
 symbol.  If all our messages are made up of the eight symbols A, B, C, D, E, F,
 G, and H, we can choose a code with three bits per character, for example
 </p>
@@ -239,12 +221,13 @@ represented.
 <code>leaf</code>, the symbol at the leaf, and the weight:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-leaf symbol weight</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'leaf</span><span class="pln"> symbol weight</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">leaf? object</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> object</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'leaf</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">symbol-leaf x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">weight-leaf x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">caddr</span><span class="pln"> x</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-leaf symbol weight)
+  (list 'leaf symbol weight))
+(define (leaf? object)
+  (eq? (car object) 'leaf))
+(define (symbol-leaf x) (cadr x))
+(define (weight-leaf x) (caddr x))
+</pre></div>
 
 <p>A general tree will be a list of a left branch, a right branch, a set of
 symbols, and a weight.  The set of symbols will be simply a list of the
@@ -256,28 +239,30 @@ form the union by using the <code>append</code> procedure we defined in
 <a href="2_002e2_002e1.xhtml#g_t2_002e2_002e1">2.2.1</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-code-tree left right</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">list left
+<pre class="lisp">(define (make-code-tree left right)
+  (list left
         right
-        </span><span class="opn">(</span><span class="pln">append </span><span class="opn">(</span><span class="pln">symbols left</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">symbols right</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">weight left</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">weight right</span><span class="clo">))))</span></pre></div>
+        (append (symbols left) 
+                (symbols right))
+        (+ (weight left) (weight right))))
+</pre></div>
 
 <p>If we make a tree in this way, we have the following selectors:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">left-branch tree</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> tree</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">right-branch tree</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> tree</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (left-branch tree) (car tree))
+(define (right-branch tree) (cadr tree))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">symbols tree</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">leaf? tree</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">symbol-leaf tree</span><span class="clo">))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">caddr</span><span class="pln"> tree</span><span class="clo">)))</span><span class="pln">
+(define (symbols tree)
+  (if (leaf? tree)
+      (list (symbol-leaf tree))
+      (caddr tree)))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">weight tree</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">leaf? tree</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">weight-leaf tree</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cadddr</span><span class="pln"> tree</span><span class="clo">)))</span></pre></div>
+(define (weight tree)
+  (if (leaf? tree)
+      (weight-leaf tree)
+      (cadddr tree)))
+</pre></div>
 
 <p>The procedures <code>symbols</code> and <code>weight</code> must do something slightly
 different depending on whether they are called with a leaf or a general tree.
@@ -293,27 +278,28 @@ in <a href="2_002e4.xhtml#g_t2_002e4">2.4</a> and <a href="2_002e5.xhtml#g_t2_00
 arguments a list of zeros and ones, together with a Huffman tree.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">decode bits tree</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">decode-1 bits current-branch</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? bits</span><span class="clo">)</span><span class="pln">
-        </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">next-branch
-               </span><span class="opn">(</span><span class="pln">choose-branch 
-                </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> bits</span><span class="clo">)</span><span class="pln"> 
-                current-branch</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">leaf? next-branch</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="pln">symbol-leaf next-branch</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">decode-1 </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> bits</span><span class="clo">)</span><span class="pln"> tree</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">decode-1 </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> bits</span><span class="clo">)</span><span class="pln"> 
-                        next-branch</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">decode-1 bits tree</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (decode bits tree)
+  (define (decode-1 bits current-branch)
+    (if (null? bits)
+        '()
+        (let ((next-branch
+               (choose-branch 
+                (car bits) 
+                current-branch)))
+          (if (leaf? next-branch)
+              (cons 
+               (symbol-leaf next-branch)
+               (decode-1 (cdr bits) tree))
+              (decode-1 (cdr bits) 
+                        next-branch)))))
+  (decode-1 bits tree))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">choose-branch bit branch</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> bit </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">left-branch branch</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> bit </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">right-branch branch</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"bad bit: 
-               CHOOSE-BRANCH"</span><span class="pln"> bit</span><span class="clo">))))</span></pre></div>
+(define (choose-branch bit branch)
+  (cond ((= bit 0) (left-branch branch))
+        ((= bit 1) (right-branch branch))
+        (else (error &quot;bad bit: 
+               CHOOSE-BRANCH&quot; bit))))
+</pre></div>
 
 <p>The procedure <code>decode-1</code> takes two arguments: the list of remaining bits
 and the current position in the tree.  It keeps moving “down” the tree,
@@ -342,44 +328,47 @@ however, items are compared by their weights, and the element being added to
 the set is never already in it.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">adjoin-set x </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? </span><span class="kwd">set</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list x</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">&lt;</span><span class="pln"> </span><span class="opn">(</span><span class="pln">weight x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">weight </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">)))</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x </span><span class="kwd">set</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">adjoin-set x </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(define (adjoin-set x set)
+  (cond ((null? set) (list x))
+        ((&lt; (weight x) (weight (car set))) 
+         (cons x set))
+        (else 
+         (cons (car set)
+               (adjoin-set x (cdr set))))))
+</pre></div>
 
 <p>The following procedure takes a list of symbol-frequency pairs such as
 <code>((A 4) (B 2) (C 1) (D 1))</code> and constructs an initial ordered set of
 leaves, ready to be merged according to the Huffman algorithm:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-leaf-set pairs</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? pairs</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">pair </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> pairs</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">adjoin-set 
-         </span><span class="opn">(</span><span class="pln">make-leaf </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> pair</span><span class="clo">)</span><span class="pln">    </span><span class="roman"><span class="com">; symbol</span></span><span class="pln">
-                    </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> pair</span><span class="clo">))</span><span class="pln">  </span><span class="roman"><span class="com">; frequency</span></span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">make-leaf-set </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> pairs</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(define (make-leaf-set pairs)
+  (if (null? pairs)
+      '()
+      (let ((pair (car pairs)))
+        (adjoin-set 
+         (make-leaf (car pair)    <span class="roman">; symbol</span>
+                    (cadr pair))  <span class="roman">; frequency</span>
+         (make-leaf-set (cdr pairs))))))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-2_002e67"></a>Exercise 2.67:</strong> Define an encoding tree and a
 sample message:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> sample-tree
-  </span><span class="opn">(</span><span class="pln">make-code-tree 
-   </span><span class="opn">(</span><span class="pln">make-leaf </span><span class="lit">'A</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">make-code-tree
-    </span><span class="opn">(</span><span class="pln">make-leaf </span><span class="lit">'B</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">make-code-tree 
-     </span><span class="opn">(</span><span class="pln">make-leaf </span><span class="lit">'D</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">make-leaf </span><span class="lit">'C</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)))))</span><span class="pln">
+<pre class="lisp">(define sample-tree
+  (make-code-tree 
+   (make-leaf 'A 4)
+   (make-code-tree
+    (make-leaf 'B 2)
+    (make-code-tree 
+     (make-leaf 'D 1)
+     (make-leaf 'C 1)))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> sample-message 
-  </span><span class="lit">'</span><span class="opn">(</span><span class="lit">0</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">0</span><span class="clo">))</span></pre></div>
+(define sample-message 
+  '(0 1 1 0 0 1 0 1 0 1 1 1 0))
+</pre></div>
 
 <p>Use the <code>decode</code> procedure to decode the message, and give the result.
 </p></blockquote>
@@ -390,13 +379,14 @@ as arguments a message and a tree and produces the list of bits that gives the
 encoded message.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">encode message tree</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? message</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">append 
-       </span><span class="opn">(</span><span class="pln">encode-symbol </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> message</span><span class="clo">)</span><span class="pln"> 
-                      tree</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="pln">encode </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> message</span><span class="clo">)</span><span class="pln"> tree</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (encode message tree)
+  (if (null? message)
+      '()
+      (append 
+       (encode-symbol (car message) 
+                      tree)
+       (encode (cdr message) tree))))
+</pre></div>
 
 <p><code>Encode-symbol</code> is a procedure, which you must write, that returns the
 list of bits that encodes a given symbol according to a given tree.  You should
@@ -413,9 +403,10 @@ than one pair) and generates a Huffman encoding tree according to the Huffman
 algorithm.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">generate-huffman-tree pairs</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">successive-merge 
-   </span><span class="opn">(</span><span class="pln">make-leaf-set pairs</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (generate-huffman-tree pairs)
+  (successive-merge 
+   (make-leaf-set pairs)))
+</pre></div>
 
 <p><code>Make-leaf-set</code> is the procedure given above that transforms the list of
 pairs into an ordered set of leaves.  <code>Successive-merge</code> is the procedure
@@ -464,44 +455,9 @@ for the eight-symbol alphabet?
 
 <blockquote>
 <p><strong><a id="Exercise-2_002e71"></a>Exercise 2.71:</strong> Suppose we have a Huffman tree
-for an alphabet of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> symbols, and that the relative frequencies of the
-symbols are <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>1</mn>
-    <mo>,</mo>
-    <mn>2</mn>
-    <mo>,</mo>
-    <mn>4</mn>
-    <mo>,</mo>
-    <mo>…<!-- … --></mo>
-    <mo>,</mo>
-    <msup>
-      <mn>2</mn>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mi>n</mi>
-        <mo>−<!-- − --></mo>
-        <mn>1</mn>
-      </mrow>
-    </msup>
-  </mrow>
-</math>.  Sketch the tree for <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>=</mo>
-    <mn>5</mn>
-  </mrow>
-</math>; for
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>=</mo>
-    <mn>10</mn>
-  </mrow>
-</math>.  In such a tree (for general <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>) how many bits are required to
+for an alphabet of \( n \) symbols, and that the relative frequencies of the
+symbols are \( {1, 2, 4, \dots, 2^{n-1}} \).  Sketch the tree for \( {n=5} \); for
+\( {n=10} \).  In such a tree (for general \( n \)) how many bits are required to
 encode the most frequent symbol?  The least frequent symbol?
 </p></blockquote>
 
@@ -511,18 +467,14 @@ that you designed in <a href="#Exercise-2_002e68">Exercise 2.68</a>.  What is th
 number of steps needed to encode a symbol?  Be sure to include the number of
 steps needed to search the symbol list at each node encountered.  To answer
 this question in general is difficult.  Consider the special case where the
-relative frequencies of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> symbols are as described in <a href="#Exercise-2_002e71">Exercise 2.71</a>, 
-and give the order of growth (as a function of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>) of the number of
+relative frequencies of the \( n \) symbols are as described in <a href="#Exercise-2_002e71">Exercise 2.71</a>, 
+and give the order of growth (as a function of \( n \)) of the number of
 steps needed to encode the most frequent and least frequent symbols in the
 alphabet.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -531,10 +483,10 @@ See <a href="References.xhtml#Hamming-1980">Hamming 1980</a>
 for a discussion of the mathematical properties of Huffman codes.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="n" rel="next">2.4</a>, Previous: <a href="2_002e3_002e3.xhtml#g_t2_002e3_002e3" accesskey="p" rel="prev">2.3.3</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e4.xhtml#g_t2_002e4" accesskey="n" rel="next">2.4</a>, Previous: <a href="2_002e3_002e3.xhtml#g_t2_002e3_002e3" accesskey="p" rel="prev">2.3.3</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

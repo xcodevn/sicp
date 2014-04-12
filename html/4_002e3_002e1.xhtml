@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 4.3.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.3.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 4.3.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 4.3.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="4_002e3.xhtml#g_t4_002e3" rel="prev" title="4.3" />
-<link href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" rel="next" title="4.3.2" />
-<link href="4_002e3.xhtml#g_t4_002e3" rel="prev" title="4.3" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.3.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.3.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="4_002e3.xhtml#g_t4_002e3" rel="prev" title="4.3"/>
+<link href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" rel="next" title="4.3.2"/>
+<link href="4_002e3.xhtml#g_t4_002e3" rel="prev" title="4.3"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t4_002e3_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" accesskey="n" rel="next">4.3.2</a>, Previous: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="p" rel="prev">4.3</a>, Up: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="u" rel="prev">4.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" accesskey="n" rel="next">4.3.2</a>, Previous: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="p" rel="prev">4.3</a>, Up: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="u" rel="prev">4.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Amb-and-Search"></a>
 <h4 class="subsection"><span class="secnum">4.3.1</span><span class="sectitle">Amb and Search</span></h4>
@@ -41,25 +39,15 @@ called <code>amb</code>.<a class="footnote_link" id="DOCF247" href="#FOOT247"><s
 The expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">amb ⟨</span><var><span class="pln">e</span><span class="pun">₁</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">e</span><span class="pun">₂</span></var><span class="pln">⟩ </span><span class="roman"><span class="pun">…</span></span><span class="pln"> ⟨</span><var><span class="pln">e</span><span class="pun">ₙ</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(amb ⟨<var>e₁</var>⟩ ⟨<var>e₂</var>⟩ <span class="roman">…</span> ⟨<var>eₙ</var>⟩)
+</pre></div>
 
-<p>returns the value of one of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> expressions <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.03em"/>
-    <msub>
-      <mi>e</mi>
-      <mi>i</mi>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math>
+<p>returns the value of one of the \( n \) expressions \( {⟨\kern0.03em e_i⟩} \)
 “ambiguously.”  For example, the expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">amb </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">3</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amb </span><span class="lit">'a</span><span class="pln"> </span><span class="lit">'b</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(list (amb 1 2 3) (amb 'a 'b))
+</pre></div>
 
 <p>can have six possible values:
 </p>
@@ -77,37 +65,36 @@ the requirement that a particular predicate expression <code>p</code> must be tr
 follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">require p</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">not p</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amb</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (require p)
+  (if (not p) (amb)))
+</pre></div>
 
 <p>With <code>amb</code> and <code>require</code>, we can implement the <code>an-element-of</code>
 procedure used above:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">an-element-of items</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">require </span><span class="opn">(</span><span class="pln">not </span><span class="opn">(</span><span class="pln">null? items</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">amb </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> items</span><span class="clo">)</span><span class="pln"> 
-       </span><span class="opn">(</span><span class="pln">an-element-of </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> items</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (an-element-of items)
+  (require (not (null? items)))
+  (amb (car items) 
+       (an-element-of (cdr items))))
+</pre></div>
 
 <p><code>An-element-of</code> fails if the list is empty.  Otherwise it ambiguously
 returns either the first element of the list or an element chosen from the rest
 of the list.
 </p>
 <p>We can also express infinite ranges of choices.  The following procedure
-potentially returns any integer greater than or equal to some given <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>:
+potentially returns any integer greater than or equal to some given \( n \):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">an-integer-starting-from n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">amb n </span><span class="opn">(</span><span class="pln">an-integer-starting-from </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (an-integer-starting-from n)
+  (amb n (an-integer-starting-from (+ n 1))))
+</pre></div>
 
 <p>This is like the stream procedure <code>integers-starting-from</code> described in
 <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2">3.5.2</a>, but with an important difference: The stream procedure
 returns an object that represents the sequence of all integers beginning with
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>, whereas the <code>amb</code> procedure returns a single integer.<a class="footnote_link" id="DOCF248" href="#FOOT248"><sup>248</sup></a>
+\( n \), whereas the <code>amb</code> procedure returns a single integer.<a class="footnote_link" id="DOCF248" href="#FOOT248"><sup>248</sup></a>
 </p>
 <p>Abstractly, we can imagine that evaluating an <code>amb</code> expression causes time
 to split into branches, where the computation continues on each branch with one
@@ -158,92 +145,60 @@ given, the interpreter will start a new problem, discarding the unexplored
 alternatives in the previous problem.  Here is a sample interaction:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><i><span class="com">;;; Amb-Eval input:</span></i><span class="pln">
-</span><span class="opn">(</span><span class="pln">prime-sum-pair </span><span class="lit">'</span><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">8</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="lit">20</span><span class="pln"> </span><span class="lit">35</span><span class="pln"> </span><span class="lit">110</span><span class="clo">))</span><span class="pln">
+<pre class="lisp"><i>;;; Amb-Eval input:</i>
+(prime-sum-pair '(1 3 5 8) '(20 35 110))
 
-</span><i><span class="com">;;; Starting a new problem</span></i><span class="pln">
-</span><i><span class="com">;;; Amb-Eval value:</span></i><span class="pln">
-</span><i><span class="opn">(</span><span class="lit">3</span><span class="pln"> </span><span class="lit">20</span><span class="clo">)</span></i><span class="pln">
+<i>;;; Starting a new problem</i>
+<i>;;; Amb-Eval value:</i>
+<i>(3 20)</i>
 
-</span><i><span class="com">;;; Amb-Eval input:</span></i><span class="pln">
+<i>;;; Amb-Eval input:</i>
 try-again
 
-</span><i><span class="com">;;; Amb-Eval value:</span></i><span class="pln">
-</span><i><span class="opn">(</span><span class="lit">3</span><span class="pln"> </span><span class="lit">110</span><span class="clo">)</span></i><span class="pln">
+<i>;;; Amb-Eval value:</i>
+<i>(3 110)</i>
 
-</span><i><span class="com">;;; Amb-Eval input:</span></i><span class="pln">
+<i>;;; Amb-Eval input:</i>
 try-again
 
-</span><i><span class="com">;;; Amb-Eval value:</span></i><span class="pln">
-</span><i><span class="opn">(</span><span class="lit">8</span><span class="pln"> </span><span class="lit">35</span><span class="clo">)</span></i><span class="pln">
+<i>;;; Amb-Eval value:</i>
+<i>(8 35)</i>
 
-</span><i><span class="com">;;; Amb-Eval input:</span></i><span class="pln">
+<i>;;; Amb-Eval input:</i>
 try-again
 
-</span><i><span class="com">;;; There are no more values of</span></i><span class="pln">
-</span><i><span class="opn">(</span><span class="pln">prime-sum-pair 
- </span><span class="opn">(</span><span class="kwd">quote</span><span class="pln"> </span><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">8</span><span class="clo">))</span><span class="pln"> 
- </span><span class="opn">(</span><span class="kwd">quote</span><span class="pln"> </span><span class="opn">(</span><span class="lit">20</span><span class="pln"> </span><span class="lit">35</span><span class="pln"> </span><span class="lit">110</span><span class="clo">)))</span></i><span class="pln">
+<i>;;; There are no more values of</i>
+<i>(prime-sum-pair 
+ (quote (1 3 5 8)) 
+ (quote (20 35 110)))</i>
 
-</span><i><span class="com">;;; Amb-Eval input:</span></i><span class="pln">
-</span><span class="opn">(</span><span class="pln">prime-sum-pair </span><span class="lit">'</span><span class="opn">(</span><span class="lit">19</span><span class="pln"> </span><span class="lit">27</span><span class="pln"> </span><span class="lit">30</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="lit">11</span><span class="pln"> </span><span class="lit">36</span><span class="pln"> </span><span class="lit">58</span><span class="clo">))</span><span class="pln">
+<i>;;; Amb-Eval input:</i>
+(prime-sum-pair '(19 27 30) '(11 36 58))
 
-</span><i><span class="com">;;; Starting a new problem</span></i><span class="pln">
-</span><i><span class="com">;;; Amb-Eval value:</span></i><span class="pln">
-</span><i><span class="opn">(</span><span class="lit">30</span><span class="pln"> </span><span class="lit">11</span><span class="clo">)</span></i>
+<i>;;; Starting a new problem</i>
+<i>;;; Amb-Eval value:</i>
+<i>(30 11)</i>
 </pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-4_002e35"></a>Exercise 4.35:</strong> Write a procedure
 <code>an-integer-between</code> that returns an integer between two given bounds.
 This can be used to implement a procedure that finds Pythagorean triples, i.e.,
-triples of integers <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>i</mi>
-    <mo>,</mo>
-    <mi>j</mi>
-    <mo>,</mo>
-    <mi>k</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> between the given bounds such that
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>i</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>j</mi>
-  </mrow>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>i</mi>
-      <mn>2</mn>
-    </msup>
-    <mo>+</mo>
-    <msup>
-      <mi>j</mi>
-      <mn>2</mn>
-    </msup>
-    <mo>=</mo>
-    <msup>
-      <mi>k</mi>
-      <mn>2</mn>
-    </msup>
-  </mrow>
-</math>, as follows:
+triples of integers \( {(i, j, k)} \) between the given bounds such that
+\( {i \le j} \) and \( {i^2 + j^2 = k^2} \), as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">a-pythagorean-triple-between 
+<pre class="lisp">(define (a-pythagorean-triple-between 
          low 
-         high</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">i </span><span class="opn">(</span><span class="pln">an-integer-between low high</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">j </span><span class="opn">(</span><span class="pln">an-integer-between i high</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">k </span><span class="opn">(</span><span class="pln">an-integer-between j 
-                                   high</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">require </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> i i</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> j j</span><span class="clo">))</span><span class="pln"> 
-                    </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> k k</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">list i j k</span><span class="clo">)))))</span></pre></div>
+         high)
+  (let ((i (an-integer-between low high)))
+    (let ((j (an-integer-between i high)))
+      (let ((k (an-integer-between j 
+                                   high)))
+        (require (= (+ (* i i) (* j j)) 
+                    (* k k)))
+        (list i j k)))))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -264,23 +219,24 @@ one in <a href="#Exercise-4_002e35">Exercise 4.35</a>.  Is he correct?  (Hint: C
 possibilities that must be explored.)
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">a-pythagorean-triple-between 
+<pre class="lisp">(define (a-pythagorean-triple-between 
          low 
-         high</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">i </span><span class="opn">(</span><span class="pln">an-integer-between low
-                               high</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">hsq </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> high high</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">j </span><span class="opn">(</span><span class="pln">an-integer-between i
-                                 high</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">ksq </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> i i</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> j j</span><span class="clo">))))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">require </span><span class="opn">(</span><span class="pun">&gt;=</span><span class="pln"> hsq ksq</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">k </span><span class="opn">(</span><span class="pln">sqrt ksq</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">require </span><span class="opn">(</span><span class="pln">integer? k</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">list i j k</span><span class="clo">))))))</span></pre></div>
+         high)
+  (let ((i (an-integer-between low
+                               high))
+        (hsq (* high high)))
+    (let ((j (an-integer-between i
+                                 high)))
+      (let ((ksq (+ (* i i) (* j j))))
+        (require (&gt;= hsq ksq))
+        (let ((k (sqrt ksq)))
+          (require (integer? k))
+          (list i j k))))))
+</pre></div>
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -351,10 +307,10 @@ backtracking rather than chronological backtracking.  <a href="References.xhtml#
 introduction to both kinds of backtracking.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" accesskey="n" rel="next">4.3.2</a>, Previous: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="p" rel="prev">4.3</a>, Up: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="u" rel="prev">4.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" accesskey="n" rel="next">4.3.2</a>, Previous: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="p" rel="prev">4.3</a>, Up: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="u" rel="prev">4.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

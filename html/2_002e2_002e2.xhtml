@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 2.2.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.2.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 2.2.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 2.2.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="2_002e2.xhtml#g_t2_002e2" rel="prev" title="2.2" />
-<link href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" rel="next" title="2.2.3" />
-<link href="2_002e2_002e1.xhtml#g_t2_002e2_002e1" rel="prev" title="2.2.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.2.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.2.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="2_002e2.xhtml#g_t2_002e2" rel="prev" title="2.2"/>
+<link href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" rel="next" title="2.2.3"/>
+<link href="2_002e2_002e1.xhtml#g_t2_002e2_002e1" rel="prev" title="2.2.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t2_002e2_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" accesskey="n" rel="next">2.2.3</a>, Previous: <a href="2_002e2_002e1.xhtml#g_t2_002e2_002e1" accesskey="p" rel="prev">2.2.1</a>, Up: <a href="2_002e2.xhtml#g_t2_002e2" accesskey="u" rel="prev">2.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" accesskey="n" rel="next">2.2.3</a>, Previous: <a href="2_002e2_002e1.xhtml#g_t2_002e2_002e1" accesskey="p" rel="prev">2.2.1</a>, Up: <a href="2_002e2.xhtml#g_t2_002e2" accesskey="u" rel="prev">2.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Hierarchical-Structures"></a>
 <h4 class="subsection"><span class="secnum">2.2.2</span><span class="sectitle">Hierarchical Structures</span></h4>
@@ -41,7 +39,8 @@ represent sequences whose elements may themselves be sequences.  For example,
 we can regard the object <code>((1 2) 3 4)</code> constructed by
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(cons (list 1 2) (list 3 4))
+</pre></div>
 
 <p>as a list of three items, the first of which is itself a list, <code>(1 2)</code>.
 Indeed, this is suggested by the form in which the result is printed by the
@@ -80,25 +79,26 @@ procedure of <a href="2_002e2_002e1.xhtml#g_t2_002e2_002e1">2.2.1</a> with the <
 returns the total number of leaves of a tree:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)))</span></pre></div>
-
-<div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">length x</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">3</span></i>
+<pre class="lisp">(define x (cons (list 1 2) (list 3 4)))
 </pre></div>
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">count-leaves x</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">4</span></i><span class="pln">
+<pre class="lisp">(length x)
+<i>3</i>
+</pre></div>
 
-</span><span class="opn">(</span><span class="pln">list x x</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">(((</span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)</span><span class="pln"> </span><span class="opn">((</span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">))</span></i><span class="pln">
+<div class="lisp">
+<pre class="lisp">(count-leaves x)
+<i>4</i>
 
-</span><span class="opn">(</span><span class="pln">length </span><span class="opn">(</span><span class="pln">list x x</span><span class="clo">))</span><span class="pln">
-</span><i><span class="lit">2</span></i><span class="pln">
+(list x x)
+<i>(((1 2) 3 4) ((1 2) 3 4))</i>
 
-</span><span class="opn">(</span><span class="pln">count-leaves </span><span class="opn">(</span><span class="pln">list x x</span><span class="clo">))</span><span class="pln">
-</span><i><span class="lit">8</span></i>
+(length (list x x))
+<i>2</i>
+
+(count-leaves (list x x))
+<i>8</i>
 </pre></div>
 
 <p>To implement <code>count-leaves</code>, recall the recursive plan for computing
@@ -142,11 +142,12 @@ predicate <code>pair?</code>, which tests whether its argument is a pair.  Here 
 the complete procedure:<a class="footnote_link" id="DOCF79" href="#FOOT79"><sup>79</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-leaves x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? x</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">not </span><span class="opn">(</span><span class="pln">pair? x</span><span class="clo">))</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-leaves </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">count-leaves </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(define (count-leaves x)
+  (cond ((null? x) 0)
+        ((not (pair? x)) 1)
+        (else (+ (count-leaves (car x))
+                 (count-leaves (cdr x))))))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-2_002e24"></a>Exercise 2.24:</strong> Suppose we evaluate the
@@ -160,9 +161,10 @@ interpretation of this as a tree (as in <a href="#Figure-2_002e6">Figure 2.6</a>
 and <code>cdr</code>s that will pick 7 from each of the following lists:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="opn">(</span><span class="lit">5</span><span class="pln"> </span><span class="lit">7</span><span class="clo">)</span><span class="pln"> </span><span class="lit">9</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">((</span><span class="lit">7</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="opn">(</span><span class="lit">2</span><span class="pln"> </span><span class="opn">(</span><span class="lit">3</span><span class="pln"> </span><span class="opn">(</span><span class="lit">4</span><span class="pln"> </span><span class="opn">(</span><span class="lit">5</span><span class="pln"> </span><span class="opn">(</span><span class="lit">6</span><span class="pln"> </span><span class="lit">7</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(1 3 (5 7) 9)
+((7))
+(1 (2 (3 (4 (5 (6 7))))))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -170,16 +172,18 @@ and <code>cdr</code>s that will pick 7 from each of the following lists:
 <code>y</code> to be two lists:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">list </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">3</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> y </span><span class="opn">(</span><span class="pln">list </span><span class="lit">4</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">6</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define x (list 1 2 3))
+(define y (list 4 5 6))
+</pre></div>
 
 <p>What result is printed by the interpreter in response to evaluating each of the
 following expressions:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">append x y</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x y</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">list x y</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(append x y)
+(cons x y)
+(list x y)
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -189,17 +193,17 @@ that takes a list as argument and returns as its value the list with its
 elements reversed and with all sublists deep-reversed as well.  For example,
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x 
-  </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">list </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)))</span><span class="pln">
+<pre class="lisp">(define x 
+  (list (list 1 2) (list 3 4)))
 
 x
-</span><i><span class="opn">((</span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">))</span></i><span class="pln">
+<i>((1 2) (3 4))</i>
 
-</span><span class="opn">(</span><span class="pln">reverse x</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">((</span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">))</span></i><span class="pln">
+(reverse x)
+<i>((3 4) (1 2))</i>
 
-</span><span class="opn">(</span><span class="pln">deep-reverse x</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">((</span><span class="lit">4</span><span class="pln"> </span><span class="lit">3</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="lit">2</span><span class="pln"> </span><span class="lit">1</span><span class="clo">))</span></i>
+(deep-reverse x)
+<i>((4 3) (2 1))</i>
 </pre></div>
 </blockquote>
 
@@ -210,14 +214,14 @@ elements are all the leaves of the tree arranged in left-to-right order.  For
 example,
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x 
-  </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">list </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)))</span><span class="pln">
+<pre class="lisp">(define x 
+  (list (list 1 2) (list 3 4)))
 
-</span><span class="opn">(</span><span class="pln">fringe x</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)</span></i><span class="pln">
+(fringe x)
+<i>(1 2 3 4)</i>
 
-</span><span class="opn">(</span><span class="pln">fringe </span><span class="opn">(</span><span class="pln">list x x</span><span class="clo">))</span><span class="pln">
-</span><i><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)</span></i>
+(fringe (list x x))
+<i>(1 2 3 4 1 2 3 4)</i>
 </pre></div>
 </blockquote>
 
@@ -229,16 +233,18 @@ represent a binary mobile using compound data by constructing it from two
 branches (for example, using <code>list</code>):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-mobile left right</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">list left right</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-mobile left right)
+  (list left right))
+</pre></div>
 
 <p>A branch is constructed from a <code>length</code> (which must be a number) together
 with a <code>structure</code>, which may be either a number (representing a simple
 weight) or another mobile:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-branch length structure</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">list length structure</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-branch length structure)
+  (list length structure))
+</pre></div>
 
 <ol>
 <li> Write the corresponding selectors <code>left-branch</code> and <code>right-branch</code>,
@@ -259,11 +265,12 @@ mobile is balanced.
 </li><li> Suppose we change the representation of mobiles so that the constructors are
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-mobile left right</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> left right</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (make-mobile left right)
+  (cons left right))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-branch length structure</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> length structure</span><span class="clo">))</span></pre></div>
+(define (make-branch length structure)
+  (cons length structure))
+</pre></div>
 
 <p>How much do you need to change your programs to convert to the new
 representation?
@@ -283,22 +290,22 @@ where each number is multiplied by the factor.  The recursive plan for
 <code>scale-tree</code> is similar to the one for <code>count-leaves</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">scale-tree tree factor</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? tree</span><span class="clo">)</span><span class="pln"> nil</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">not </span><span class="opn">(</span><span class="pln">pair? tree</span><span class="clo">))</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> tree factor</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln">
-         </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">scale-tree </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> tree</span><span class="clo">)</span><span class="pln"> 
-                           factor</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">scale-tree </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> tree</span><span class="clo">)</span><span class="pln"> 
-                           factor</span><span class="clo">)))))</span><span class="pln">
+<pre class="lisp">(define (scale-tree tree factor)
+  (cond ((null? tree) nil)
+        ((not (pair? tree)) 
+         (* tree factor))
+        (else
+         (cons (scale-tree (car tree) 
+                           factor)
+               (scale-tree (cdr tree) 
+                           factor)))))
 
-</span><span class="opn">(</span><span class="pln">scale-tree </span><span class="opn">(</span><span class="pln">list </span><span class="lit">1</span><span class="pln"> 
-                  </span><span class="opn">(</span><span class="pln">list </span><span class="lit">2</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)</span><span class="pln"> </span><span class="lit">5</span><span class="clo">)</span><span class="pln"> 
-                  </span><span class="opn">(</span><span class="pln">list </span><span class="lit">6</span><span class="pln"> </span><span class="lit">7</span><span class="clo">))</span><span class="pln">
-            </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
+(scale-tree (list 1 
+                  (list 2 (list 3 4) 5) 
+                  (list 6 7))
+            10)
 
-</span><i><span class="opn">(</span><span class="lit">10</span><span class="pln"> </span><span class="opn">(</span><span class="lit">20</span><span class="pln"> </span><span class="opn">(</span><span class="lit">30</span><span class="pln"> </span><span class="lit">40</span><span class="clo">)</span><span class="pln"> </span><span class="lit">50</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="lit">60</span><span class="pln"> </span><span class="lit">70</span><span class="clo">))</span></i>
+<i>(10 (20 (30 40) 50) (60 70))</i>
 </pre></div>
 
 <p>Another way to implement <code>scale-tree</code> is to regard the tree as a sequence
@@ -307,12 +314,13 @@ sub-tree in turn, and return the list of results.  In the base case, where the
 tree is a leaf, we simply multiply by the factor:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">scale-tree tree factor</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">map </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sub-tree</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pair? sub-tree</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="pln">scale-tree sub-tree factor</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> sub-tree factor</span><span class="clo">)))</span><span class="pln">
-       tree</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (scale-tree tree factor)
+  (map (lambda (sub-tree)
+         (if (pair? sub-tree)
+             (scale-tree sub-tree factor)
+             (* sub-tree factor)))
+       tree))
+</pre></div>
 
 <p>Many tree operations can be implemented by similar combinations of sequence
 operations and recursion.
@@ -323,11 +331,11 @@ operations and recursion.
 <a href="2_002e2_002e1.xhtml#Exercise-2_002e21">Exercise 2.21</a>.  That is, <code>square-tree</code> should behave as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">square-tree
- </span><span class="opn">(</span><span class="pln">list </span><span class="lit">1</span><span class="pln">
-       </span><span class="opn">(</span><span class="pln">list </span><span class="lit">2</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)</span><span class="pln"> </span><span class="lit">5</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="pln">list </span><span class="lit">6</span><span class="pln"> </span><span class="lit">7</span><span class="clo">)))</span><span class="pln">
-</span><i><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="opn">(</span><span class="lit">4</span><span class="pln"> </span><span class="opn">(</span><span class="lit">9</span><span class="pln"> </span><span class="lit">16</span><span class="clo">)</span><span class="pln"> </span><span class="lit">25</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="lit">36</span><span class="pln"> </span><span class="lit">49</span><span class="clo">))</span></i>
+<pre class="lisp">(square-tree
+ (list 1
+       (list 2 (list 3 4) 5)
+       (list 6 7)))
+<i>(1 (4 (9 16) 25) (36 49))</i>
 </pre></div>
 
 <p>Define <code>square-tree</code> both directly (i.e., without using any higher-order
@@ -340,8 +348,9 @@ procedures) and also by using <code>map</code> and recursion.
 that <code>square-tree</code> could be defined as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square-tree tree</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">tree-map square tree</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (square-tree tree) 
+  (tree-map square tree))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -353,15 +362,16 @@ following definition of a procedure that generates the set of subsets of a set
 and give a clear explanation of why it works:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">subsets s</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? s</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">list nil</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">rest </span><span class="opn">(</span><span class="pln">subsets </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> s</span><span class="clo">))))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">append rest </span><span class="opn">(</span><span class="pln">map ⟨</span><span class="pun">??</span><span class="pln">⟩ rest</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (subsets s)
+  (if (null? s)
+      (list nil)
+      (let ((rest (subsets (cdr s))))
+        (append rest (map ⟨??⟩ rest)))))
+</pre></div>
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -371,10 +381,10 @@ The order of the first two clauses in the
 not a pair.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" accesskey="n" rel="next">2.2.3</a>, Previous: <a href="2_002e2_002e1.xhtml#g_t2_002e2_002e1" accesskey="p" rel="prev">2.2.1</a>, Up: <a href="2_002e2.xhtml#g_t2_002e2" accesskey="u" rel="prev">2.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" accesskey="n" rel="next">2.2.3</a>, Previous: <a href="2_002e2_002e1.xhtml#g_t2_002e2_002e1" accesskey="p" rel="prev">2.2.1</a>, Up: <a href="2_002e2.xhtml#g_t2_002e2" accesskey="u" rel="prev">2.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

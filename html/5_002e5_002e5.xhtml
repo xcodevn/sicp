@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.5.5</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5.5</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.5.5" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.5.5" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e5.xhtml#g_t5_002e5" rel="prev" title="5.5" />
-<link href="5_002e5_002e6.xhtml#g_t5_002e5_002e6" rel="next" title="5.5.6" />
-<link href="5_002e5_002e4.xhtml#g_t5_002e5_002e4" rel="prev" title="5.5.4" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5.5"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e5.xhtml#g_t5_002e5" rel="prev" title="5.5"/>
+<link href="5_002e5_002e6.xhtml#g_t5_002e5_002e6" rel="next" title="5.5.6"/>
+<link href="5_002e5_002e4.xhtml#g_t5_002e5_002e4" rel="prev" title="5.5.4"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e5_002e5"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e5_002e6.xhtml#g_t5_002e5_002e6" accesskey="n" rel="next">5.5.6</a>, Previous: <a href="5_002e5_002e4.xhtml#g_t5_002e5_002e4" accesskey="p" rel="prev">5.5.4</a>, Up: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="u" rel="prev">5.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e5_002e6.xhtml#g_t5_002e5_002e6" accesskey="n" rel="next">5.5.6</a>, Previous: <a href="5_002e5_002e4.xhtml#g_t5_002e5_002e4" accesskey="p" rel="prev">5.5.4</a>, Up: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="u" rel="prev">5.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="An-Example-of-Compiled-Code"></a>
 <h4 class="subsection"><span class="secnum">5.5.5</span><span class="sectitle">An Example of Compiled Code</span></h4>
@@ -41,13 +39,14 @@ example of compiled code to see how things fit together.  We will compile the
 definition of a recursive <code>factorial</code> procedure by calling <code>compile</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">compile
- </span><span class="lit">'</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial n</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-        </span><span class="lit">1</span><span class="pln">
-        </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))</span><span class="pln"> n</span><span class="clo">)))</span><span class="pln">
- </span><span class="lit">'val</span><span class="pln">
- </span><span class="lit">'next</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(compile
+ '(define (factorial n)
+    (if (= n 1)
+        1
+        (* (factorial (- n 1)) n)))
+ 'val
+ 'next)
+</pre></div>
 
 <p>We have specified that the value of the <code>define</code> expression should be
 placed in the <code>val</code> register.  We don’t care what the compiled code does
@@ -64,15 +63,16 @@ install the definition.  Because the linkage is <code>next</code>, there is no
 linkage code in this case.  The skeleton of the compiled code is thus
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">⟨</span><em><span class="pln">save </span><code><span class="pln">env</span></code><span class="pln"> </span><span class="kwd">if</span><span class="pln"> modified by code to compute value</span></em><span class="pln">⟩
-  ⟨</span><em><span class="pln">compilation of definition value</span><span class="pun">,</span><span class="pln"> 
-   target </span><code><span class="pln">val</span></code><span class="pun">,</span><span class="pln"> linkage </span><code><span class="pln">next</span></code></em><span class="pln">⟩
-  ⟨</span><em><span class="pln">restore </span><code><span class="pln">env</span></code><span class="pln"> </span><span class="kwd">if</span><span class="pln"> saved above</span></em><span class="pln">⟩
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op define-variable!</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">const factorial</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const ok</span><span class="clo">))</span></pre></div>
+<pre class="lisp">⟨<em>save <code>env</code> if modified by code to compute value</em>⟩
+  ⟨<em>compilation of definition value, 
+   target <code>val</code>, linkage <code>next</code></em>⟩
+  ⟨<em>restore <code>env</code> if saved above</em>⟩
+  (perform (op define-variable!)
+           (const factorial)
+           (reg val)
+           (reg env))
+  (assign val (const ok))
+</pre></div>
 
 <p>The expression that is to be compiled to produce the value for the variable
 <code>factorial</code> is a <code>lambda</code> expression whose value is the procedure
@@ -91,32 +91,34 @@ so its use of <code>env</code> is irrelevant.)  Therefore, the skeleton for the
 compiled code becomes
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op make-compiled-procedure</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">label entry2</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label after-lambda1</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">  (assign val (op make-compiled-procedure)
+              (label entry2)
+              (reg env))
+  (goto (label after-lambda1))
 entry2
-  </span><span class="opn">(</span><span class="pln">assign env </span><span class="opn">(</span><span class="pln">op compiled-procedure-env</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign env </span><span class="opn">(</span><span class="pln">op extend-environment</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">const </span><span class="opn">(</span><span class="pln">n</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  ⟨</span><em><span class="pln">compilation of procedure body</span></em><span class="pln">⟩
+  (assign env (op compiled-procedure-env)
+              (reg proc))
+  (assign env (op extend-environment)
+              (const (n))
+              (reg argl)
+              (reg env))
+  ⟨<em>compilation of procedure body</em>⟩
 after-lambda1
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op define-variable!</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">const factorial</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const ok</span><span class="clo">))</span></pre></div>
+  (perform (op define-variable!)
+           (const factorial)
+           (reg val) (reg env))
+  (assign val (const ok))
+</pre></div>
 
 <p>A procedure body is always compiled (by <code>compile-lambda-body</code>) as a
 sequence with target <code>val</code> and linkage <code>return</code>.  The sequence in
 this case consists of a single <code>if</code> expression:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-    </span><span class="lit">1</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))</span><span class="pln"> n</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(if (= n 1)
+    1
+    (* (factorial (- n 1)) n))
+</pre></div>
 
 <p><code>Compile-if</code> generates code that first computes the predicate (targeted to
 <code>val</code>), then checks the result and branches around the true branch if the
@@ -130,20 +132,21 @@ value of the conditional, which is the value computed by either of its
 branches, is the value of the procedure.)
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">⟨</span><em><span class="pln">save </span><code><span class="pln">continue</span></code><span class="pun">,</span><span class="pln"> </span><code><span class="pln">env</span></code><span class="pln"> </span><span class="kwd">if</span><span class="pln"> modified by 
- predicate </span><span class="kwd">and</span><span class="pln"> needed by branches</span></em><span class="pln">⟩
-  ⟨</span><em><span class="pln">compilation of predicate</span><span class="pun">,</span><span class="pln"> 
-   target </span><code><span class="pln">val</span></code><span class="pun">,</span><span class="pln"> linkage </span><code><span class="pln">next</span></code></em><span class="pln">⟩
-  ⟨</span><em><span class="pln">restore </span><code><span class="pln">continue</span></code><span class="pun">,</span><span class="pln"> </span><code><span class="pln">env</span></code><span class="pln"> </span><span class="kwd">if</span><span class="pln"> saved above</span></em><span class="pln">⟩
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op false?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label false-branch4</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">⟨<em>save <code>continue</code>, <code>env</code> if modified by 
+ predicate and needed by branches</em>⟩
+  ⟨<em>compilation of predicate, 
+   target <code>val</code>, linkage <code>next</code></em>⟩
+  ⟨<em>restore <code>continue</code>, <code>env</code> if saved above</em>⟩
+  (test (op false?) (reg val))
+  (branch (label false-branch4))
 true-branch5
-  ⟨</span><em><span class="pln">compilation of true branch</span><span class="pun">,</span><span class="pln"> 
-   target </span><code><span class="pln">val</span></code><span class="pun">,</span><span class="pln"> linkage </span><code><span class="pln">return</span></code></em><span class="pln">⟩
+  ⟨<em>compilation of true branch, 
+   target <code>val</code>, linkage <code>return</code></em>⟩
 false-branch4
-  ⟨</span><em><span class="pln">compilation of false branch</span><span class="pun">,</span><span class="pln"> 
-   target </span><code><span class="pln">val</span></code><span class="pun">,</span><span class="pln"> linkage </span><code><span class="pln">return</span></code></em><span class="pln">⟩
-after-if3</span></pre></div>
+  ⟨<em>compilation of false branch, 
+   target <code>val</code>, linkage <code>return</code></em>⟩
+after-if3
+</pre></div>
 
 <p>The predicate <code>(= n 1)</code> is a procedure call.  This looks up the operator
 (the symbol <code>=</code>) and places this value in <code>proc</code>.  It then assembles
@@ -156,34 +159,36 @@ any saving of registers, because in this case those evaluations don’t modify
 the registers in question.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">  </span><span class="opn">(</span><span class="pln">assign proc </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">const </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op list</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">const n</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cons</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-branch17</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">  (assign proc (op lookup-variable-value)
+               (const =) 
+               (reg env))
+  (assign val (const 1))
+  (assign argl (op list) (reg val))
+  (assign val (op lookup-variable-value)
+              (const n)
+              (reg env))
+  (assign argl (op cons) (reg val) (reg argl))
+  (test (op primitive-procedure?) (reg proc))
+  (branch (label primitive-branch17))
 compiled-branch16
-  </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">label after-call15</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op compiled-procedure-entry</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
+  (assign continue (label after-call15))
+  (assign val (op compiled-procedure-entry)
+              (reg proc))
+  (goto (reg val))
 primitive-branch17
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-after-call15</span></pre></div>
+  (assign val (op apply-primitive-procedure)
+              (reg proc)
+              (reg argl))
+after-call15
+</pre></div>
 
 <p>The true branch, which is the constant 1, compiles (with target <code>val</code> and
 linkage <code>return</code>) to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign val (const 1))
+(goto (reg continue))
+</pre></div>
 
 <p>The code for the false branch is another procedure call, where the procedure
 is the value of the symbol <code>*</code>, and the arguments are <code>n</code> and the
@@ -197,159 +202,158 @@ procedure call in the predicate and needed for the procedure call and the
 <code>return</code> linkage in the branches.
 </p>
 <blockquote>
-<p><strong><a id="Figure-5_002e17"></a>Figure 5.17:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↓<!-- ↓ --></mo>
-</math> Compilation of the definition of the <code>factorial</code> procedure.
+<p><strong><a id="Figure-5_002e17"></a>Figure 5.17:</strong> \( \downarrow \) Compilation of the definition of the <code>factorial</code> procedure.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="roman"><span class="com">;; construct the procedure and skip over code</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; for the procedure body</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op make-compiled-procedure</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">label entry2</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label after-lambda1</span><span class="clo">))</span><span class="pln">
-entry2     </span><span class="roman"><span class="com">; calls to </span><code><span class="com">factorial</span></code><span class="com"> will enter here</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign env 
-          </span><span class="opn">(</span><span class="pln">op compiled-procedure-env</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign env
-          </span><span class="opn">(</span><span class="pln">op extend-environment</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">const </span><span class="opn">(</span><span class="pln">n</span><span class="clo">))</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-</span><span class="roman"><span class="com">;; begin actual procedure body</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save continue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save env</span><span class="clo">)</span><span class="pln">
-</span><span class="roman"><span class="com">;; compute </span><code><span class="com">(= n 1)</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign proc 
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">const </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op list</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">const n</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cons</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-branch17</span><span class="clo">))</span><span class="pln">
+<pre class="lisp"><span class="roman">;; construct the procedure and skip over code</span>
+<span class="roman">;; for the procedure body</span>
+  (assign val
+          (op make-compiled-procedure) 
+          (label entry2) 
+          (reg env))
+  (goto (label after-lambda1))
+entry2     <span class="roman">; calls to <code>factorial</code> will enter here</span>
+  (assign env 
+          (op compiled-procedure-env)
+          (reg proc))
+  (assign env
+          (op extend-environment) 
+          (const (n)) 
+          (reg argl) 
+          (reg env))
+<span class="roman">;; begin actual procedure body</span>
+  (save continue)
+  (save env)
+<span class="roman">;; compute <code>(= n 1)</code></span>
+  (assign proc 
+          (op lookup-variable-value) 
+          (const =) 
+          (reg env))
+  (assign val (const 1))
+  (assign argl (op list) (reg val))
+  (assign val 
+          (op lookup-variable-value) 
+          (const n) 
+          (reg env))
+  (assign argl (op cons) (reg val) (reg argl))
+  (test (op primitive-procedure?) (reg proc))
+  (branch (label primitive-branch17))
 compiled-branch16
-  </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">label after-call15</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op compiled-procedure-entry</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
+  (assign continue (label after-call15))
+  (assign val
+          (op compiled-procedure-entry)
+          (reg proc))
+  (goto (reg val))
 primitive-branch17
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-after-call15   </span><span class="roman"><span class="com">; </span><code><span class="com">val</span></code><span class="com"> now contains result of </span><code><span class="com">(= n 1)</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore continue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op false?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label false-branch4</span><span class="clo">))</span><span class="pln">
-true-branch5  </span><span class="roman"><span class="com">; return 1</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span><span class="pln">
+  (assign val 
+          (op apply-primitive-procedure) 
+          (reg proc) 
+          (reg argl))
+after-call15   <span class="roman">; <code>val</code> now contains result of <code>(= n 1)</code></span>
+  (restore env)
+  (restore continue)
+  (test (op false?) (reg val))
+  (branch (label false-branch4))
+true-branch5  <span class="roman">; return 1</span>
+  (assign val (const 1))
+  (goto (reg continue))
 
 false-branch4
-</span><span class="roman"><span class="com">;; compute and return </span><code><span class="com">(* (factorial (- n 1)) n)</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign proc 
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">const </span><span class="pun">*</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save continue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save proc</span><span class="clo">)</span><span class="pln">   </span><span class="roman"><span class="com">; save </span><code><span class="com">*</span></code></span><span class="com"> procedure</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">const n</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op list</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save argl</span><span class="clo">)</span><span class="pln">   </span><span class="roman"><span class="com">; save partial argument list for </span><code><span class="com">*</span></code></span><span class="pln">
-</span><span class="roman"><span class="com">;; compute </span><code><span class="com">(factorial (- n 1))</span></code><span class="com">,</span></span><span class="com"> </span><span class="pln">
-</span><span class="roman"><span class="com">;; which is the other argument for </span><code><span class="com">*</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign proc
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">const factorial</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save proc</span><span class="clo">)</span><span class="pln">  </span><span class="roman"><span class="com">; save </span><code><span class="com">factorial</span></code><span class="com"> procedure</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; compute </span><code><span class="com">(- n 1)</span></code><span class="com">, which is the argument for </span><code><span class="com">factorial</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign proc 
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">const </span><span class="pun">-</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op list</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">const n</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cons</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-branch8</span><span class="clo">))</span><span class="pln">
+<span class="roman">;; compute and return <code>(* (factorial (- n 1)) n)</code></span>
+  (assign proc 
+          (op lookup-variable-value) 
+          (const *) 
+          (reg env))
+  (save continue)
+  (save proc)   <span class="roman">; save <code>*</code></span> procedure
+  (assign val 
+          (op lookup-variable-value) 
+          (const n) 
+          (reg env))
+  (assign argl (op list) (reg val))
+  (save argl)   <span class="roman">; save partial argument list for <code>*</code></span>
+<span class="roman">;; compute <code>(factorial (- n 1))</code>,</span> 
+<span class="roman">;; which is the other argument for <code>*</code></span>
+  (assign proc
+          (op lookup-variable-value) 
+          (const factorial) 
+          (reg env))
+  (save proc)  <span class="roman">; save <code>factorial</code> procedure</span>
+<span class="roman">;; compute <code>(- n 1)</code>, which is the argument for <code>factorial</code></span>
+  (assign proc 
+          (op lookup-variable-value)
+          (const -) 
+          (reg env))
+  (assign val (const 1))
+  (assign argl (op list) (reg val))
+  (assign val 
+          (op lookup-variable-value) 
+          (const n) 
+          (reg env))
+  (assign argl (op cons) (reg val) (reg argl))
+  (test (op primitive-procedure?) (reg proc))
+  (branch (label primitive-branch8))
 compiled-branch7
-  </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">label after-call6</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op compiled-procedure-entry</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
+  (assign continue (label after-call6))
+  (assign val
+          (op compiled-procedure-entry)
+          (reg proc))
+  (goto (reg val))
 primitive-branch8
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
+  (assign val 
+          (op apply-primitive-procedure) 
+          (reg proc) 
+          (reg argl))
 
-after-call6   </span><span class="roman"><span class="com">; </span><code><span class="com">val</span></code><span class="com"> now contains result of </span><code><span class="com">(- n 1)</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op list</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore proc</span><span class="clo">)</span><span class="pln"> </span><span class="roman"><span class="com">; restore </span><code><span class="com">factorial</span></code></span><span class="pln">
-</span><span class="roman"><span class="com">;; apply </span><code><span class="com">factorial</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-branch11</span><span class="clo">))</span><span class="pln">
+after-call6   <span class="roman">; <code>val</code> now contains result of <code>(- n 1)</code></span>
+  (assign argl (op list) (reg val))
+  (restore proc) <span class="roman">; restore <code>factorial</code></span>
+<span class="roman">;; apply <code>factorial</code></span>
+  (test (op primitive-procedure?) (reg proc))
+  (branch (label primitive-branch11))
 compiled-branch10
-  </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">label after-call9</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op compiled-procedure-entry</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
+  (assign continue (label after-call9))
+  (assign val
+          (op compiled-procedure-entry)
+          (reg proc))
+  (goto (reg val))
 primitive-branch11
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-after-call9      </span><span class="roman"><span class="com">; </span><code><span class="com">val</span></code><span class="com"> now contains result</span></span><span class="com"> </span><span class="pln">
-                 </span><span class="roman"><span class="com">; of </span><code><span class="com">(factorial (- n 1))</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore argl</span><span class="clo">)</span><span class="pln"> </span><span class="roman"><span class="com">; restore partial argument list for </span><code><span class="com">*</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cons</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore proc</span><span class="clo">)</span><span class="pln"> </span><span class="roman"><span class="com">; restore </span><code><span class="com">*</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore continue</span><span class="clo">)</span><span class="pln">
-</span><span class="roman"><span class="com">;; apply </span><code><span class="com">*</span></code><span class="com"> and return its value</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-branch14</span><span class="clo">))</span><span class="pln">
+  (assign val 
+          (op apply-primitive-procedure) 
+          (reg proc) 
+          (reg argl))
+after-call9      <span class="roman">; <code>val</code> now contains result</span> 
+                 <span class="roman">; of <code>(factorial (- n 1))</code></span>
+  (restore argl) <span class="roman">; restore partial argument list for <code>*</code></span>
+  (assign argl (op cons) (reg val) (reg argl))
+  (restore proc) <span class="roman">; restore <code>*</code></span>
+  (restore continue)
+<span class="roman">;; apply <code>*</code> and return its value</span>
+  (test (op primitive-procedure?) (reg proc))
+  (branch (label primitive-branch14))
 compiled-branch13
-</span><span class="roman"><span class="com">;; note that a compound procedure here</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; is called tail-recursively</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op compiled-procedure-entry</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
+<span class="roman">;; note that a compound procedure here</span>
+<span class="roman">;; is called tail-recursively</span>
+  (assign val
+          (op compiled-procedure-entry)
+          (reg proc))
+  (goto (reg val))
 primitive-branch14
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span><span class="pln">
+  (assign val 
+          (op apply-primitive-procedure) 
+          (reg proc) 
+          (reg argl))
+  (goto (reg continue))
 after-call12
 after-if3
 after-lambda1
-</span><span class="roman"><span class="com">;; assign the procedure to the variable </span><code><span class="com">factorial</span></code></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op define-variable!</span><span class="clo">)</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">const factorial</span><span class="clo">)</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const ok</span><span class="clo">))</span></pre></div>
+<span class="roman">;; assign the procedure to the variable <code>factorial</code></span>
+  (perform (op define-variable!) 
+           (const factorial) 
+           (reg val) 
+           (reg env))
+  (assign val (const ok))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -357,10 +361,11 @@ after-lambda1
 of a factorial procedure, which is slightly different from the one given above:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial-alt n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">1</span><span class="pln">
-      </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> n </span><span class="opn">(</span><span class="pln">factorial-alt </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (factorial-alt n)
+  (if (= n 1)
+      1
+      (* n (factorial-alt (- n 1)))))
+</pre></div>
 
 <p>Compile this procedure and compare the resulting code with that produced for
 <code>factorial</code>.  Explain any differences you find.  Does either program
@@ -372,13 +377,14 @@ execute more efficiently than the other?
 procedure
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">iter product counter</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> counter n</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (factorial n)
+  (define (iter product counter)
+    (if (&gt; counter n)
         product
-        </span><span class="opn">(</span><span class="pln">iter </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> counter product</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> counter </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">iter </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="clo">))</span></pre></div>
+        (iter (* counter product)
+              (+ counter 1))))
+  (iter 1 1))
+</pre></div>
 
 <p>Annotate the resulting code, showing the essential difference between the code
 for iterative and recursive versions of <code>factorial</code> that makes one process
@@ -391,106 +397,105 @@ produce the code shown in <a href="#Figure-5_002e18">Figure 5.18</a>?
 </p></blockquote>
 
 <blockquote>
-<p><strong><a id="Figure-5_002e18"></a>Figure 5.18:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↓<!-- ↓ --></mo>
-</math> An example of compiler output.  See
+<p><strong><a id="Figure-5_002e18"></a>Figure 5.18:</strong> \( \downarrow \) An example of compiler output.  See
 <a href="#Exercise-5_002e35">Exercise 5.35</a>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op make-compiled-procedure</span><span class="clo">)</span><span class="pln"> 
-            </span><span class="opn">(</span><span class="pln">label entry16</span><span class="clo">)</span><span class="pln"> 
-            </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label after-lambda15</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(assign val (op make-compiled-procedure) 
+            (label entry16) 
+            (reg env))
+  (goto (label after-lambda15))
 entry16
-  </span><span class="opn">(</span><span class="pln">assign env </span><span class="opn">(</span><span class="pln">op compiled-procedure-env</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign env </span><span class="opn">(</span><span class="pln">op extend-environment</span><span class="clo">)</span><span class="pln"> 
-              </span><span class="opn">(</span><span class="pln">const </span><span class="opn">(</span><span class="pln">x</span><span class="clo">))</span><span class="pln"> 
-              </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">)</span><span class="pln"> 
-              </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign proc </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="pln">const </span><span class="pun">+</span><span class="clo">)</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save continue</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">save proc</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">save env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign proc </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="pln">const g</span><span class="clo">)</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save proc</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign proc </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="pln">const </span><span class="pun">+</span><span class="clo">)</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const </span><span class="lit">2</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op list</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">const x</span><span class="clo">)</span><span class="pln"> 
-              </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cons</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-branch19</span><span class="clo">))</span><span class="pln">
+  (assign env (op compiled-procedure-env)
+              (reg proc))
+  (assign env (op extend-environment) 
+              (const (x)) 
+              (reg argl) 
+              (reg env))
+  (assign proc (op lookup-variable-value) 
+               (const +) 
+               (reg env))
+  (save continue) (save proc) (save env)
+  (assign proc (op lookup-variable-value) 
+               (const g) 
+               (reg env))
+  (save proc)
+  (assign proc (op lookup-variable-value) 
+               (const +) 
+               (reg env))
+  (assign val (const 2))
+  (assign argl (op list) (reg val))
+  (assign val (op lookup-variable-value)
+              (const x) 
+              (reg env))
+  (assign argl (op cons)
+               (reg val)
+               (reg argl))
+  (test (op primitive-procedure?)
+        (reg proc))
+  (branch (label primitive-branch19))
 compiled-branch18
-  </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">label after-call17</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op compiled-procedure-entry</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
+  (assign continue (label after-call17))
+  (assign val
+          (op compiled-procedure-entry)
+          (reg proc))
+  (goto (reg val))
 primitive-branch19
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
+  (assign val
+          (op apply-primitive-procedure)
+          (reg proc) 
+          (reg argl))
 after-call17
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op list</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore proc</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-branch22</span><span class="clo">))</span><span class="pln">
+  (assign argl (op list) (reg val))
+  (restore proc)
+  (test (op primitive-procedure?)
+        (reg proc))
+  (branch (label primitive-branch22))
 compiled-branch21
-  </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">label after-call20</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op compiled-procedure-entry</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
+  (assign continue (label after-call20))
+  (assign val
+          (op compiled-procedure-entry)
+          (reg proc))
+  (goto (reg val))
 primitive-branch22
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
+  (assign val 
+          (op apply-primitive-procedure) 
+          (reg proc) 
+          (reg argl))
 after-call20
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op list</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">const x</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl
-          </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cons</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore proc</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore continue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-branch25</span><span class="clo">))</span><span class="pln">
+  (assign argl (op list) (reg val))
+  (restore env)
+  (assign val
+          (op lookup-variable-value) 
+          (const x) 
+          (reg env))
+  (assign argl
+          (op cons)
+          (reg val)
+          (reg argl))
+  (restore proc)
+  (restore continue)
+  (test (op primitive-procedure?)
+        (reg proc))
+  (branch (label primitive-branch25))
 compiled-branch24
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op compiled-procedure-entry</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">
+  (assign val (op compiled-procedure-entry)
+              (reg proc))
+  (goto (reg val))
 primitive-branch25
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln"> 
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span><span class="pln">
+  (assign val 
+          (op apply-primitive-procedure)
+          (reg proc) 
+          (reg argl))
+  (goto (reg continue))
 after-call23
 after-lambda15
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op define-variable!</span><span class="clo">)</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">const f</span><span class="clo">)</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const ok</span><span class="clo">))</span></pre></div>
+  (perform (op define-variable!) 
+           (const f) 
+           (reg val) 
+           (reg env))
+  (assign val (const ok))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -534,12 +539,13 @@ use these primitive machine operations.  The expression <code>(+ a 1)</code> mig
 compiled into something as simple as<a class="footnote_link" id="DOCF328" href="#FOOT328"><sup>328</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln"> 
-            </span><span class="opn">(</span><span class="pln">const a</span><span class="clo">)</span><span class="pln"> 
-            </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op </span><span class="pun">+</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign val (op lookup-variable-value) 
+            (const a) 
+            (reg env))
+(assign val (op +)
+            (reg val)
+            (const 1))
+</pre></div>
 
 <p>In this exercise we will extend our compiler to support open coding of selected
 primitives.  Special-purpose code will be generated for calls to these
@@ -584,7 +590,7 @@ only two inputs.
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -602,10 +608,10 @@ programs that define procedures with these names will stop working.  See
 <a href="5_002e5_002e6.xhtml#Exercise-5_002e44">Exercise 5.44</a> for ideas on how to avoid this problem.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e5_002e6.xhtml#g_t5_002e5_002e6" accesskey="n" rel="next">5.5.6</a>, Previous: <a href="5_002e5_002e4.xhtml#g_t5_002e5_002e4" accesskey="p" rel="prev">5.5.4</a>, Up: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="u" rel="prev">5.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e5_002e6.xhtml#g_t5_002e5_002e6" accesskey="n" rel="next">5.5.6</a>, Previous: <a href="5_002e5_002e4.xhtml#g_t5_002e5_002e4" accesskey="p" rel="prev">5.5.4</a>, Up: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="u" rel="prev">5.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

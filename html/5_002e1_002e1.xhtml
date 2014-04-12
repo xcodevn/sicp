@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.1.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.1.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.1.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e1.xhtml#g_t5_002e1" rel="prev" title="5.1" />
-<link href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" rel="next" title="5.1.2" />
-<link href="5_002e1.xhtml#g_t5_002e1" rel="prev" title="5.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e1.xhtml#g_t5_002e1" rel="prev" title="5.1"/>
+<link href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" rel="next" title="5.1.2"/>
+<link href="5_002e1.xhtml#g_t5_002e1" rel="prev" title="5.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e1_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" accesskey="n" rel="next">5.1.2</a>, Previous: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="p" rel="prev">5.1</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" accesskey="n" rel="next">5.1.2</a>, Previous: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="p" rel="prev">5.1</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="A-Language-for-Describing-Register-Machines"></a>
 <h4 class="subsection"><span class="secnum">5.1.1</span><span class="sectitle">A Language for Describing Register Machines</span></h4>
@@ -87,40 +85,38 @@ example only hints at the generality of these descriptions, since the
 and each button and test is used only once in the controller.
 </p>
 <blockquote>
-<p><strong><a id="Figure-5_002e3"></a>Figure 5.3:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↓<!-- ↓ --></mo>
-</math> A specification of the <abbr>GCD</abbr>
+<p><strong><a id="Figure-5_002e3"></a>Figure 5.3:</strong> \( \downarrow \) A specification of the <abbr>GCD</abbr>
 machine.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">data-paths
- </span><span class="opn">(</span><span class="pln">registers
-  </span><span class="opn">((</span><span class="pln">name a</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">buttons </span><span class="opn">((</span><span class="pln">name a</span><span class="pun">&lt;-</span><span class="pln">b</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">source </span><span class="opn">(</span><span class="pln">register b</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">name b</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">buttons </span><span class="opn">((</span><span class="pln">name b</span><span class="pun">&lt;-</span><span class="pln">t</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="pln">source </span><span class="opn">(</span><span class="pln">register t</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">name t</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">buttons </span><span class="opn">((</span><span class="pln">name t</span><span class="pun">&lt;-</span><span class="pln">r</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="pln">source </span><span class="opn">(</span><span class="pln">operation rem</span><span class="clo">))))))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">operations
-  </span><span class="opn">((</span><span class="pln">name rem</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">inputs </span><span class="opn">(</span><span class="pln">register a</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">register b</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">name </span><span class="pun">=</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">inputs </span><span class="opn">(</span><span class="pln">register b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">constant </span><span class="lit">0</span><span class="clo">)))))</span><span class="pln">
+<pre class="lisp">(data-paths
+ (registers
+  ((name a)
+   (buttons ((name a&lt;-b) 
+             (source (register b)))))
+  ((name b)
+   (buttons ((name b&lt;-t)
+             (source (register t)))))
+  ((name t)
+   (buttons ((name t&lt;-r)
+             (source (operation rem))))))
+ (operations
+  ((name rem)
+   (inputs (register a) (register b)))
+  ((name =)
+   (inputs (register b) (constant 0)))))
 
-</span><span class="opn">(</span><span class="pln">controller
- test-b                </span><span class="roman"><span class="com">; label</span></span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">test </span><span class="pun">=</span><span class="clo">)</span><span class="pln">            </span><span class="roman"><span class="com">; test</span></span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">branch 
-    </span><span class="opn">(</span><span class="pln">label gcd-done</span><span class="clo">))</span><span class="pln">  </span><span class="roman"><span class="com">; conditional branch</span></span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">t</span><span class="pun">&lt;-</span><span class="pln">r</span><span class="clo">)</span><span class="pln">              </span><span class="roman"><span class="com">; button push</span></span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">a</span><span class="pun">&lt;-</span><span class="pln">b</span><span class="clo">)</span><span class="pln">              </span><span class="roman"><span class="com">; button push</span></span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">b</span><span class="pun">&lt;-</span><span class="pln">t</span><span class="clo">)</span><span class="pln">              </span><span class="roman"><span class="com">; button push</span></span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">goto 
-    </span><span class="opn">(</span><span class="pln">label test-b</span><span class="clo">))</span><span class="pln">    </span><span class="roman"><span class="com">; unconditional branch</span></span><span class="pln">
- gcd-done</span><span class="clo">)</span><span class="pln">             </span><span class="roman"><span class="com">; label</span></span>
+(controller
+ test-b                <span class="roman">; label</span>
+   (test =)            <span class="roman">; test</span>
+   (branch 
+    (label gcd-done))  <span class="roman">; conditional branch</span>
+   (t&lt;-r)              <span class="roman">; button push</span>
+   (a&lt;-b)              <span class="roman">; button push</span>
+   (b&lt;-t)              <span class="roman">; button push</span>
+   (goto 
+    (label test-b))    <span class="roman">; unconditional branch</span>
+ gcd-done)             <span class="roman">; label</span>
 </pre></div>
 
 </blockquote>
@@ -148,15 +144,16 @@ will omit the data-path description, leaving only the controller sequence.
 Thus, the <abbr>GCD</abbr> machine is described as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">controller
+<pre class="lisp">(controller
  test-b
-   </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label gcd-done</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">assign t </span><span class="opn">(</span><span class="pln">op rem</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg a</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">assign a </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">assign b </span><span class="opn">(</span><span class="pln">reg t</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label test-b</span><span class="clo">))</span><span class="pln">
- gcd-done</span><span class="clo">)</span></pre></div>
+   (test (op =) (reg b) (const 0))
+   (branch (label gcd-done))
+   (assign t (op rem) (reg a) (reg b))
+   (assign a (reg b))
+   (assign b (reg t))
+   (goto (label test-b))
+ gcd-done)
+</pre></div>
 
 <p>This form of description is easier to read than the kind illustrated in
 <a href="#Figure-5_002e3">Figure 5.3</a>, but it also has disadvantages:
@@ -220,7 +217,8 @@ printing the contents of register <code>a</code> is represented in a controller
 sequence by the instruction
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op print</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg a</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(perform (op print) (reg a))
+</pre></div>
 
 <p><a href="#Figure-5_002e4">Figure 5.4</a> shows the data paths and controller for the new <abbr>GCD</abbr>
 machine.  Instead of having the machine stop after printing the answer, we have
@@ -238,7 +236,7 @@ loops we used in the interpreters of <a href="Chapter-4.xhtml#Chapter-4">Chapter
 </figure>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -248,10 +246,10 @@ great deal of complexity.  Usually a large portion of the implementation of a
 Lisp system is dedicated to making reading and printing work.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" accesskey="n" rel="next">5.1.2</a>, Previous: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="p" rel="prev">5.1</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" accesskey="n" rel="next">5.1.2</a>, Previous: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="p" rel="prev">5.1</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

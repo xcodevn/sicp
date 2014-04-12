@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.5.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.5.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.5.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e5.xhtml#g_t5_002e5" rel="prev" title="5.5" />
-<link href="5_002e5_002e2.xhtml#g_t5_002e5_002e2" rel="next" title="5.5.2" />
-<link href="5_002e5.xhtml#g_t5_002e5" rel="prev" title="5.5" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e5.xhtml#g_t5_002e5" rel="prev" title="5.5"/>
+<link href="5_002e5_002e2.xhtml#g_t5_002e5_002e2" rel="next" title="5.5.2"/>
+<link href="5_002e5.xhtml#g_t5_002e5" rel="prev" title="5.5"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e5_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e5_002e2.xhtml#g_t5_002e5_002e2" accesskey="n" rel="next">5.5.2</a>, Previous: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="p" rel="prev">5.5</a>, Up: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="u" rel="prev">5.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e5_002e2.xhtml#g_t5_002e5_002e2" accesskey="n" rel="next">5.5.2</a>, Previous: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="p" rel="prev">5.5</a>, Up: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="u" rel="prev">5.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Structure-of-the-Compiler"></a>
 <h4 class="subsection"><span class="secnum">5.5.1</span><span class="sectitle">Structure of the Compiler</span></h4>
@@ -54,38 +52,39 @@ type of expression, it dispatches to a specialized <a id="index-code-generator">
 <em>code generator</em>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">compile exp target linkage</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">self-evaluating? exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">compile-self-evaluating 
-          exp target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">quoted? exp</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">compile-quoted exp target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">variable? exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">compile-variable 
-          exp target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">assignment? exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">compile-assignment
-          exp target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">definition? exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">compile-definition
-          exp target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">if</span><span class="pun">?</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">compile-if exp target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">lambda</span><span class="pun">?</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">compile-lambda exp target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">begin</span><span class="pun">?</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">compile-sequence 
-          </span><span class="opn">(</span><span class="pln">begin-actions exp</span><span class="clo">)</span><span class="pln"> target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">cond</span><span class="pun">?</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">compile 
-          </span><span class="opn">(</span><span class="pln">cond-</span><span class="pun">&gt;</span><span class="kwd">if</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln"> target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">application? exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">compile-application 
-          exp target linkage</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln">
-         </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown expression type: 
-                 COMPILE"</span><span class="pln"> 
-                exp</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (compile exp target linkage)
+  (cond ((self-evaluating? exp)
+         (compile-self-evaluating 
+          exp target linkage))
+        ((quoted? exp) 
+         (compile-quoted exp target linkage))
+        ((variable? exp)
+         (compile-variable 
+          exp target linkage))
+        ((assignment? exp)
+         (compile-assignment
+          exp target linkage))
+        ((definition? exp)
+         (compile-definition
+          exp target linkage))
+        ((if? exp)
+         (compile-if exp target linkage))
+        ((lambda? exp)
+         (compile-lambda exp target linkage))
+        ((begin? exp)
+         (compile-sequence 
+          (begin-actions exp) target linkage))
+        ((cond? exp) 
+         (compile 
+          (cond-&gt;if exp) target linkage))
+        ((application? exp)
+         (compile-application 
+          exp target linkage))
+        (else
+         (error &quot;Unknown expression type: 
+                 COMPILE&quot; 
+                exp))))
+</pre></div>
 
 <a id="Targets-and-linkages"></a>
 <h5 class="subsubheading">Targets and linkages</h5>
@@ -117,14 +116,16 @@ a target of the <code>val</code> register and a linkage of <code>next</code> sho
 the instruction
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const </span><span class="lit">5</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign val (const 5))
+</pre></div>
 
 <p>Compiling the same expression with a linkage of <code>return</code> should produce
 the instructions
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">const </span><span class="lit">5</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign val (const 5))
+(goto (reg continue))
+</pre></div>
 
 <p>In the first case, execution will continue with the next instruction in the
 sequence. In the second case, we will return from a procedure call.  In both
@@ -144,42 +145,20 @@ expression is accomplished by evaluating the component expressions.
 <p>The simplest method for combining instruction sequences is a procedure called
 <code>append-instruction-sequences</code>.  It takes as arguments any number of
 instruction sequences that are to be executed sequentially; it appends them and
-returns the combined sequence.  That is, if <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.1em"/>
-    <mi>s</mi>
-    <mi>e</mi>
-    <msub>
-      <mi>q</mi>
-      <mn>1</mn>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> 
-and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.1em"/>
-    <mi>s</mi>
-    <mi>e</mi>
-    <msub>
-      <mi>q</mi>
-      <mn>2</mn>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> are sequences of instructions, then 
+returns the combined sequence.  That is, if \( {⟨\kern0.1em seq_1⟩} \) 
+and \( {⟨\kern0.1em seq_2⟩} \) are sequences of instructions, then 
 evaluating
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">append-instruction-sequences ⟨</span><var><span class="pln">seq</span><span class="pun">₁</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">seq</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(append-instruction-sequences ⟨<var>seq₁</var>⟩ ⟨<var>seq₂</var>⟩)
+</pre></div>
 
 <p>produces the sequence
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">⟨</span><var><span class="pln">seq</span><span class="pun">₁</span></var><span class="pln">⟩
-⟨</span><var><span class="pln">seq</span><span class="pun">₂</span></var><span class="pln">⟩</span></pre></div>
+<pre class="lisp">⟨<var>seq₁</var>⟩
+⟨<var>seq₂</var>⟩
+</pre></div>
 
 <p>Whenever registers might need to be saved, the compiler’s code generators use
 <code>preserving</code>, which is a more subtle method for combining instruction
@@ -195,392 +174,42 @@ Otherwise, <code>preserving</code> simply returns the appended instruction seque
 Thus, for example,
 <code>(preserving (list ⟨<var>reg₁</var>⟩ ⟨<var>reg₂</var>⟩) ⟨<var>seg₁</var>⟩ ⟨<var>seg₂</var>⟩)</code>
 produces one of the following four sequences of instructions, depending on how
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.1em"/>
-    <mi>s</mi>
-    <mi>e</mi>
-    <msub>
-      <mi>q</mi>
-      <mn>1</mn>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.1em"/>
-    <mi>s</mi>
-    <mi>e</mi>
-    <msub>
-      <mi>q</mi>
-      <mn>2</mn>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> 
-use <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.1em"/>
-    <mi>r</mi>
-    <mi>e</mi>
-    <msub>
-      <mi>g</mi>
-      <mn>1</mn>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">⟨</mo>
-    <mspace width="0.1em"/>
-    <mi>r</mi>
-    <mi>e</mi>
-    <msub>
-      <mi>g</mi>
-      <mn>2</mn>
-    </msub>
-    <mo stretchy="false">⟩</mo>
-  </mrow>
-</math>:
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="left left left left" rowspacing="4pt" columnspacing="1em" columnlines="solid solid solid">
-    <mtr>
-      <mtd>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>s</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>q</mi>
-            <mn>1</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">(</mo>
-          <mi mathvariant="monospace">s</mi>
-          <mi mathvariant="monospace">a</mi>
-          <mi mathvariant="monospace">v</mi>
-          <mi mathvariant="monospace">e</mi>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">(</mo>
-          <mi mathvariant="monospace">s</mi>
-          <mi mathvariant="monospace">a</mi>
-          <mi mathvariant="monospace">v</mi>
-          <mi mathvariant="monospace">e</mi>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">(</mo>
-          <mi mathvariant="monospace">s</mi>
-          <mi mathvariant="monospace">a</mi>
-          <mi mathvariant="monospace">v</mi>
-          <mi mathvariant="monospace">e</mi>
-        </mrow>
-        <mspace width="1ex"/>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>r</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>g</mi>
-            <mn>2</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>s</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>q</mi>
-            <mn>2</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-      </mtd>
-      <mtd>
-        <mspace width="1ex"/>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>r</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>g</mi>
-            <mn>1</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mspace width="1ex"/>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>r</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>g</mi>
-            <mn>2</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">(</mo>
-          <mi mathvariant="monospace">s</mi>
-          <mi mathvariant="monospace">a</mi>
-          <mi mathvariant="monospace">v</mi>
-          <mi mathvariant="monospace">e</mi>
-        </mrow>
-        <mspace width="1ex"/>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>r</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>g</mi>
-            <mn>1</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>s</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>q</mi>
-            <mn>1</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>s</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>q</mi>
-            <mn>1</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>s</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>q</mi>
-            <mn>1</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">(</mo>
-          <mi mathvariant="monospace">r</mi>
-          <mi mathvariant="monospace">e</mi>
-          <mi mathvariant="monospace">s</mi>
-          <mi mathvariant="monospace">t</mi>
-          <mi mathvariant="monospace">o</mi>
-          <mi mathvariant="monospace">r</mi>
-          <mi mathvariant="monospace">e</mi>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">(</mo>
-          <mi mathvariant="monospace">r</mi>
-          <mi mathvariant="monospace">e</mi>
-          <mi mathvariant="monospace">s</mi>
-          <mi mathvariant="monospace">t</mi>
-          <mi mathvariant="monospace">o</mi>
-          <mi mathvariant="monospace">r</mi>
-          <mi mathvariant="monospace">e</mi>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">(</mo>
-          <mi mathvariant="monospace">r</mi>
-          <mi mathvariant="monospace">e</mi>
-          <mi mathvariant="monospace">s</mi>
-          <mi mathvariant="monospace">t</mi>
-          <mi mathvariant="monospace">o</mi>
-          <mi mathvariant="monospace">r</mi>
-          <mi mathvariant="monospace">e</mi>
-        </mrow>
-        <mspace width="1ex"/>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>r</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>g</mi>
-            <mn>1</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd>
-        <mspace width="1ex"/>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>r</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>g</mi>
-            <mn>1</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mspace width="1ex"/>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>r</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>g</mi>
-            <mn>2</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">(</mo>
-          <mi mathvariant="monospace">r</mi>
-          <mi mathvariant="monospace">e</mi>
-          <mi mathvariant="monospace">s</mi>
-          <mi mathvariant="monospace">t</mi>
-          <mi mathvariant="monospace">o</mi>
-          <mi mathvariant="monospace">r</mi>
-          <mi mathvariant="monospace">e</mi>
-        </mrow>
-        <mspace width="1ex"/>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>r</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>g</mi>
-            <mn>2</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mo mathvariant="monospace" stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd/>
-      <mtd>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>s</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>q</mi>
-            <mn>2</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>s</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>q</mi>
-            <mn>2</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">⟨</mo>
-        <mspace width="0.1em"/>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>s</mi>
-          <mi>e</mi>
-          <msub>
-            <mi>q</mi>
-            <mn>2</mn>
-          </msub>
-        </mrow>
-        <mo stretchy="false">⟩</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
+\( {⟨\kern0.1em seq_1⟩} \) and \( {⟨\kern0.1em seq_2⟩} \) 
+use \( {⟨\kern0.1em reg_1⟩} \) and \( {⟨\kern0.1em reg_2⟩} \):
+\[ % :83:
+
+\begin{array}{l|l|l|l}
+⟨\kern0.1em{seq_1}⟩ 		            &amp; 
+{\tt (save }                                &amp; 
+{\tt (save }                   	            &amp; 
+{\tt (save } \kern1ex ⟨\kern0.1em{reg_2}⟩{\tt)}    \\
+
+⟨\kern0.1em{seq_2}⟩  		            &amp; 
+\kern1ex ⟨\kern0.1em{reg_1}⟩{\tt)}                 &amp; 
+\kern1ex ⟨\kern0.1em{reg_2}⟩{\tt)}                 &amp; 
+{\tt (save } \kern1ex ⟨\kern0.1em{reg_1}⟩{\tt)}    \\
+
+                                            &amp; 
+⟨\kern0.1em{seq_1}⟩                       &amp; 
+⟨\kern0.1em{seq_1}⟩                       &amp; 
+⟨\kern0.1em{seq_1}⟩                       \\
+
+                                            &amp;
+{\tt (restore }                             &amp;
+{\tt (restore }                             &amp; 
+{\tt (restore } \kern1ex ⟨\kern0.1em{reg_1}⟩{\tt)} \\
+
+                         	            &amp;
+\kern1ex ⟨\kern0.1em{reg_1}⟩{\tt)}                 &amp;
+\kern1ex ⟨\kern0.1em{reg_2}⟩{\tt)}                 &amp;
+{\tt (restore } \kern1ex ⟨\kern0.1em{reg_2}⟩{\tt)} \\
+
+                                            &amp; 
+⟨\kern0.1em{seq_2}⟩                       &amp;
+⟨\kern0.1em{seq_2}⟩                       &amp;
+⟨\kern0.1em{seq_2}⟩ 
+\end{array}
+\]
 </p>
 <p>By using <code>preserving</code> to combine instruction sequences the compiler avoids
 unnecessary stack operations.  This also isolates the details of whether or not
@@ -625,9 +254,10 @@ sequence, and
 constructor for instruction sequences is thus
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-instruction-sequence 
-         needs modifies statements</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">list needs modifies statements</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-instruction-sequence 
+         needs modifies statements)
+  (list needs modifies statements))
+</pre></div>
 
 <p>For example, the two-instruction sequence that looks up the value of the
 variable <code>x</code> in the current environment, assigns the result to <code>val</code>,
@@ -636,20 +266,22 @@ been initialized, and modifies register <code>val</code>.  This sequence would
 therefore be constructed as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">make-instruction-sequence
- </span><span class="lit">'</span><span class="opn">(</span><span class="pln">env continue</span><span class="clo">)</span><span class="pln">
- </span><span class="lit">'</span><span class="opn">(</span><span class="pln">val</span><span class="clo">)</span><span class="pln">
- </span><span class="lit">'</span><span class="opn">((</span><span class="pln">assign val
-           </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">const x</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(make-instruction-sequence
+ '(env continue)
+ '(val)
+ '((assign val
+           (op lookup-variable-value)
+           (const x)
+           (reg env))
+   (goto (reg continue))))
+</pre></div>
 
 <p>We sometimes need to construct an instruction sequence with no statements:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">empty-instruction-sequence</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">make-instruction-sequence </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (empty-instruction-sequence)
+  (make-instruction-sequence '() '() '()))
+</pre></div>
 
 <p>The procedures for combining instruction sequences are shown in 
 <a href="5_002e5_002e4.xhtml#g_t5_002e5_002e4">5.5.4</a>.
@@ -666,10 +298,11 @@ of the following combinations, say which of these <code>save</code> and
 compiler’s <code>preserving</code> mechanism:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">f </span><span class="lit">'x</span><span class="pln"> </span><span class="lit">'y</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">((</span><span class="pln">f</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'x</span><span class="pln"> </span><span class="lit">'y</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">f </span><span class="opn">(</span><span class="pln">g </span><span class="lit">'x</span><span class="clo">)</span><span class="pln"> y</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">f </span><span class="opn">(</span><span class="pln">g </span><span class="lit">'x</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'y</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(f 'x 'y)
+((f) 'x 'y)
+(f (g 'x) y)
+(f (g 'x) 'y)
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -694,7 +327,7 @@ think of this idea?
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -708,10 +341,10 @@ when we simulated the register machine in Scheme, we used the actual Scheme
 procedures in our register machine simulation.)</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e5_002e2.xhtml#g_t5_002e5_002e2" accesskey="n" rel="next">5.5.2</a>, Previous: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="p" rel="prev">5.5</a>, Up: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="u" rel="prev">5.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e5_002e2.xhtml#g_t5_002e5_002e2" accesskey="n" rel="next">5.5.2</a>, Previous: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="p" rel="prev">5.5</a>, Up: <a href="5_002e5.xhtml#g_t5_002e5" accesskey="u" rel="prev">5.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

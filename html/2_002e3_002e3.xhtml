@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 2.3.3</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.3</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 2.3.3" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 2.3.3" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="2_002e3.xhtml#g_t2_002e3" rel="prev" title="2.3" />
-<link href="2_002e3_002e4.xhtml#g_t2_002e3_002e4" rel="next" title="2.3.4" />
-<link href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" rel="prev" title="2.3.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.3"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.3.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="2_002e3.xhtml#g_t2_002e3" rel="prev" title="2.3"/>
+<link href="2_002e3_002e4.xhtml#g_t2_002e3_002e4" rel="next" title="2.3.4"/>
+<link href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" rel="prev" title="2.3.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t2_002e3_002e3"></a>
 <nav class="header">
 <p>
-Next: <a href="2_002e3_002e4.xhtml#g_t2_002e3_002e4" accesskey="n" rel="next">2.3.4</a>, Previous: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="p" rel="prev">2.3.2</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e3_002e4.xhtml#g_t2_002e3_002e4" accesskey="n" rel="next">2.3.4</a>, Previous: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="p" rel="prev">2.3.2</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Example_003a-Representing-Sets"></a>
 <h4 class="subsection"><span class="secnum">2.3.3</span><span class="sectitle">Example: Representing Sets</span></h4>
@@ -70,20 +68,22 @@ this representation, <code>element-of-set?</code> is similar to the procedure
 <code>eq?</code> so that the set elements need not be symbols:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">element-of-set? x </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? </span><span class="kwd">set</span><span class="clo">)</span><span class="pln"> false</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">equal</span><span class="pun">?</span><span class="pln"> x </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">))</span><span class="pln"> true</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">element-of-set? x </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (element-of-set? x set)
+  (cond ((null? set) false)
+        ((equal? x (car set)) true)
+        (else (element-of-set? x (cdr set)))))
+</pre></div>
 
 <p>Using this, we can write <code>adjoin-set</code>.  If the object to be adjoined is
 already in the set, we just return the set.  Otherwise, we use <code>cons</code> to
 add the object to the list that represents the set:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">adjoin-set x </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">element-of-set? x </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-      </span><span class="kwd">set</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x </span><span class="kwd">set</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (adjoin-set x set)
+  (if (element-of-set? x set)
+      set
+      (cons x set)))
+</pre></div>
 
 <p>For <code>intersection-set</code> we can use a recursive strategy.  If we know how to
 form the intersection of <code>set2</code> and the <code>cdr</code> of <code>set1</code>, we only
@@ -92,15 +92,16 @@ this depends on whether <code>(car set1)</code> is also in <code>set2</code>.  H
 resulting procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">intersection-set set1 set2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">or</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? set1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? set2</span><span class="clo">))</span><span class="pln"> 
-         </span><span class="lit">'</span><span class="opn">(</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">element-of-set? </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> set1</span><span class="clo">)</span><span class="pln"> set2</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> set1</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">intersection-set </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> set1</span><span class="clo">)</span><span class="pln"> 
-                                 set2</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">intersection-set </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> set1</span><span class="clo">)</span><span class="pln"> 
-                                set2</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (intersection-set set1 set2)
+  (cond ((or (null? set1) (null? set2)) 
+         '())
+        ((element-of-set? (car set1) set2)
+         (cons (car set1)
+               (intersection-set (cdr set1) 
+                                 set2)))
+        (else (intersection-set (cdr set1) 
+                                set2))))
+</pre></div>
 
 <p>In designing a representation, one of the issues we should be concerned with is
 efficiency.  Consider the number of steps required by our set operations.
@@ -108,44 +109,14 @@ Since they all use <code>element-of-set?</code>, the speed of this operation has
 major impact on the efficiency of the set implementation as a whole.  Now, in
 order to check whether an object is a member of a set, <code>element-of-set?</code>
 may have to scan the entire set. (In the worst case, the object turns out not
-to be in the set.)  Hence, if the set has <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> elements,
-<code>element-of-set?</code>  might take up to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> steps.  Thus, the number of
-steps required grows as <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  The number of steps required by
-<code>adjoin-set</code>, which uses this operation, also grows as <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.
+to be in the set.)  Hence, if the set has \( n \) elements,
+<code>element-of-set?</code>  might take up to \( n \) steps.  Thus, the number of
+steps required grows as \( {\Theta(n)} \).  The number of steps required by
+<code>adjoin-set</code>, which uses this operation, also grows as \( {\Theta(n)} \).
 For <code>intersection-set</code>, which does an <code>element-of-set?</code> check for
 each element of <code>set1</code>, the number of steps required grows as the product
-of the sizes of the sets involved, or <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <msup>
-      <mi>n</mi>
-      <mn>2</mn>
-    </msup>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> for two sets of size
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>.  The same will be true of <code>union-set</code>.
+of the sizes of the sets involved, or \( {\Theta(n^2)} \) for two sets of size
+\( n \).  The same will be true of <code>union-set</code>.
 </p>
 <blockquote>
 <p><strong><a id="Exercise-2_002e59"></a>Exercise 2.59:</strong> Implement the <code>union-set</code>
@@ -155,17 +126,7 @@ operation for the unordered-list representation of sets.
 <blockquote>
 <p><strong><a id="Exercise-2_002e60"></a>Exercise 2.60:</strong> We specified that a set would be
 represented as a list with no duplicates.  Now suppose we allow duplicates.
-For instance, the set <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo fence="false" stretchy="false">{</mo>
-    <mn>1</mn>
-    <mo>,</mo>
-    <mn>2</mn>
-    <mo>,</mo>
-    <mn>3</mn>
-    <mo fence="false" stretchy="false">}</mo>
-  </mrow>
-</math> could be represented as the list <code>(2 3 2 1
+For instance, the set \( {\{1, 2, 3\}} \) could be represented as the list <code>(2 3 2 1
 3 2 2)</code>.  Design procedures <code>element-of-set?</code>, <code>adjoin-set</code>,
 <code>union-set</code>, and <code>intersection-set</code> that operate on this
 representation.  How does the efficiency of each compare with the corresponding
@@ -185,19 +146,7 @@ comparing the corresponding numbers.  To keep our discussion simple, we will
 consider only the case where the set elements are numbers, so that we can
 compare elements using <code>&gt;</code> and <code>&lt;</code>.  We will represent a set of
 numbers by listing its elements in increasing order.  Whereas our first
-representation above allowed us to represent the set <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo fence="false" stretchy="false">{</mo>
-    <mn>1</mn>
-    <mo>,</mo>
-    <mn>3</mn>
-    <mo>,</mo>
-    <mn>6</mn>
-    <mo>,</mo>
-    <mn>10</mn>
-    <mo fence="false" stretchy="false">}</mo>
-  </mrow>
-</math> by listing
+representation above allowed us to represent the set \( {\{1, 3, 6, 10\}} \) by listing
 the elements in any order, our new representation allows only the list <code>(1
 3 6 10)</code>.
 </p>
@@ -207,11 +156,12 @@ a set element that is larger than the item we are looking for, then we know
 that the item is not in the set:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">element-of-set? x </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? </span><span class="kwd">set</span><span class="clo">)</span><span class="pln"> false</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> x </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">))</span><span class="pln"> true</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">&lt;</span><span class="pln"> x </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">))</span><span class="pln"> false</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">element-of-set? x </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (element-of-set? x set)
+  (cond ((null? set) false)
+        ((= x (car set)) true)
+        ((&lt; x (car set)) false)
+        (else (element-of-set? x (cdr set)))))
+</pre></div>
 
 <p>How many steps does this save?  In the worst case, the item we are looking for
 may be the largest one in the set, so the number of steps is the same as for
@@ -220,37 +170,12 @@ many different sizes we can expect that sometimes we will be able to stop
 searching at a point near the beginning of the list and that other times we
 will still need to examine most of the list.  On the average we should expect
 to have to examine about half of the items in the set.  Thus, the average
-number of steps required will be about <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mn>2</mn>
-  </mrow>
-</math>.  This is still
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> growth, but it does save us, on the average, a factor of 2
+number of steps required will be about \( {n / 2} \).  This is still
+\( {\Theta(n)} \) growth, but it does save us, on the average, a factor of 2
 in number of steps over the previous implementation.
 </p>
 <p>We obtain a more impressive speedup with <code>intersection-set</code>.  In the
-unordered representation this operation required <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <msup>
-      <mi>n</mi>
-      <mn>2</mn>
-    </msup>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> steps,
+unordered representation this operation required \( {\Theta(n^2)} \) steps,
 because we performed a complete scan of <code>set2</code> for each element of
 <code>set1</code>.  But with the ordered representation, we can use a more clever
 method.  Begin by comparing the initial elements, <code>x1</code> and <code>x2</code>, of
@@ -266,45 +191,29 @@ intersection of <code>set1</code> with the <code>cdr</code> of <code>set2</code>
 procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">intersection-set set1 set2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">or</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? set1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? set2</span><span class="clo">))</span><span class="pln">
-      </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">x1 </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> set1</span><span class="clo">))</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x2 </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> set2</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> x1 x2</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x1 </span><span class="opn">(</span><span class="pln">intersection-set 
-                         </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> set1</span><span class="clo">)</span><span class="pln">
-                         </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> set2</span><span class="clo">))))</span><span class="pln">
-              </span><span class="opn">((</span><span class="pun">&lt;</span><span class="pln"> x1 x2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">intersection-set 
-                          </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> set1</span><span class="clo">)</span><span class="pln"> 
-                          set2</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">((</span><span class="pun">&lt;</span><span class="pln"> x2 x1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">intersection-set 
+<pre class="lisp">(define (intersection-set set1 set2)
+  (if (or (null? set1) (null? set2))
+      '()
+      (let ((x1 (car set1)) (x2 (car set2)))
+        (cond ((= x1 x2)
+               (cons x1 (intersection-set 
+                         (cdr set1)
+                         (cdr set2))))
+              ((&lt; x1 x2) (intersection-set 
+                          (cdr set1) 
+                          set2))
+              ((&lt; x2 x1) (intersection-set 
                           set1 
-                          </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> set2</span><span class="clo">)))))))</span></pre></div>
+                          (cdr set2)))))))
+</pre></div>
 
 <p>To estimate the number of steps required by this process, observe that at each
 step we reduce the intersection problem to computing intersections of smaller
 sets—removing the first element from <code>set1</code> or <code>set2</code> or both.
 Thus, the number of steps required is at most the sum of the sizes of
 <code>set1</code> and <code>set2</code>, rather than the product of the sizes as with the
-unordered representation.  This is <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> growth rather than
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <msup>
-      <mi>n</mi>
-      <mn>2</mn>
-    </msup>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>—a considerable speedup, even for sets of moderate size.
+unordered representation.  This is \( {\Theta(n)} \) growth rather than
+\( {\Theta(n^2)} \)—a considerable speedup, even for sets of moderate size.
 </p>
 <blockquote>
 <p><strong><a id="Exercise-2_002e61"></a>Exercise 2.61:</strong> Give an implementation of
@@ -315,14 +224,7 @@ unordered representation.
 </p></blockquote>
 
 <blockquote>
-<p><strong><a id="Exercise-2_002e62"></a>Exercise 2.62:</strong> Give a <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>
+<p><strong><a id="Exercise-2_002e62"></a>Exercise 2.62:</strong> Give a \( {\Theta(n)} \)
 implementation of <code>union-set</code> for sets represented as ordered lists.
 </p></blockquote>
 
@@ -335,23 +237,7 @@ set, called the “entry” at that node, and a link to each of two other
 (possibly empty) nodes.  The “left” link points to elements smaller than the
 one at the node, and the “right” link to elements greater than the one at the
 node.  <a href="#Figure-2_002e16">Figure 2.16</a> shows some trees that represent the set
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo fence="false" stretchy="false">{</mo>
-    <mn>1</mn>
-    <mo>,</mo>
-    <mn>3</mn>
-    <mo>,</mo>
-    <mn>5</mn>
-    <mo>,</mo>
-    <mn>7</mn>
-    <mo>,</mo>
-    <mn>9</mn>
-    <mo>,</mo>
-    <mn>11</mn>
-    <mo fence="false" stretchy="false">}</mo>
-  </mrow>
-</math>.  The same set may be represented by a tree in a number of
+\( {\{1, 3, 5, 7, 9, 11\}} \).  The same set may be represented by a tree in a number of
 different ways.  The only thing we require for a valid representation is that
 all elements in the left subtree be smaller than the node entry and that all
 elements in the right subtree be larger.
@@ -361,65 +247,20 @@ elements in the right subtree be larger.
 <object style="width: 45.93ex; height: 21.50ex;" data="fig/chap2/Fig2.16c.std.svg" type="image/svg+xml">SVG</object>
 
 <figcaption class="float-caption">
-<p><strong>Figure 2.16:</strong> Various binary trees that represent the set <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo fence="false" stretchy="false">{</mo>
-    <mn>1</mn>
-    <mo>,</mo>
-    <mn>3</mn>
-    <mo>,</mo>
-    <mn>5</mn>
-    <mo>,</mo>
-    <mn>7</mn>
-    <mo>,</mo>
-    <mn>9</mn>
-    <mo>,</mo>
-    <mn>11</mn>
-    <mo fence="false" stretchy="false">}</mo>
-  </mrow>
-</math>.</p>
+<p><strong>Figure 2.16:</strong> Various binary trees that represent the set \( {\{1, 3, 5, 7, 9, 11\}} \).</p>
 </figcaption>
 </figure>
 
 <p>The advantage of the tree representation is this: Suppose we want to check
-whether a number <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> is contained in a set.  We begin by comparing <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> with
-the entry in the top node.  If <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> is less than this, we know that we need
-only search the left subtree; if <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> is greater, we need only search the
+whether a number \( x \) is contained in a set.  We begin by comparing \( x \) with
+the entry in the top node.  If \( x \) is less than this, we know that we need
+only search the left subtree; if \( x \) is greater, we need only search the
 right subtree.  Now, if the tree is “balanced,” each of these subtrees will
 be about half the size of the original.  Thus, in one step we have reduced the
-problem of searching a tree of size <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> to searching a tree of size <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mn>2</mn>
-  </mrow>
-</math>.
+problem of searching a tree of size \( n \) to searching a tree of size \( {n / 2} \).
 Since the size of the tree is halved at each step, we should expect that the
-number of steps needed to search a tree of size <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> grows as
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>log</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.<a class="footnote_link" id="DOCF104" href="#FOOT104"><sup>104</sup></a> For large sets, this will be a
+number of steps needed to search a tree of size \( n \) grows as
+\( {\Theta(\log n)} \).<a class="footnote_link" id="DOCF104" href="#FOOT104"><sup>104</sup></a> For large sets, this will be a
 significant speedup over the previous representations.
 </p>
 <p>We can represent trees by using lists.  Each node will be a list of three
@@ -429,39 +270,32 @@ connected there.  We can describe this representation by the following
 procedures:<a class="footnote_link" id="DOCF105" href="#FOOT105"><sup>105</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">entry tree</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> tree</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">left-branch tree</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> tree</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">right-branch tree</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">caddr</span><span class="pln"> tree</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-tree entry left right</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">list entry left right</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (entry tree) (car tree))
+(define (left-branch tree) (cadr tree))
+(define (right-branch tree) (caddr tree))
+(define (make-tree entry left right)
+  (list entry left right))
+</pre></div>
 
 <p>Now we can write the <code>element-of-set?</code> procedure using the strategy
 described above:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">element-of-set? x </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? </span><span class="kwd">set</span><span class="clo">)</span><span class="pln"> false</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">entry </span><span class="kwd">set</span><span class="clo">))</span><span class="pln"> true</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">&lt;</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">entry </span><span class="kwd">set</span><span class="clo">))</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">element-of-set? 
+<pre class="lisp">(define (element-of-set? x set)
+  (cond ((null? set) false)
+        ((= x (entry set)) true)
+        ((&lt; x (entry set))
+         (element-of-set? 
           x 
-          </span><span class="opn">(</span><span class="pln">left-branch </span><span class="kwd">set</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">&gt;</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">entry </span><span class="kwd">set</span><span class="clo">))</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">element-of-set? 
+          (left-branch set)))
+        ((&gt; x (entry set))
+         (element-of-set? 
           x 
-          </span><span class="opn">(</span><span class="pln">right-branch </span><span class="kwd">set</span><span class="clo">)))))</span></pre></div>
+          (right-branch set)))))
+</pre></div>
 
 <p>Adjoining an item to a set is implemented similarly and also requires
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>log</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> steps.  To adjoin an item <code>x</code>, we compare
+\( {\Theta(\log n)} \) steps.  To adjoin an item <code>x</code>, we compare
 <code>x</code> with the node entry to determine whether <code>x</code> should be added to
 the right or to the left branch, and having adjoined <code>x</code> to the
 appropriate branch we piece this newly constructed branch together with the
@@ -471,19 +305,20 @@ generate a tree that has <code>x</code> as the entry and empty right and left
 branches.  Here is the procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">adjoin-set x </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? </span><span class="kwd">set</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-tree x </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">entry </span><span class="kwd">set</span><span class="clo">))</span><span class="pln"> </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">&lt;</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">entry </span><span class="kwd">set</span><span class="clo">))</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">make-tree 
-          </span><span class="opn">(</span><span class="pln">entry </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">adjoin-set x </span><span class="opn">(</span><span class="pln">left-branch </span><span class="kwd">set</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">right-branch </span><span class="kwd">set</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">&gt;</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">entry </span><span class="kwd">set</span><span class="clo">))</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">make-tree
-          </span><span class="opn">(</span><span class="pln">entry </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">left-branch </span><span class="kwd">set</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">adjoin-set x </span><span class="opn">(</span><span class="pln">right-branch </span><span class="kwd">set</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(define (adjoin-set x set)
+  (cond ((null? set) (make-tree x '() '()))
+        ((= x (entry set)) set)
+        ((&lt; x (entry set))
+         (make-tree 
+          (entry set)
+          (adjoin-set x (left-branch set))
+          (right-branch set)))
+        ((&gt; x (entry set))
+         (make-tree
+          (entry set)
+          (left-branch set)
+          (adjoin-set x (right-branch set))))))
+</pre></div>
 
 <p>The above claim that searching the tree can be performed in a logarithmic
 number of steps rests on the assumption that the tree is “balanced,” i.e.,
@@ -503,16 +338,7 @@ that transforms an arbitrary tree into a balanced tree with the same elements.
 Then we can perform this transformation after every few <code>adjoin-set</code>
 operations to keep our set in balance.  There are also other ways to solve this
 problem, most of which involve designing new data structures for which
-searching and insertion both can be done in <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>log</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>
+searching and insertion both can be done in \( {\Theta(\log n)} \)
 steps.<a class="footnote_link" id="DOCF106" href="#FOOT106"><sup>106</sup></a>
 </p>
 <figure class="float">
@@ -529,27 +355,28 @@ steps.<a class="footnote_link" id="DOCF106" href="#FOOT106"><sup>106</sup></a>
 procedures converts a binary tree to a list.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tree-</span><span class="pun">&gt;</span><span class="pln">list-1 tree</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? tree</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">append 
-       </span><span class="opn">(</span><span class="pln">tree-</span><span class="pun">&gt;</span><span class="pln">list-1 
-        </span><span class="opn">(</span><span class="pln">left-branch tree</span><span class="clo">))</span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">entry tree</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="pln">tree-</span><span class="pun">&gt;</span><span class="pln">list-1 
-              </span><span class="opn">(</span><span class="pln">right-branch tree</span><span class="clo">))))))</span><span class="pln">
+<pre class="lisp">(define (tree-&gt;list-1 tree)
+  (if (null? tree)
+      '()
+      (append 
+       (tree-&gt;list-1 
+        (left-branch tree))
+       (cons (entry tree)
+             (tree-&gt;list-1 
+              (right-branch tree))))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tree-</span><span class="pun">&gt;</span><span class="pln">list-2 tree</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">copy-to-list tree result-list</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? tree</span><span class="clo">)</span><span class="pln">
+(define (tree-&gt;list-2 tree)
+  (define (copy-to-list tree result-list)
+    (if (null? tree)
         result-list
-        </span><span class="opn">(</span><span class="pln">copy-to-list 
-         </span><span class="opn">(</span><span class="pln">left-branch tree</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">entry tree</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">copy-to-list 
-                </span><span class="opn">(</span><span class="pln">right-branch tree</span><span class="clo">)</span><span class="pln">
-                result-list</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">copy-to-list tree </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span></pre></div>
+        (copy-to-list 
+         (left-branch tree)
+         (cons (entry tree)
+               (copy-to-list 
+                (right-branch tree)
+                result-list)))))
+  (copy-to-list tree '()))
+</pre></div>
 
 <ol>
 <li> Do the two procedures produce the same result for every tree?  If not, how do
@@ -557,9 +384,7 @@ the results differ?  What lists do the two procedures produce for the trees in
 <a href="#Figure-2_002e16">Figure 2.16</a>?
 
 </li><li> Do the two procedures have the same order of growth in the number of steps
-required to convert a balanced tree with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> elements to a list?  If not,
+required to convert a balanced tree with \( n \) elements to a list?  If not,
 which one grows more slowly?
 
 </li></ol>
@@ -568,51 +393,46 @@ which one grows more slowly?
 <blockquote>
 <p><strong><a id="Exercise-2_002e64"></a>Exercise 2.64:</strong> The following procedure
 <code>list-&gt;tree</code> converts an ordered list to a balanced binary tree.  The
-helper procedure <code>partial-tree</code> takes as arguments an integer <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> and
-list of at least <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> elements and constructs a balanced tree containing the
-first <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> elements of the list.  The result returned by <code>partial-tree</code>
+helper procedure <code>partial-tree</code> takes as arguments an integer \( n \) and
+list of at least \( n \) elements and constructs a balanced tree containing the
+first \( n \) elements of the list.  The result returned by <code>partial-tree</code>
 is a pair (formed with <code>cons</code>) whose <code>car</code> is the constructed tree
 and whose <code>cdr</code> is the list of elements not included in the tree.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list-</span><span class="pun">&gt;</span><span class="pln">tree elements</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="opn">(</span><span class="pln">partial-tree 
-        elements </span><span class="opn">(</span><span class="pln">length elements</span><span class="clo">))))</span><span class="pln">
+<pre class="lisp">(define (list-&gt;tree elements)
+  (car (partial-tree 
+        elements (length elements))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">partial-tree elts n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln"> elts</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">left-size 
-             </span><span class="opn">(</span><span class="pln">quotient </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">left-result 
-               </span><span class="opn">(</span><span class="pln">partial-tree 
-                elts left-size</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">left-tree 
-                 </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> left-result</span><span class="clo">))</span><span class="pln">
-                </span><span class="opn">(</span><span class="pln">non-left-elts 
-                 </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> left-result</span><span class="clo">))</span><span class="pln">
-                </span><span class="opn">(</span><span class="pln">right-size 
-                 </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> left-size </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">this-entry 
-                   </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> non-left-elts</span><span class="clo">))</span><span class="pln">
-                  </span><span class="opn">(</span><span class="pln">right-result 
-                   </span><span class="opn">(</span><span class="pln">partial-tree 
-                    </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> non-left-elts</span><span class="clo">)</span><span class="pln">
-                    right-size</span><span class="clo">)))</span><span class="pln">
-              </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">right-tree 
-                     </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> right-result</span><span class="clo">))</span><span class="pln">
-                    </span><span class="opn">(</span><span class="pln">remaining-elts 
-                     </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> right-result</span><span class="clo">)))</span><span class="pln">
-                </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-tree this-entry 
+(define (partial-tree elts n)
+  (if (= n 0)
+      (cons '() elts)
+      (let ((left-size 
+             (quotient (- n 1) 2)))
+        (let ((left-result 
+               (partial-tree 
+                elts left-size)))
+          (let ((left-tree 
+                 (car left-result))
+                (non-left-elts 
+                 (cdr left-result))
+                (right-size 
+                 (- n (+ left-size 1))))
+            (let ((this-entry 
+                   (car non-left-elts))
+                  (right-result 
+                   (partial-tree 
+                    (cdr non-left-elts)
+                    right-size)))
+              (let ((right-tree 
+                     (car right-result))
+                    (remaining-elts 
+                     (cdr right-result)))
+                (cons (make-tree this-entry 
                                  left-tree 
-                                 right-tree</span><span class="clo">)</span><span class="pln">
-                      remaining-elts</span><span class="clo">))))))))</span></pre></div>
+                                 right-tree)
+                      remaining-elts))))))))
+</pre></div>
 
 <ol>
 <li> Write a short paragraph explaining as clearly as you can how
@@ -620,23 +440,14 @@ and whose <code>cdr</code> is the list of elements not included in the tree.
 the list <code>(1 3 5 7 9 11)</code>.
 
 </li><li> What is the order of growth in the number of steps required by
-<code>list-&gt;tree</code> to convert a list of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> elements?
+<code>list-&gt;tree</code> to convert a list of \( n \) elements?
 
 </li></ol>
 </blockquote>
 
 <blockquote>
 <p><strong><a id="Exercise-2_002e65"></a>Exercise 2.65:</strong> Use the results of <a href="#Exercise-2_002e63">Exercise 2.63</a> 
-and <a href="#Exercise-2_002e64">Exercise 2.64</a> to give <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> implementations of
+and <a href="#Exercise-2_002e64">Exercise 2.64</a> to give \( {\Theta(n)} \) implementations of
 <code>union-set</code> and <code>intersection-set</code> for sets implemented as (balanced)
 binary trees.<a class="footnote_link" id="DOCF107" href="#FOOT107"><sup>107</sup></a>
 </p></blockquote>
@@ -671,14 +482,15 @@ is no such record.  <code>Lookup</code> is implemented in almost the same way as
 an unordered list, we could use
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">lookup given-key set-of-records</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? set-of-records</span><span class="clo">)</span><span class="pln"> false</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">equal</span><span class="pun">?</span><span class="pln"> given-key 
-                 </span><span class="opn">(</span><span class="pln">key </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> set-of-records</span><span class="clo">)))</span><span class="pln">
-         </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> set-of-records</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">lookup given-key 
-                 </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> set-of-records</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (lookup given-key set-of-records)
+  (cond ((null? set-of-records) false)
+        ((equal? given-key 
+                 (key (car set-of-records)))
+         (car set-of-records))
+        (else 
+         (lookup given-key 
+                 (cdr set-of-records)))))
+</pre></div>
 
 <p>Of course, there are better ways to represent large sets than as unordered
 lists.  Information-retrieval systems in which records have to be “randomly
@@ -700,7 +512,7 @@ ordered by the numerical values of the keys.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -754,10 +566,10 @@ devoted to this problem.  See <a href="References.xhtml#Cormen-et-al_002e-1990">
 to Paul Hilfinger.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="2_002e3_002e4.xhtml#g_t2_002e3_002e4" accesskey="n" rel="next">2.3.4</a>, Previous: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="p" rel="prev">2.3.2</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e3_002e4.xhtml#g_t2_002e3_002e4" accesskey="n" rel="next">2.3.4</a>, Previous: <a href="2_002e3_002e2.xhtml#g_t2_002e3_002e2" accesskey="p" rel="prev">2.3.2</a>, Up: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="u" rel="prev">2.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

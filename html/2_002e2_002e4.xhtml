@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 2.2.4</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.2.4</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 2.2.4" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 2.2.4" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="2_002e2.xhtml#g_t2_002e2" rel="prev" title="2.2" />
-<link href="2_002e3.xhtml#g_t2_002e3" rel="next" title="2.3" />
-<link href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" rel="prev" title="2.2.3" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.2.4"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.2.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="2_002e2.xhtml#g_t2_002e2" rel="prev" title="2.2"/>
+<link href="2_002e3.xhtml#g_t2_002e3" rel="next" title="2.3"/>
+<link href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" rel="prev" title="2.2.3"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t2_002e2_002e4"></a>
 <nav class="header">
 <p>
-Next: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="n" rel="next">2.3</a>, Previous: <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" accesskey="p" rel="prev">2.2.3</a>, Up: <a href="2_002e2.xhtml#g_t2_002e2" accesskey="u" rel="prev">2.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="n" rel="next">2.3</a>, Previous: <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" accesskey="p" rel="prev">2.2.3</a>, Up: <a href="2_002e2.xhtml#g_t2_002e2" accesskey="u" rel="prev">2.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Example_003a-A-Picture-Language"></a>
 <h4 class="subsection"><span class="secnum">2.2.4</span><span class="sectitle">Example: A Picture Language</span></h4>
@@ -110,8 +108,9 @@ original painter’s image left-to-right reversed.
 <code>wave4</code> that is built up in two stages starting from <code>wave</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> wave2 </span><span class="opn">(</span><span class="pln">beside wave </span><span class="opn">(</span><span class="pln">flip-vert wave</span><span class="clo">)))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> wave4 </span><span class="opn">(</span><span class="pln">below wave2 wave2</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define wave2 (beside wave (flip-vert wave)))
+(define wave4 (below wave2 wave2))
+</pre></div>
 
 <figure class="float">
 <a id="Figure-2_002e12"></a>
@@ -139,29 +138,32 @@ painter operations that we can do with procedures.  For example, we can
 abstract the pattern in <code>wave4</code> as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">flipped-pairs painter</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">painter2 
-         </span><span class="opn">(</span><span class="pln">beside painter 
-                 </span><span class="opn">(</span><span class="pln">flip-vert painter</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">below painter2 painter2</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (flipped-pairs painter)
+  (let ((painter2 
+         (beside painter 
+                 (flip-vert painter))))
+    (below painter2 painter2)))
+</pre></div>
 
 <p>and define <code>wave4</code> as an instance of this pattern:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> wave4 </span><span class="opn">(</span><span class="pln">flipped-pairs wave</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define wave4 (flipped-pairs wave))
+</pre></div>
 
 <p>We can also define recursive operations.  Here’s one that makes painters split
 and branch towards the right as shown in <a href="#Figure-2_002e13">Figure 2.13</a>
 and <a href="#Figure-2_002e14">Figure 2.14</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">right-split painter n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (right-split painter n)
+  (if (= n 0)
       painter
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">smaller </span><span class="opn">(</span><span class="pln">right-split painter 
-                                  </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">beside painter 
-                </span><span class="opn">(</span><span class="pln">below smaller smaller</span><span class="clo">)))))</span></pre></div>
+      (let ((smaller (right-split painter 
+                                  (- n 1))))
+        (beside painter 
+                (below smaller smaller)))))
+</pre></div>
 
 <figure class="float">
 <a id="Figure-2_002e13"></a>
@@ -176,20 +178,21 @@ and <a href="#Figure-2_002e14">Figure 2.14</a>:
 right (see <a href="#Exercise-2_002e44">Exercise 2.44</a>, <a href="#Figure-2_002e13">Figure 2.13</a> and <a href="#Figure-2_002e14">Figure 2.14</a>):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">corner-split painter n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (corner-split painter n)
+  (if (= n 0)
       painter
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">up </span><span class="opn">(</span><span class="pln">up-split painter </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)))</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">right </span><span class="opn">(</span><span class="pln">right-split painter 
-                                </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">top-left </span><span class="opn">(</span><span class="pln">beside up up</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">bottom-right </span><span class="opn">(</span><span class="pln">below right 
-                                   right</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">corner </span><span class="opn">(</span><span class="pln">corner-split painter 
-                                    </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">beside </span><span class="opn">(</span><span class="pln">below painter top-left</span><span class="clo">)</span><span class="pln">
-                  </span><span class="opn">(</span><span class="pln">below bottom-right 
-                         corner</span><span class="clo">))))))</span></pre></div>
+      (let ((up (up-split painter (- n 1)))
+            (right (right-split painter 
+                                (- n 1))))
+        (let ((top-left (beside up up))
+              (bottom-right (below right 
+                                   right))
+              (corner (corner-split painter 
+                                    (- n 1))))
+          (beside (below painter top-left)
+                  (below bottom-right 
+                         corner))))))
+</pre></div>
 
 <figure class="float">
 <a id="Figure-2_002e14"></a>
@@ -205,11 +208,12 @@ pattern called <code>square-limit</code>, whose application to <code>wave</code>
 <code>rogers</code> is shown in <a href="#Figure-2_002e9">Figure 2.9</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square-limit painter n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">quarter </span><span class="opn">(</span><span class="pln">corner-split painter n</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">half </span><span class="opn">(</span><span class="pln">beside </span><span class="opn">(</span><span class="pln">flip-horiz quarter</span><span class="clo">)</span><span class="pln"> 
-                        quarter</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">below </span><span class="opn">(</span><span class="pln">flip-vert half</span><span class="clo">)</span><span class="pln"> half</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (square-limit painter n)
+  (let ((quarter (corner-split painter n)))
+    (let ((half (beside (flip-horiz quarter) 
+                        quarter)))
+      (below (flip-vert half) half))))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-2_002e44"></a>Exercise 2.44:</strong> Define the procedure
@@ -238,36 +242,39 @@ the top right copy, the bottom left copy, and the bottom right copy,
 respectively.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square-of-four tl tr bl br</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">painter</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">top </span><span class="opn">(</span><span class="pln">beside </span><span class="opn">(</span><span class="pln">tl painter</span><span class="clo">)</span><span class="pln"> 
-                       </span><span class="opn">(</span><span class="pln">tr painter</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">bottom </span><span class="opn">(</span><span class="pln">beside </span><span class="opn">(</span><span class="pln">bl painter</span><span class="clo">)</span><span class="pln"> 
-                          </span><span class="opn">(</span><span class="pln">br painter</span><span class="clo">))))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">below bottom top</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (square-of-four tl tr bl br)
+  (lambda (painter)
+    (let ((top (beside (tl painter) 
+                       (tr painter)))
+          (bottom (beside (bl painter) 
+                          (br painter))))
+      (below bottom top))))
+</pre></div>
 
 <p>Then <code>flipped-pairs</code> can be defined in terms of <code>square-of-four</code> as
 follows:<a class="footnote_link" id="DOCF90" href="#FOOT90"><sup>90</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">flipped-pairs painter</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">combine4 
-         </span><span class="opn">(</span><span class="pln">square-of-four identity 
+<pre class="lisp">(define (flipped-pairs painter)
+  (let ((combine4 
+         (square-of-four identity 
                          flip-vert
                          identity 
-                         flip-vert</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">combine4 painter</span><span class="clo">)))</span></pre></div>
+                         flip-vert)))
+    (combine4 painter)))
+</pre></div>
 
 <p>and <code>square-limit</code> can be expressed as<a class="footnote_link" id="DOCF91" href="#FOOT91"><sup>91</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square-limit painter n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">combine4 
-         </span><span class="opn">(</span><span class="pln">square-of-four flip-horiz 
+<pre class="lisp">(define (square-limit painter n)
+  (let ((combine4 
+         (square-of-four flip-horiz 
                          identity
                          rotate180 
-                         flip-vert</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">combine4 </span><span class="opn">(</span><span class="pln">corner-split painter n</span><span class="clo">))))</span></pre></div>
+                         flip-vert)))
+    (combine4 (corner-split painter n))))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-2_002e45"></a>Exercise 2.45:</strong> <code>Right-split</code> and
@@ -275,8 +282,9 @@ follows:<a class="footnote_link" id="DOCF90" href="#FOOT90"><sup>90</sup></a>
 Define a procedure <code>split</code> with the property that evaluating
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> right-split </span><span class="opn">(</span><span class="pln">split beside below</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> up-split </span><span class="opn">(</span><span class="pln">split below beside</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define right-split (split beside below))
+(define up-split (split below beside))
+</pre></div>
 
 <p>produces procedures <code>right-split</code> and <code>up-split</code> with the same
 behaviors as the ones already defined.
@@ -309,241 +317,62 @@ corresponding selectors <code>origin-frame</code>, <code>edge1-frame</code>, and
 </figcaption>
 </figure>
 
-<p>We will use coordinates in the unit square <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mn>0</mn>
-    <mo>≤<!-- ≤ --></mo>
-    <mi>x</mi>
-    <mo>,</mo>
-    <mi>y</mi>
-    <mo>≤<!-- ≤ --></mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> to specify
+<p>We will use coordinates in the unit square \( {(0 \le x, y \le 1)} \) to specify
 images.  With each frame, we associate a <a id="index-frame-coordinate-map"></a>
 <em>frame coordinate map</em>, which
 will be used to shift and scale images to fit the frame.  The map transforms
-the unit square into the frame by mapping the vector <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi mathvariant="bold">v</mi>
-    </mrow>
-    <mo>=</mo>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo>,</mo>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> to
+the unit square into the frame by mapping the vector \( {{\bf v} = (x, y)} \) to
 the vector sum
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mtext>Origin(Frame)</mtext>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mo>⋅<!-- ⋅ --></mo>
-    <msub>
-      <mtext>Edge</mtext>
-      <mn>1</mn>
-    </msub>
-    <mtext>(Frame)</mtext>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>y</mi>
-    <mo>⋅<!-- ⋅ --></mo>
-    <msub>
-      <mtext>Edge</mtext>
-      <mn>2</mn>
-    </msub>
-    <mtext>(Frame)</mtext>
-    <mo>.</mo>
-  </mrow>
-</math>
+\[ % :40:
+  {\text{Origin(Frame)}} + {x \cdot \text{Edge}_1\text{(Frame)}} + {y \cdot \text{Edge}_2\text{(Frame)}.} \]
 For example, (0, 0) is mapped to the origin of the frame, (1, 1) to the vertex
 diagonally opposite the origin, and (0.5, 0.5) to the center of the frame.  We
 can create a frame’s coordinate map with the following
 procedure:<a class="footnote_link" id="DOCF92" href="#FOOT92"><sup>92</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">frame-coord-map frame</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">v</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">add-vect
-     </span><span class="opn">(</span><span class="pln">origin-frame frame</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">add-vect 
-      </span><span class="opn">(</span><span class="pln">scale-vect </span><span class="opn">(</span><span class="pln">xcor-vect v</span><span class="clo">)</span><span class="pln">
-                  </span><span class="opn">(</span><span class="pln">edge1-frame frame</span><span class="clo">))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">scale-vect </span><span class="opn">(</span><span class="pln">ycor-vect v</span><span class="clo">)</span><span class="pln">
-                  </span><span class="opn">(</span><span class="pln">edge2-frame frame</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(define (frame-coord-map frame)
+  (lambda (v)
+    (add-vect
+     (origin-frame frame)
+     (add-vect 
+      (scale-vect (xcor-vect v)
+                  (edge1-frame frame))
+      (scale-vect (ycor-vect v)
+                  (edge2-frame frame))))))
+</pre></div>
 
 <p>Observe that applying <code>frame-coord-map</code> to a frame returns a procedure
 that, given a vector, returns a vector.  If the argument vector is in the unit
 square, the result vector will be in the frame.  For example,
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="pln">frame-coord-map a-frame</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0</span><span class="pln"> </span><span class="lit">0</span><span class="clo">))</span></pre></div>
+<pre class="lisp">((frame-coord-map a-frame) (make-vect 0 0))
+</pre></div>
 
 <p>returns the same vector as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">origin-frame a-frame</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(origin-frame a-frame)
+</pre></div>
 
 <blockquote>
-<p><strong><a id="Exercise-2_002e46"></a>Exercise 2.46:</strong> A two-dimensional vector <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi mathvariant="bold">v</mi>
-</math>
+<p><strong><a id="Exercise-2_002e46"></a>Exercise 2.46:</strong> A two-dimensional vector \( \bf v \)
 running from the origin to a point can be represented as a pair consisting of
-an <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math>-coordinate and a <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math>-coordinate.  Implement a data abstraction for
+an \( x \)-coordinate and a \( y \)-coordinate.  Implement a data abstraction for
 vectors by giving a constructor <code>make-vect</code> and corresponding selectors
 <code>xcor-vect</code> and <code>ycor-vect</code>.  In terms of your selectors and
 constructor, implement procedures <code>add-vect</code>, <code>sub-vect</code>, and
 <code>scale-vect</code> that perform the operations vector addition, vector
 subtraction, and multiplying a vector by a scalar:
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right center left" rowspacing="3pt" columnspacing="thickmathspace">
-    <mtr>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>y</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>+</mo>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>y</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>+</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>y</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>+</mo>
-        <msub>
-          <mi>y</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>,</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>y</mi>
-          <mn>1</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>−<!-- − --></mo>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>y</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <msub>
-          <mi>x</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>−<!-- − --></mo>
-        <msub>
-          <mi>x</mi>
-          <mn>2</mn>
-        </msub>
-        <mo>,</mo>
-        <msub>
-          <mi>y</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>−<!-- − --></mo>
-        <msub>
-          <mi>y</mi>
-          <mn>2</mn>
-        </msub>
-        <mo stretchy="false">)</mo>
-        <mo>,</mo>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mi>s</mi>
-        <mo>⋅<!-- ⋅ --></mo>
-        <mo stretchy="false">(</mo>
-        <mi>x</mi>
-        <mo>,</mo>
-        <mi>y</mi>
-        <mo stretchy="false">)</mo>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mo stretchy="false">(</mo>
-        <mi>s</mi>
-        <mi>x</mi>
-        <mo>,</mo>
-        <mi>s</mi>
-        <mi>y</mi>
-        <mo stretchy="false">)</mo>
-        <mo>.</mo>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
+\[ % :41:
+  
+\begin{eqnarray}
+	(x_1, y_1) + (x_2, y_2)  &amp;=&amp;  (x_1 + x_2, y_1 + y_2), \\
+	(x_1, y_1) - (x_2, y_2)  &amp;=&amp;  (x_1 - x_2, y_1 - y_2), \\
+	s \cdot (x, y) 		 &amp;=&amp;  (sx, sy).
+\end{eqnarray}
+\]
 </p></blockquote>
 
 <blockquote>
@@ -551,11 +380,12 @@ subtraction, and multiplying a vector by a scalar:
 constructors for frames:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-frame origin edge1 edge2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">list origin edge1 edge2</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (make-frame origin edge1 edge2)
+  (list origin edge1 edge2))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-frame origin edge1 edge2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> origin </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> edge1 edge2</span><span class="clo">)))</span></pre></div>
+(define (make-frame origin edge1 edge2)
+  (cons origin (cons edge1 edge2)))
+</pre></div>
 
 <p>For each constructor supply the appropriate selectors to produce an
 implementation for frames.
@@ -577,16 +407,17 @@ drawings, such as the <code>wave</code> painter in <a href="#Figure-2_002e10">Fi
 line segments as follows:<a class="footnote_link" id="DOCF93" href="#FOOT93"><sup>93</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">segments-</span><span class="pun">&gt;</span><span class="pln">painter segment-list</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">frame</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">for-each
-     </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">segment</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="pln">draw-line
-        </span><span class="opn">((</span><span class="pln">frame-coord-map frame</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">start-segment segment</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">frame-coord-map frame</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">end-segment segment</span><span class="clo">))))</span><span class="pln">
-     segment-list</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (segments-&gt;painter segment-list)
+  (lambda (frame)
+    (for-each
+     (lambda (segment)
+       (draw-line
+        ((frame-coord-map frame) 
+         (start-segment segment))
+        ((frame-coord-map frame) 
+         (end-segment segment))))
+     segment-list)))
+</pre></div>
 
 <p>The segments are given using coordinates with respect to the unit square.  For
 each segment in the list, the painter transforms the segment endpoints with the
@@ -646,26 +477,27 @@ of its edge vectors.  Thus, arguments within the unit square specify a frame
 contained within the original frame.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">transform-painter 
-         painter origin corner1 corner2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">frame</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">m </span><span class="opn">(</span><span class="pln">frame-coord-map frame</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">new-origin </span><span class="opn">(</span><span class="pln">m origin</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">painter </span><span class="opn">(</span><span class="pln">make-frame new-origin
-                  </span><span class="opn">(</span><span class="pln">sub-vect </span><span class="opn">(</span><span class="pln">m corner1</span><span class="clo">)</span><span class="pln"> 
-                            new-origin</span><span class="clo">)</span><span class="pln">
-                  </span><span class="opn">(</span><span class="pln">sub-vect </span><span class="opn">(</span><span class="pln">m corner2</span><span class="clo">)</span><span class="pln">
-                            new-origin</span><span class="clo">)))))))</span></pre></div>
+<pre class="lisp">(define (transform-painter 
+         painter origin corner1 corner2)
+  (lambda (frame)
+    (let ((m (frame-coord-map frame)))
+      (let ((new-origin (m origin)))
+        (painter (make-frame new-origin
+                  (sub-vect (m corner1) 
+                            new-origin)
+                  (sub-vect (m corner2)
+                            new-origin)))))))
+</pre></div>
 
 <p>Here’s how to flip painter images vertically:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">flip-vert painter</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">transform-painter 
+<pre class="lisp">(define (flip-vert painter)
+  (transform-painter 
    painter
-   </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.0</span><span class="pln"> </span><span class="lit">1.0</span><span class="clo">)</span><span class="pln">   </span><span class="roman"><span class="com">; new </span><code><span class="com">origin</span></code></span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">1.0</span><span class="pln"> </span><span class="lit">1.0</span><span class="clo">)</span><span class="pln">   </span><span class="roman"><span class="com">; new end of </span><code><span class="com">edge1</span></code></span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.0</span><span class="pln"> </span><span class="lit">0.0</span><span class="clo">)))</span><span class="pln"> </span><span class="roman"><span class="com">; new end of </span><code><span class="com">edge2</span></code></span>
+   (make-vect 0.0 1.0)   <span class="roman">; new <code>origin</code></span>
+   (make-vect 1.0 1.0)   <span class="roman">; new end of <code>edge1</code></span>
+   (make-vect 0.0 0.0))) <span class="roman">; new end of <code>edge2</code></span>
 </pre></div>
 
 <p>Using <code>transform-painter</code>, we can easily define new transformations.
@@ -673,30 +505,33 @@ For example, we can define a painter that shrinks its image to the
 upper-right quarter of the frame it is given:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">shrink-to-upper-right painter</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">transform-painter painter
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.5</span><span class="pln"> </span><span class="lit">0.5</span><span class="clo">)</span><span class="pln">
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">1.0</span><span class="pln"> </span><span class="lit">0.5</span><span class="clo">)</span><span class="pln">
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.5</span><span class="pln"> </span><span class="lit">1.0</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (shrink-to-upper-right painter)
+  (transform-painter painter
+                     (make-vect 0.5 0.5)
+                     (make-vect 1.0 0.5)
+                     (make-vect 0.5 1.0)))
+</pre></div>
 
 <p>Other transformations rotate images counterclockwise by 90
 degrees<a class="footnote_link" id="DOCF95" href="#FOOT95"><sup>95</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">rotate90 painter</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">transform-painter painter
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">1.0</span><span class="pln"> </span><span class="lit">0.0</span><span class="clo">)</span><span class="pln">
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">1.0</span><span class="pln"> </span><span class="lit">1.0</span><span class="clo">)</span><span class="pln">
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.0</span><span class="pln"> </span><span class="lit">0.0</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (rotate90 painter)
+  (transform-painter painter
+                     (make-vect 1.0 0.0)
+                     (make-vect 1.0 1.0)
+                     (make-vect 0.0 0.0)))
+</pre></div>
 
 <p>or squash images towards the center of the frame:<a class="footnote_link" id="DOCF96" href="#FOOT96"><sup>96</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">squash-inwards painter</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">transform-painter painter
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.0</span><span class="pln"> </span><span class="lit">0.0</span><span class="clo">)</span><span class="pln">
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.65</span><span class="pln"> </span><span class="lit">0.35</span><span class="clo">)</span><span class="pln">
-                     </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.35</span><span class="pln"> </span><span class="lit">0.65</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (squash-inwards painter)
+  (transform-painter painter
+                     (make-vect 0.0 0.0)
+                     (make-vect 0.65 0.35)
+                     (make-vect 0.35 0.65)))
+</pre></div>
 
 <p>Frame transformation is also the key to defining means of combining two or more
 painters.  The <code>beside</code> procedure, for example, takes two painters,
@@ -707,21 +542,22 @@ half of the frame and calls the second transformed painter to paint in the
 right half of the frame:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">beside painter1 painter2</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">split-point </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.5</span><span class="pln"> </span><span class="lit">0.0</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">paint-left  </span><span class="opn">(</span><span class="pln">transform-painter 
+<pre class="lisp">(define (beside painter1 painter2)
+  (let ((split-point (make-vect 0.5 0.0)))
+    (let ((paint-left  (transform-painter 
                         painter1
-                        </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.0</span><span class="pln"> </span><span class="lit">0.0</span><span class="clo">)</span><span class="pln">
+                        (make-vect 0.0 0.0)
                         split-point
-                        </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.0</span><span class="pln"> </span><span class="lit">1.0</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">paint-right </span><span class="opn">(</span><span class="pln">transform-painter
+                        (make-vect 0.0 1.0)))
+          (paint-right (transform-painter
                         painter2
                         split-point
-                        </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">1.0</span><span class="pln"> </span><span class="lit">0.0</span><span class="clo">)</span><span class="pln">
-                        </span><span class="opn">(</span><span class="pln">make-vect </span><span class="lit">0.5</span><span class="pln"> </span><span class="lit">1.0</span><span class="clo">))))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">frame</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">paint-left frame</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">paint-right frame</span><span class="clo">)))))</span></pre></div>
+                        (make-vect 1.0 0.0)
+                        (make-vect 0.5 1.0))))
+      (lambda (frame)
+        (paint-left frame)
+        (paint-right frame)))))
+</pre></div>
 
 <p>Observe how the painter data abstraction, and in particular the representation
 of painters as procedures, makes <code>beside</code> easy to implement.  The
@@ -820,7 +656,7 @@ the big Mr. Rogers look outward from each corner of the square.)
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -889,9 +725,10 @@ the very part and act of public duty.
 Equivalently, we could write
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> flipped-pairs
-  </span><span class="opn">(</span><span class="pln">square-of-four 
-   identity flip-vert identity flip-vert</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define flipped-pairs
+  (square-of-four 
+   identity flip-vert identity flip-vert))
+</pre></div>
 </div>
 <div id="FOOT91"><p><a class="footnote_backlink" href="#DOCF91"><sup>91</sup></a>
 <code>Rotate180</code> rotates a
@@ -937,10 +774,10 @@ images in <a href="#Figure-2_002e10">Figure 2.10</a> and <a href="#Figure-2_002e
 Section <a href="3_002e3_002e4.xhtml#g_t3_002e3_002e4">3.3.4</a> describes one such language.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="n" rel="next">2.3</a>, Previous: <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" accesskey="p" rel="prev">2.2.3</a>, Up: <a href="2_002e2.xhtml#g_t2_002e2" accesskey="u" rel="prev">2.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e3.xhtml#g_t2_002e3" accesskey="n" rel="next">2.3</a>, Previous: <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3" accesskey="p" rel="prev">2.2.3</a>, Up: <a href="2_002e2.xhtml#g_t2_002e2" accesskey="u" rel="prev">2.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

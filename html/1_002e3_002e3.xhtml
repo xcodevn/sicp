@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 1.3.3</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.3</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 1.3.3" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 1.3.3" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="1_002e3.xhtml#g_t1_002e3" rel="prev" title="1.3" />
-<link href="1_002e3_002e4.xhtml#g_t1_002e3_002e4" rel="next" title="1.3.4" />
-<link href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" rel="prev" title="1.3.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.3"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="1_002e3.xhtml#g_t1_002e3" rel="prev" title="1.3"/>
+<link href="1_002e3_002e4.xhtml#g_t1_002e3_002e4" rel="next" title="1.3.4"/>
+<link href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" rel="prev" title="1.3.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t1_002e3_002e3"></a>
 <nav class="header">
 <p>
-Next: <a href="1_002e3_002e4.xhtml#g_t1_002e3_002e4" accesskey="n" rel="next">1.3.4</a>, Previous: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="p" rel="prev">1.3.2</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e3_002e4.xhtml#g_t1_002e3_002e4" accesskey="n" rel="next">1.3.4</a>, Previous: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="p" rel="prev">1.3.2</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Procedures-as-General-Methods"></a>
 <h4 class="subsection"><span class="secnum">1.3.3</span><span class="sectitle">Procedures as General Methods</span></h4>
@@ -51,145 +49,41 @@ directly as procedures.
 
 <p>The <a id="index-half_002dinterval-method"></a>
 <em>half-interval method</em> is a simple but powerful technique for
-finding roots of an equation <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-    <mo>=</mo>
-    <mn>0</mn>
-  </mrow>
-</math>, where <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> is a continuous
-function.  The idea is that, if we are given points <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math> such that
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>a</mi>
-    <mo stretchy="false">)</mo>
-    <mo>&lt;</mo>
-    <mn>0</mn>
-    <mo>&lt;</mo>
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>b</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>, then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> must have at least one zero between
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math>.  To locate a zero, let <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> be the average of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math>,
-and compute <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  If <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-    <mo>&gt;</mo>
-    <mn>0</mn>
-  </mrow>
-</math>, then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> must have a zero
-between <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math>.  If <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-    <mo>&lt;</mo>
-    <mn>0</mn>
-  </mrow>
-</math>, then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> must have a zero
-between <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math>.  Continuing in this way, we can identify smaller and
-smaller intervals on which <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> must have a zero.  When we reach a point where
+finding roots of an equation \( {f(x) = 0} \), where \( f \) is a continuous
+function.  The idea is that, if we are given points \( a \) and \( b \) such that
+\( {f(a) &lt; 0 &lt; f(b)} \), then \( f \) must have at least one zero between
+\( a \) and \( b \).  To locate a zero, let \( x \) be the average of \( a \) and \( b \),
+and compute \( {f(x)} \).  If \( {f(x) &gt; 0} \), then \( f \) must have a zero
+between \( a \) and \( x \).  If \( {f(x) &lt; 0} \), then \( f \) must have a zero
+between \( x \) and \( b \).  Continuing in this way, we can identify smaller and
+smaller intervals on which \( f \) must have a zero.  When we reach a point where
 the interval is small enough, the process stops.  Since the interval of
 uncertainty is reduced by half at each step of the process, the number of steps
-required grows as <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi mathvariant="normal">Θ<!-- Θ --></mi>
-    <mo stretchy="false">(</mo>
-    <mi>log</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mo stretchy="false">(</mo>
-    <mi>L</mi>
-    <mspace width="thinmathspace"/>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mspace width="thinmathspace"/>
-    <mi>T</mi>
-    <mo stretchy="false">)</mo>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>, where <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>L</mi>
-</math> is the
-length of the original interval and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>T</mi>
-</math> is the error tolerance (that is, the
+required grows as \( {\Theta(\log(L\, /\, T))} \), where \( L \) is the
+length of the original interval and \( T \) is the error tolerance (that is, the
 size of the interval we will consider “small enough”).  Here is a procedure
 that implements this strategy:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">search f neg-point pos-point</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">midpoint 
-         </span><span class="opn">(</span><span class="pln">average neg-point pos-point</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">close-enough? neg-point pos-point</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (search f neg-point pos-point)
+  (let ((midpoint 
+         (average neg-point pos-point)))
+    (if (close-enough? neg-point pos-point)
         midpoint
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">test-value </span><span class="opn">(</span><span class="pln">f midpoint</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> 
-           </span><span class="opn">((</span><span class="pln">positive? test-value</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">search f neg-point midpoint</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">((</span><span class="pln">negative? test-value</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">search f midpoint pos-point</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> midpoint</span><span class="clo">))))))</span></pre></div>
+        (let ((test-value (f midpoint)))
+          (cond 
+           ((positive? test-value)
+            (search f neg-point midpoint))
+           ((negative? test-value)
+            (search f midpoint pos-point))
+           (else midpoint))))))
+</pre></div>
 
-<p>We assume that we are initially given the function <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> together with points
+<p>We assume that we are initially given the function \( f \) together with points
 at which its values are negative and positive.  We first compute the midpoint
 of the two given points.  Next we check to see if the given interval is small
 enough, and if so we simply return the midpoint as our answer.  Otherwise, we
-compute as a test value the value of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> at the midpoint.  If the test value
+compute as a test value the value of \( f \) at the midpoint.  If the test value
 is positive, then we continue the process with a new interval running from the
 original negative point to the midpoint.  If the test value is negative, we
 continue with the interval from the midpoint to the positive point.  Finally,
@@ -201,13 +95,12 @@ similar to the one used in <a href="1_002e1_002e7.xhtml#g_t1_002e1_002e7">1.1.7<
 roots:<a class="footnote_link" id="DOCF55" href="#FOOT55"><sup>55</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">close-enough? x y</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pun">&lt;</span><span class="pln"> </span><span class="opn">(</span><span class="pln">abs </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln"> </span><span class="lit">0.001</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (close-enough? x y) 
+  (&lt; (abs (- x y)) 0.001))
+</pre></div>
 
 <p><code>Search</code> is awkward to use directly, because we can accidentally give it
-points at which <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math>’s values do not have the required sign, in which case we
+points at which \( f \)’s values do not have the required sign, in which case we
 get a wrong answer.  Instead we will use <code>search</code> via the following
 procedure, which checks to see which of the endpoints has a negative function
 value and which has a positive value, and calls the <code>search</code> procedure
@@ -216,129 +109,52 @@ half-interval method cannot be used, in which case the procedure signals an
 error.<a class="footnote_link" id="DOCF56" href="#FOOT56"><sup>56</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">half-interval-method f a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">a-value </span><span class="opn">(</span><span class="pln">f a</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">b-value </span><span class="opn">(</span><span class="pln">f b</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">negative? a-value</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">positive? b-value</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">search f a b</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">negative? b-value</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">positive? a-value</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">search f b a</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln">
-           </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Values are not of 
-                   opposite sign"</span><span class="pln"> a b</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (half-interval-method f a b)
+  (let ((a-value (f a))
+        (b-value (f b)))
+    (cond ((and (negative? a-value) 
+                (positive? b-value))
+           (search f a b))
+          ((and (negative? b-value) 
+                (positive? a-value))
+           (search f b a))
+          (else
+           (error &quot;Values are not of 
+                   opposite sign&quot; a b)))))
+</pre></div>
 
-<p>The following example uses the half-interval method to approximate <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>π<!-- π --></mi>
-</math> as
-the root between 2 and 4 of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>sin</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mi>x</mi>
-    <mo>=</mo>
-    <mn>0</mn>
-  </mrow>
-</math>:
+<p>The following example uses the half-interval method to approximate \( \pi \) as
+the root between 2 and 4 of \( {\sin x = 0} \):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">half-interval-method sin </span><span class="lit">2.0</span><span class="pln"> </span><span class="lit">4.0</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">3.14111328125</span></i>
+<pre class="lisp">(half-interval-method sin 2.0 4.0)
+<i>3.14111328125</i>
 </pre></div>
 
 <p>Here is another example, using the half-interval method to search for a root of
-the equation <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>x</mi>
-      <mn>3</mn>
-    </msup>
-    <mo>−<!-- − --></mo>
-    <mn>2</mn>
-    <mi>x</mi>
-    <mo>−<!-- − --></mo>
-    <mn>3</mn>
-    <mo>=</mo>
-    <mn>0</mn>
-  </mrow>
-</math> between 1 and 2:
+the equation \( {x^3 - 2x - 3 = 0} \) between 1 and 2:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">half-interval-method 
- </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> x</span><span class="clo">)</span><span class="pln"> </span><span class="lit">3</span><span class="clo">))</span><span class="pln">
- </span><span class="lit">1.0</span><span class="pln">
- </span><span class="lit">2.0</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">1.89306640625</span></i>
+<pre class="lisp">(half-interval-method 
+ (lambda (x) (- (* x x x) (* 2 x) 3))
+ 1.0
+ 2.0)
+<i>1.89306640625</i>
 </pre></div>
 
 <a id="Finding-fixed-points-of-functions"></a>
 <h5 class="subsubheading">Finding fixed points of functions</h5>
 
-<p>A number <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> is called a <a id="index-fixed-point"></a>
-<em>fixed point</em> of a function <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> if <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math>
-satisfies the equation <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-    <mo>=</mo>
-    <mi>x</mi>
-  </mrow>
-</math>.  For some functions <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> we can
-locate a fixed point by beginning with an initial guess and applying <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math>
+<p>A number \( x \) is called a <a id="index-fixed-point"></a>
+<em>fixed point</em> of a function \( f \) if \( x \)
+satisfies the equation \( {f(x) = x} \).  For some functions \( f \) we can
+locate a fixed point by beginning with an initial guess and applying \( f \)
 repeatedly,
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-    <mo>,</mo>
-  </mrow>
-  <mspace width="1em"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-    <mo stretchy="false">)</mo>
-    <mo>,</mo>
-  </mrow>
-  <mspace width="1em"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-    <mo stretchy="false">)</mo>
-    <mo stretchy="false">)</mo>
-    <mo>,</mo>
-  </mrow>
-  <mspace width="1em"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo>…<!-- … --></mo>
-    <mo>,</mo>
-  </mrow>
-</math>
+\[ % :24:
+  
+{f(x),}\quad {f(f(x)),}\quad {f(f(f(x))),} \quad{\dots,}
+\]
 
 until the value does not change very much.  Using this idea, we can devise a
 procedure <code>fixed-point</code> that takes as inputs a function and an initial
@@ -347,299 +163,77 @@ the function repeatedly until we find two successive values whose difference is
 less than some prescribed tolerance:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> tolerance </span><span class="lit">0.00001</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define tolerance 0.00001)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fixed-point f first-guess</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">close-enough? v1 v2</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">&lt;</span><span class="pln"> </span><span class="opn">(</span><span class="pln">abs </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> v1 v2</span><span class="clo">))</span><span class="pln"> 
-       tolerance</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">try guess</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">next </span><span class="opn">(</span><span class="pln">f guess</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">close-enough? guess next</span><span class="clo">)</span><span class="pln">
+(define (fixed-point f first-guess)
+  (define (close-enough? v1 v2)
+    (&lt; (abs (- v1 v2)) 
+       tolerance))
+  (define (try guess)
+    (let ((next (f guess)))
+      (if (close-enough? guess next)
           next
-          </span><span class="opn">(</span><span class="pln">try next</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">try first-guess</span><span class="clo">))</span></pre></div>
+          (try next))))
+  (try first-guess))
+</pre></div>
 
 <p>For example, we can use this method to approximate the fixed point of the
 cosine function, starting with 1 as an initial approximation:<a class="footnote_link" id="DOCF57" href="#FOOT57"><sup>57</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">fixed-point cos </span><span class="lit">1.0</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">.7390822985224023</span></i>
+<pre class="lisp">(fixed-point cos 1.0)
+<i>.7390822985224023</i>
 </pre></div>
 
 <p>Similarly, we can find a solution to the equation 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>y</mi>
-    <mo>=</mo>
-    <mi>sin</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mi>y</mi>
-    <mo>+</mo>
-    <mi>cos</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mi>y</mi>
-  </mrow>
-</math>:
+\( {y = \sin y + \cos y} \):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">fixed-point </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sin y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">cos y</span><span class="clo">)))</span><span class="pln">
-             </span><span class="lit">1.0</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">1.2587315962971173</span></i>
+<pre class="lisp">(fixed-point (lambda (y) (+ (sin y) (cos y)))
+             1.0)
+<i>1.2587315962971173</i>
 </pre></div>
 
 <p>The fixed-point process is reminiscent of the process we used for finding
 square roots in <a href="1_002e1_002e7.xhtml#g_t1_002e1_002e7">1.1.7</a>.  Both are based on the idea of repeatedly
 improving a guess until the result satisfies some criterion.  In fact, we can
 readily formulate the square-root computation as a fixed-point search.
-Computing the square root of some number <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> requires finding a <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> such
-that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>y</mi>
-      <mn>2</mn>
-    </msup>
-    <mo>=</mo>
-    <mi>x</mi>
-  </mrow>
-</math>.  Putting this equation into the equivalent form 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>y</mi>
-    <mo>=</mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-  </mrow>
-</math>, we recognize that we are looking for a fixed point of the
-function<a class="footnote_link" id="DOCF58" href="#FOOT58"><sup>58</sup></a> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>y</mi>
-    <mo stretchy="false">↦<!-- ↦ --></mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-  </mrow>
-</math>, 
+Computing the square root of some number \( x \) requires finding a \( y \) such
+that \( {y^2 = x} \).  Putting this equation into the equivalent form 
+\( {y = x / y} \), we recognize that we are looking for a fixed point of the
+function<a class="footnote_link" id="DOCF58" href="#FOOT58"><sup>58</sup></a> \( {y \mapsto x / y} \), 
 and we can therefore try to compute square roots as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">fixed-point </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln">
-               </span><span class="lit">1.0</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (sqrt x)
+  (fixed-point (lambda (y) (/ x y))
+               1.0))
+</pre></div>
 
 <p>Unfortunately, this fixed-point search does not converge.  Consider an initial
-guess <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>y</mi>
-    <mn>1</mn>
-  </msub>
-</math>.  The next guess is <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msub>
-      <mi>y</mi>
-      <mn>2</mn>
-    </msub>
-    <mo>=</mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <msub>
-      <mi>y</mi>
-      <mn>1</mn>
-    </msub>
-  </mrow>
-</math> and the next guess is
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>y</mi>
-    <mn>3</mn>
-  </msub>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <msub>
-      <mi>y</mi>
-      <mn>2</mn>
-    </msub>
-  </mrow>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <msub>
-      <mi>y</mi>
-      <mn>1</mn>
-    </msub>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>=</mo>
-  <msub>
-    <mi>y</mi>
-    <mn>1</mn>
-  </msub>
-</math>.  This results in an
-infinite loop in which the two guesses <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>y</mi>
-    <mn>1</mn>
-  </msub>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>y</mi>
-    <mn>2</mn>
-  </msub>
-</math> repeat over and
+guess \( y_1 \).  The next guess is \( {y_2 = x / y_1} \) and the next guess is
+\( y_3 = {x / y_2} = {x / (x / y_1)} = y_1 \).  This results in an
+infinite loop in which the two guesses \( y_1 \) and \( y_2 \) repeat over and
 over, oscillating about the answer.
 </p>
 <p>One way to control such oscillations is to prevent the guesses from changing so
-much.  Since the answer is always between our guess <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-  </mrow>
-</math>, we
-can make a new guess that is not as far from <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> as <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-  </mrow>
-</math> by averaging
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-  </mrow>
-</math>, so that the next guess after <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> is 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mrow class="MJX-TeXAtom-ORD">
-      <mfrac>
-        <mn>1</mn>
-        <mn>2</mn>
-      </mfrac>
-    </mrow>
-    <mo stretchy="false">(</mo>
-    <mi>y</mi>
-    <mo>+</mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> 
-instead of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-  </mrow>
-</math>.  The process of making such a sequence of
+much.  Since the answer is always between our guess \( y \) and \( {x / y} \), we
+can make a new guess that is not as far from \( y \) as \( {x / y} \) by averaging
+\( y \) with \( {x / y} \), so that the next guess after \( y \) is 
+\( {{1\over2}(y + x / y)} \) 
+instead of \( {x / y} \).  The process of making such a sequence of
 guesses is simply the process of looking for a fixed point of 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-  <mo stretchy="false">↦<!-- ↦ --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mrow class="MJX-TeXAtom-ORD">
-      <mfrac>
-        <mn>1</mn>
-        <mn>2</mn>
-      </mfrac>
-    </mrow>
-    <mo stretchy="false">(</mo>
-    <mi>y</mi>
-    <mo>+</mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>: 
+\( y \mapsto {{1\over2}(y + x / y)} \): 
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">fixed-point 
-   </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">y</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">average y </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> x y</span><span class="clo">)))</span><span class="pln">
-   </span><span class="lit">1.0</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (sqrt x)
+  (fixed-point 
+   (lambda (y) (average y (/ x y)))
+   1.0))
+</pre></div>
 
-<p>(Note that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-  <mo>=</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mrow class="MJX-TeXAtom-ORD">
-      <mfrac>
-        <mn>1</mn>
-        <mn>2</mn>
-      </mfrac>
-    </mrow>
-    <mo stretchy="false">(</mo>
-    <mi>y</mi>
-    <mo>+</mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> is a simple transformation of the
-equation <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>y</mi>
-    <mo>=</mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-    <mo>;</mo>
-  </mrow>
-</math> to derive it, add <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> to both sides of the
+<p>(Note that \( y = {{1\over2}(y + x / y)} \) is a simple transformation of the
+equation \( {y = x / y;} \) to derive it, add \( y \) to both sides of the
 equation and divide by 2.)
 </p>
 <p>With this modification, the square-root procedure works.  In fact, if we
@@ -652,24 +246,8 @@ averaging successive approximations to a solution, a technique that we call
 </p>
 <blockquote>
 <p><strong><a id="Exercise-1_002e35"></a>Exercise 1.35:</strong> Show that the golden ratio
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>φ<!-- φ --></mi>
-</math> (<a href="1_002e2_002e2.xhtml#g_t1_002e2_002e2">1.2.2</a>) is a fixed point of the transformation 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mo stretchy="false">↦<!-- ↦ --></mo>
-    <mn>1</mn>
-    <mo>+</mo>
-    <mn>1</mn>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>x</mi>
-  </mrow>
-</math>, and use this fact to compute <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>φ<!-- φ --></mi>
-</math> by means 
+\( \varphi \) (<a href="1_002e2_002e2.xhtml#g_t1_002e2_002e2">1.2.2</a>) is a fixed point of the transformation 
+\( {x \mapsto 1 + 1 / x} \), and use this fact to compute \( \varphi \) by means 
 of the <code>fixed-point</code> procedure.
 </p></blockquote>
 
@@ -677,48 +255,12 @@ of the <code>fixed-point</code> procedure.
 <p><strong><a id="Exercise-1_002e36"></a>Exercise 1.36:</strong> Modify <code>fixed-point</code> so that
 it prints the sequence of approximations it generates, using the <code>newline</code>
 and <code>display</code> primitives shown in <a href="1_002e2_002e6.xhtml#Exercise-1_002e22">Exercise 1.22</a>.  Then find a
-solution to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <msup>
-      <mi>x</mi>
-      <mi>x</mi>
-    </msup>
-    <mo>=</mo>
-    <mn>1000</mn>
-  </mrow>
-</math> by finding a fixed point of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-  <mo stretchy="false">↦<!-- ↦ --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>log</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mo stretchy="false">(</mo>
-    <mn>1000</mn>
-    <mo stretchy="false">)</mo>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>log</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>.  (Use Scheme’s primitive <code>log</code>
+solution to \( {x^x = 1000} \) by finding a fixed point of \( x \mapsto
+{\log(1000) / \log(x)} \).  (Use Scheme’s primitive <code>log</code>
 procedure, which computes natural logarithms.)  Compare the number of steps
 this takes with and without average damping.  (Note that you cannot start
 <code>fixed-point</code> with a guess of 1, as this would cause division by
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>log</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-    <mo>=</mo>
-    <mn>0</mn>
-  </mrow>
-</math>.)
+\( {\log(1) = 0} \).)
 </p></blockquote>
 
 <blockquote>
@@ -728,156 +270,36 @@ this takes with and without average damping.  (Note that you cannot start
 <li> An infinite <a id="index-continued-fraction"></a>
 <em>continued fraction</em> is an expression of the form
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mi>f</mi>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <msub>
-        <mi>N</mi>
-        <mn>1</mn>
-      </msub>
-      <mrow>
-        <msub>
-          <mi>D</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>+</mo>
-        <mfrac>
-          <msub>
-            <mi>N</mi>
-            <mn>2</mn>
-          </msub>
-          <mrow>
-            <msub>
-              <mi>D</mi>
-              <mn>2</mn>
-            </msub>
-            <mo>+</mo>
-            <mfrac>
-              <msub>
-                <mi>N</mi>
-                <mn>3</mn>
-              </msub>
-              <mrow>
-                <msub>
-                  <mi>D</mi>
-                  <mn>3</mn>
-                </msub>
-                <mo>+</mo>
-                <mo>…<!-- … --></mo>
-              </mrow>
-            </mfrac>
-          </mrow>
-        </mfrac>
-      </mrow>
-    </mfrac>
-    <mo>.</mo>
-  </mrow>
-</math>
+\[ % :25:
+  
+f \,=\, {\frac{N_1}{D_1 + \frac{N_2}{D_2 + \frac{N_3}{D_3 + \dots}}}.}
+\]
 
 As an example, one can show that the infinite continued fraction expansion with
-the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>N</mi>
-    <mi>i</mi>
-  </msub>
-</math> and the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>D</mi>
-    <mi>i</mi>
-  </msub>
-</math> all equal to 1 produces <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>1</mn>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>φ<!-- φ --></mi>
-  </mrow>
-</math>, where
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>φ<!-- φ --></mi>
-</math> is the golden ratio (described in <a href="1_002e2_002e2.xhtml#g_t1_002e2_002e2">1.2.2</a>).  One way to
+the \( N_i \) and the \( D_i \) all equal to 1 produces \( {1 / \varphi} \), where
+\( \varphi \) is the golden ratio (described in <a href="1_002e2_002e2.xhtml#g_t1_002e2_002e2">1.2.2</a>).  One way to
 approximate an infinite continued fraction is to truncate the expansion after a
 given number of terms.  Such a truncation—a so-called <a id="index-k_002dterm"></a>
 finite continued fraction
 <em><i>k</i>-term
 finite continued fraction</em>—has the form
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <msub>
-        <mi>N</mi>
-        <mn>1</mn>
-      </msub>
-      <mrow>
-        <msub>
-          <mi>D</mi>
-          <mn>1</mn>
-        </msub>
-        <mo>+</mo>
-        <mfrac>
-          <msub>
-            <mi>N</mi>
-            <mn>2</mn>
-          </msub>
-          <mrow>
-            <mo>⋱<!-- ⋱ --></mo>
-            <mo>+</mo>
-            <mfrac>
-              <msub>
-                <mi>N</mi>
-                <mi>k</mi>
-              </msub>
-              <msub>
-                <mi>D</mi>
-                <mi>k</mi>
-              </msub>
-            </mfrac>
-          </mrow>
-        </mfrac>
-      </mrow>
-    </mfrac>
-    <mo>.</mo>
-  </mrow>
-</math>
+\[ % :26:
+  
+{\frac{N_1}{D_1 + \frac{N_2}{\ddots + \frac{N_k}{D_k}}}.}
+\]
 
 Suppose that <code>n</code> and <code>d</code> are procedures of one argument (the term
-index <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>i</mi>
-</math>) that return the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>N</mi>
-    <mi>i</mi>
-  </msub>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>D</mi>
-    <mi>i</mi>
-  </msub>
-</math> of the terms of the
+index \( i \)) that return the \( N_i \) and \( D_i \) of the terms of the
 continued fraction.  Define a procedure <code>cont-frac</code> such that evaluating
-<code>(cont-frac n d k)</code> computes the value of the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>k</mi>
-</math>-term finite continued
-fraction.  Check your procedure by approximating <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>1</mn>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>φ<!-- φ --></mi>
-  </mrow>
-</math> using
+<code>(cont-frac n d k)</code> computes the value of the \( k \)-term finite continued
+fraction.  Check your procedure by approximating \( {1 / \varphi} \) using
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">cont-frac </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">i</span><span class="clo">)</span><span class="pln"> </span><span class="lit">1.0</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">i</span><span class="clo">)</span><span class="pln"> </span><span class="lit">1.0</span><span class="clo">)</span><span class="pln">
-           k</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(cont-frac (lambda (i) 1.0)
+           (lambda (i) 1.0)
+           k)
+</pre></div>
 
 <p>for successive values of <code>k</code>.  How large must you make <code>k</code> in order
 to get an approximation that is accurate to 4 decimal places?
@@ -892,31 +314,11 @@ write one that generates a recursive process.
 <blockquote>
 <p><strong><a id="Exercise-1_002e38"></a>Exercise 1.38:</strong> In 1737, the Swiss mathematician
 Leonhard Euler published a memoir <cite>De Fractionibus Continuis</cite>, which
-included a continued fraction expansion for <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>e</mi>
-    <mo>−<!-- − --></mo>
-    <mn>2</mn>
-  </mrow>
-</math>, where <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>e</mi>
-</math> is the base
-of the natural logarithms.  In this fraction, the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>N</mi>
-    <mi>i</mi>
-  </msub>
-</math> are all 1, and
-the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>D</mi>
-    <mi>i</mi>
-  </msub>
-</math> are successively 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, ….
+included a continued fraction expansion for \( {e - 2} \), where \( e \) is the base
+of the natural logarithms.  In this fraction, the \( N_i \) are all 1, and
+the \( D_i \) are successively 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, ….
 Write a program that uses your <code>cont-frac</code> procedure from <a href="#Exercise-1_002e37">Exercise 1.37</a> 
-to approximate <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>e</mi>
-</math>, based on Euler’s expansion.
+to approximate \( e \), based on Euler’s expansion.
 </p></blockquote>
 
 <blockquote>
@@ -924,58 +326,18 @@ to approximate <math xmlns="http://www.w3.org/1998/Math/MathML">
 representation of the tangent function was published in 1770 by the German
 mathematician J.H. Lambert:
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>tan</mi>
-    <mo>⁡<!-- ⁡ --></mo>
-    <mi>x</mi>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mfrac>
-      <mi>x</mi>
-      <mrow>
-        <mn>1</mn>
-        <mo>−<!-- − --></mo>
-        <mfrac>
-          <msup>
-            <mi>x</mi>
-            <mn>2</mn>
-          </msup>
-          <mrow>
-            <mn>3</mn>
-            <mo>−<!-- − --></mo>
-            <mfrac>
-              <msup>
-                <mi>x</mi>
-                <mn>2</mn>
-              </msup>
-              <mrow>
-                <mn>5</mn>
-                <mo>−<!-- − --></mo>
-                <mo>…<!-- … --></mo>
-              </mrow>
-            </mfrac>
-          </mrow>
-        </mfrac>
-      </mrow>
-    </mfrac>
-    <mspace width="thinmathspace"/>
-    <mo>,</mo>
-  </mrow>
-</math>
+\[ % :27:
+  
+{\tan x} \,=\, {\frac{x}{1 - \frac{x^2}{3 - \frac{x^2}{5 - \dots}}}\,,}
+\]
 
-where <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> is in radians.  Define a procedure <code>(tan-cf x k)</code> that
+where \( x \) is in radians.  Define a procedure <code>(tan-cf x k)</code> that
 computes an approximation to the tangent function based on Lambert’s formula.
 <code>k</code> specifies the number of terms to compute, as in <a href="#Exercise-1_002e37">Exercise 1.37</a>.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -997,37 +359,15 @@ during a boring lecture: Set your calculator to radians mode and then
 repeatedly press the <code>cos</code> button until you obtain the fixed point.</p>
 </div>
 <div id="FOOT58"><p><a class="footnote_backlink" href="#DOCF58"><sup>58</sup></a>
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↦<!-- ↦ --></mo>
-</math> (pronounced “maps to”) is the mathematician’s way of
-writing <code>lambda</code>.  <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>y</mi>
-    <mo stretchy="false">↦<!-- ↦ --></mo>
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-  </mrow>
-</math> means <code>(lambda (y) (/ x y))</code>,
-that is, the function whose value at <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> is <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mo>/</mo>
-    </mrow>
-    <mi>y</mi>
-  </mrow>
-</math>.</p>
+\( \mapsto \) (pronounced “maps to”) is the mathematician’s way of
+writing <code>lambda</code>.  \( {y \mapsto x / y} \) means <code>(lambda (y) (/ x y))</code>,
+that is, the function whose value at \( y \) is \( {x / y} \).</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="1_002e3_002e4.xhtml#g_t1_002e3_002e4" accesskey="n" rel="next">1.3.4</a>, Previous: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="p" rel="prev">1.3.2</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e3_002e4.xhtml#g_t1_002e3_002e4" accesskey="n" rel="next">1.3.4</a>, Previous: <a href="1_002e3_002e2.xhtml#g_t1_002e3_002e2" accesskey="p" rel="prev">1.3.2</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

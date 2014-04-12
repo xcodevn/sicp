@@ -86,7 +86,7 @@ section {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Linux Biolinum O", sans-serif; 
+/*  font-family: "Linux Biolinum O", sans-serif;  */
   margin-top: 2em;
   margin-bottom: 1.0rem;
   line-height: 125%;
@@ -98,7 +98,7 @@ h1, h2.chapter {
 }
 
 strong {
-  font-family: "Linux Biolinum O", sans-serif; 
+  /*font-family: "Linux Biolinum O", sans-serif;  */
 }
 
 h1 { font-size: 1.88rem; }

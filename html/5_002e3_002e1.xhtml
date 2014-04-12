@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.3.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.3.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.3.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.3.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e3.xhtml#g_t5_002e3" rel="prev" title="5.3" />
-<link href="5_002e3_002e2.xhtml#g_t5_002e3_002e2" rel="next" title="5.3.2" />
-<link href="5_002e3.xhtml#g_t5_002e3" rel="prev" title="5.3" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.3.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.3.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e3.xhtml#g_t5_002e3" rel="prev" title="5.3"/>
+<link href="5_002e3_002e2.xhtml#g_t5_002e3_002e2" rel="next" title="5.3.2"/>
+<link href="5_002e3.xhtml#g_t5_002e3" rel="prev" title="5.3"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e3_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e3_002e2.xhtml#g_t5_002e3_002e2" accesskey="n" rel="next">5.3.2</a>, Previous: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="p" rel="prev">5.3</a>, Up: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="u" rel="prev">5.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e3_002e2.xhtml#g_t5_002e3_002e2" accesskey="n" rel="next">5.3.2</a>, Previous: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="p" rel="prev">5.3</a>, Up: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="u" rel="prev">5.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Memory-as-Vectors"></a>
 <h4 class="subsection"><span class="secnum">5.3.1</span><span class="sectitle">Memory as Vectors</span></h4>
@@ -58,25 +56,11 @@ of time that is independent of the index.<a class="footnote_link" id="DOCF290" h
 primitive Scheme procedures for manipulating vectors:
 </p>
 <ul>
-<li> <code>(vector-ref ⟨<var>vector</var>⟩ ⟨<var>n</var>⟩)</code> returns the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mi>n</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mtext>th</mtext>
-    </mrow>
-  </msup>
-</math>
+<li> <code>(vector-ref ⟨<var>vector</var>⟩ ⟨<var>n</var>⟩)</code> returns the \( n^{\text{th}} \)
 element of the vector.
 
 </li><li> <code>(vector-set! ⟨<var>vector</var>⟩ ⟨<var>n</var>⟩ ⟨<var>value</var>⟩)</code>
-sets the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mi>n</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mtext>th</mtext>
-    </mrow>
-  </msup>
-</math> element of the vector to the designated value.
+sets the \( n^{\text{th}} \) element of the vector to the designated value.
 
 </li></ul>
 
@@ -171,38 +155,42 @@ vector, or adding two numbers) use only the index portion of the typed pointer.
 <p>For example, we can make a register machine support the instructions
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩ </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">car</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">assign ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩ </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cdr</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign ⟨<var>reg₁</var>⟩ (op car) (reg ⟨<var>reg₂</var>⟩))
+(assign ⟨<var>reg₁</var>⟩ (op cdr) (reg ⟨<var>reg₂</var>⟩))
+</pre></div>
 
 <p>if we implement these, respectively, as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩ 
-        </span><span class="opn">(</span><span class="pln">op vector-ref</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg the-cars</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">assign ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩
-        </span><span class="opn">(</span><span class="pln">op vector-ref</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg the-cdrs</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign ⟨<var>reg₁</var>⟩ 
+        (op vector-ref)
+        (reg the-cars)
+        (reg ⟨<var>reg₂</var>⟩))
+(assign ⟨<var>reg₁</var>⟩
+        (op vector-ref)
+        (reg the-cdrs)
+        (reg ⟨<var>reg₂</var>⟩))
+</pre></div>
 
 <p>The instructions
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op set-car!</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op set-cdr!</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(perform (op set-car!) (reg ⟨<var>reg₁</var>⟩) (reg ⟨<var>reg₂</var>⟩))
+(perform (op set-cdr!) (reg ⟨<var>reg₁</var>⟩) (reg ⟨<var>reg₂</var>⟩))
+</pre></div>
 
 <p>are implemented as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg the-cars</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg the-cdrs</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(perform (op vector-set!)
+         (reg the-cars)
+         (reg ⟨<var>reg₁</var>⟩)
+         (reg ⟨<var>reg₂</var>⟩))
+(perform (op vector-set!)
+         (reg the-cdrs)
+         (reg ⟨<var>reg₁</var>⟩)
+         (reg ⟨<var>reg₂</var>⟩))
+</pre></div>
 
 <p><code>Cons</code> is performed by allocating an unused index and storing the
 arguments to <code>cons</code> in <code>the-cars</code> and <code>the-cdrs</code> at that indexed
@@ -212,29 +200,32 @@ we can increment the index part of that pointer to find the next free
 location.<a class="footnote_link" id="DOCF296" href="#FOOT296"><sup>296</sup></a>  For example, the instruction
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩
-        </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cons</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₃</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign ⟨<var>reg₁</var>⟩
+        (op cons)
+        (reg ⟨<var>reg₂</var>⟩)
+        (reg ⟨<var>reg₃</var>⟩))
+</pre></div>
 
 <p>is implemented as the following sequence of vector operations:<a class="footnote_link" id="DOCF297" href="#FOOT297"><sup>297</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg the-cars</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg free</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg the-cdrs</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg free</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₃</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">assign ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩ </span><span class="opn">(</span><span class="pln">reg free</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">assign free </span><span class="opn">(</span><span class="pln">op </span><span class="pun">+</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg free</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(perform (op vector-set!)
+         (reg the-cars)
+         (reg free)
+         (reg ⟨<var>reg₂</var>⟩))
+(perform (op vector-set!)
+         (reg the-cdrs)
+         (reg free)
+         (reg ⟨<var>reg₃</var>⟩))
+(assign ⟨<var>reg₁</var>⟩ (reg free))
+(assign free (op +) (reg free) (const 1))
+</pre></div>
 
 <p>The <code>eq?</code> operation
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">op </span><span class="kwd">eq</span><span class="pun">?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₁</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(op eq?) (reg ⟨<var>reg₁</var>⟩) (reg ⟨<var>reg₂</var>⟩)
+</pre></div>
 
 <p>simply tests the equality of all fields in the registers, and predicates such
 as <code>pair?</code>, <code>null?</code>, <code>symbol?</code>, and <code>number?</code> need only
@@ -249,21 +240,24 @@ saved values, pointed to by a special register <code>the-stack</code>.  Thus,
 <code>(save ⟨<var>reg</var>⟩)</code> can be implemented as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign the-stack 
-        </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cons</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg ⟨</span><var><span class="pln">reg</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg the-stack</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign the-stack 
+        (op cons)
+        (reg ⟨<var>reg</var>⟩)
+        (reg the-stack))
+</pre></div>
 
 <p>Similarly, <code>(restore ⟨<var>reg</var>⟩)</code> can be implemented as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign ⟨</span><var><span class="pln">reg</span></var><span class="pln">⟩ </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">car</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg the-stack</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">assign the-stack </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">cdr</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg the-stack</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign ⟨<var>reg</var>⟩ (op car) (reg the-stack))
+(assign the-stack (op cdr) (reg the-stack))
+</pre></div>
 
 <p>and <code>(perform (op initialize-stack))</code> can be implemented as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign the-stack </span><span class="opn">(</span><span class="pln">const </span><span class="opn">(</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(assign the-stack (const ()))
+</pre></div>
 
 <p>These operations can be further expanded in terms of the vector operations
 given above.  In conventional computer architectures, however, it is usually
@@ -277,8 +271,9 @@ representation and the memory-vector representation (as in <a href="#Figure-5_00
 of the list structure produced by
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> y </span><span class="opn">(</span><span class="pln">list x x</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define x (cons 1 2))
+(define y (list x x))
+</pre></div>
 
 <p>with the <code>free</code> pointer initially <code>p1</code>.  What is the final value of
 <code>free</code>?  What pointers represent the values of <code>x</code> and <code>y</code>?
@@ -293,26 +288,28 @@ available as machine primitives.
 <li> Recursive <code>count-leaves</code>:
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-leaves tree</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? tree</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">not </span><span class="opn">(</span><span class="pln">pair? tree</span><span class="clo">))</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-leaves </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> tree</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">count-leaves </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> tree</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(define (count-leaves tree)
+  (cond ((null? tree) 0)
+        ((not (pair? tree)) 1)
+        (else 
+         (+ (count-leaves (car tree))
+            (count-leaves (cdr tree))))))
+</pre></div>
 
 </li><li> Recursive <code>count-leaves</code> with explicit counter:
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-leaves tree</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-iter tree n</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? tree</span><span class="clo">)</span><span class="pln"> n</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">((</span><span class="pln">not </span><span class="opn">(</span><span class="pln">pair? tree</span><span class="clo">))</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">count-iter 
-            </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> tree</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">count-iter </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> tree</span><span class="clo">)</span><span class="pln"> 
-                        n</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">count-iter tree </span><span class="lit">0</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (count-leaves tree)
+  (define (count-iter tree n)
+    (cond ((null? tree) n)
+          ((not (pair? tree)) (+ n 1))
+          (else 
+           (count-iter 
+            (cdr tree)
+            (count-iter (car tree) 
+                        n)))))
+  (count-iter tree 0))
+</pre></div>
 </li></ol>
 </blockquote>
 
@@ -325,27 +322,14 @@ the list-structure memory operations are available as primitive operations.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <div id="FOOT290"><p><a class="footnote_backlink" href="#DOCF290"><sup>290</sup></a>
 We could represent memory as
 lists of items.  However, the access time would then not be independent of the
-index, since accessing the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mi>n</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mtext>th</mtext>
-    </mrow>
-  </msup>
-</math> element of a list requires <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-  </mrow>
-</math>
+index, since accessing the \( n^{\text{th}} \) element of a list requires \( {n - 1} \)
 <code>cdr</code> operations.</p>
 </div>
 <div id="FOOT291"><p><a class="footnote_backlink" href="#DOCF291"><sup>291</sup></a>
@@ -406,10 +390,10 @@ essentially the implementation of <code>cons</code> in terms of <code>set-car!</
 <code>free</code> pointer.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e3_002e2.xhtml#g_t5_002e3_002e2" accesskey="n" rel="next">5.3.2</a>, Previous: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="p" rel="prev">5.3</a>, Up: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="u" rel="prev">5.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e3_002e2.xhtml#g_t5_002e3_002e2" accesskey="n" rel="next">5.3.2</a>, Previous: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="p" rel="prev">5.3</a>, Up: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="u" rel="prev">5.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

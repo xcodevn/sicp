@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.2.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.2.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.2.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.2.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e2.xhtml#g_t5_002e2" rel="prev" title="5.2" />
-<link href="5_002e2_002e2.xhtml#g_t5_002e2_002e2" rel="next" title="5.2.2" />
-<link href="5_002e2.xhtml#g_t5_002e2" rel="prev" title="5.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.2.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.2.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e2.xhtml#g_t5_002e2" rel="prev" title="5.2"/>
+<link href="5_002e2_002e2.xhtml#g_t5_002e2_002e2" rel="next" title="5.2.2"/>
+<link href="5_002e2.xhtml#g_t5_002e2" rel="prev" title="5.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e2_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e2_002e2.xhtml#g_t5_002e2_002e2" accesskey="n" rel="next">5.2.2</a>, Previous: <a href="5_002e2.xhtml#g_t5_002e2" accesskey="p" rel="prev">5.2</a>, Up: <a href="5_002e2.xhtml#g_t5_002e2" accesskey="u" rel="prev">5.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e2_002e2.xhtml#g_t5_002e2_002e2" accesskey="n" rel="next">5.2.2</a>, Previous: <a href="5_002e2.xhtml#g_t5_002e2" accesskey="p" rel="prev">5.2</a>, Up: <a href="5_002e2.xhtml#g_t5_002e2" accesskey="u" rel="prev">5.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="The-Machine-Model"></a>
 <h4 class="subsection"><span class="secnum">5.2.1</span><span class="sectitle">The Machine Model</span></h4>
@@ -56,18 +54,19 @@ machine and installs these as the machine’s instruction sequence.
 <code>Make-machine</code> returns as its value the modified machine model.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-machine register-names 
+<pre class="lisp">(define (make-machine register-names 
                       ops 
-                      controller-text</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">machine </span><span class="opn">(</span><span class="pln">make-new-machine</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">for-each </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">register-name</span><span class="clo">)</span><span class="pln">
-                </span><span class="opn">((</span><span class="pln">machine </span><span class="lit">'allocate-register</span><span class="clo">)</span><span class="pln"> 
-                 register-name</span><span class="clo">))</span><span class="pln">
-              register-names</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">((</span><span class="pln">machine </span><span class="lit">'install-operations</span><span class="clo">)</span><span class="pln"> ops</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">((</span><span class="pln">machine </span><span class="lit">'install-instruction-sequence</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">assemble controller-text machine</span><span class="clo">))</span><span class="pln">
-    machine</span><span class="clo">))</span></pre></div>
+                      controller-text)
+  (let ((machine (make-new-machine)))
+    (for-each (lambda (register-name)
+                ((machine 'allocate-register) 
+                 register-name))
+              register-names)
+    ((machine 'install-operations) ops)
+    ((machine 'install-instruction-sequence)
+     (assemble controller-text machine))
+    machine))
+</pre></div>
 
 <a id="Registers"></a>
 <h5 class="subsubheading">Registers</h5>
@@ -77,27 +76,29 @@ machine and installs these as the machine’s instruction sequence.
 holds a value that can be accessed or changed:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-register name</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">contents </span><span class="lit">'</span><span class="pun">*</span><span class="pln">unassigned</span><span class="pun">*</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch message</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'get</span><span class="clo">)</span><span class="pln"> contents</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'set</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">value</span><span class="clo">)</span><span class="pln"> 
-               </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> contents value</span><span class="clo">)))</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln">
-             </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                     REGISTER"</span><span class="pln">
-                    message</span><span class="clo">))))</span><span class="pln">
-    dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-register name)
+  (let ((contents '*unassigned*))
+    (define (dispatch message)
+      (cond ((eq? message 'get) contents)
+            ((eq? message 'set)
+             (lambda (value) 
+               (set! contents value)))
+            (else
+             (error &quot;Unknown request: 
+                     REGISTER&quot;
+                    message))))
+    dispatch))
+</pre></div>
 
 <p>The following procedures are used to access registers:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-contents register</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">register </span><span class="lit">'get</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (get-contents register)
+  (register 'get))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-contents! register value</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">register </span><span class="lit">'set</span><span class="clo">)</span><span class="pln"> value</span><span class="clo">))</span></pre></div>
+(define (set-contents! register value)
+  ((register 'set) value))
+</pre></div>
 
 <a id="The-stack"></a>
 <h5 class="subsubheading">The stack</h5>
@@ -109,40 +110,42 @@ stack, to <code>pop</code> the top item off the stack and return it, and to
 <code>initialize</code> the stack to empty.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-stack</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">s </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">push x</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> s </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x s</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pop</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? s</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Empty stack: POP"</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">top </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> s</span><span class="clo">)))</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> s </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> s</span><span class="clo">))</span><span class="pln">
-            top</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">initialize</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> s </span><span class="lit">'</span><span class="opn">(</span><span class="clo">))</span><span class="pln">
-      </span><span class="lit">'done</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch message</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'push</span><span class="clo">)</span><span class="pln"> push</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'pop</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pop</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'initialize</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">initialize</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: STACK"</span><span class="pln">
-                    message</span><span class="clo">))))</span><span class="pln">
-    dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-stack)
+  (let ((s '()))
+    (define (push x)
+      (set! s (cons x s)))
+    (define (pop)
+      (if (null? s)
+          (error &quot;Empty stack: POP&quot;)
+          (let ((top (car s)))
+            (set! s (cdr s))
+            top)))
+    (define (initialize)
+      (set! s '())
+      'done)
+    (define (dispatch message)
+      (cond ((eq? message 'push) push)
+            ((eq? message 'pop) (pop))
+            ((eq? message 'initialize) 
+             (initialize))
+            (else 
+             (error &quot;Unknown request: STACK&quot;
+                    message))))
+    dispatch))
+</pre></div>
 
 <p>The following procedures are used to access stacks:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pop stack</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stack </span><span class="lit">'pop</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">push stack value</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">stack </span><span class="lit">'push</span><span class="clo">)</span><span class="pln"> value</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (pop stack) (stack 'pop))
+(define (push stack value)
+  ((stack 'push) value))
+</pre></div>
 
 <a id="The-basic-machine"></a>
 <h5 class="subsubheading">The basic machine</h5>
 
-<p>The <code>make-new-machine</code> procedure, shown in <a href="#Figure-5_002e13">Figure 5.13<!-- /@w --></a>, 
+<p>The <code>make-new-machine</code> procedure, shown in <a href="#Figure-5_002e13">Figure&#160;5.13<!-- /@w --></a>, 
 constructs
 an object whose local state consists of a stack, an initially empty instruction
 sequence, a list of operations that initially contains an operation to
@@ -153,81 +156,80 @@ internal procedure <code>allocate-register</code> adds new entries to the regist
 table, and the internal procedure <code>lookup-register</code> looks up registers in
 the table.
 </p>
-<p><strong><a id="Figure-5_002e13"></a>Figure 5.13:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↓<!-- ↓ --></mo>
-</math> The <code>make-new-machine</code>
+<p><strong><a id="Figure-5_002e13"></a>Figure 5.13:</strong> \( \downarrow \) The <code>make-new-machine</code>
 procedure, which implements the basic machine model.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-new-machine</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">pc </span><span class="opn">(</span><span class="pln">make-register </span><span class="lit">'pc</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">flag </span><span class="opn">(</span><span class="pln">make-register </span><span class="lit">'flag</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">stack </span><span class="opn">(</span><span class="pln">make-stack</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">the-instruction-sequence </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">the-ops
-           </span><span class="opn">(</span><span class="pln">list 
-            </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'initialize-stack</span><span class="pln">
-                  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> 
-                    </span><span class="opn">(</span><span class="pln">stack </span><span class="lit">'initialize</span><span class="clo">)))))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">register-table
-           </span><span class="opn">(</span><span class="pln">list </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'pc</span><span class="pln"> pc</span><span class="clo">)</span><span class="pln"> 
-                 </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'flag</span><span class="pln"> flag</span><span class="clo">))))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">allocate-register name</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">assoc name register-table</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="err">error</span><span class="pln"> 
-             </span><span class="str">"Multiply defined register: "</span><span class="pln"> 
-             name</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> register-table
-                  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> 
-                   </span><span class="opn">(</span><span class="pln">list name 
-                         </span><span class="opn">(</span><span class="pln">make-register name</span><span class="clo">))</span><span class="pln">
-                   register-table</span><span class="clo">)))</span><span class="pln">
-        </span><span class="lit">'register-allocated</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">lookup-register name</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">val 
-               </span><span class="opn">(</span><span class="pln">assoc name register-table</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> val
-              </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> val</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown register:"</span><span class="pln"> 
-                     name</span><span class="clo">))))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">execute</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">insts </span><span class="opn">(</span><span class="pln">get-contents pc</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? insts</span><span class="clo">)</span><span class="pln">
-              </span><span class="lit">'done</span><span class="pln">
-              </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln">
-                </span><span class="opn">((</span><span class="pln">instruction-execution-proc 
-                  </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> insts</span><span class="clo">)))</span><span class="pln">
-                </span><span class="opn">(</span><span class="pln">execute</span><span class="clo">)))))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch message</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'start</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">set-contents! 
+<pre class="lisp">(define (make-new-machine)
+  (let ((pc (make-register 'pc))
+        (flag (make-register 'flag))
+        (stack (make-stack))
+        (the-instruction-sequence '()))
+    (let ((the-ops
+           (list 
+            (list 'initialize-stack
+                  (lambda () 
+                    (stack 'initialize)))))
+          (register-table
+           (list (list 'pc pc) 
+                 (list 'flag flag))))
+      (define (allocate-register name)
+        (if (assoc name register-table)
+            (error 
+             &quot;Multiply defined register: &quot; 
+             name)
+            (set! register-table
+                  (cons 
+                   (list name 
+                         (make-register name))
+                   register-table)))
+        'register-allocated)
+      (define (lookup-register name)
+        (let ((val 
+               (assoc name register-table)))
+          (if val
+              (cadr val)
+              (error &quot;Unknown register:&quot; 
+                     name))))
+      (define (execute)
+        (let ((insts (get-contents pc)))
+          (if (null? insts)
+              'done
+              (begin
+                ((instruction-execution-proc 
+                  (car insts)))
+                (execute)))))
+      (define (dispatch message)
+        (cond ((eq? message 'start)
+               (set-contents! 
                 pc
-                the-instruction-sequence</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">execute</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> 
+                the-instruction-sequence)
+               (execute))
+              ((eq? 
                 message 
-                </span><span class="lit">'install-instruction-sequence</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">seq</span><span class="clo">)</span><span class="pln"> 
-                 </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> 
+                'install-instruction-sequence)
+               (lambda (seq) 
+                 (set! 
                   the-instruction-sequence 
-                  seq</span><span class="clo">)))</span><span class="pln">
-              </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message 
-                    </span><span class="lit">'allocate-register</span><span class="clo">)</span><span class="pln"> 
-               allocate-register</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'get-register</span><span class="clo">)</span><span class="pln"> 
-               lookup-register</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message 
-                    </span><span class="lit">'install-operations</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">ops</span><span class="clo">)</span><span class="pln"> 
-                 </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> the-ops 
-                       </span><span class="opn">(</span><span class="pln">append the-ops ops</span><span class="clo">))))</span><span class="pln">
-              </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'stack</span><span class="clo">)</span><span class="pln"> stack</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> message </span><span class="lit">'operations</span><span class="clo">)</span><span class="pln"> 
-               the-ops</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                            MACHINE"</span><span class="pln">
-                           message</span><span class="clo">))))</span><span class="pln">
-      dispatch</span><span class="clo">)))</span></pre></div>
+                  seq)))
+              ((eq? message 
+                    'allocate-register) 
+               allocate-register)
+              ((eq? message 'get-register) 
+               lookup-register)
+              ((eq? message 
+                    'install-operations)
+               (lambda (ops) 
+                 (set! the-ops 
+                       (append the-ops ops))))
+              ((eq? message 'stack) stack)
+              ((eq? message 'operations) 
+               the-ops)
+              (else (error &quot;Unknown request: 
+                            MACHINE&quot;
+                           message))))
+      dispatch)))
+</pre></div>
 
 <p>The <code>flag</code> register is used to control branching in the simulated machine.
 <code>Test</code> instructions set the contents of <code>flag</code> to the result of the
@@ -265,32 +267,34 @@ sequence and calling <code>execute</code>.
 contents, as specified at the beginning of <a href="5_002e2.xhtml#g_t5_002e2">5.2</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">start machine</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">machine </span><span class="lit">'start</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (start machine)
+  (machine 'start))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-register-contents 
-         machine register-name</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">get-contents 
-   </span><span class="opn">(</span><span class="pln">get-register machine register-name</span><span class="clo">)))</span><span class="pln">
+(define (get-register-contents 
+         machine register-name)
+  (get-contents 
+   (get-register machine register-name)))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-register-contents! 
-         machine register-name value</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">set-contents! 
-   </span><span class="opn">(</span><span class="pln">get-register machine register-name</span><span class="clo">)</span><span class="pln"> 
-   value</span><span class="clo">)</span><span class="pln">
-  </span><span class="lit">'done</span><span class="clo">)</span></pre></div>
+(define (set-register-contents! 
+         machine register-name value)
+  (set-contents! 
+   (get-register machine register-name) 
+   value)
+  'done)
+</pre></div>
 
 <p>These procedures (and many procedures in <a href="5_002e2_002e2.xhtml#g_t5_002e2_002e2">5.2.2</a> and <a href="5_002e2_002e3.xhtml#g_t5_002e2_002e3">5.2.3</a>)
 use the following to look up the register with a given name in a given machine:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-register machine reg-name</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">machine </span><span class="lit">'get-register</span><span class="clo">)</span><span class="pln"> reg-name</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (get-register machine reg-name)
+  ((machine 'get-register) reg-name))
+</pre></div>
 
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e2_002e2.xhtml#g_t5_002e2_002e2" accesskey="n" rel="next">5.2.2</a>, Previous: <a href="5_002e2.xhtml#g_t5_002e2" accesskey="p" rel="prev">5.2</a>, Up: <a href="5_002e2.xhtml#g_t5_002e2" accesskey="u" rel="prev">5.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e2_002e2.xhtml#g_t5_002e2_002e2" accesskey="n" rel="next">5.2.2</a>, Previous: <a href="5_002e2.xhtml#g_t5_002e2" accesskey="p" rel="prev">5.2</a>, Up: <a href="5_002e2.xhtml#g_t5_002e2" accesskey="u" rel="prev">5.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

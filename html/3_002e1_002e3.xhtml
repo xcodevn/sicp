@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.1.3</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.1.3</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.1.3" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.1.3" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e1.xhtml#g_t3_002e1" rel="prev" title="3.1" />
-<link href="3_002e2.xhtml#g_t3_002e2" rel="next" title="3.2" />
-<link href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" rel="prev" title="3.1.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.1.3"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.1.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e1.xhtml#g_t3_002e1" rel="prev" title="3.1"/>
+<link href="3_002e2.xhtml#g_t3_002e2" rel="next" title="3.2"/>
+<link href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" rel="prev" title="3.1.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e1_002e3"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="n" rel="next">3.2</a>, Previous: <a href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" accesskey="p" rel="prev">3.1.2</a>, Up: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="u" rel="prev">3.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="n" rel="next">3.2</a>, Previous: <a href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" accesskey="p" rel="prev">3.1.2</a>, Up: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="u" rel="prev">3.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="The-Costs-of-Introducing-Assignment"></a>
 <h4 class="subsection"><span class="secnum">3.1.3</span><span class="sectitle">The Costs of Introducing Assignment</span></h4>
@@ -55,60 +53,64 @@ of the <code>make-withdraw</code> procedure of <a href="3_002e1_002e1.xhtml#g_t3
 bother to check for an insufficient amount:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-simplified-withdraw balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">))</span><span class="pln">
-    balance</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (make-simplified-withdraw balance)
+  (lambda (amount)
+    (set! balance (- balance amount))
+    balance))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> W </span><span class="opn">(</span><span class="pln">make-simplified-withdraw </span><span class="lit">25</span><span class="clo">))</span><span class="pln">
+(define W (make-simplified-withdraw 25))
 
-</span><span class="opn">(</span><span class="pln">W </span><span class="lit">20</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">5</span></i><span class="pln">
+(W 20)
+<i>5</i>
 
-</span><span class="opn">(</span><span class="pln">W </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">-5</span></i>
+(W 10)
+<i>-5</i>
 </pre></div>
 
 <p>Compare this procedure with the following <code>make-decrementer</code> procedure,
 which does not use <code>set!</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-decrementer balance</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amount</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> balance amount</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (make-decrementer balance)
+  (lambda (amount)
+    (- balance amount)))
+</pre></div>
 
 <p><code>Make-decrementer</code> returns a procedure that subtracts its input from a
 designated amount <code>balance</code>, but there is no accumulated effect over
 successive calls, as with <code>make-simplified-withdraw</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> D </span><span class="opn">(</span><span class="pln">make-decrementer </span><span class="lit">25</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define D (make-decrementer 25))
 
-</span><span class="opn">(</span><span class="pln">D </span><span class="lit">20</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">5</span></i><span class="pln">
+(D 20)
+<i>5</i>
 
-</span><span class="opn">(</span><span class="pln">D </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">15</span></i>
+(D 10)
+<i>15</i>
 </pre></div>
 
 <p>We can use the substitution model to explain how <code>make-decrementer</code> works.
 For instance, let us analyze the evaluation of the expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="pln">make-decrementer </span><span class="lit">25</span><span class="clo">)</span><span class="pln"> </span><span class="lit">20</span><span class="clo">)</span></pre></div>
+<pre class="lisp">((make-decrementer 25) 20)
+</pre></div>
 
 <p>We first simplify the operator of the combination by substituting 25 for
 <code>balance</code> in the body of <code>make-decrementer</code>.  This reduces the
 expression to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amount</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="lit">25</span><span class="pln"> amount</span><span class="clo">))</span><span class="pln"> </span><span class="lit">20</span><span class="clo">)</span></pre></div>
+<pre class="lisp">((lambda (amount) (- 25 amount)) 20)
+</pre></div>
 
 <p>Now we apply the operator by substituting 20 for <code>amount</code> in the body of
 the <code>lambda</code> expression:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="lit">25</span><span class="pln"> </span><span class="lit">20</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(- 25 20)
+</pre></div>
 
 <p>The final answer is 5.
 </p>
@@ -116,21 +118,24 @@ the <code>lambda</code> expression:
 with <code>make-simplified-withdraw</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="pln">make-simplified-withdraw </span><span class="lit">25</span><span class="clo">)</span><span class="pln"> </span><span class="lit">20</span><span class="clo">)</span></pre></div>
+<pre class="lisp">((make-simplified-withdraw 25) 20)
+</pre></div>
 
 <p>We first simplify the operator by substituting 25 for <code>balance</code> in the
 body of <code>make-simplified-withdraw</code>.  This reduces the expression
 to<a class="footnote_link" id="DOCF137" href="#FOOT137"><sup>137</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amount</span><span class="clo">)</span><span class="pln"> 
-   </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="lit">25</span><span class="pln"> amount</span><span class="clo">))</span><span class="pln"> </span><span class="lit">25</span><span class="clo">)</span><span class="pln"> </span><span class="lit">20</span><span class="clo">)</span></pre></div>
+<pre class="lisp">((lambda (amount) 
+   (set! balance (- 25 amount)) 25) 20)
+</pre></div>
 
 <p>Now we apply the operator by substituting 20 for <code>amount</code> in the body of
 the <code>lambda</code> expression:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> balance </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="lit">25</span><span class="pln"> </span><span class="lit">20</span><span class="clo">))</span><span class="pln"> </span><span class="lit">25</span></pre></div>
+<pre class="lisp">(set! balance (- 25 20)) 25
+</pre></div>
 
 <p>If we adhered to the substitution model, we would have to say that the meaning
 of the procedure application is to first set <code>balance</code> to 5 and then
@@ -160,8 +165,9 @@ problematical.  Consider the concept of two things being “the same.”
 two procedures:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> D1 </span><span class="opn">(</span><span class="pln">make-decrementer </span><span class="lit">25</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> D2 </span><span class="opn">(</span><span class="pln">make-decrementer </span><span class="lit">25</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define D1 (make-decrementer 25))
+(define D2 (make-decrementer 25))
+</pre></div>
 
 <p>Are <code>D1</code> and <code>D2</code> the same?  An acceptable answer is yes, because
 <code>D1</code> and <code>D2</code> have the same computational behavior—each is a
@@ -171,22 +177,23 @@ substituted for <code>D2</code> in any computation without changing the result.
 <p>Contrast this with making two calls to <code>make-simplified-withdraw</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> W1 </span><span class="opn">(</span><span class="pln">make-simplified-withdraw </span><span class="lit">25</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> W2 </span><span class="opn">(</span><span class="pln">make-simplified-withdraw </span><span class="lit">25</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define W1 (make-simplified-withdraw 25))
+(define W2 (make-simplified-withdraw 25))
+</pre></div>
 
 <p>Are <code>W1</code> and <code>W2</code> the same?  Surely not, because calls to <code>W1</code>
 and <code>W2</code> have distinct effects, as shown by the following sequence of
 interactions:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">W1 </span><span class="lit">20</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">5</span></i><span class="pln">
+<pre class="lisp">(W1 20)
+<i>5</i>
 
-</span><span class="opn">(</span><span class="pln">W1 </span><span class="lit">20</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">-15</span></i><span class="pln">
+(W1 20)
+<i>-15</i>
 
-</span><span class="opn">(</span><span class="pln">W2 </span><span class="lit">20</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">5</span></i>
+(W2 20)
+<i>5</i>
 </pre></div>
 
 <p>Even though <code>W1</code> and <code>W2</code> are “equal” in the sense that they are
@@ -220,14 +227,16 @@ where Peter and Paul have a bank account with $100 in it.  There is a
 substantial difference between modeling this as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> peter-acc </span><span class="opn">(</span><span class="pln">make-account </span><span class="lit">100</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> paul-acc </span><span class="opn">(</span><span class="pln">make-account </span><span class="lit">100</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define peter-acc (make-account 100))
+(define paul-acc (make-account 100))
+</pre></div>
 
 <p>and modeling it as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> peter-acc </span><span class="opn">(</span><span class="pln">make-account </span><span class="lit">100</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> paul-acc peter-acc</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define peter-acc (make-account 100))
+(define paul-acc peter-acc)
+</pre></div>
 
 <p>In the first situation, the two bank accounts are distinct.  Transactions made
 by Peter will not affect Paul’s account, and vice versa.  In the second
@@ -271,30 +280,32 @@ programs.  For example, recall the iterative factorial program from
 <a href="1_002e2_002e1.xhtml#g_t1_002e2_002e1">1.2.1</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">iter product counter</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> counter n</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (factorial n)
+  (define (iter product counter)
+    (if (&gt; counter n)
         product
-        </span><span class="opn">(</span><span class="pln">iter </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> counter product</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> counter </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">iter </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="clo">))</span></pre></div>
+        (iter (* counter product)
+              (+ counter 1))))
+  (iter 1 1))
+</pre></div>
 
 <p>Instead of passing arguments in the internal iterative loop, we could adopt a
 more imperative style by using explicit assignment to update the values of the
 variables <code>product</code> and <code>counter</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">product </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">counter </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">iter</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> counter n</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (factorial n)
+  (let ((product 1)
+        (counter 1))
+    (define (iter)
+      (if (&gt; counter n)
           product
-          </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> product </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> counter 
-                                  product</span><span class="clo">))</span><span class="pln">
-                 </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> counter </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> counter </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">iter</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">iter</span><span class="clo">)))</span></pre></div>
+          (begin (set! product (* counter 
+                                  product))
+                 (set! counter (+ counter 1))
+                 (iter))))
+    (iter)))
+</pre></div>
 
 <p>This does not change the results produced by the program, but it does introduce
 a subtle trap.  How do we decide the order of the assignments?  As it happens,
@@ -302,8 +313,9 @@ the program is correct as written.  But writing the assignments in the opposite
 order
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> counter </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> counter </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> product </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> counter product</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(set! counter (+ counter 1))
+(set! product (* counter product))
+</pre></div>
 
 <p>would have produced a different, incorrect result.  In general, programming
 with assignment forces us to carefully consider the relative orders of the
@@ -331,10 +343,11 @@ example, if <code>peter-acc</code> is a bank account with password
 <code>open-sesame</code>, then
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> paul-acc
-  </span><span class="opn">(</span><span class="pln">make-joint peter-acc 
-              </span><span class="lit">'open-sesame</span><span class="pln"> 
-              </span><span class="lit">'rosebud</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define paul-acc
+  (make-joint peter-acc 
+              'open-sesame 
+              'rosebud))
+</pre></div>
 
 <p>will allow one to make transactions on <code>peter-acc</code> using the name
 <code>paul-acc</code> and the password <code>rosebud</code>.  You may wish to modify your
@@ -351,7 +364,8 @@ procedure are evaluated can make a difference to the result.  Define a simple
 procedure <code>f</code> such that evaluating 
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f </span><span class="lit">1</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(+ (f 0) (f 1))
+</pre></div>
 
 <p>will return 0 if
 the arguments to <code>+</code> are evaluated from left to right but will return 1 if
@@ -359,7 +373,7 @@ the arguments are evaluated from right to left.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -397,10 +411,10 @@ programmers with “should I set this variable before or after that one”
 concerns that can complicate programming and obscure the important ideas.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="n" rel="next">3.2</a>, Previous: <a href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" accesskey="p" rel="prev">3.1.2</a>, Up: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="u" rel="prev">3.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="n" rel="next">3.2</a>, Previous: <a href="3_002e1_002e2.xhtml#g_t3_002e1_002e2" accesskey="p" rel="prev">3.1.2</a>, Up: <a href="3_002e1.xhtml#g_t3_002e1" accesskey="u" rel="prev">3.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

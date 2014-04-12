@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.1.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.1.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.1.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e1.xhtml#g_t5_002e1" rel="prev" title="5.1" />
-<link href="5_002e1_002e3.xhtml#g_t5_002e1_002e3" rel="next" title="5.1.3" />
-<link href="5_002e1_002e1.xhtml#g_t5_002e1_002e1" rel="prev" title="5.1.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e1.xhtml#g_t5_002e1" rel="prev" title="5.1"/>
+<link href="5_002e1_002e3.xhtml#g_t5_002e1_002e3" rel="next" title="5.1.3"/>
+<link href="5_002e1_002e1.xhtml#g_t5_002e1_002e1" rel="prev" title="5.1.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e1_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e1_002e3.xhtml#g_t5_002e1_002e3" accesskey="n" rel="next">5.1.3</a>, Previous: <a href="5_002e1_002e1.xhtml#g_t5_002e1_002e1" accesskey="p" rel="prev">5.1.1</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e1_002e3.xhtml#g_t5_002e1_002e3" accesskey="n" rel="next">5.1.3</a>, Previous: <a href="5_002e1_002e1.xhtml#g_t5_002e1_002e1" accesskey="p" rel="prev">5.1.1</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Abstraction-in-Machine-Design"></a>
 <h4 class="subsection"><span class="secnum">5.1.2</span><span class="sectitle">Abstraction in Machine Design</span></h4>
@@ -54,8 +52,9 @@ subtraction.  Indeed, we can write a Scheme procedure that finds remainders in
 this way:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">remainder n d</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&lt;</span><span class="pln"> n d</span><span class="clo">)</span><span class="pln"> n </span><span class="opn">(</span><span class="pln">remainder </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n d</span><span class="clo">)</span><span class="pln"> d</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (remainder n d)
+  (if (&lt; n d) n (remainder (- n d) d)))
+</pre></div>
 
 <p>We can thus replace the remainder operation in the <abbr>GCD</abbr> machine’s data
 paths with a subtraction operation and a comparison test.  <a href="#Figure-5_002e5">Figure 5.5</a>
@@ -63,7 +62,8 @@ shows the data paths and controller for the elaborated machine.  The
 instruction
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign t </span><span class="opn">(</span><span class="pln">op rem</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg a</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign t (op rem) (reg a) (reg b))
+</pre></div>
 
 <p>in the <abbr>GCD</abbr> controller definition is replaced by a sequence of
 instructions that contains a loop, as shown in <a href="#Figure-5_002e6">Figure 5.6</a>.
@@ -78,27 +78,26 @@ instructions that contains a loop, as shown in <a href="#Figure-5_002e6">Figure 
 </figure>
 
 <blockquote>
-<p><strong><a id="Figure-5_002e6"></a>Figure 5.6:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↓<!-- ↓ --></mo>
-</math> Controller instruction sequence for the
+<p><strong><a id="Figure-5_002e6"></a>Figure 5.6:</strong> \( \downarrow \) Controller instruction sequence for the
 <abbr>GCD</abbr> machine in <a href="#Figure-5_002e5">Figure 5.5</a>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">controller
+<pre class="lisp">(controller
  test-b
-   </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label gcd-done</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">assign t </span><span class="opn">(</span><span class="pln">reg a</span><span class="clo">))</span><span class="pln">
+   (test (op =) (reg b) (const 0))
+   (branch (label gcd-done))
+   (assign t (reg a))
  rem-loop
-   </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">&lt;</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg t</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label rem-done</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">assign t </span><span class="opn">(</span><span class="pln">op </span><span class="pun">-</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg t</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label rem-loop</span><span class="clo">))</span><span class="pln">
+   (test (op &lt;) (reg t) (reg b))
+   (branch (label rem-done))
+   (assign t (op -) (reg t) (reg b))
+   (goto (label rem-loop))
  rem-done
-   </span><span class="opn">(</span><span class="pln">assign a </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">assign b </span><span class="opn">(</span><span class="pln">reg t</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label test-b</span><span class="clo">))</span><span class="pln">
- gcd-done</span><span class="clo">)</span></pre></div>
+   (assign a (reg b))
+   (assign b (reg t))
+   (goto (label test-b))
+ gcd-done)
+</pre></div>
 
 </blockquote>
 
@@ -107,16 +106,17 @@ instructions that contains a loop, as shown in <a href="#Figure-5_002e6">Figure 
 roots using Newton’s method, as described in <a href="1_002e1_002e6.xhtml#Sec_002e1_002e1_002e7">1.1.7</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">good-enough? guess</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">&lt;</span><span class="pln"> </span><span class="opn">(</span><span class="pln">abs </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square guess</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">))</span><span class="pln"> </span><span class="lit">0.001</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">improve guess</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">average guess </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> x guess</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sqrt-iter guess</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">good-enough? guess</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (sqrt x)
+  (define (good-enough? guess)
+    (&lt; (abs (- (square guess) x)) 0.001))
+  (define (improve guess)
+    (average guess (/ x guess)))
+  (define (sqrt-iter guess)
+    (if (good-enough? guess)
         guess
-        </span><span class="opn">(</span><span class="pln">sqrt-iter </span><span class="opn">(</span><span class="pln">improve guess</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">sqrt-iter </span><span class="lit">1.0</span><span class="clo">))</span></pre></div>
+        (sqrt-iter (improve guess))))
+  (sqrt-iter 1.0))
+</pre></div>
 
 <p>Begin by assuming that <code>good-enough?</code> and <code>improve</code> operations are
 available as primitives.  Then show how to expand these in terms of arithmetic
@@ -125,10 +125,10 @@ a data-path diagram and writing a controller definition in the register-machine
 language.
 </p></blockquote>
 
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e1_002e3.xhtml#g_t5_002e1_002e3" accesskey="n" rel="next">5.1.3</a>, Previous: <a href="5_002e1_002e1.xhtml#g_t5_002e1_002e1" accesskey="p" rel="prev">5.1.1</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e1_002e3.xhtml#g_t5_002e1_002e3" accesskey="n" rel="next">5.1.3</a>, Previous: <a href="5_002e1_002e1.xhtml#g_t5_002e1_002e1" accesskey="p" rel="prev">5.1.1</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.3.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.3.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.3.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3" />
-<link href="3_002e3_002e2.xhtml#g_t3_002e3_002e2" rel="next" title="3.3.2" />
-<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3"/>
+<link href="3_002e3_002e2.xhtml#g_t3_002e3_002e2" rel="next" title="3.3.2"/>
+<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e3_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e3_002e2.xhtml#g_t3_002e3_002e2" accesskey="n" rel="next">3.3.2</a>, Previous: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="p" rel="prev">3.3</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e3_002e2.xhtml#g_t3_002e3_002e2" accesskey="n" rel="next">3.3.2</a>, Previous: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="p" rel="prev">3.3</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Mutable-List-Structure"></a>
 <h4 class="subsection"><span class="secnum">3.3.1</span><span class="sectitle">Mutable List Structure</span></h4>
@@ -116,21 +114,23 @@ pointers to the designated objects, and return the new pair as the result of
 the <code>cons</code>.<a class="footnote_link" id="DOCF146" href="#FOOT146"><sup>146</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">new </span><span class="opn">(</span><span class="pln">get-new-pair</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">set-car! new x</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">set-cdr! new y</span><span class="clo">)</span><span class="pln">
-    new</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (cons x y)
+  (let ((new (get-new-pair)))
+    (set-car! new x)
+    (set-cdr! new y)
+    new))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e12"></a>Exercise 3.12:</strong> The following procedure for
 appending lists was introduced in <a href="2_002e2_002e1.xhtml#g_t2_002e2_002e1">2.2.1</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">append x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? x</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (append x y)
+  (if (null? x)
       y
-      </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">append </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">)</span><span class="pln"> y</span><span class="clo">))))</span></pre></div>
+      (cons (car x) (append (cdr x) y))))
+</pre></div>
 
 <p><code>Append</code> forms a new list by successively <code>cons</code>ing the elements of
 <code>x</code> onto <code>y</code>.  The procedure <code>append!</code> is similar to
@@ -140,39 +140,42 @@ its <code>cdr</code> is now <code>y</code>.  (It is an error to call <code>appen
 empty <code>x</code>.)
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">append! x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">set-cdr! </span><span class="opn">(</span><span class="pln">last-pair x</span><span class="clo">)</span><span class="pln"> y</span><span class="clo">)</span><span class="pln">
-  x</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (append! x y)
+  (set-cdr! (last-pair x) y)
+  x)
+</pre></div>
 
 <p>Here <code>last-pair</code> is a procedure that returns the last pair in its
 argument:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">last-pair x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (last-pair x)
+  (if (null? (cdr x))
       x
-      </span><span class="opn">(</span><span class="pln">last-pair </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">))))</span></pre></div>
+      (last-pair (cdr x))))
+</pre></div>
 
 <p>Consider the interaction
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'a</span><span class="pln"> </span><span class="lit">'b</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> y </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'c</span><span class="pln"> </span><span class="lit">'d</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> z </span><span class="opn">(</span><span class="pln">append x y</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define x (list 'a 'b))
+(define y (list 'c 'd))
+(define z (append x y))
 
 z
-</span><i><span class="opn">(</span><span class="pln">a b c d</span><span class="clo">)</span></i><span class="pln">
+<i>(a b c d)</i>
 
-</span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-⟨</span><var><span class="pln">response</span></var><span class="pln">⟩
+(cdr x)
+⟨<var>response</var>⟩
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> w </span><span class="opn">(</span><span class="pln">append! x y</span><span class="clo">))</span><span class="pln">
+(define w (append! x y))
 
 w
-</span><i><span class="opn">(</span><span class="pln">a b c d</span><span class="clo">)</span></i><span class="pln">
+<i>(a b c d)</i>
 
-</span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-⟨</span><var><span class="pln">response</span></var><span class="pln">⟩</span></pre></div>
+(cdr x)
+⟨<var>response</var>⟩
+</pre></div>
 
 <p>What are the missing <code>⟨</code><var>response</var><code>⟩</code>s?  Draw box-and-pointer diagrams to
 explain your answer.
@@ -184,14 +187,16 @@ explain your answer.
 in <a href="#Exercise-3_002e12">Exercise 3.12</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-cycle x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">set-cdr! </span><span class="opn">(</span><span class="pln">last-pair x</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-  x</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (make-cycle x)
+  (set-cdr! (last-pair x) x)
+  x)
+</pre></div>
 
 <p>Draw a box-and-pointer diagram that shows the structure <code>z</code> created by
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> z </span><span class="opn">(</span><span class="pln">make-cycle </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'a</span><span class="pln"> </span><span class="lit">'b</span><span class="pln"> </span><span class="lit">'c</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define z (make-cycle (list 'a 'b 'c)))
+</pre></div>
 
 <p>What happens if we try to compute <code>(last-pair z)</code>?
 </p></blockquote>
@@ -201,14 +206,15 @@ in <a href="#Exercise-3_002e12">Exercise 3.12</a>:
 useful, although obscure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">mystery x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">loop x y</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? x</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (mystery x)
+  (define (loop x y)
+    (if (null? x)
         y
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">temp </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">set-cdr! x y</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">loop temp x</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">loop x </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span></pre></div>
+        (let ((temp (cdr x)))
+          (set-cdr! x y)
+          (loop temp x))))
+  (loop x '()))
+</pre></div>
 
 <p><code>Loop</code> uses the “temporary” variable <code>temp</code> to hold the old value
 of the <code>cdr</code> of <code>x</code>, since the <code>set-cdr!</code>  on the next line
@@ -231,8 +237,9 @@ practice when individual pairs are <a id="index-shared"></a>
 objects.  For example, consider the structure formed by
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'a</span><span class="pln"> </span><span class="lit">'b</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> z1 </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x x</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define x (list 'a 'b))
+(define z1 (cons x x))
+</pre></div>
 
 <p>As shown in <a href="#Figure-3_002e16">Figure 3.16</a>, <code>z1</code> is a pair whose <code>car</code> and
 <code>cdr</code> both point to the same pair <code>x</code>.  This sharing of <code>x</code> by
@@ -254,8 +261,9 @@ in which many individual pairs are shared by many different structures.
 by
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> z2 
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'a</span><span class="pln"> </span><span class="lit">'b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">'a</span><span class="pln"> </span><span class="lit">'b</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define z2 
+  (cons (list 'a 'b) (list 'a 'b)))
+</pre></div>
 
 <figure class="float">
 <a id="Figure-3_002e17"></a>
@@ -278,9 +286,10 @@ procedure, which modifies the <code>car</code> of the structure to which it is
 applied:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-to-wow! x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">set-car! </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> x</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'wow</span><span class="clo">)</span><span class="pln">
-  x</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (set-to-wow! x)
+  (set-car! (car x) 'wow)
+  x)
+</pre></div>
 
 <p>Even though <code>z1</code> and <code>z2</code> are “the same” structure, applying
 <code>set-to-wow!</code> to them yields different results.  With <code>z1</code>, altering
@@ -289,17 +298,17 @@ and the <code>cdr</code> are the same pair.  With <code>z2</code>, the <code>car
 <code>cdr</code> are distinct, so <code>set-to-wow!</code> modifies only the <code>car</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">z1
-</span><i><span class="opn">((</span><span class="pln">a b</span><span class="clo">)</span><span class="pln"> a b</span><span class="clo">)</span></i><span class="pln">
+<pre class="lisp">z1
+<i>((a b) a b)</i>
 
-</span><span class="opn">(</span><span class="pln">set-to-wow! z1</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">((</span><span class="pln">wow b</span><span class="clo">)</span><span class="pln"> wow b</span><span class="clo">)</span></i><span class="pln">
+(set-to-wow! z1)
+<i>((wow b) wow b)</i>
 
 z2
-</span><i><span class="opn">((</span><span class="pln">a b</span><span class="clo">)</span><span class="pln"> a b</span><span class="clo">)</span></i><span class="pln">
+<i>((a b) a b)</i>
 
-</span><span class="opn">(</span><span class="pln">set-to-wow! z2</span><span class="clo">)</span><span class="pln">
-</span><i><span class="opn">((</span><span class="pln">wow b</span><span class="clo">)</span><span class="pln"> a b</span><span class="clo">)</span></i>
+(set-to-wow! z2)
+<i>((wow b) a b)</i>
 </pre></div>
 
 <p>One way to detect sharing in list structures is to use the predicate
@@ -332,12 +341,13 @@ he reasons.  “The number of pairs in any structure is the number in the
 pair.”  So Ben writes the following procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-pairs x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">not </span><span class="opn">(</span><span class="pln">pair? x</span><span class="clo">))</span><span class="pln">
-      </span><span class="lit">0</span><span class="pln">
-      </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">count-pairs </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">count-pairs </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> x</span><span class="clo">))</span><span class="pln">
-         </span><span class="lit">1</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (count-pairs x)
+  (if (not (pair? x))
+      0
+      (+ (count-pairs (car x))
+         (count-pairs (cdr x))
+         1)))
+</pre></div>
 
 <p>Show that this procedure is not correct.  In particular, draw box-and-pointer
 diagrams representing list structures made up of exactly three pairs for which
@@ -372,16 +382,17 @@ clever idea.)
 can be represented purely in terms of procedures:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'car</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'cdr</span><span class="clo">)</span><span class="pln"> y</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Undefined 
-                 operation: CONS"</span><span class="pln"> m</span><span class="clo">))))</span><span class="pln">
-  dispatch</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (cons x y)
+  (define (dispatch m)
+    (cond ((eq? m 'car) x)
+          ((eq? m 'cdr) y)
+          (else (error &quot;Undefined 
+                 operation: CONS&quot; m))))
+  dispatch)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z </span><span class="lit">'car</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z </span><span class="lit">'cdr</span><span class="clo">))</span></pre></div>
+(define (car z) (z 'car))
+(define (cdr z) (z 'cdr))
+</pre></div>
 
 <p>The same observation is true for mutable data.  We can implement mutable data
 objects as procedures using assignment and local state.  For instance, we can
@@ -390,28 +401,29 @@ extend the above pair implementation to handle <code>set-car!</code> and
 using <code>make-account</code> in <a href="3_002e1_002e1.xhtml#g_t3_002e1_002e1">3.1.1</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-x! v</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> x v</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-y! v</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> y v</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'car</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'cdr</span><span class="clo">)</span><span class="pln"> y</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'set-car!</span><span class="clo">)</span><span class="pln"> set-x!</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'set-cdr!</span><span class="clo">)</span><span class="pln"> set-y!</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Undefined 
-                 operation: CONS"</span><span class="pln"> m</span><span class="clo">))))</span><span class="pln">
-  dispatch</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (cons x y)
+  (define (set-x! v) (set! x v))
+  (define (set-y! v) (set! y v))
+  (define (dispatch m)
+    (cond ((eq? m 'car) x)
+          ((eq? m 'cdr) y)
+          ((eq? m 'set-car!) set-x!)
+          ((eq? m 'set-cdr!) set-y!)
+          (else (error &quot;Undefined 
+                 operation: CONS&quot; m))))
+  dispatch)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z </span><span class="lit">'car</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z </span><span class="lit">'cdr</span><span class="clo">))</span><span class="pln">
+(define (car z) (z 'car))
+(define (cdr z) (z 'cdr))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-car! z new-value</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">z </span><span class="lit">'set-car!</span><span class="clo">)</span><span class="pln"> new-value</span><span class="clo">)</span><span class="pln">
-  z</span><span class="clo">)</span><span class="pln">
+(define (set-car! z new-value)
+  ((z 'set-car!) new-value)
+  z)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-cdr! z new-value</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">z </span><span class="lit">'set-cdr!</span><span class="clo">)</span><span class="pln"> new-value</span><span class="clo">)</span><span class="pln">
-  z</span><span class="clo">)</span></pre></div>
+(define (set-cdr! z new-value)
+  ((z 'set-cdr!) new-value)
+  z)
+</pre></div>
 
 <p>Assignment is all that is needed, theoretically, to account for the behavior of
 mutable data.  As soon as we admit <code>set!</code> to our language, we raise all
@@ -422,13 +434,13 @@ the issues, not only of assignment, but of mutable data in general.<a class="foo
 illustrate the evaluation of the sequence of expressions
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> z </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> x x</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define x (cons 1 2))
+(define z (cons x x))
 
-</span><span class="opn">(</span><span class="pln">set-car! </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> z</span><span class="clo">)</span><span class="pln"> </span><span class="lit">17</span><span class="clo">)</span><span class="pln">
+(set-car! (cdr z) 17)
 
-</span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">17</span></i>
+(car x)
+<i>17</i>
 </pre></div>
 
 <p>using the procedural implementation of pairs given above.  (Compare
@@ -436,7 +448,7 @@ illustrate the evaluation of the sequence of expressions
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -489,10 +501,10 @@ assignment and mutation are equipotent: Each can be implemented in terms of the
 other.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e3_002e2.xhtml#g_t3_002e3_002e2" accesskey="n" rel="next">3.3.2</a>, Previous: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="p" rel="prev">3.3</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e3_002e2.xhtml#g_t3_002e3_002e2" accesskey="n" rel="next">3.3.2</a>, Previous: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="p" rel="prev">3.3</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

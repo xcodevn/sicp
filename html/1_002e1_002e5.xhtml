@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 1.1.5</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.1.5</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 1.1.5" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 1.1.5" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="1_002e1.xhtml#g_t1_002e1" rel="prev" title="1.1" />
-<link href="1_002e1_002e6.xhtml#g_t1_002e1_002e6" rel="next" title="1.1.6" />
-<link href="1_002e1_002e4.xhtml#g_t1_002e1_002e4" rel="prev" title="1.1.4" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.1.5"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.1.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="1_002e1.xhtml#g_t1_002e1" rel="prev" title="1.1"/>
+<link href="1_002e1_002e6.xhtml#g_t1_002e1_002e6" rel="next" title="1.1.6"/>
+<link href="1_002e1_002e4.xhtml#g_t1_002e1_002e4" rel="prev" title="1.1.4"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t1_002e1_002e5"></a>
 <nav class="header">
 <p>
-Next: <a href="1_002e1_002e6.xhtml#g_t1_002e1_002e6" accesskey="n" rel="next">1.1.6</a>, Previous: <a href="1_002e1_002e4.xhtml#g_t1_002e1_002e4" accesskey="p" rel="prev">1.1.4</a>, Up: <a href="1_002e1.xhtml#g_t1_002e1" accesskey="u" rel="prev">1.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e1_002e6.xhtml#g_t1_002e1_002e6" accesskey="n" rel="next">1.1.6</a>, Previous: <a href="1_002e1_002e4.xhtml#g_t1_002e1_002e4" accesskey="p" rel="prev">1.1.4</a>, Up: <a href="1_002e1.xhtml#g_t1_002e1" accesskey="u" rel="prev">1.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="The-Substitution-Model-for-Procedure-Application"></a>
 <h4 class="subsection"><span class="secnum">1.1.5</span><span class="sectitle">The Substitution Model for Procedure Application</span></h4>
@@ -55,18 +53,21 @@ with each formal parameter replaced by the corresponding argument.
 <p>To illustrate this process, let’s evaluate the combination
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">f </span><span class="lit">5</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(f 5)
+</pre></div>
 
 <p>where <code>f</code> is the procedure defined in <a href="1_002e1_002e4.xhtml#g_t1_002e1_002e4">1.1.4</a>.  We begin by
 retrieving the body of <code>f</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">sum-of-squares </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> a </span><span class="lit">2</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(sum-of-squares (+ a 1) (* a 2))
+</pre></div>
 
 <p>Then we replace the formal parameter <code>a</code> by the argument 5:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">sum-of-squares </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">2</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(sum-of-squares (+ 5 1) (* 5 2))
+</pre></div>
 
 <p>Thus the problem reduces to the evaluation of a combination with two operands
 and an operator <code>sum-of-squares</code>.  Evaluating this combination involves
@@ -78,22 +79,26 @@ the formal parameters <code>x</code> and <code>y</code> in the body of
 <code>sum-of-squares</code>, reducing the expression to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square </span><span class="lit">6</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square </span><span class="lit">10</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(+ (square 6) (square 10))
+</pre></div>
 
 <p>If we use the definition of <code>square</code>, this reduces to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">6</span><span class="pln"> </span><span class="lit">6</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="lit">10</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(+ (* 6 6) (* 10 10))
+</pre></div>
 
 <p>which reduces by multiplication to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">36</span><span class="pln"> </span><span class="lit">100</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(+ 36 100)
+</pre></div>
 
 <p>and finally to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="lit">136</span></pre></div>
+<pre class="lisp">136
+</pre></div>
 
 <p>The process we have just described is called the <a id="index-substitution-model"></a>
 <em>substitution model</em>
@@ -139,23 +144,25 @@ this method, the evaluation of <code>(f 5)</code> would proceed according to the
 sequence of expansions
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">sum-of-squares </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">2</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(sum-of-squares (+ 5 1) (* 5 2))
 
-</span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">1</span><span class="clo">))</span><span class="pln"> 
-   </span><span class="opn">(</span><span class="pln">square </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)))</span><span class="pln">
+(+ (square (+ 5 1)) 
+   (square (* 5 2)))
 
-</span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">1</span><span class="clo">))</span><span class="pln"> 
-   </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)))</span></pre></div>
+(+ (* (+ 5 1) (+ 5 1)) 
+   (* (* 5 2) (* 5 2)))
+</pre></div>
 
 <p>followed by the reductions
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">6</span><span class="pln"> </span><span class="lit">6</span><span class="clo">)</span><span class="pln"> 
-   </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="lit">10</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(+ (* 6 6) 
+   (* 10 10))
 
-</span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">36</span><span class="pln"> </span><span class="lit">100</span><span class="clo">)</span><span class="pln">
+(+ 36 100)
 
-</span><span class="lit">136</span></pre></div>
+136
+</pre></div>
 
 <p>This gives the same answer as our previous evaluation model, but the process is
 different.  In particular, the evaluations of <code>(+ 5 1)</code> and <code>(* 5 2)</code>
@@ -184,7 +191,7 @@ substitution.  On the other hand, normal-order evaluation can be an extremely
 valuable tool, and we will investigate some of its implications in <a href="Chapter-3.xhtml#Chapter-3">Chapter 3</a> and <a href="Chapter-4.xhtml#Chapter-4">Chapter 4</a>.<a class="footnote_link" id="DOCF16" href="#FOOT16"><sup>16</sup></a>
 </p>
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -208,10 +215,10 @@ data structures by incorporating a limited form of normal-order evaluation.  In
 normal-order variant of Scheme.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="1_002e1_002e6.xhtml#g_t1_002e1_002e6" accesskey="n" rel="next">1.1.6</a>, Previous: <a href="1_002e1_002e4.xhtml#g_t1_002e1_002e4" accesskey="p" rel="prev">1.1.4</a>, Up: <a href="1_002e1.xhtml#g_t1_002e1" accesskey="u" rel="prev">1.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e1_002e6.xhtml#g_t1_002e1_002e6" accesskey="n" rel="next">1.1.6</a>, Previous: <a href="1_002e1_002e4.xhtml#g_t1_002e1_002e4" accesskey="p" rel="prev">1.1.4</a>, Up: <a href="1_002e1.xhtml#g_t1_002e1" accesskey="u" rel="prev">1.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

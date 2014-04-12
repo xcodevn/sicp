@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.3.4</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.4</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.3.4" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.3.4" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3" />
-<link href="3_002e3_002e5.xhtml#g_t3_002e3_002e5" rel="next" title="3.3.5" />
-<link href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" rel="prev" title="3.3.3" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.4"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3"/>
+<link href="3_002e3_002e5.xhtml#g_t3_002e3_002e5" rel="next" title="3.3.5"/>
+<link href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" rel="prev" title="3.3.3"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e3_002e4"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e3_002e5.xhtml#g_t3_002e3_002e5" accesskey="n" rel="next">3.3.5</a>, Previous: <a href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" accesskey="p" rel="prev">3.3.3</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e3_002e5.xhtml#g_t3_002e3_002e5" accesskey="n" rel="next">3.3.5</a>, Previous: <a href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" accesskey="p" rel="prev">3.3.3</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="A-Simulator-for-Digital-Circuits"></a>
 <h4 class="subsection"><span class="secnum">3.3.4</span><span class="sectitle">A Simulator for Digital Circuits</span></h4>
@@ -117,12 +115,13 @@ that enforce the correct relationships among the signals.
 constructs wires.  For example, we can construct six wires as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> a </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> b </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> c </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> d </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> e </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> s </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define a (make-wire))
+(define b (make-wire))
+(define c (make-wire))
+(define d (make-wire))
+(define e (make-wire))
+(define s (make-wire))
+</pre></div>
 
 <p>We attach a function box to a set of wires by calling a procedure that
 constructs that kind of box.  The arguments to the constructor procedure are
@@ -131,17 +130,17 @@ and-gates, or-gates, and inverters, we can wire together the half-adder shown
 in <a href="#Figure-3_002e25">Figure 3.25</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">or-gate a b d</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">ok</span></i><span class="pln">
+<pre class="lisp">(or-gate a b d)
+<i>ok</i>
 
-</span><span class="opn">(</span><span class="pln">and-gate a b c</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">ok</span></i><span class="pln">
+(and-gate a b c)
+<i>ok</i>
 
-</span><span class="opn">(</span><span class="pln">inverter c e</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">ok</span></i><span class="pln">
+(inverter c e)
+<i>ok</i>
 
-</span><span class="opn">(</span><span class="pln">and-gate d e s</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">ok</span></i>
+(and-gate d e s)
+<i>ok</i>
 </pre></div>
 
 <p>Better yet, we can explicitly name this operation by defining a procedure
@@ -149,13 +148,14 @@ in <a href="#Figure-3_002e25">Figure 3.25</a>:
 to be attached to the half-adder:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">half-adder a b s c</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">d </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln"> </span><span class="opn">(</span><span class="pln">e </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">or-gate a b d</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">and-gate a b c</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">inverter c e</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">and-gate d e s</span><span class="clo">)</span><span class="pln">
-    </span><span class="lit">'ok</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (half-adder a b s c)
+  (let ((d (make-wire)) (e (make-wire)))
+    (or-gate a b d)
+    (and-gate a b c)
+    (inverter c e)
+    (and-gate d e s)
+    'ok))
+</pre></div>
 
 <p>The advantage of making this definition is that we can use <code>half-adder</code>
 itself as a building block in creating more complex circuits.  <a href="#Figure-3_002e26">Figure 3.26</a>, 
@@ -164,14 +164,15 @@ for example, shows a <a id="index-full_002dadder"></a>
 and an or-gate.<a class="footnote_link" id="DOCF154" href="#FOOT154"><sup>154</sup></a> We can construct a full-adder as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">full-adder a b c-in sum c-out</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">c1 </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pln">c2 </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">s  </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">half-adder b c-in s c1</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">half-adder a s sum c2</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">or-gate c1 c2 c-out</span><span class="clo">)</span><span class="pln">
-    </span><span class="lit">'ok</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (full-adder a b c-in sum c-out)
+  (let ((c1 (make-wire)) 
+        (c2 (make-wire))
+        (s  (make-wire)))
+    (half-adder b c-in s c1)
+    (half-adder a s sum c2)
+    (or-gate c1 c2 c-out)
+    'ok))
+</pre></div>
 
 <figure class="float">
 <a id="Figure-3_002e26"></a>
@@ -229,21 +230,22 @@ signal on the input wire changes value.  The procedure computes the
 <code>inverter-delay</code>, sets the output signal to be this new value:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">inverter input output</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">invert-input</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">new-value 
-           </span><span class="opn">(</span><span class="pln">logical-not </span><span class="opn">(</span><span class="pln">get-signal input</span><span class="clo">))))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">after-delay 
+<pre class="lisp">(define (inverter input output)
+  (define (invert-input)
+    (let ((new-value 
+           (logical-not (get-signal input))))
+      (after-delay 
        inverter-delay
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">set-signal! output new-value</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">add-action! input invert-input</span><span class="clo">)</span><span class="pln">
-  </span><span class="lit">'ok</span><span class="clo">)</span><span class="pln">
+       (lambda ()
+         (set-signal! output new-value)))))
+  (add-action! input invert-input)
+  'ok)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">logical-not s</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> s </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> s </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Invalid signal"</span><span class="pln"> s</span><span class="clo">))))</span></pre></div>
+(define (logical-not s)
+  (cond ((= s 0) 1)
+        ((= s 1) 0)
+        (else (error &quot;Invalid signal&quot; s))))
+</pre></div>
 
 <p>An and-gate is a little more complex.  The action procedure must be run if
 either of the inputs to the gate changes.  It computes the <code>logical-and</code>
@@ -252,18 +254,19 @@ signals on the input wires and sets up a change to the new value to occur on
 the output wire after one <code>and-gate-delay</code>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">and-gate a1 a2 output</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">and-action-procedure</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">new-value
-           </span><span class="opn">(</span><span class="pln">logical-and </span><span class="opn">(</span><span class="pln">get-signal a1</span><span class="clo">)</span><span class="pln"> 
-                        </span><span class="opn">(</span><span class="pln">get-signal a2</span><span class="clo">))))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">after-delay 
+<pre class="lisp">(define (and-gate a1 a2 output)
+  (define (and-action-procedure)
+    (let ((new-value
+           (logical-and (get-signal a1) 
+                        (get-signal a2))))
+      (after-delay 
        and-gate-delay
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">set-signal! output new-value</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">add-action! a1 and-action-procedure</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">add-action! a2 and-action-procedure</span><span class="clo">)</span><span class="pln">
-  </span><span class="lit">'ok</span><span class="clo">)</span></pre></div>
+       (lambda ()
+         (set-signal! output new-value)))))
+  (add-action! a1 and-action-procedure)
+  (add-action! a2 and-action-procedure)
+  'ok)
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e28"></a>Exercise 3.28:</strong> Define an or-gate as a primitive
@@ -282,118 +285,19 @@ the delay time of the or-gate in terms of <code>and-gate-delay</code> and
 <blockquote>
 <p><strong><a id="Exercise-3_002e30"></a>Exercise 3.30:</strong> <a href="#Figure-3_002e27">Figure 3.27</a> shows a
 <a id="index-ripple_002dcarry-adder"></a>
-<em>ripple-carry adder</em> formed by stringing together <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> full-adders.
-This is the simplest form of parallel adder for adding two <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>-bit binary
-numbers.  The inputs <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>A</mi>
-    <mn>1</mn>
-  </msub>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>A</mi>
-    <mn>2</mn>
-  </msub>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>A</mi>
-    <mn>3</mn>
-  </msub>
-</math>, …, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>A</mi>
-    <mi>n</mi>
-  </msub>
-</math> and 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>B</mi>
-    <mn>1</mn>
-  </msub>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>B</mi>
-    <mn>2</mn>
-  </msub>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>B</mi>
-    <mn>3</mn>
-  </msub>
-</math>,
-…, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>B</mi>
-    <mi>n</mi>
-  </msub>
-</math> are the two binary numbers to be added (each <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>A</mi>
-    <mi>k</mi>
-  </msub>
-</math> and
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>B</mi>
-    <mi>k</mi>
-  </msub>
-</math> is a 0 or a 1).  The circuit generates <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>S</mi>
-    <mn>1</mn>
-  </msub>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>S</mi>
-    <mn>2</mn>
-  </msub>
-</math>, 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>S</mi>
-    <mn>3</mn>
-  </msub>
-</math>, …, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>S</mi>
-    <mi>n</mi>
-  </msub>
-</math>,
-the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> bits of the sum, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>C</mi>
-</math>, the carry from the addition.  Write a
+<em>ripple-carry adder</em> formed by stringing together \( n \) full-adders.
+This is the simplest form of parallel adder for adding two \( n \)-bit binary
+numbers.  The inputs \( A_1 \), \( A_2 \), \( A_3 \), …, \( A_n \) and 
+\( B_1 \), \( B_2 \), \( B_3 \),
+…, \( B_n \) are the two binary numbers to be added (each \( A_k \) and
+\( B_k \) is a 0 or a 1).  The circuit generates \( S_1 \), \( S_2 \), 
+\( S_3 \), …, \( S_n \),
+the \( n \) bits of the sum, and \( C \), the carry from the addition.  Write a
 procedure <code>ripple-carry-adder</code> that generates this circuit.  The procedure
-should take as arguments three lists of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> wires each—the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>A</mi>
-    <mi>k</mi>
-  </msub>
-</math>, the
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>B</mi>
-    <mi>k</mi>
-  </msub>
-</math>, and the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi>S</mi>
-    <mi>k</mi>
-  </msub>
-</math>—and also another wire <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>C</mi>
-</math>.  The major drawback of the
+should take as arguments three lists of \( n \) wires each—the \( A_k \), the
+\( B_k \), and the \( S_k \)—and also another wire \( C \).  The major drawback of the
 ripple-carry adder is the need to wait for the carry signals to propagate.
-What is the delay needed to obtain the complete output from an <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>-bit
+What is the delay needed to obtain the complete output from an \( n \)-bit
 ripple-carry adder, expressed in terms of the delays for and-gates, or-gates,
 and inverters?
 </p></blockquote>
@@ -403,9 +307,7 @@ and inverters?
 <object style="width: 50.16ex; height: 15.54ex;" data="fig/chap3/Fig3.27b.std.svg" type="image/svg+xml">SVG</object>
 
 <figcaption class="float-caption">
-<p><strong>Figure 3.27:</strong> A ripple-carry adder for <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>-bit numbers.</p>
+<p><strong>Figure 3.27:</strong> A ripple-carry adder for \( n \)-bit numbers.</p>
 </figcaption>
 </figure>
 
@@ -421,29 +323,30 @@ operation, just as we did with the simple bank-account object in
 <a href="3_002e1_002e1.xhtml#g_t3_002e1_002e1">3.1.1</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">signal-value </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pln">action-procedures </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-my-signal! new-value</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">not </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> signal-value new-value</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> signal-value new-value</span><span class="clo">)</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">call-each 
-                  action-procedures</span><span class="clo">))</span><span class="pln">
-          </span><span class="lit">'done</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">accept-action-procedure! proc</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> action-procedures 
-            </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> proc action-procedures</span><span class="clo">))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">proc</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dispatch m</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'get-signal</span><span class="clo">)</span><span class="pln"> 
-             signal-value</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'set-signal!</span><span class="clo">)</span><span class="pln"> 
-             set-my-signal!</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> m </span><span class="lit">'add-action!</span><span class="clo">)</span><span class="pln"> 
-             accept-action-procedure!</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown operation: 
-                          WIRE"</span><span class="pln"> m</span><span class="clo">))))</span><span class="pln">
-    dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-wire)
+  (let ((signal-value 0) 
+        (action-procedures '()))
+    (define (set-my-signal! new-value)
+      (if (not (= signal-value new-value))
+          (begin (set! signal-value new-value)
+                 (call-each 
+                  action-procedures))
+          'done))
+    (define (accept-action-procedure! proc)
+      (set! action-procedures 
+            (cons proc action-procedures))
+      (proc))
+    (define (dispatch m)
+      (cond ((eq? m 'get-signal) 
+             signal-value)
+            ((eq? m 'set-signal!) 
+             set-my-signal!)
+            ((eq? m 'add-action!) 
+             accept-action-procedure!)
+            (else (error &quot;Unknown operation: 
+                          WIRE&quot; m))))
+    dispatch))
+</pre></div>
 
 <p>The local procedure <code>set-my-signal!</code> tests whether the new signal value
 changes the signal on the wire.  If so, it runs each of the action procedures,
@@ -451,11 +354,12 @@ using the following procedure <code>call-each</code>, which calls each of the it
 in a list of no-argument procedures:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">call-each procedures</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? procedures</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">'done</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">car</span><span class="pln"> procedures</span><span class="clo">))</span><span class="pln">
-             </span><span class="opn">(</span><span class="pln">call-each </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> procedures</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (call-each procedures)
+  (if (null? procedures)
+      'done
+      (begin ((car procedures))
+             (call-each (cdr procedures)))))
+</pre></div>
 
 <p>The local procedure <code>accept-action-procedure!</code> adds the given procedure to
 the list of procedures to be run, and then runs the new procedure once.  (See
@@ -466,12 +370,13 @@ the following procedures to access the local operations on
 wires:<a class="footnote_link" id="DOCF155" href="#FOOT155"><sup>155</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-signal wire</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">wire </span><span class="lit">'get-signal</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-signal! wire new-value</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">wire </span><span class="lit">'set-signal!</span><span class="clo">)</span><span class="pln"> new-value</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add-action! wire action-procedure</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">wire </span><span class="lit">'add-action!</span><span class="clo">)</span><span class="pln"> action-procedure</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (get-signal wire)
+  (wire 'get-signal))
+(define (set-signal! wire new-value)
+  ((wire 'set-signal!) new-value))
+(define (add-action! wire action-procedure)
+  ((wire 'add-action!) action-procedure))
+</pre></div>
 
 <p>Wires, which have time-varying signals and may be incrementally attached to
 devices, are typical of mutable objects.  We have modeled them as procedures
@@ -520,11 +425,12 @@ specified time.
 procedure <code>after-delay</code> adds new elements to <code>the-agenda</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">after-delay </span><span class="kwd">delay</span><span class="pln"> action</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">add-to-agenda! 
-   </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="kwd">delay</span><span class="pln"> </span><span class="opn">(</span><span class="pln">current-time the-agenda</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (after-delay delay action)
+  (add-to-agenda! 
+   (+ delay (current-time the-agenda))
    action
-   the-agenda</span><span class="clo">))</span></pre></div>
+   the-agenda))
+</pre></div>
 
 <p>The simulation is driven by the procedure <code>propagate</code>, which operates on
 <code>the-agenda</code>, executing each procedure on the agenda in sequence.  In
@@ -533,14 +439,15 @@ general, as the simulation runs, new items will be added to the agenda, and
 agenda:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">propagate</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">empty-agenda? the-agenda</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">'done</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">first-item 
-             </span><span class="opn">(</span><span class="pln">first-agenda-item the-agenda</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">first-item</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">remove-first-agenda-item! the-agenda</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">propagate</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (propagate)
+  (if (empty-agenda? the-agenda)
+      'done
+      (let ((first-item 
+             (first-agenda-item the-agenda)))
+        (first-item)
+        (remove-first-agenda-item! the-agenda)
+        (propagate))))
+</pre></div>
 
 <a id="A-sample-simulation"></a>
 <h5 class="subsubheading">A sample simulation</h5>
@@ -551,54 +458,56 @@ changes value, it should print the new signal value, together with the current
 time and a name that identifies the wire:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">probe name wire</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">add-action! 
+<pre class="lisp">(define (probe name wire)
+  (add-action! 
    wire
-   </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">newline</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">display name</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">display </span><span class="str">" "</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">display </span><span class="opn">(</span><span class="pln">current-time the-agenda</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">display </span><span class="str">"  New-value = "</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">display </span><span class="opn">(</span><span class="pln">get-signal wire</span><span class="clo">)))))</span></pre></div>
+   (lambda ()
+     (newline)
+     (display name)
+     (display &quot; &quot;)
+     (display (current-time the-agenda))
+     (display &quot;  New-value = &quot;)
+     (display (get-signal wire)))))
+</pre></div>
 
 <p>We begin by initializing the agenda and specifying delays for the primitive
 function boxes:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> the-agenda </span><span class="opn">(</span><span class="pln">make-agenda</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> inverter-delay </span><span class="lit">2</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> and-gate-delay </span><span class="lit">3</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> or-gate-delay </span><span class="lit">5</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define the-agenda (make-agenda))
+(define inverter-delay 2)
+(define and-gate-delay 3)
+(define or-gate-delay 5)
+</pre></div>
 
 <p>Now we define four wires, placing probes on two of them:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> input-1 </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> input-2 </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> sum </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> carry </span><span class="opn">(</span><span class="pln">make-wire</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define input-1 (make-wire))
+(define input-2 (make-wire))
+(define sum (make-wire))
+(define carry (make-wire))
 
-</span><span class="opn">(</span><span class="pln">probe </span><span class="lit">'sum</span><span class="pln"> sum</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">sum </span><span class="lit">0</span><span class="pln">  New-value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span></i><span class="pln">
+(probe 'sum sum)
+<i>sum 0  New-value = 0</i>
 
-</span><span class="opn">(</span><span class="pln">probe </span><span class="lit">'carry</span><span class="pln"> carry</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">carry </span><span class="lit">0</span><span class="pln">  New-value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span></i>
+(probe 'carry carry)
+<i>carry 0  New-value = 0</i>
 </pre></div>
 
 <p>Next we connect the wires in a half-adder circuit (as in <a href="#Figure-3_002e25">Figure 3.25</a>),
 set the signal on <code>input-1</code> to 1, and run the simulation:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">half-adder input-1 input-2 sum carry</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">ok</span></i><span class="pln">
+<pre class="lisp">(half-adder input-1 input-2 sum carry)
+<i>ok</i>
 
-</span><span class="opn">(</span><span class="pln">set-signal! input-1 </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">done</span></i><span class="pln">
+(set-signal! input-1 1)
+<i>done</i>
 
-</span><span class="opn">(</span><span class="pln">propagate</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">sum </span><span class="lit">8</span><span class="pln">  New-value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span></i><span class="pln">
-</span><i><span class="pln">done</span></i>
+(propagate)
+<i>sum 8  New-value = 1</i>
+<i>done</i>
 </pre></div>
 
 <p>The <code>sum</code> signal changes to 1 at time 8.  We are now eight time units from
@@ -606,13 +515,13 @@ the beginning of the simulation.  At this point, we can set the signal on
 <code>input-2</code> to 1 and allow the values to propagate:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">set-signal! input-2 </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">done</span></i><span class="pln">
+<pre class="lisp">(set-signal! input-2 1)
+<i>done</i>
 
-</span><span class="opn">(</span><span class="pln">propagate</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">carry </span><span class="lit">11</span><span class="pln">  New-value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span></i><span class="pln">
-</span><i><span class="pln">sum </span><span class="lit">16</span><span class="pln">  New-value </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span></i><span class="pln">
-</span><i><span class="pln">done</span></i>
+(propagate)
+<i>carry 11  New-value = 1</i>
+<i>sum 16  New-value = 0</i>
+<i>done</i>
 </pre></div>
 
 <p>The <code>carry</code> changes to 1 at time 11 and the <code>sum</code> changes to 0 at
@@ -627,9 +536,10 @@ half-adder example in the paragraphs above and say how the system’s response
 would differ if we had defined <code>accept-action-procedure!</code> as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">accept-action-procedure! proc</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> action-procedures 
-        </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> proc action-procedures</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (accept-action-procedure! proc)
+  (set! action-procedures 
+        (cons proc action-procedures)))
+</pre></div>
 </blockquote>
 
 <a id="Implementing-the-agenda"></a>
@@ -644,10 +554,11 @@ consisting of a number (the time) and a queue (see <a href="#Exercise-3_002e32">
 holds the procedures that are scheduled to be run during that time segment.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-time-segment time queue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> time queue</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">segment-time s</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> s</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">segment-queue s</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> s</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (make-time-segment time queue)
+  (cons time queue))
+(define (segment-time s) (car s))
+(define (segment-queue s) (cdr s))
+</pre></div>
 
 <p>We will operate on the time-segment queues using the queue operations described
 in <a href="3_002e3_002e2.xhtml#g_t3_002e3_002e2">3.3.2</a>.
@@ -661,23 +572,25 @@ agenda.  A newly constructed agenda has no time segments and has a current time
 of 0:<a class="footnote_link" id="DOCF156" href="#FOOT156"><sup>156</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-agenda</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">current-time agenda</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> agenda</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-current-time! agenda time</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">set-car! agenda time</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">segments agenda</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> agenda</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-segments! agenda segments</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">set-cdr! agenda segments</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">first-segment agenda</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="opn">(</span><span class="pln">segments agenda</span><span class="clo">)))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">rest-segments agenda</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> </span><span class="opn">(</span><span class="pln">segments agenda</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (make-agenda) (list 0))
+(define (current-time agenda) (car agenda))
+(define (set-current-time! agenda time)
+  (set-car! agenda time))
+(define (segments agenda) (cdr agenda))
+(define (set-segments! agenda segments)
+  (set-cdr! agenda segments))
+(define (first-segment agenda) 
+  (car (segments agenda)))
+(define (rest-segments agenda) 
+  (cdr (segments agenda)))
+</pre></div>
 
 <p>An agenda is empty if it has no time segments:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">empty-agenda? agenda</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">null? </span><span class="opn">(</span><span class="pln">segments agenda</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (empty-agenda? agenda)
+  (null? (segments agenda)))
+</pre></div>
 
 <p>To add an action to an agenda, we first check if the agenda is empty.  If so,
 we create a time segment for the action and install this in the agenda.
@@ -688,69 +601,72 @@ new time segment into the agenda just before it.  If we reach the end of the
 agenda, we must create a new time segment at the end.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add-to-agenda! time action agenda</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">belongs-before? segments</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">or</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? segments</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pun">&lt;</span><span class="pln"> time 
-           </span><span class="opn">(</span><span class="pln">segment-time </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> segments</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-new-time-segment time action</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">q </span><span class="opn">(</span><span class="pln">make-queue</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">insert-queue! q action</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">make-time-segment time q</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add-to-segments! segments</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">segment-time </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> segments</span><span class="clo">))</span><span class="pln"> time</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">insert-queue! 
-         </span><span class="opn">(</span><span class="pln">segment-queue </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> segments</span><span class="clo">))</span><span class="pln">
-         action</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">rest </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> segments</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">belongs-before? rest</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">set-cdr!
+<pre class="lisp">(define (add-to-agenda! time action agenda)
+  (define (belongs-before? segments)
+    (or (null? segments)
+        (&lt; time 
+           (segment-time (car segments)))))
+  (define (make-new-time-segment time action)
+    (let ((q (make-queue)))
+      (insert-queue! q action)
+      (make-time-segment time q)))
+  (define (add-to-segments! segments)
+    (if (= (segment-time (car segments)) time)
+        (insert-queue! 
+         (segment-queue (car segments))
+         action)
+        (let ((rest (cdr segments)))
+          (if (belongs-before? rest)
+              (set-cdr!
                segments
-               </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-new-time-segment 
+               (cons (make-new-time-segment 
                       time 
-                      action</span><span class="clo">)</span><span class="pln">
-                     </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> segments</span><span class="clo">)))</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">add-to-segments! rest</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">segments </span><span class="opn">(</span><span class="pln">segments agenda</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">belongs-before? segments</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">set-segments!
+                      action)
+                     (cdr segments)))
+              (add-to-segments! rest)))))
+  (let ((segments (segments agenda)))
+    (if (belongs-before? segments)
+        (set-segments!
          agenda
-         </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-new-time-segment 
+         (cons (make-new-time-segment 
                 time 
-                action</span><span class="clo">)</span><span class="pln">
-               segments</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">add-to-segments! segments</span><span class="clo">))))</span></pre></div>
+                action)
+               segments))
+        (add-to-segments! segments))))
+</pre></div>
 
 <p>The procedure that removes the first item from the agenda deletes the item at
 the front of the queue in the first time segment.  If this deletion makes the
 time segment empty, we remove it from the list of segments:<a class="footnote_link" id="DOCF157" href="#FOOT157"><sup>157</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">remove-first-agenda-item! agenda</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">q </span><span class="opn">(</span><span class="pln">segment-queue 
-            </span><span class="opn">(</span><span class="pln">first-segment agenda</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">delete-queue! q</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">empty-queue? q</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">set-segments! 
+<pre class="lisp">(define (remove-first-agenda-item! agenda)
+  (let ((q (segment-queue 
+            (first-segment agenda))))
+    (delete-queue! q)
+    (if (empty-queue? q)
+        (set-segments! 
          agenda 
-         </span><span class="opn">(</span><span class="pln">rest-segments agenda</span><span class="clo">)))))</span></pre></div>
+         (rest-segments agenda)))))
+</pre></div>
 
 <p>The first agenda item is found at the head of the queue in the first time
 segment.  Whenever we extract an item, we also update the current
 time:<a class="footnote_link" id="DOCF158" href="#FOOT158"><sup>158</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">first-agenda-item agenda</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">empty-agenda? agenda</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Agenda is empty: 
-              FIRST-AGENDA-ITEM"</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">first-seg 
-             </span><span class="opn">(</span><span class="pln">first-segment agenda</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">set-current-time! 
+<pre class="lisp">(define (first-agenda-item agenda)
+  (if (empty-agenda? agenda)
+      (error &quot;Agenda is empty: 
+              FIRST-AGENDA-ITEM&quot;)
+      (let ((first-seg 
+             (first-segment agenda)))
+        (set-current-time! 
          agenda 
-         </span><span class="opn">(</span><span class="pln">segment-time first-seg</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">front-queue 
-         </span><span class="opn">(</span><span class="pln">segment-queue first-seg</span><span class="clo">)))))</span></pre></div>
+         (segment-time first-seg))
+        (front-queue 
+         (segment-queue first-seg)))))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e32"></a>Exercise 3.32:</strong> The procedures to be run during
@@ -765,33 +681,16 @@ front (last in, first out).
 
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <div id="FOOT154"><p><a class="footnote_backlink" href="#DOCF154"><sup>154</sup></a>
 A full-adder is a basic circuit element used in adding
 two binary numbers.  Here A and B are the bits at corresponding positions in
-the two numbers to be added, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi mathvariant="normal">C</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi mathvariant="normal">i</mi>
-      <mi mathvariant="normal">n</mi>
-    </mrow>
-  </msub>
-</math> is the carry bit from the
+the two numbers to be added, and \( \rm C_{in} \) is the carry bit from the
 addition one place to the right.  The circuit generates SUM, which is the sum
-bit in the corresponding position, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msub>
-    <mi mathvariant="normal">C</mi>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mi mathvariant="normal">o</mi>
-      <mi mathvariant="normal">u</mi>
-      <mi mathvariant="normal">t</mi>
-    </mrow>
-  </msub>
-</math>, which is the carry
+bit in the corresponding position, and \( \rm C_{out} \), which is the carry
 bit to be propagated to the left.</p>
 </div>
 <div id="FOOT155"><p><a class="footnote_backlink" href="#DOCF155"><sup>155</sup></a>
@@ -827,10 +726,10 @@ ensures that it will still be available even if the associated time segment has
 been deleted.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e3_002e5.xhtml#g_t3_002e3_002e5" accesskey="n" rel="next">3.3.5</a>, Previous: <a href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" accesskey="p" rel="prev">3.3.3</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e3_002e5.xhtml#g_t3_002e3_002e5" accesskey="n" rel="next">3.3.5</a>, Previous: <a href="3_002e3_002e3.xhtml#g_t3_002e3_002e3" accesskey="p" rel="prev">3.3.3</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

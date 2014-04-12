@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.4.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.4.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.4.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.4.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e4.xhtml#g_t5_002e4" rel="prev" title="5.4" />
-<link href="5_002e4_002e2.xhtml#g_t5_002e4_002e2" rel="next" title="5.4.2" />
-<link href="5_002e4.xhtml#g_t5_002e4" rel="prev" title="5.4" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.4.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.4.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e4.xhtml#g_t5_002e4" rel="prev" title="5.4"/>
+<link href="5_002e4_002e2.xhtml#g_t5_002e4_002e2" rel="next" title="5.4.2"/>
+<link href="5_002e4.xhtml#g_t5_002e4" rel="prev" title="5.4"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e4_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e4_002e2.xhtml#g_t5_002e4_002e2" accesskey="n" rel="next">5.4.2</a>, Previous: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="p" rel="prev">5.4</a>, Up: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="u" rel="prev">5.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e4_002e2.xhtml#g_t5_002e4_002e2" accesskey="n" rel="next">5.4.2</a>, Previous: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="p" rel="prev">5.4</a>, Up: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="u" rel="prev">5.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="The-Core-of-the-Explicit_002dControl-Evaluator"></a>
 <h4 class="subsection"><span class="secnum">5.4.1</span><span class="sectitle">The Core of the Explicit-Control Evaluator</span></h4>
@@ -47,26 +45,27 @@ metacircular <code>eval</code>, the structure of <code>eval-dispatch</code> is a
 analysis on the syntactic type of the expression to be evaluated.<a class="footnote_link" id="DOCF305" href="#FOOT305"><sup>305</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">eval-dispatch
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op self-evaluating?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-self-eval</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op variable?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-variable</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op quoted?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-quoted</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op assignment?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-assignment</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op definition?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-definition</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">if</span><span class="pun">?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-if</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">lambda</span><span class="pun">?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-lambda</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="kwd">begin</span><span class="pun">?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-begin</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op application?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-application</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label unknown-expression-type</span><span class="clo">))</span></pre></div>
+<pre class="lisp">eval-dispatch
+  (test (op self-evaluating?) (reg exp))
+  (branch (label ev-self-eval))
+  (test (op variable?) (reg exp))
+  (branch (label ev-variable))
+  (test (op quoted?) (reg exp))
+  (branch (label ev-quoted))
+  (test (op assignment?) (reg exp))
+  (branch (label ev-assignment))
+  (test (op definition?) (reg exp))
+  (branch (label ev-definition))
+  (test (op if?) (reg exp))
+  (branch (label ev-if))
+  (test (op lambda?) (reg exp))
+  (branch (label ev-lambda))
+  (test (op begin?) (reg exp))
+  (branch (label ev-begin))
+  (test (op application?) (reg exp))
+  (branch (label ev-application))
+  (goto (label unknown-expression-type))
+</pre></div>
 
 <a id="Evaluating-simple-expressions"></a>
 <h5 class="subsubheading">Evaluating simple expressions</h5>
@@ -78,33 +77,34 @@ continues execution at the entry point specified by <code>continue</code>.
 Evaluation of simple expressions is performed by the following controller code:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">ev-self-eval
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">ev-self-eval
+  (assign val (reg exp))
+  (goto (reg continue))
 ev-variable
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span><span class="pln">
+  (assign val
+          (op lookup-variable-value)
+          (reg exp)
+          (reg env))
+  (goto (reg continue))
 ev-quoted
-  </span><span class="opn">(</span><span class="pln">assign val
-          </span><span class="opn">(</span><span class="pln">op text-of-quotation</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span><span class="pln">
+  (assign val
+          (op text-of-quotation)
+          (reg exp))
+  (goto (reg continue))
 ev-lambda
-  </span><span class="opn">(</span><span class="pln">assign unev
-          </span><span class="opn">(</span><span class="pln">op lambda-parameters</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign exp 
-          </span><span class="opn">(</span><span class="pln">op lambda-body</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign val 
-          </span><span class="opn">(</span><span class="pln">op make-procedure</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg unev</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span></pre></div>
+  (assign unev
+          (op lambda-parameters)
+          (reg exp))
+  (assign exp 
+          (op lambda-body)
+          (reg exp))
+  (assign val 
+          (op make-procedure)
+          (reg unev)
+          (reg exp)
+          (reg env))
+  (goto (reg continue))
+</pre></div>
 
 <p>Observe how <code>ev-lambda</code> uses the <code>unev</code> and <code>exp</code> registers to
 hold the parameters and body of the lambda expression so that they can be
@@ -139,15 +139,16 @@ however, we save the old value of <code>continue</code>, which tells the control
 where to continue after the application.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">ev-application
-  </span><span class="opn">(</span><span class="pln">save continue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign unev </span><span class="opn">(</span><span class="pln">op operands</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save unev</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign exp </span><span class="opn">(</span><span class="pln">op operator</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg exp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign
-   continue </span><span class="opn">(</span><span class="pln">label ev-appl-did-operator</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label eval-dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">ev-application
+  (save continue)
+  (save env)
+  (assign unev (op operands) (reg exp))
+  (save unev)
+  (assign exp (op operator) (reg exp))
+  (assign
+   continue (label ev-appl-did-operator))
+  (goto (label eval-dispatch))
+</pre></div>
 
 <p>Upon returning from evaluating the operator subexpression, we proceed to
 evaluate the operands of the combination and to accumulate the resulting
@@ -159,14 +160,15 @@ evaluating the operator.  If there are no operands, we go directly to
 the argument-evaluation loop:<a class="footnote_link" id="DOCF307" href="#FOOT307"><sup>307</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">ev-appl-did-operator
-  </span><span class="opn">(</span><span class="pln">restore unev</span><span class="clo">)</span><span class="pln">             </span><span class="roman"><span class="com">; the operands</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl </span><span class="opn">(</span><span class="pln">op empty-arglist</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign proc </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">))</span><span class="pln">    </span><span class="roman"><span class="com">; the operator</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op no-operands?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg unev</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label apply-dispatch</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save proc</span><span class="clo">)</span></pre></div>
+<pre class="lisp">ev-appl-did-operator
+  (restore unev)             <span class="roman">; the operands</span>
+  (restore env)
+  (assign argl (op empty-arglist))
+  (assign proc (reg val))    <span class="roman">; the operator</span>
+  (test (op no-operands?) (reg unev))
+  (branch (label apply-dispatch))
+  (save proc)
+</pre></div>
 
 <p>Each cycle of the argument-evaluation loop evaluates an operand from the list
 in <code>unev</code> and accumulates the result into <code>argl</code>.  To evaluate an
@@ -179,36 +181,38 @@ made for the evaluation of the last operand, which is handled at
 <code>ev-appl-last-arg</code>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">ev-appl-operand-loop
-  </span><span class="opn">(</span><span class="pln">save argl</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign exp
-          </span><span class="opn">(</span><span class="pln">op first-operand</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg unev</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op last-operand?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg unev</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label ev-appl-last-arg</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">save unev</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign continue 
-          </span><span class="opn">(</span><span class="pln">label ev-appl-accumulate-arg</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label eval-dispatch</span><span class="clo">))</span></pre></div>
+<pre class="lisp">ev-appl-operand-loop
+  (save argl)
+  (assign exp
+          (op first-operand)
+          (reg unev))
+  (test (op last-operand?) (reg unev))
+  (branch (label ev-appl-last-arg))
+  (save env)
+  (save unev)
+  (assign continue 
+          (label ev-appl-accumulate-arg))
+  (goto (label eval-dispatch))
+</pre></div>
 
 <p>When an operand has been evaluated, the value is accumulated into the list held
 in <code>argl</code>.  The operand is then removed from the list of unevaluated
 operands in <code>unev</code>, and the argument-evaluation continues.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">ev-appl-accumulate-arg
-  </span><span class="opn">(</span><span class="pln">restore unev</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore argl</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl 
-          </span><span class="opn">(</span><span class="pln">op adjoin-arg</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign unev
-          </span><span class="opn">(</span><span class="pln">op rest-operands</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg unev</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label ev-appl-operand-loop</span><span class="clo">))</span></pre></div>
+<pre class="lisp">ev-appl-accumulate-arg
+  (restore unev)
+  (restore env)
+  (restore argl)
+  (assign argl 
+          (op adjoin-arg)
+          (reg val)
+          (reg argl))
+  (assign unev
+          (op rest-operands)
+          (reg unev))
+  (goto (label ev-appl-operand-loop))
+</pre></div>
 
 <p>Evaluation of the last argument is handled differently.  There is no need to
 save the environment or the list of unevaluated operands before going to
@@ -219,18 +223,19 @@ the new argument, restores the saved procedure, and goes off to perform the
 application.<a class="footnote_link" id="DOCF308" href="#FOOT308"><sup>308</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">ev-appl-last-arg
-  </span><span class="opn">(</span><span class="pln">assign continue 
-          </span><span class="opn">(</span><span class="pln">label ev-appl-accum-last-arg</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label eval-dispatch</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">ev-appl-last-arg
+  (assign continue 
+          (label ev-appl-accum-last-arg))
+  (goto (label eval-dispatch))
 ev-appl-accum-last-arg
-  </span><span class="opn">(</span><span class="pln">restore argl</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign argl 
-          </span><span class="opn">(</span><span class="pln">op adjoin-arg</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg val</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore proc</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label apply-dispatch</span><span class="clo">))</span></pre></div>
+  (restore argl)
+  (assign argl 
+          (op adjoin-arg)
+          (reg val)
+          (reg argl))
+  (restore proc)
+  (goto (label apply-dispatch))
+</pre></div>
 
 <p>The details of the argument-evaluation loop determine the order in which the
 interpreter evaluates the operands of a combination (e.g., left to right or
@@ -259,12 +264,13 @@ metacircular <code>apply</code>, there are two cases to consider.  Either the
 procedure to be applied is a primitive or it is a compound procedure.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">apply-dispatch
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op primitive-procedure?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label primitive-apply</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op compound-procedure?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label compound-apply</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label unknown-procedure-type</span><span class="clo">))</span></pre></div>
+<pre class="lisp">apply-dispatch
+  (test (op primitive-procedure?) (reg proc))
+  (branch (label primitive-apply))
+  (test (op compound-procedure?) (reg proc))
+  (branch (label compound-apply))
+  (goto (label unknown-procedure-type))
+</pre></div>
 
 <p>We assume that each primitive is implemented so as to obtain its arguments from
 <code>argl</code> and place its result in <code>val</code>.  To specify how the machine
@@ -282,12 +288,13 @@ to perform the application, just as we did for the metacircular evaluator in
 we restore <code>continue</code> and go to the designated entry point.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">primitive-apply
-  </span><span class="opn">(</span><span class="pln">assign val </span><span class="opn">(</span><span class="pln">op apply-primitive-procedure</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">restore continue</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span></pre></div>
+<pre class="lisp">primitive-apply
+  (assign val (op apply-primitive-procedure)
+              (reg proc)
+              (reg argl))
+  (restore continue)
+  (goto (reg continue))
+</pre></div>
 
 <p>To apply a compound procedure, we proceed just as with the metacircular
 evaluator.  We construct a frame that binds the procedure’s parameters to the
@@ -297,22 +304,23 @@ forms the body of the procedure.  <code>Ev-sequence</code>, described below in
 <a href="5_002e4_002e2.xhtml#g_t5_002e4_002e2">5.4.2</a>, handles the evaluation of the sequence.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">compound-apply
-  </span><span class="opn">(</span><span class="pln">assign unev 
-          </span><span class="opn">(</span><span class="pln">op procedure-parameters</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign env
-          </span><span class="opn">(</span><span class="pln">op procedure-environment</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign env
-          </span><span class="opn">(</span><span class="pln">op extend-environment</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg unev</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg argl</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign unev
-          </span><span class="opn">(</span><span class="pln">op procedure-body</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg proc</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label ev-sequence</span><span class="clo">))</span></pre></div>
+<pre class="lisp">compound-apply
+  (assign unev 
+          (op procedure-parameters)
+          (reg proc))
+  (assign env
+          (op procedure-environment)
+          (reg proc))
+  (assign env
+          (op extend-environment)
+          (reg unev)
+          (reg argl)
+          (reg env))
+  (assign unev
+          (op procedure-body)
+          (reg proc))
+  (goto (label ev-sequence))
+</pre></div>
 
 <p><code>Compound-apply</code> is the only place in the interpreter where the <code>env</code>
 register is ever assigned a new value.  Just as in the metacircular evaluator,
@@ -321,7 +329,7 @@ procedure, together with the argument list and the corresponding list of
 variables to be bound.
 </p>
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -354,15 +362,17 @@ procedures in <a href="4_002e1_002e3.xhtml#g_t4_002e1_002e3">4.1.3</a> the follo
 argument lists:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">empty-arglist</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'</span><span class="opn">(</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">adjoin-arg arg arglist</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">append arglist </span><span class="opn">(</span><span class="pln">list arg</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (empty-arglist) '())
+(define (adjoin-arg arg arglist)
+  (append arglist (list arg)))
+</pre></div>
 
 <p>We also use an additional syntax procedure to test for the last operand in a
 combination:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">last-operand? ops</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> ops</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (last-operand? ops) (null? (cdr ops)))
+</pre></div>
 </div>
 <div id="FOOT308"><p><a class="footnote_backlink" href="#DOCF308"><sup>308</sup></a>
 The optimization of treating the last operand specially
@@ -382,10 +392,10 @@ evaluation of the arguments to <code>cons</code> in the procedure
 <code>list-of-values</code> of <a href="4_002e1_002e1.xhtml#g_t4_002e1_002e1">4.1.1</a> (see <a href="4_002e1_002e1.xhtml#Exercise-4_002e1">Exercise 4.1</a>).</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e4_002e2.xhtml#g_t5_002e4_002e2" accesskey="n" rel="next">5.4.2</a>, Previous: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="p" rel="prev">5.4</a>, Up: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="u" rel="prev">5.4</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e4_002e2.xhtml#g_t5_002e4_002e2" accesskey="n" rel="next">5.4.2</a>, Previous: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="p" rel="prev">5.4</a>, Up: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="u" rel="prev">5.4</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

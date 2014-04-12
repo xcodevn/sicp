@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.2.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.2.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.2.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.2.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e2.xhtml#g_t3_002e2" rel="prev" title="3.2" />
-<link href="3_002e2_002e2.xhtml#g_t3_002e2_002e2" rel="next" title="3.2.2" />
-<link href="3_002e2.xhtml#g_t3_002e2" rel="prev" title="3.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.2.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.2.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e2.xhtml#g_t3_002e2" rel="prev" title="3.2"/>
+<link href="3_002e2_002e2.xhtml#g_t3_002e2_002e2" rel="next" title="3.2.2"/>
+<link href="3_002e2.xhtml#g_t3_002e2" rel="prev" title="3.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e2_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e2_002e2.xhtml#g_t3_002e2_002e2" accesskey="n" rel="next">3.2.2</a>, Previous: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="p" rel="prev">3.2</a>, Up: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="u" rel="prev">3.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e2_002e2.xhtml#g_t3_002e2_002e2" accesskey="n" rel="next">3.2.2</a>, Previous: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="p" rel="prev">3.2</a>, Up: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="u" rel="prev">3.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="The-Rules-for-Evaluation"></a>
 <h4 class="subsection"><span class="secnum">3.2.1</span><span class="sectitle">The Rules for Evaluation</span></h4>
@@ -64,16 +62,18 @@ evaluated to produce the procedure.  For example, consider the procedure
 definition
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">square x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (square x)
+  (* x x))
+</pre></div>
 
 <p>evaluated in the global environment.  The procedure definition syntax is just
 syntactic sugar for an underlying implicit λ-expression.  It would
 have been equivalent to have used
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> square
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x x</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define square
+  (lambda (x) (* x x)))
+</pre></div>
 
 <p>which evaluates <code>(lambda (x) (* x x))</code> and binds <code>square</code> to the
 resulting value, all in the global environment.
@@ -160,7 +160,7 @@ sections elaborate the details of the model by analyzing some illustrative
 programs.
 </p>
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -185,10 +185,10 @@ explicitly using <code>set!</code>.  Because of this, some people prefer
 redefinitions of existing symbols to signal errors or warnings.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e2_002e2.xhtml#g_t3_002e2_002e2" accesskey="n" rel="next">3.2.2</a>, Previous: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="p" rel="prev">3.2</a>, Up: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="u" rel="prev">3.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e2_002e2.xhtml#g_t3_002e2_002e2" accesskey="n" rel="next">3.2.2</a>, Previous: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="p" rel="prev">3.2</a>, Up: <a href="3_002e2.xhtml#g_t3_002e2" accesskey="u" rel="prev">3.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

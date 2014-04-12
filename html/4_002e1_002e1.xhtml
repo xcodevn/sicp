@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 4.1.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.1.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 4.1.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 4.1.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="4_002e1.xhtml#g_t4_002e1" rel="prev" title="4.1" />
-<link href="4_002e1_002e2.xhtml#g_t4_002e1_002e2" rel="next" title="4.1.2" />
-<link href="4_002e1.xhtml#g_t4_002e1" rel="prev" title="4.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.1.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.1.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="4_002e1.xhtml#g_t4_002e1" rel="prev" title="4.1"/>
+<link href="4_002e1_002e2.xhtml#g_t4_002e1_002e2" rel="next" title="4.1.2"/>
+<link href="4_002e1.xhtml#g_t4_002e1" rel="prev" title="4.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t4_002e1_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="4_002e1_002e2.xhtml#g_t4_002e1_002e2" accesskey="n" rel="next">4.1.2</a>, Previous: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="p" rel="prev">4.1</a>, Up: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="u" rel="prev">4.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e1_002e2.xhtml#g_t4_002e1_002e2" accesskey="n" rel="next">4.1.2</a>, Previous: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="p" rel="prev">4.1</a>, Up: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="u" rel="prev">4.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="The-Core-of-the-Evaluator"></a>
 <h4 class="subsection"><span class="secnum">4.1.1</span><span class="sectitle">The Core of the Evaluator</span></h4>
@@ -102,38 +100,39 @@ application.
 <p>Here is the definition of <code>eval</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">eval exp env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">self-evaluating? exp</span><span class="clo">)</span><span class="pln"> 
-         exp</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">variable? exp</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">lookup-variable-value exp env</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">quoted? exp</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">text-of-quotation exp</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">assignment? exp</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">eval-assignment exp env</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">definition? exp</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">eval-definition exp env</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">if</span><span class="pun">?</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">eval-if exp env</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">lambda</span><span class="pun">?</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">make-procedure 
-          </span><span class="opn">(</span><span class="pln">lambda-parameters exp</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">lambda-body exp</span><span class="clo">)</span><span class="pln">
-          env</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">begin</span><span class="pun">?</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">eval-sequence 
-          </span><span class="opn">(</span><span class="pln">begin-actions exp</span><span class="clo">)</span><span class="pln"> 
-          env</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="kwd">cond</span><span class="pun">?</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">cond-</span><span class="pun">&gt;</span><span class="kwd">if</span><span class="pln"> exp</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">application? exp</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">apply </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">operator exp</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">)</span><span class="pln">
-                </span><span class="opn">(</span><span class="pln">list-of-values 
-                 </span><span class="opn">(</span><span class="pln">operands exp</span><span class="clo">)</span><span class="pln"> 
-                 env</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln">
-         </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown expression 
-                 type: EVAL"</span><span class="pln"> exp</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (eval exp env)
+  (cond ((self-evaluating? exp) 
+         exp)
+        ((variable? exp) 
+         (lookup-variable-value exp env))
+        ((quoted? exp) 
+         (text-of-quotation exp))
+        ((assignment? exp) 
+         (eval-assignment exp env))
+        ((definition? exp) 
+         (eval-definition exp env))
+        ((if? exp) 
+         (eval-if exp env))
+        ((lambda? exp)
+         (make-procedure 
+          (lambda-parameters exp)
+          (lambda-body exp)
+          env))
+        ((begin? exp)
+         (eval-sequence 
+          (begin-actions exp) 
+          env))
+        ((cond? exp) 
+         (eval (cond-&gt;if exp) env))
+        ((application? exp)
+         (apply (eval (operator exp) env)
+                (list-of-values 
+                 (operands exp) 
+                 env)))
+        (else
+         (error &quot;Unknown expression 
+                 type: EVAL&quot; exp))))
+</pre></div>
 
 <p>For clarity, <code>eval</code> has been implemented as a case analysis using
 <code>cond</code>.  The disadvantage of this is that our procedure handles only a few
@@ -158,24 +157,25 @@ procedure to the arguments to which the procedure is to be applied.  Here is
 the definition of <code>apply</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">apply procedure arguments</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">primitive-procedure? procedure</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">apply-primitive-procedure 
+<pre class="lisp">(define (apply procedure arguments)
+  (cond ((primitive-procedure? procedure)
+         (apply-primitive-procedure 
           procedure 
-          arguments</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">compound-procedure? procedure</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">eval-sequence
-           </span><span class="opn">(</span><span class="pln">procedure-body procedure</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">extend-environment
-             </span><span class="opn">(</span><span class="pln">procedure-parameters 
-              procedure</span><span class="clo">)</span><span class="pln">
+          arguments))
+        ((compound-procedure? procedure)
+         (eval-sequence
+           (procedure-body procedure)
+           (extend-environment
+             (procedure-parameters 
+              procedure)
              arguments
-             </span><span class="opn">(</span><span class="pln">procedure-environment 
-              procedure</span><span class="clo">))))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln">
-         </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown procedure 
-                 type: APPLY"</span><span class="pln"> 
-                procedure</span><span class="clo">))))</span></pre></div>
+             (procedure-environment 
+              procedure))))
+        (else
+         (error &quot;Unknown procedure 
+                 type: APPLY&quot; 
+                procedure))))
+</pre></div>
 
 <a id="Procedure-arguments"></a>
 <h5 class="subsubheading">Procedure arguments</h5>
@@ -187,13 +187,14 @@ the combination.  It evaluates each operand and returns a list of the
 corresponding values:<a class="footnote_link" id="DOCF209" href="#FOOT209"><sup>209</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">list-of-values exps env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">no-operands? exps</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">first-operand exps</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">list-of-values 
-             </span><span class="opn">(</span><span class="pln">rest-operands exps</span><span class="clo">)</span><span class="pln"> 
-             env</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (list-of-values exps env)
+  (if (no-operands? exps)
+      '()
+      (cons (eval (first-operand exps) env)
+            (list-of-values 
+             (rest-operands exps) 
+             env))))
+</pre></div>
 
 <a id="Conditionals"></a>
 <h5 class="subsubheading">Conditionals</h5>
@@ -203,10 +204,11 @@ given environment.  If the result is true, <code>eval-if</code> evaluates the
 consequent, otherwise it evaluates the alternative:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">eval-if exp env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">true? </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">if-predicate exp</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">if-consequent exp</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">if-alternative exp</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (eval-if exp env)
+  (if (true? (eval (if-predicate exp) env))
+      (eval (if-consequent exp) env)
+      (eval (if-alternative exp) env)))
+</pre></div>
 
 <p>The use of <code>true?</code> in <code>eval-if</code> highlights the issue of the
 connection between an implemented language and an implementation language.  The
@@ -226,13 +228,14 @@ expressions and an environment, and evaluates the expressions in the order in
 which they occur.  The value returned is the value of the final expression.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">eval-sequence exps env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">last-exp? exps</span><span class="clo">)</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">first-exp exps</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> 
-         </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">first-exp exps</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">eval-sequence </span><span class="opn">(</span><span class="pln">rest-exps exps</span><span class="clo">)</span><span class="pln"> 
-                        env</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (eval-sequence exps env)
+  (cond ((last-exp? exps) 
+         (eval (first-exp exps) env))
+        (else 
+         (eval (first-exp exps) env)
+         (eval-sequence (rest-exps exps) 
+                        env))))
+</pre></div>
 
 <a id="Assignments-and-definitions"></a>
 <h5 class="subsubheading">Assignments and definitions</h5>
@@ -243,22 +246,24 @@ value to <code>set-variable-value!</code> to be installed in the designated
 environment.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">eval-assignment exp env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">set-variable-value! 
-   </span><span class="opn">(</span><span class="pln">assignment-variable exp</span><span class="clo">)</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">assignment-value exp</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">)</span><span class="pln">
-   env</span><span class="clo">)</span><span class="pln">
-  </span><span class="lit">'ok</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (eval-assignment exp env)
+  (set-variable-value! 
+   (assignment-variable exp)
+   (eval (assignment-value exp) env)
+   env)
+  'ok)
+</pre></div>
 
 <p>Definitions of variables are handled in a similar manner.<a class="footnote_link" id="DOCF211" href="#FOOT211"><sup>211</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">eval-definition exp env</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">define-variable! 
-    </span><span class="opn">(</span><span class="pln">definition-variable exp</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">eval </span><span class="opn">(</span><span class="pln">definition-value exp</span><span class="clo">)</span><span class="pln"> env</span><span class="clo">)</span><span class="pln">
-    env</span><span class="clo">)</span><span class="pln">
-  </span><span class="lit">'ok</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (eval-definition exp env)
+  (define-variable! 
+    (definition-variable exp)
+    (eval (definition-value exp) env)
+    env)
+  'ok)
+</pre></div>
 
 <p>We have chosen here to return the symbol <code>ok</code> as the value of an
 assignment or a definition.<a class="footnote_link" id="DOCF212" href="#FOOT212"><sup>212</sup></a>
@@ -278,7 +283,7 @@ a version of <code>list-of-values</code> that evaluates operands from right to l
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -310,10 +315,10 @@ As we said when we introduced
 Scheme—that is, the implementor can choose what value to return.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="4_002e1_002e2.xhtml#g_t4_002e1_002e2" accesskey="n" rel="next">4.1.2</a>, Previous: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="p" rel="prev">4.1</a>, Up: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="u" rel="prev">4.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e1_002e2.xhtml#g_t4_002e1_002e2" accesskey="n" rel="next">4.1.2</a>, Previous: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="p" rel="prev">4.1</a>, Up: <a href="4_002e1.xhtml#g_t4_002e1" accesskey="u" rel="prev">4.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 2.5.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.5.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 2.5.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 2.5.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="2_002e5.xhtml#g_t2_002e5" rel="prev" title="2.5" />
-<link href="2_002e5_002e3.xhtml#g_t2_002e5_002e3" rel="next" title="2.5.3" />
-<link href="2_002e5_002e1.xhtml#g_t2_002e5_002e1" rel="prev" title="2.5.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.5.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 2.5.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="2_002e5.xhtml#g_t2_002e5" rel="prev" title="2.5"/>
+<link href="2_002e5_002e3.xhtml#g_t2_002e5_002e3" rel="next" title="2.5.3"/>
+<link href="2_002e5_002e1.xhtml#g_t2_002e5_002e1" rel="prev" title="2.5.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t2_002e5_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="2_002e5_002e3.xhtml#g_t2_002e5_002e3" accesskey="n" rel="next">2.5.3</a>, Previous: <a href="2_002e5_002e1.xhtml#g_t2_002e5_002e1" accesskey="p" rel="prev">2.5.1</a>, Up: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="u" rel="prev">2.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e5_002e3.xhtml#g_t2_002e5_002e3" accesskey="n" rel="next">2.5.3</a>, Previous: <a href="2_002e5_002e1.xhtml#g_t2_002e5_002e1" accesskey="p" rel="prev">2.5.1</a>, Up: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="u" rel="prev">2.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Combining-Data-of-Different-Types"></a>
 <h4 class="subsection"><span class="secnum">2.5.2</span><span class="sectitle">Combining Data of Different Types</span></h4>
@@ -56,14 +54,15 @@ procedure for adding complex numbers to ordinary numbers and installs this in
 the table using the tag <code>(complex scheme-number)</code>:<a class="footnote_link" id="DOCF115" href="#FOOT115"><sup>115</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">add-complex-to-schemenum z x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">make-from-real-imag </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">real-part z</span><span class="clo">)</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-                       </span><span class="opn">(</span><span class="pln">imag-part z</span><span class="clo">)))</span><span class="pln">
+<pre class="lisp">(define (add-complex-to-schemenum z x)
+  (make-from-real-imag (+ (real-part z) x)
+                       (imag-part z)))
 
-</span><span class="opn">(</span><span class="pln">put </span><span class="lit">'add</span><span class="pln"> 
-     </span><span class="lit">'</span><span class="opn">(</span><span class="pln">complex scheme-number</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z x</span><span class="clo">)</span><span class="pln"> 
-       </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">add-complex-to-schemenum z x</span><span class="clo">))))</span></pre></div>
+(put 'add 
+     '(complex scheme-number)
+     (lambda (z x) 
+       (tag (add-complex-to-schemenum z x))))
+</pre></div>
 
 <p>This technique works, but it is cumbersome.  With such a system, the cost of
 introducing a new type is not just the construction of the package of
@@ -104,16 +103,18 @@ Here is a typical coercion procedure, which transforms a given ordinary number
 to a complex number with that real part and zero imaginary part:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">scheme-number-</span><span class="pun">&gt;</span><span class="pln">complex n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">make-complex-from-real-imag 
-   </span><span class="opn">(</span><span class="pln">contents n</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (scheme-number-&gt;complex n)
+  (make-complex-from-real-imag 
+   (contents n) 0))
+</pre></div>
 
 <p>We install these coercion procedures in a special coercion table, indexed under
 the names of the two types:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">put-coercion </span><span class="lit">'scheme-number</span><span class="pln"> </span><span class="lit">'complex</span><span class="pln"> 
-              scheme-number-</span><span class="pun">&gt;</span><span class="pln">complex</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(put-coercion 'scheme-number 'complex 
+              scheme-number-&gt;complex)
+</pre></div>
 
 <p>(We assume that there are <code>put-coercion</code> and <code>get-coercion</code>
 procedures available for manipulating this table.)  Generally some of the slots
@@ -139,50 +140,44 @@ known way to coerce either type to the other type, we give up.  Here is the
 procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">apply-generic op </span><span class="pun">.</span><span class="pln"> args</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">type-tags </span><span class="opn">(</span><span class="pln">map type-tag args</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">proc </span><span class="opn">(</span><span class="pln">get op type-tags</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> proc
-          </span><span class="opn">(</span><span class="pln">apply proc </span><span class="opn">(</span><span class="pln">map contents args</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">length args</span><span class="clo">)</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">type1 </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> type-tags</span><span class="clo">))</span><span class="pln">
-                    </span><span class="opn">(</span><span class="pln">type2 </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> type-tags</span><span class="clo">))</span><span class="pln">
-                    </span><span class="opn">(</span><span class="pln">a1 </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> args</span><span class="clo">))</span><span class="pln">
-                    </span><span class="opn">(</span><span class="pln">a2 </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> args</span><span class="clo">)))</span><span class="pln">
-                </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">t1-</span><span class="pun">&gt;</span><span class="pln">t2 
-                       </span><span class="opn">(</span><span class="pln">get-coercion type1
-                                     type2</span><span class="clo">))</span><span class="pln">
-                      </span><span class="opn">(</span><span class="pln">t2-</span><span class="pun">&gt;</span><span class="pln">t1 
-                       </span><span class="opn">(</span><span class="pln">get-coercion type2 
-                                     type1</span><span class="clo">)))</span><span class="pln">
-                  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">(</span><span class="pln">t1-</span><span class="pun">&gt;</span><span class="pln">t2
-                         </span><span class="opn">(</span><span class="pln">apply-generic 
-                          op </span><span class="opn">(</span><span class="pln">t1-</span><span class="pun">&gt;</span><span class="pln">t2 a1</span><span class="clo">)</span><span class="pln"> a2</span><span class="clo">))</span><span class="pln">
-                        </span><span class="opn">(</span><span class="pln">t2-</span><span class="pun">&gt;</span><span class="pln">t1
-                         </span><span class="opn">(</span><span class="pln">apply-generic 
-                          op a1 </span><span class="opn">(</span><span class="pln">t2-</span><span class="pun">&gt;</span><span class="pln">t1 a2</span><span class="clo">)))</span><span class="pln">
-                        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln">
-                         </span><span class="opn">(</span><span class="err">error</span><span class="pln"> 
-                          </span><span class="str">"No method for 
-                           these types"</span><span class="pln">
-                          </span><span class="opn">(</span><span class="pln">list 
+<pre class="lisp">(define (apply-generic op . args)
+  (let ((type-tags (map type-tag args)))
+    (let ((proc (get op type-tags)))
+      (if proc
+          (apply proc (map contents args))
+          (if (= (length args) 2)
+              (let ((type1 (car type-tags))
+                    (type2 (cadr type-tags))
+                    (a1 (car args))
+                    (a2 (cadr args)))
+                (let ((t1-&gt;t2 
+                       (get-coercion type1
+                                     type2))
+                      (t2-&gt;t1 
+                       (get-coercion type2 
+                                     type1)))
+                  (cond (t1-&gt;t2
+                         (apply-generic 
+                          op (t1-&gt;t2 a1) a2))
+                        (t2-&gt;t1
+                         (apply-generic 
+                          op a1 (t2-&gt;t1 a2)))
+                        (else
+                         (error 
+                          &quot;No method for 
+                           these types&quot;
+                          (list 
                            op 
-                           type-tags</span><span class="clo">))))))</span><span class="pln">
-              </span><span class="opn">(</span><span class="err">error</span><span class="pln"> 
-               </span><span class="str">"No method for these types"</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">list op type-tags</span><span class="clo">)))))))</span></pre></div>
+                           type-tags))))))
+              (error 
+               &quot;No method for these types&quot;
+               (list op type-tags)))))))
+</pre></div>
 
 <p>This coercion scheme has many advantages over the method of defining explicit
 cross-type operations, as outlined above.  Although we still need to write
-coercion procedures to relate the types (possibly <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mi>n</mi>
-    <mn>2</mn>
-  </msup>
-</math> procedures for a
-system with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> types), we need to write only one procedure for each pair of
+coercion procedures to relate the types (possibly \( n^2 \) procedures for a
+system with \( n \) types), we need to write only one procedure for each pair of
 types rather than a different procedure for each collection of types and each
 generic operation.<a class="footnote_link" id="DOCF117" href="#FOOT117"><sup>117</sup></a>  What we are counting on here is the fact
 that the appropriate transformation between types depends only on the types
@@ -260,46 +255,11 @@ hit the top (in which case we give up).
 </p>
 <p>Yet another advantage of a tower over a more general hierarchy is that it gives
 us a simple way to “lower” a data object to the simplest representation.  For
-example, if we add <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>2</mn>
-    <mo>+</mo>
-    <mn>3</mn>
-    <mi>i</mi>
-  </mrow>
-</math> to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>4</mn>
-    <mo>−<!-- − --></mo>
-    <mn>3</mn>
-    <mi>i</mi>
-  </mrow>
-</math>, it would be nice to obtain the
-answer as the integer 6 rather than as the complex number <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>6</mn>
-    <mo>+</mo>
-    <mn>0</mn>
-    <mi>i</mi>
-  </mrow>
-</math>.
+example, if we add \( {2 + 3i} \) to \( {4 - 3i} \), it would be nice to obtain the
+answer as the integer 6 rather than as the complex number \( {6 + 0i} \).
 <a href="#Exercise-2_002e85">Exercise 2.85</a> discusses a way to implement such a lowering operation.
 (The trick is that we need a general way to distinguish those objects that can
-be lowered, such as <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>6</mn>
-    <mo>+</mo>
-    <mn>0</mn>
-    <mi>i</mi>
-  </mrow>
-</math>, from those that cannot, such as <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>6</mn>
-    <mo>+</mo>
-    <mn>2</mn>
-    <mi>i</mi>
-  </mrow>
-</math>.)
+be lowered, such as \( {6 + 0i} \), from those that cannot, such as \( {6 + 2i} \).)
 </p>
 <a id="Inadequacies-of-hierarchies"></a>
 <h5 class="subsubheading">Inadequacies of hierarchies</h5>
@@ -342,14 +302,15 @@ their own type.  For example, in addition to the
 <code>scheme-number-&gt;complex</code> coercion shown above, he would do:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">scheme-number-</span><span class="pun">&gt;</span><span class="pln">scheme-number n</span><span class="clo">)</span><span class="pln"> n</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">complex-</span><span class="pun">&gt;</span><span class="pln">complex z</span><span class="clo">)</span><span class="pln"> z</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (scheme-number-&gt;scheme-number n) n)
+(define (complex-&gt;complex z) z)
 
-</span><span class="opn">(</span><span class="pln">put-coercion </span><span class="lit">'scheme-number</span><span class="pln"> </span><span class="lit">'scheme-number</span><span class="pln">
-              scheme-number-</span><span class="pun">&gt;</span><span class="pln">scheme-number</span><span class="clo">)</span><span class="pln">
+(put-coercion 'scheme-number 'scheme-number
+              scheme-number-&gt;scheme-number)
 
-</span><span class="opn">(</span><span class="pln">put-coercion </span><span class="lit">'complex</span><span class="pln"> </span><span class="lit">'complex</span><span class="pln"> 
-              complex-</span><span class="pun">&gt;</span><span class="pln">complex</span><span class="clo">)</span></pre></div>
+(put-coercion 'complex 'complex 
+              complex-&gt;complex)
+</pre></div>
 
 <ol>
 <li> With Louis’s coercion procedures installed, what happens if
@@ -359,19 +320,20 @@ the table for those types?  For example, assume that we’ve defined a generic
 exponentiation operation:
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">exp x y</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">apply-generic </span><span class="lit">'exp</span><span class="pln"> x y</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (exp x y) 
+  (apply-generic 'exp x y))
+</pre></div>
 
 <p>and have put a procedure for exponentiation in the Scheme-number
 package but not in any other package:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="roman"><span class="com">;; following added to Scheme-number package</span></span><span class="pln">
-</span><span class="opn">(</span><span class="pln">put </span><span class="lit">'exp</span><span class="pln"> 
-     </span><span class="lit">'</span><span class="opn">(</span><span class="pln">scheme-number scheme-number</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y</span><span class="clo">)</span><span class="pln"> 
-       </span><span class="opn">(</span><span class="pln">tag </span><span class="opn">(</span><span class="pln">expt x y</span><span class="clo">))))</span><span class="pln"> 
-       </span><span class="roman"><span class="com">; using primitive </span><code><span class="com">expt</span></code></span>
+<pre class="lisp"><span class="roman">;; following added to Scheme-number package</span>
+(put 'exp 
+     '(scheme-number scheme-number)
+     (lambda (x y) 
+       (tag (expt x y)))) 
+       <span class="roman">; using primitive <code>expt</code></span>
 </pre></div>
 
 <p>What happens if we call <code>exp</code> with two complex numbers as arguments?
@@ -421,29 +383,8 @@ for “simplifying” a data object by lowering it in the tower of types as far
 as possible.  Design a procedure <code>drop</code> that accomplishes this for the
 tower described in <a href="#Exercise-2_002e83">Exercise 2.83</a>.  The key is to decide, in some general
 way, whether an object can be lowered.  For example, the complex number 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>1.5</mn>
-    <mo>+</mo>
-    <mn>0</mn>
-    <mi>i</mi>
-  </mrow>
-</math> can be lowered as far as <code>real</code>, the complex number <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>1</mn>
-    <mo>+</mo>
-    <mn>0</mn>
-    <mi>i</mi>
-  </mrow>
-</math> can
-be lowered as far as <code>integer</code>, and the complex number <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>2</mn>
-    <mo>+</mo>
-    <mn>3</mn>
-    <mi>i</mi>
-  </mrow>
-</math> cannot
+\( {1.5 + 0i} \) can be lowered as far as <code>real</code>, the complex number \( {1 + 0i} \) can
+be lowered as far as <code>integer</code>, and the complex number \( {2 + 3i} \) cannot
 be lowered at all.  Here is a plan for determining whether an object can be
 lowered: Begin by defining a generic operation <code>project</code> that “pushes”
 an object down in the tower.  For example, projecting a complex number would
@@ -469,7 +410,7 @@ accommodate this.  You will have to define operations such as <code>sine</code> 
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -483,12 +424,7 @@ See <a href="#Exercise-2_002e82">Exercise 2.82</a> for generalizations.</p>
 </div>
 <div id="FOOT117"><p><a class="footnote_backlink" href="#DOCF117"><sup>117</sup></a>
 If we are clever, we can usually get by with fewer
-than <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mi>n</mi>
-    <mn>2</mn>
-  </msup>
-</math> coercion procedures.  For instance, if we know how to convert from
+than \( n^2 \) coercion procedures.  For instance, if we know how to convert from
 type 1 to type 2 and from type 2 to type 3, then we can use this knowledge to
 convert from type 1 to type 3.  This can greatly decrease the number of
 coercion procedures we need to supply explicitly when we add a new type to the
@@ -522,10 +458,10 @@ A real number can be projected to an integer using the
 <code>round</code> primitive, which returns the closest integer to its argument.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="2_002e5_002e3.xhtml#g_t2_002e5_002e3" accesskey="n" rel="next">2.5.3</a>, Previous: <a href="2_002e5_002e1.xhtml#g_t2_002e5_002e1" accesskey="p" rel="prev">2.5.1</a>, Up: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="u" rel="prev">2.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="2_002e5_002e3.xhtml#g_t2_002e5_002e3" accesskey="n" rel="next">2.5.3</a>, Previous: <a href="2_002e5_002e1.xhtml#g_t2_002e5_002e1" accesskey="p" rel="prev">2.5.1</a>, Up: <a href="2_002e5.xhtml#g_t2_002e5" accesskey="u" rel="prev">2.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

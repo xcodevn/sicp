@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.5</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.5" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.5" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="Chapter-5.xhtml#Chapter-5" rel="prev" title="Chapter 5" />
-<link href="5_002e5_002e1.xhtml#g_t5_002e5_002e1" rel="next" title="5.5.1" />
-<link href="5_002e4_002e4.xhtml#g_t5_002e4_002e4" rel="prev" title="5.4.4" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="Chapter-5.xhtml#Chapter-5" rel="prev" title="Chapter 5"/>
+<link href="5_002e5_002e1.xhtml#g_t5_002e5_002e1" rel="next" title="5.5.1"/>
+<link href="5_002e4_002e4.xhtml#g_t5_002e4_002e4" rel="prev" title="5.4.4"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e5"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e5_002e1.xhtml#g_t5_002e5_002e1" accesskey="n" rel="next">5.5.1</a>, Previous: <a href="5_002e4_002e4.xhtml#g_t5_002e4_002e4" accesskey="p" rel="prev">5.4.4</a>, Up: <a href="Chapter-5.xhtml#Chapter-5" accesskey="u" rel="prev">Chapter 5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e5_002e1.xhtml#g_t5_002e5_002e1" accesskey="n" rel="next">5.5.1</a>, Previous: <a href="5_002e4_002e4.xhtml#g_t5_002e4_002e4" accesskey="p" rel="prev">5.4.4</a>, Up: <a href="Chapter-5.xhtml#Chapter-5" accesskey="u" rel="prev">Chapter 5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Compilation"></a>
 <h3 class="section"><span class="secnum">5.5</span><span class="sectitle">Compilation</span></h3>
@@ -163,10 +161,11 @@ that we implement in this section will take advantage of this fact and generate
 code that evaluates the operator using the instruction
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">assign proc 
-        </span><span class="opn">(</span><span class="pln">op lookup-variable-value</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">const f</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">reg env</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(assign proc 
+        (op lookup-variable-value)
+        (const f)
+        (reg env))
+</pre></div>
 
 <p>This code not only avoids the unnecessary saves and restores but also assigns
 the value of the lookup directly to <code>proc</code>, whereas the interpreter would
@@ -185,24 +184,24 @@ main goal in this section is to illustrate the compilation process in a
 simplified (but still interesting) context.
 </p>
 <table class="menu" style="border-collapse: collapse; border-spacing: 0">
-<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e1.xhtml#g_t5_002e5_002e1" accesskey="1">5.5.1</a>:</td><td>  </td><td style="text-align: left; vertical-align: top">Structure of the Compiler
+<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e1.xhtml#g_t5_002e5_002e1" accesskey="1">5.5.1</a>:</td><td>&#160;&#160;</td><td style="text-align: left; vertical-align: top">Structure of the Compiler
 </td></tr>
-<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e2.xhtml#g_t5_002e5_002e2" accesskey="2">5.5.2</a>:</td><td>  </td><td style="text-align: left; vertical-align: top">Compiling Expressions
+<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e2.xhtml#g_t5_002e5_002e2" accesskey="2">5.5.2</a>:</td><td>&#160;&#160;</td><td style="text-align: left; vertical-align: top">Compiling Expressions
 </td></tr>
-<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e3.xhtml#g_t5_002e5_002e3" accesskey="3">5.5.3</a>:</td><td>  </td><td style="text-align: left; vertical-align: top">Compiling Combinations
+<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e3.xhtml#g_t5_002e5_002e3" accesskey="3">5.5.3</a>:</td><td>&#160;&#160;</td><td style="text-align: left; vertical-align: top">Compiling Combinations
 </td></tr>
-<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e4.xhtml#g_t5_002e5_002e4" accesskey="4">5.5.4</a>:</td><td>  </td><td style="text-align: left; vertical-align: top">Combining Instruction Sequences
+<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e4.xhtml#g_t5_002e5_002e4" accesskey="4">5.5.4</a>:</td><td>&#160;&#160;</td><td style="text-align: left; vertical-align: top">Combining Instruction Sequences
 </td></tr>
-<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e5.xhtml#g_t5_002e5_002e5" accesskey="5">5.5.5</a>:</td><td>  </td><td style="text-align: left; vertical-align: top">An Example of Compiled Code
+<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e5.xhtml#g_t5_002e5_002e5" accesskey="5">5.5.5</a>:</td><td>&#160;&#160;</td><td style="text-align: left; vertical-align: top">An Example of Compiled Code
 </td></tr>
-<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e6.xhtml#g_t5_002e5_002e6" accesskey="6">5.5.6</a>:</td><td>  </td><td style="text-align: left; vertical-align: top">Lexical Addressing
+<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e6.xhtml#g_t5_002e5_002e6" accesskey="6">5.5.6</a>:</td><td>&#160;&#160;</td><td style="text-align: left; vertical-align: top">Lexical Addressing
 </td></tr>
-<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e7.xhtml#g_t5_002e5_002e7" accesskey="7">5.5.7</a>:</td><td>  </td><td style="text-align: left; vertical-align: top">Interfacing Compiled Code to the Evaluator
+<tr><td style="text-align: left; vertical-align: top"><a href="5_002e5_002e7.xhtml#g_t5_002e5_002e7" accesskey="7">5.5.7</a>:</td><td>&#160;&#160;</td><td style="text-align: left; vertical-align: top">Interfacing Compiled Code to the Evaluator
 </td></tr>
 </table>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -225,10 +224,10 @@ compiled procedure objects) that didn’t appear in the explicit-control
 evaluator machine.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e5_002e1.xhtml#g_t5_002e5_002e1" accesskey="n" rel="next">5.5.1</a>, Previous: <a href="5_002e4_002e4.xhtml#g_t5_002e4_002e4" accesskey="p" rel="prev">5.4.4</a>, Up: <a href="Chapter-5.xhtml#Chapter-5" accesskey="u" rel="prev">Chapter 5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e5_002e1.xhtml#g_t5_002e5_002e1" accesskey="n" rel="next">5.5.1</a>, Previous: <a href="5_002e4_002e4.xhtml#g_t5_002e4_002e4" accesskey="p" rel="prev">5.4.4</a>, Up: <a href="Chapter-5.xhtml#Chapter-5" accesskey="u" rel="prev">Chapter 5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

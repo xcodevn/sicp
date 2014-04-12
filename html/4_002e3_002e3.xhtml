@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 4.3.3</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.3.3</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 4.3.3" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 4.3.3" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="4_002e3.xhtml#g_t4_002e3" rel="prev" title="4.3" />
-<link href="4_002e4.xhtml#g_t4_002e4" rel="next" title="4.4" />
-<link href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" rel="prev" title="4.3.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.3.3"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 4.3.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="4_002e3.xhtml#g_t4_002e3" rel="prev" title="4.3"/>
+<link href="4_002e4.xhtml#g_t4_002e4" rel="next" title="4.4"/>
+<link href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" rel="prev" title="4.3.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t4_002e3_002e3"></a>
 <nav class="header">
 <p>
-Next: <a href="4_002e4.xhtml#g_t4_002e4" accesskey="n" rel="next">4.4</a>, Previous: <a href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" accesskey="p" rel="prev">4.3.2</a>, Up: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="u" rel="prev">4.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e4.xhtml#g_t4_002e4" accesskey="n" rel="next">4.4</a>, Previous: <a href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" accesskey="p" rel="prev">4.3.2</a>, Up: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="u" rel="prev">4.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Implementing-the-Amb-Evaluator"></a>
 <h4 class="subsection"><span class="secnum">4.3.3</span><span class="sectitle">Implementing the <code>Amb</code> Evaluator</span></h4>
@@ -142,14 +140,16 @@ evaluator of <a href="4_002e1_002e7.xhtml#g_t4_002e1_002e7">4.1.7</a>, except fo
 syntax procedures to recognize the <code>amb</code> special form:<a class="footnote_link" id="DOCF260" href="#FOOT260"><sup>260</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amb? exp</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">tagged-list? exp </span><span class="lit">'amb</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">amb-choices exp</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> exp</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (amb? exp) (tagged-list? exp 'amb))
+(define (amb-choices exp) (cdr exp))
+</pre></div>
 
 <p>We must also add to the dispatch in <code>analyze</code> a clause that will recognize
 this special form and generate an appropriate execution procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="pln">amb? exp</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-amb exp</span><span class="clo">))</span></pre></div>
+<pre class="lisp">((amb? exp) (analyze-amb exp))
+</pre></div>
 
 <p>The top-level procedure <code>ambeval</code> (similar to the version of <code>eval</code>
 given in <a href="4_002e1_002e7.xhtml#g_t4_002e1_002e7">4.1.7</a>) analyzes the given expression and applies the
@@ -157,8 +157,9 @@ resulting execution procedure to the given environment, together with two given
 continuations:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">ambeval exp env succeed fail</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">analyze exp</span><span class="clo">)</span><span class="pln"> env succeed fail</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (ambeval exp env succeed fail)
+  ((analyze exp) env succeed fail))
+</pre></div>
 
 <p>A success continuation is a procedure of two arguments: the value just obtained
 and another failure continuation to be used if that value leads to a subsequent
@@ -166,18 +167,20 @@ failure. A failure continuation is a procedure of no arguments.  So the general
 form of an execution procedure is
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-  </span><span class="roman"><span class="com">;; </span><code><span class="com">succeed</span></code><span class="com"> is </span><code><span class="com">(lambda (value fail) </span><span class="roman"><span class="com">…</span></span><span class="com">)</span></code></span><span class="pln">
-  </span><span class="roman"><span class="com">;; </span><code><span class="com">fail</span></code><span class="com"> is </span><code><span class="com">(lambda () </span><span class="roman"><span class="com">…</span></span><span class="com">)</span></code></span><span class="pln">
-  </span><span class="roman"><span class="pun">…</span></span><span class="clo">)</span></pre></div>
+<pre class="lisp">(lambda (env succeed fail)
+  <span class="roman">;; <code>succeed</code> is <code>(lambda (value fail) <span class="roman">…</span>)</code></span>
+  <span class="roman">;; <code>fail</code> is <code>(lambda () <span class="roman">…</span>)</code></span>
+  <span class="roman">…</span>)
+</pre></div>
 
 <p>For example, executing
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">ambeval ⟨</span><var><span class="pln">exp</span></var><span class="pln">⟩
+<pre class="lisp">(ambeval ⟨<var>exp</var>⟩
          the-global-environment
-         </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">value fail</span><span class="clo">)</span><span class="pln"> value</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'failed</span><span class="clo">))</span></pre></div>
+         (lambda (value fail) value)
+         (lambda () 'failed))
+</pre></div>
 
 <p>will attempt to evaluate the given expression and will return either the
 expression’s value (if the evaluation succeeds) or the symbol <code>failed</code> (if
@@ -200,27 +203,28 @@ continuations.  The execution procedures simply succeed with the value of the
 expression, passing along the failure continuation that was passed to them.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-self-evaluating exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">succeed exp fail</span><span class="clo">)))</span><span class="pln">
+<pre class="lisp">(define (analyze-self-evaluating exp)
+  (lambda (env succeed fail)
+    (succeed exp fail)))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-quoted exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">qval </span><span class="opn">(</span><span class="pln">text-of-quotation exp</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">succeed qval fail</span><span class="clo">))))</span><span class="pln">
+(define (analyze-quoted exp)
+  (let ((qval (text-of-quotation exp)))
+    (lambda (env succeed fail)
+      (succeed qval fail))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-variable exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">succeed </span><span class="opn">(</span><span class="pln">lookup-variable-value exp env</span><span class="clo">)</span><span class="pln">
-             fail</span><span class="clo">)))</span><span class="pln">
+(define (analyze-variable exp)
+  (lambda (env succeed fail)
+    (succeed (lookup-variable-value exp env)
+             fail)))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-lambda exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">vars </span><span class="opn">(</span><span class="pln">lambda-parameters exp</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">bproc </span><span class="opn">(</span><span class="pln">analyze-sequence 
-                </span><span class="opn">(</span><span class="pln">lambda-body exp</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">succeed </span><span class="opn">(</span><span class="pln">make-procedure vars bproc env</span><span class="clo">)</span><span class="pln">
-               fail</span><span class="clo">))))</span></pre></div>
+(define (analyze-lambda exp)
+  (let ((vars (lambda-parameters exp))
+        (bproc (analyze-sequence 
+                (lambda-body exp))))
+    (lambda (env succeed fail)
+      (succeed (make-procedure vars bproc env)
+               fail))))
+</pre></div>
 
 <p>Notice that looking up a variable always ‘succeeds.’  If
 <code>lookup-variable-value</code> fails to find the variable, it signals an error,
@@ -239,21 +243,22 @@ consequent or the alternative.  If the execution of <code>pproc</code> fails, th
 original failure continuation for the <code>if</code> expression is called.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-if exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">pproc </span><span class="opn">(</span><span class="pln">analyze </span><span class="opn">(</span><span class="pln">if-predicate exp</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">cproc </span><span class="opn">(</span><span class="pln">analyze </span><span class="opn">(</span><span class="pln">if-consequent exp</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">aproc </span><span class="opn">(</span><span class="pln">analyze </span><span class="opn">(</span><span class="pln">if-alternative exp</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">pproc env
-             </span><span class="roman"><span class="com">;; success continuation for evaluating</span></span><span class="pln">
-             </span><span class="roman"><span class="com">;; the predicate to obtain </span><code><span class="com">pred-value</span></code></span><span class="pln">
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pred-value fail2</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">true? pred-value</span><span class="clo">)</span><span class="pln">
-                   </span><span class="opn">(</span><span class="pln">cproc env succeed fail2</span><span class="clo">)</span><span class="pln">
-                   </span><span class="opn">(</span><span class="pln">aproc env succeed fail2</span><span class="clo">)))</span><span class="pln">
-             </span><span class="roman"><span class="com">;; failure continuation for</span></span><span class="pln">
-             </span><span class="roman"><span class="com">;; evaluating the predicate</span></span><span class="pln">
-             fail</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (analyze-if exp)
+  (let ((pproc (analyze (if-predicate exp)))
+        (cproc (analyze (if-consequent exp)))
+        (aproc (analyze (if-alternative exp))))
+    (lambda (env succeed fail)
+      (pproc env
+             <span class="roman">;; success continuation for evaluating</span>
+             <span class="roman">;; the predicate to obtain <code>pred-value</code></span>
+             (lambda (pred-value fail2)
+               (if (true? pred-value)
+                   (cproc env succeed fail2)
+                   (aproc env succeed fail2)))
+             <span class="roman">;; failure continuation for</span>
+             <span class="roman">;; evaluating the predicate</span>
+             fail))))
+</pre></div>
 
 <p>Sequences are also handled in the same way as in the previous evaluator, except
 for the machinations in the subprocedure <code>sequentially</code> that are required
@@ -262,25 +267,26 @@ then <code>b</code>, we call <code>a</code> with a success continuation that cal
 <code>b</code>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-sequence exps</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sequentially a b</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">a env
-         </span><span class="roman"><span class="com">;; success continuation for calling </span><code><span class="com">a</span></code></span><span class="pln">
-         </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">a-value fail2</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">b env succeed fail2</span><span class="clo">))</span><span class="pln">
-         </span><span class="roman"><span class="com">;; failure continuation for calling </span><code><span class="com">a</span></code></span><span class="pln">
-         fail</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">loop first-proc rest-procs</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? rest-procs</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (analyze-sequence exps)
+  (define (sequentially a b)
+    (lambda (env succeed fail)
+      (a env
+         <span class="roman">;; success continuation for calling <code>a</code></span>
+         (lambda (a-value fail2)
+           (b env succeed fail2))
+         <span class="roman">;; failure continuation for calling <code>a</code></span>
+         fail)))
+  (define (loop first-proc rest-procs)
+    (if (null? rest-procs)
         first-proc
-        </span><span class="opn">(</span><span class="pln">loop </span><span class="opn">(</span><span class="pln">sequentially first-proc 
-                            </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> rest-procs</span><span class="clo">))</span><span class="pln">
-              </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> rest-procs</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">procs </span><span class="opn">(</span><span class="pln">map analyze exps</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? procs</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Empty sequence: ANALYZE"</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">loop </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> procs</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> procs</span><span class="clo">))))</span></pre></div>
+        (loop (sequentially first-proc 
+                            (car rest-procs))
+              (cdr rest-procs))))
+  (let ((procs (map analyze exps)))
+    (if (null? procs)
+        (error &quot;Empty sequence: ANALYZE&quot;))
+    (loop (car procs) (cdr procs))))
+</pre></div>
 
 <a id="Definitions-and-assignments"></a>
 <h5 class="subsubheading">Definitions and assignments</h5>
@@ -294,16 +300,17 @@ execution of <code>vproc</code> succeeds, obtaining a value <code>val</code> for
 defined variable, the variable is defined and the success is propagated:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-definition exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">var </span><span class="opn">(</span><span class="pln">definition-variable exp</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">vproc </span><span class="opn">(</span><span class="pln">analyze 
-                </span><span class="opn">(</span><span class="pln">definition-value exp</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">vproc env
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">val fail2</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">define-variable! var val env</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">succeed </span><span class="lit">'ok</span><span class="pln"> fail2</span><span class="clo">))</span><span class="pln">
-             fail</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (analyze-definition exp)
+  (let ((var (definition-variable exp))
+        (vproc (analyze 
+                (definition-value exp))))
+    (lambda (env succeed fail)
+      (vproc env
+             (lambda (val fail2)
+               (define-variable! var val env)
+               (succeed 'ok fail2))
+             fail))))
+</pre></div>
 
 <p>Assignments are more interesting.  This is the first place where we really use
 the continuations, rather than just passing them around.  The execution
@@ -327,29 +334,30 @@ would otherwise have called <code>fail2</code> calls this procedure instead, to 
 the assignment before actually calling <code>fail2</code>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-assignment exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">var </span><span class="opn">(</span><span class="pln">assignment-variable exp</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">vproc </span><span class="opn">(</span><span class="pln">analyze 
-                </span><span class="opn">(</span><span class="pln">assignment-value exp</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">vproc env
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">val fail2</span><span class="clo">)</span><span class="pln">    </span><span class="roman"><span class="com">; *1*</span></span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">old-value
-                      </span><span class="opn">(</span><span class="pln">lookup-variable-value 
+<pre class="lisp">(define (analyze-assignment exp)
+  (let ((var (assignment-variable exp))
+        (vproc (analyze 
+                (assignment-value exp))))
+    (lambda (env succeed fail)
+      (vproc env
+             (lambda (val fail2)    <span class="roman">; *1*</span>
+               (let ((old-value
+                      (lookup-variable-value 
                        var 
-                       env</span><span class="clo">)))</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">set-variable-value! var 
+                       env)))
+                 (set-variable-value! var 
                                       val 
-                                      env</span><span class="clo">)</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">succeed 
-                  </span><span class="lit">'ok</span><span class="pln">
-                  </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">    </span><span class="roman"><span class="com">; *2*</span></span><span class="pln">
-                    </span><span class="opn">(</span><span class="pln">set-variable-value! 
+                                      env)
+                 (succeed 
+                  'ok
+                  (lambda ()    <span class="roman">; *2*</span>
+                    (set-variable-value! 
                      var
                      old-value
-                     env</span><span class="clo">)</span><span class="pln">
-                    </span><span class="opn">(</span><span class="pln">fail2</span><span class="clo">)))))</span><span class="pln">
-               fail</span><span class="clo">))))</span></pre></div>
+                     env)
+                    (fail2)))))
+               fail))))
+</pre></div>
 
 <a id="Procedure-applications"></a>
 <h5 class="subsubheading">Procedure applications</h5>
@@ -362,20 +370,21 @@ failure continuations as we evaluate the operands.  We use a procedure
 <code>map</code> as in the ordinary evaluator.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-application exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">fproc </span><span class="opn">(</span><span class="pln">analyze </span><span class="opn">(</span><span class="pln">operator exp</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">aprocs </span><span class="opn">(</span><span class="pln">map analyze </span><span class="opn">(</span><span class="pln">operands exp</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">fproc env
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">proc fail2</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">get-args 
+<pre class="lisp">(define (analyze-application exp)
+  (let ((fproc (analyze (operator exp)))
+        (aprocs (map analyze (operands exp))))
+    (lambda (env succeed fail)
+      (fproc env
+             (lambda (proc fail2)
+               (get-args 
                 aprocs
                 env
-                </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">args fail3</span><span class="clo">)</span><span class="pln">
-                  </span><span class="opn">(</span><span class="pln">execute-application
-                   proc args succeed fail3</span><span class="clo">))</span><span class="pln">
-                fail2</span><span class="clo">))</span><span class="pln">
-             fail</span><span class="clo">))))</span></pre></div>
+                (lambda (args fail3)
+                  (execute-application
+                   proc args succeed fail3))
+                fail2))
+             fail))))
+</pre></div>
 
 <p>In <code>get-args</code>, notice how <code>cdr</code>-ing down the list of <code>aproc</code>
 execution procedures and <code>cons</code>ing up the resulting list of <code>args</code> is
@@ -386,47 +395,49 @@ calls to <code>get-args</code> has a success continuation whose value is the
 arguments:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-args aprocs env succeed fail</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? aprocs</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">succeed </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)</span><span class="pln"> fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">((</span><span class="kwd">car</span><span class="pln"> aprocs</span><span class="clo">)</span><span class="pln"> 
+<pre class="lisp">(define (get-args aprocs env succeed fail)
+  (if (null? aprocs)
+      (succeed '() fail)
+      ((car aprocs) 
        env
-       </span><span class="com">;; </span><span class="roman"><span class="com">success continuation for this </span><code><span class="com">aproc</span></code></span><span class="pln">
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">arg fail2</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">get-args 
-          </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> aprocs</span><span class="clo">)</span><span class="pln">
+       ;; <span class="roman">success continuation for this <code>aproc</code></span>
+       (lambda (arg fail2)
+         (get-args 
+          (cdr aprocs)
           env
-          </span><span class="com">;; </span><span class="roman"><span class="com">success continuation for</span></span><span class="pln">
-          </span><span class="com">;; </span><span class="roman"><span class="com">recursive call to </span><code><span class="com">get-args</span></code></span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">args fail3</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">succeed </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> arg args</span><span class="clo">)</span><span class="pln">
-                     fail3</span><span class="clo">))</span><span class="pln">
-          fail2</span><span class="clo">))</span><span class="pln">
-       fail</span><span class="clo">)))</span></pre></div>
+          ;; <span class="roman">success continuation for</span>
+          ;; <span class="roman">recursive call to <code>get-args</code></span>
+          (lambda (args fail3)
+            (succeed (cons arg args)
+                     fail3))
+          fail2))
+       fail)))
+</pre></div>
 
 <p>The actual procedure application, which is performed by
 <code>execute-application</code>, is accomplished in the same way as for the ordinary
 evaluator, except for the need to manage the continuations.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">execute-application 
-         proc args succeed fail</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">primitive-procedure? proc</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">succeed 
-          </span><span class="opn">(</span><span class="pln">apply-primitive-procedure 
-           proc args</span><span class="clo">)</span><span class="pln">
-          fail</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">compound-procedure? proc</span><span class="clo">)</span><span class="pln">
-         </span><span class="opn">((</span><span class="pln">procedure-body proc</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">extend-environment 
-           </span><span class="opn">(</span><span class="pln">procedure-parameters proc</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (execute-application 
+         proc args succeed fail)
+  (cond ((primitive-procedure? proc)
+         (succeed 
+          (apply-primitive-procedure 
+           proc args)
+          fail))
+        ((compound-procedure? proc)
+         ((procedure-body proc)
+          (extend-environment 
+           (procedure-parameters proc)
            args
-           </span><span class="opn">(</span><span class="pln">procedure-environment proc</span><span class="clo">))</span><span class="pln">
+           (procedure-environment proc))
           succeed
-          fail</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown procedure type: 
-                      EXECUTE-APPLICATION"</span><span class="pln">
-                     proc</span><span class="clo">))))</span></pre></div>
+          fail))
+        (else (error &quot;Unknown procedure type: 
+                      EXECUTE-APPLICATION&quot;
+                     proc))))
+</pre></div>
 
 <a id="Evaluating-amb-expressions"></a>
 <h5 class="subsubheading">Evaluating <code>amb</code> expressions</h5>
@@ -440,19 +451,20 @@ is called with a failure continuation that will try the next one.  When there
 are no more alternatives to try, the entire <code>amb</code> expression fails.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-amb exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">cprocs </span><span class="opn">(</span><span class="pln">map analyze 
-                     </span><span class="opn">(</span><span class="pln">amb-choices exp</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">try-next choices</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">null? choices</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">fail</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">car</span><span class="pln"> choices</span><span class="clo">)</span><span class="pln"> 
+<pre class="lisp">(define (analyze-amb exp)
+  (let ((cprocs (map analyze 
+                     (amb-choices exp))))
+    (lambda (env succeed fail)
+      (define (try-next choices)
+        (if (null? choices)
+            (fail)
+            ((car choices) 
              env
              succeed
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">try-next </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> choices</span><span class="clo">))))))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">try-next cprocs</span><span class="clo">))))</span></pre></div>
+             (lambda ()
+               (try-next (cdr choices))))))
+      (try-next cprocs))))
+</pre></div>
 
 <a id="Driver-loop-1"></a>
 <h5 class="subsubheading">Driver loop</h5>
@@ -480,42 +492,43 @@ invoke the “failure” alternative branch in order to search for additional
 successful evaluations.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> input-prompt  </span><span class="str">";;; Amb-Eval input:"</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> output-prompt </span><span class="str">";;; Amb-Eval value:"</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define input-prompt  &quot;;;; Amb-Eval input:&quot;)
+(define output-prompt &quot;;;; Amb-Eval value:&quot;)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">driver-loop</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">internal-loop try-again</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">prompt-for-input input-prompt</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">input </span><span class="opn">(</span><span class="pln">read</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> input </span><span class="lit">'try-again</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">try-again</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">newline</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">display 
-             </span><span class="str">";;; Starting a new problem "</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="pln">ambeval 
+(define (driver-loop)
+  (define (internal-loop try-again)
+    (prompt-for-input input-prompt)
+    (let ((input (read)))
+      (if (eq? input 'try-again)
+          (try-again)
+          (begin
+            (newline)
+            (display 
+             &quot;;;; Starting a new problem &quot;)
+            (ambeval 
              input
              the-global-environment
-             </span><span class="roman"><span class="com">;; </span><code><span class="com">ambeval</span></code><span class="com"> success</span></span><span class="pln">
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">val next-alternative</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">announce-output 
-                output-prompt</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">user-print val</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">internal-loop 
-                next-alternative</span><span class="clo">))</span><span class="pln">
-             </span><span class="roman"><span class="com">;; </span><code><span class="com">ambeval</span></code><span class="com"> failure</span></span><span class="pln">
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">announce-output
-                </span><span class="str">";;; There are no 
-                 more values of"</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">user-print input</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="pln">driver-loop</span><span class="clo">)))))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">internal-loop
-   </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">newline</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">display 
-      </span><span class="str">";;; There is no current problem"</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">driver-loop</span><span class="clo">))))</span></pre></div>
+             <span class="roman">;; <code>ambeval</code> success</span>
+             (lambda (val next-alternative)
+               (announce-output 
+                output-prompt)
+               (user-print val)
+               (internal-loop 
+                next-alternative))
+             <span class="roman">;; <code>ambeval</code> failure</span>
+             (lambda ()
+               (announce-output
+                &quot;;;; There are no 
+                 more values of&quot;)
+               (user-print input)
+               (driver-loop)))))))
+  (internal-loop
+   (lambda ()
+     (newline)
+     (display 
+      &quot;;;; There is no current problem&quot;)
+     (driver-loop))))
+</pre></div>
 
 <p>The initial call to <code>internal-loop</code> uses a <code>try-again</code> procedure that
 complains that there is no current problem and restarts the driver loop.  This
@@ -536,22 +549,22 @@ example, we can choose two distinct elements from a list and count the number
 of trials required to make a successful choice as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> count </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">x </span><span class="opn">(</span><span class="pln">an-element-of </span><span class="lit">'</span><span class="opn">(</span><span class="pln">a b c</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">y </span><span class="opn">(</span><span class="pln">an-element-of </span><span class="lit">'</span><span class="opn">(</span><span class="pln">a b c</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">permanent-set! count </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> count </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">require </span><span class="opn">(</span><span class="pln">not </span><span class="opn">(</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> x y</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">list x y count</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define count 0)
+(let ((x (an-element-of '(a b c)))
+      (y (an-element-of '(a b c))))
+  (permanent-set! count (+ count 1))
+  (require (not (eq? x y)))
+  (list x y count))
 
-</span><i><span class="com">;;; Starting a new problem</span></i><span class="pln">
-</span><i><span class="com">;;; Amb-Eval value:</span></i><span class="pln">
-</span><i><span class="opn">(</span><span class="pln">a b </span><span class="lit">2</span><span class="clo">)</span></i><span class="pln">
+<i>;;; Starting a new problem</i>
+<i>;;; Amb-Eval value:</i>
+<i>(a b 2)</i>
 
-</span><i><span class="com">;;; Amb-Eval input:</span></i><span class="pln">
+<i>;;; Amb-Eval input:</i>
 try-again
 
-</span><i><span class="com">;;; Amb-Eval value:</span></i><span class="pln">
-</span><i><span class="opn">(</span><span class="pln">a c </span><span class="lit">3</span><span class="clo">)</span></i>
+<i>;;; Amb-Eval value:</i>
+<i>(a c 3)</i>
 </pre></div>
 
 <p>What values would have been displayed if we had used <code>set!</code> here
@@ -567,27 +580,27 @@ fails, however, the value of the second expression is returned, as in the
 following example:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><i><span class="com">;;; Amb-Eval input:</span></i><span class="pln">
-</span><span class="opn">(</span><span class="pln">if-fail 
- </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">x </span><span class="opn">(</span><span class="pln">an-element-of </span><span class="lit">'</span><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">5</span><span class="clo">))))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">require </span><span class="opn">(</span><span class="pln">even? x</span><span class="clo">))</span><span class="pln">
-   x</span><span class="clo">)</span><span class="pln">
- </span><span class="lit">'all-odd</span><span class="clo">)</span><span class="pln">
+<pre class="lisp"><i>;;; Amb-Eval input:</i>
+(if-fail 
+ (let ((x (an-element-of '(1 3 5))))
+   (require (even? x))
+   x)
+ 'all-odd)
 
-</span><i><span class="com">;;; Starting a new problem</span></i><span class="pln">
-</span><i><span class="com">;;; Amb-Eval value:</span></i><span class="pln">
-</span><i><span class="pln">all-odd</span></i><span class="pln">
+<i>;;; Starting a new problem</i>
+<i>;;; Amb-Eval value:</i>
+<i>all-odd</i>
 
-</span><i><span class="com">;;; Amb-Eval input:</span></i><span class="pln">
-</span><span class="opn">(</span><span class="pln">if-fail
- </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">x </span><span class="opn">(</span><span class="pln">an-element-of </span><span class="lit">'</span><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">8</span><span class="clo">))))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">require </span><span class="opn">(</span><span class="pln">even? x</span><span class="clo">))</span><span class="pln">
-   x</span><span class="clo">)</span><span class="pln">
- </span><span class="lit">'all-odd</span><span class="clo">)</span><span class="pln">
+<i>;;; Amb-Eval input:</i>
+(if-fail
+ (let ((x (an-element-of '(1 3 5 8))))
+   (require (even? x))
+   x)
+ 'all-odd)
 
-</span><i><span class="com">;;; Starting a new problem</span></i><span class="pln">
-</span><i><span class="com">;;; Amb-Eval value:</span></i><span class="pln">
-</span><i><span class="lit">8</span></i>
+<i>;;; Starting a new problem</i>
+<i>;;; Amb-Eval value:</i>
+<i>8</i>
 </pre></div>
 </blockquote>
 
@@ -597,15 +610,16 @@ described in <a href="#Exercise-4_002e51">Exercise 4.51</a> and <code>if-fail</c
 what will be the result of evaluating
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">pairs </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">if-fail 
-   </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">p </span><span class="opn">(</span><span class="pln">prime-sum-pair 
-             </span><span class="lit">'</span><span class="opn">(</span><span class="lit">1</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> </span><span class="lit">8</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="lit">'</span><span class="opn">(</span><span class="lit">20</span><span class="pln"> </span><span class="lit">35</span><span class="pln"> </span><span class="lit">110</span><span class="clo">))))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">permanent-set! pairs 
-                     </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> p pairs</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pln">amb</span><span class="clo">))</span><span class="pln">
-   pairs</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(let ((pairs '()))
+  (if-fail 
+   (let ((p (prime-sum-pair 
+             '(1 3 5 8) 
+             '(20 35 110))))
+     (permanent-set! pairs 
+                     (cons p pairs))
+     (amb))
+   pairs))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -616,35 +630,38 @@ would have had to implement it as a special form.  This would require syntax
 procedures
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">require? exp</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">tagged-list? exp </span><span class="lit">'require</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (require? exp) 
+  (tagged-list? exp 'require))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">require-predicate exp</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="kwd">cadr</span><span class="pln"> exp</span><span class="clo">))</span></pre></div>
+(define (require-predicate exp) 
+  (cadr exp))
+</pre></div>
 
 <p>and a new clause in the dispatch in <code>analyze</code>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="pln">require? exp</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-require exp</span><span class="clo">))</span></pre></div>
+<pre class="lisp">((require? exp) (analyze-require exp))
+</pre></div>
 
 <p>as well the procedure <code>analyze-require</code> that handles <code>require</code>
 expressions.  Complete the following definition of <code>analyze-require</code>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">analyze-require exp</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">pproc </span><span class="opn">(</span><span class="pln">analyze 
-                </span><span class="opn">(</span><span class="pln">require-predicate exp</span><span class="clo">))))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">env succeed fail</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">pproc env
-             </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pred-value fail2</span><span class="clo">)</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> ⟨</span><span class="pun">??</span><span class="pln">⟩
-                   ⟨</span><span class="pun">??</span><span class="pln">⟩
-                   </span><span class="opn">(</span><span class="pln">succeed </span><span class="lit">'ok</span><span class="pln"> fail2</span><span class="clo">)))</span><span class="pln">
-             fail</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (analyze-require exp)
+  (let ((pproc (analyze 
+                (require-predicate exp))))
+    (lambda (env succeed fail)
+      (pproc env
+             (lambda (pred-value fail2)
+               (if ⟨??⟩
+                   ⟨??⟩
+                   (succeed 'ok fail2)))
+             fail))))
+</pre></div>
 </blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -667,10 +684,10 @@ didn’t worry about undoing definitions, since we can assume that internal
 definitions are scanned out (<a href="4_002e1_002e6.xhtml#g_t4_002e1_002e6">4.1.6</a>).</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="4_002e4.xhtml#g_t4_002e4" accesskey="n" rel="next">4.4</a>, Previous: <a href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" accesskey="p" rel="prev">4.3.2</a>, Up: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="u" rel="prev">4.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="4_002e4.xhtml#g_t4_002e4" accesskey="n" rel="next">4.4</a>, Previous: <a href="4_002e3_002e2.xhtml#g_t4_002e3_002e2" accesskey="p" rel="prev">4.3.2</a>, Up: <a href="4_002e3.xhtml#g_t4_002e3" accesskey="u" rel="prev">4.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

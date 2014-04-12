@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.1.3</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.3</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.1.3" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.1.3" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e1.xhtml#g_t5_002e1" rel="prev" title="5.1" />
-<link href="5_002e1_002e4.xhtml#g_t5_002e1_002e4" rel="next" title="5.1.4" />
-<link href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" rel="prev" title="5.1.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.3"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.1.3"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e1.xhtml#g_t5_002e1" rel="prev" title="5.1"/>
+<link href="5_002e1_002e4.xhtml#g_t5_002e1_002e4" rel="next" title="5.1.4"/>
+<link href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" rel="prev" title="5.1.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e1_002e3"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e1_002e4.xhtml#g_t5_002e1_002e4" accesskey="n" rel="next">5.1.4</a>, Previous: <a href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" accesskey="p" rel="prev">5.1.2</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e1_002e4.xhtml#g_t5_002e1_002e4" accesskey="n" rel="next">5.1.4</a>, Previous: <a href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" accesskey="p" rel="prev">5.1.2</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Subroutines"></a>
 <h4 class="subsection"><span class="secnum">5.1.3</span><span class="sectitle">Subroutines</span></h4>
@@ -71,30 +69,29 @@ as the first.  If we do this, we obtain the controller sequence shown in
 <a href="#Figure-5_002e8">Figure 5.8</a>.
 </p>
 <blockquote>
-<p><strong><a id="Figure-5_002e8"></a>Figure 5.8:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↓<!-- ↓ --></mo>
-</math> Portions of the controller sequence for
+<p><strong><a id="Figure-5_002e8"></a>Figure 5.8:</strong> \( \downarrow \) Portions of the controller sequence for
 a machine that uses the same data-path components for two different
 <abbr>GCD</abbr> computations.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">gcd-1
- </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label after-gcd-1</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign t </span><span class="opn">(</span><span class="pln">op rem</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg a</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign a </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign b </span><span class="opn">(</span><span class="pln">reg t</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gcd-1</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">gcd-1
+ (test (op =) (reg b) (const 0))
+ (branch (label after-gcd-1))
+ (assign t (op rem) (reg a) (reg b))
+ (assign a (reg b))
+ (assign b (reg t))
+ (goto (label gcd-1))
 after-gcd-1
-  </span><span class="roman"><span class="pun">…</span></span><span class="pln">
+  <span class="roman">…</span>
 gcd-2
- </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label after-gcd-2</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign t </span><span class="opn">(</span><span class="pln">op rem</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg a</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign a </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign b </span><span class="opn">(</span><span class="pln">reg t</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gcd-2</span><span class="clo">))</span><span class="pln">
-after-gcd-2</span></pre></div>
+ (test (op =) (reg b) (const 0))
+ (branch (label after-gcd-2))
+ (assign t (op rem) (reg a) (reg b))
+ (assign a (reg b))
+ (assign b (reg t))
+ (goto (label gcd-2))
+after-gcd-2
+</pre></div>
 
 </blockquote>
 
@@ -113,36 +110,35 @@ portion of the resulting controller sequence, which includes only a single copy
 of the <code>gcd</code> instructions.
 </p>
 <blockquote>
-<p><strong><a id="Figure-5_002e9"></a>Figure 5.9:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↓<!-- ↓ --></mo>
-</math> Using a <code>continue</code> register to
+<p><strong><a id="Figure-5_002e9"></a>Figure 5.9:</strong> \( \downarrow \) Using a <code>continue</code> register to
 avoid the duplicate controller sequence in <a href="#Figure-5_002e8">Figure 5.8</a>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">gcd
- </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label gcd-done</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign t </span><span class="opn">(</span><span class="pln">op rem</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg a</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign a </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign b </span><span class="opn">(</span><span class="pln">reg t</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gcd</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">gcd
+ (test (op =) (reg b) (const 0))
+ (branch (label gcd-done))
+ (assign t (op rem) (reg a) (reg b))
+ (assign a (reg b))
+ (assign b (reg t))
+ (goto (label gcd))
 gcd-done
- </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label after-gcd-1</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label after-gcd-2</span><span class="clo">))</span><span class="pln">
-  </span><span class="roman"><span class="pun">…</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; Before branching to </span><code><span class="com">gcd</span></code><span class="com"> from</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; the first place where it is needed,</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; we place 0 in the </span><code><span class="com">continue</span></code><span class="com"> register</span></span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gcd</span><span class="clo">))</span><span class="pln">
+ (test (op =) (reg continue) (const 0))
+ (branch (label after-gcd-1))
+ (goto (label after-gcd-2))
+  <span class="roman">…</span>
+<span class="roman">;; Before branching to <code>gcd</code> from</span>
+<span class="roman">;; the first place where it is needed,</span>
+<span class="roman">;; we place 0 in the <code>continue</code> register</span>
+ (assign continue (const 0))
+ (goto (label gcd))
 after-gcd-1
-  </span><span class="roman"><span class="pun">…</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; Before the second use of </span><code><span class="com">gcd</span></code><span class="com">,</span></span><span class="com"> </span><span class="pln">
-</span><span class="roman"><span class="com">;; we place 1 in the </span><code><span class="com">continue</span></code><span class="com"> register</span></span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gcd</span><span class="clo">))</span><span class="pln">
-after-gcd-2</span></pre></div>
+  <span class="roman">…</span>
+<span class="roman">;; Before the second use of <code>gcd</code>,</span> 
+<span class="roman">;; we place 1 in the <code>continue</code> register</span>
+ (assign continue (const 1))
+ (goto (label gcd))
+after-gcd-2
+</pre></div>
 
 </blockquote>
 
@@ -170,35 +166,34 @@ terminate the <code>gcd</code> subroutine with a branch to the location stored i
 <a href="#Figure-5_002e10">Figure 5.10</a>.
 </p>
 <blockquote>
-<p><strong><a id="Figure-5_002e10"></a>Figure 5.10:</strong> <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">↓<!-- ↓ --></mo>
-</math> Assigning labels to the
+<p><strong><a id="Figure-5_002e10"></a>Figure 5.10:</strong> \( \downarrow \) Assigning labels to the
 <code>continue</code> register simplifies and generalizes the strategy shown in
 <a href="#Figure-5_002e9">Figure 5.9</a>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">gcd
- </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label gcd-done</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign t </span><span class="opn">(</span><span class="pln">op rem</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg a</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign a </span><span class="opn">(</span><span class="pln">reg b</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign b </span><span class="opn">(</span><span class="pln">reg t</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gcd</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">gcd
+ (test (op =) (reg b) (const 0))
+ (branch (label gcd-done))
+ (assign t (op rem) (reg a) (reg b))
+ (assign a (reg b))
+ (assign b (reg t))
+ (goto (label gcd))
 gcd-done
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg continue</span><span class="clo">))</span><span class="pln">
-  </span><span class="roman"><span class="pun">…</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; Before calling </span><code><span class="com">gcd</span></code><span class="com">,</span></span><span class="com"> </span><span class="pln">
-</span><span class="roman"><span class="com">;; we assign to </span><code><span class="com">continue</span></code><span class="com"> the label</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; to which </span><code><span class="com">gcd</span></code><span class="com"> should return.</span></span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">label after-gcd-1</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gcd</span><span class="clo">))</span><span class="pln">
+ (goto (reg continue))
+  <span class="roman">…</span>
+<span class="roman">;; Before calling <code>gcd</code>,</span> 
+<span class="roman">;; we assign to <code>continue</code> the label</span>
+<span class="roman">;; to which <code>gcd</code> should return.</span>
+ (assign continue (label after-gcd-1))
+ (goto (label gcd))
 after-gcd-1
-  </span><span class="roman"><span class="pun">…</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; Here is the second call to </span><code><span class="com">gcd</span></code><span class="com">,</span></span><span class="pln">
-</span><span class="roman"><span class="com">;; with a different continuation.</span></span><span class="pln">
- </span><span class="opn">(</span><span class="pln">assign continue </span><span class="opn">(</span><span class="pln">label after-gcd-2</span><span class="clo">))</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gcd</span><span class="clo">))</span><span class="pln">
-after-gcd-2</span></pre></div>
+  <span class="roman">…</span>
+<span class="roman">;; Here is the second call to <code>gcd</code>,</span>
+<span class="roman">;; with a different continuation.</span>
+ (assign continue (label after-gcd-2))
+ (goto (label gcd))
+after-gcd-2
+</pre></div>
 
 </blockquote>
 
@@ -212,10 +207,10 @@ the call to <code>sub2</code>, <code>sub1</code> will not know where to go when 
 finished.  The mechanism developed in the next section to handle recursion also
 provides a better solution to this problem of nested subroutine calls.
 </p>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e1_002e4.xhtml#g_t5_002e1_002e4" accesskey="n" rel="next">5.1.4</a>, Previous: <a href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" accesskey="p" rel="prev">5.1.2</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e1_002e4.xhtml#g_t5_002e1_002e4" accesskey="n" rel="next">5.1.4</a>, Previous: <a href="5_002e1_002e2.xhtml#g_t5_002e1_002e2" accesskey="p" rel="prev">5.1.2</a>, Up: <a href="5_002e1.xhtml#g_t5_002e1" accesskey="u" rel="prev">5.1</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

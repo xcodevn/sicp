@@ -1,172 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 1.2.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.2.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 1.2.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 1.2.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="1_002e2.xhtml#g_t1_002e2" rel="prev" title="1.2" />
-<link href="1_002e2_002e2.xhtml#g_t1_002e2_002e2" rel="next" title="1.2.2" />
-<link href="1_002e2.xhtml#g_t1_002e2" rel="prev" title="1.2" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.2.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.2.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="1_002e2.xhtml#g_t1_002e2" rel="prev" title="1.2"/>
+<link href="1_002e2_002e2.xhtml#g_t1_002e2_002e2" rel="next" title="1.2.2"/>
+<link href="1_002e2.xhtml#g_t1_002e2" rel="prev" title="1.2"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t1_002e2_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="1_002e2_002e2.xhtml#g_t1_002e2_002e2" accesskey="n" rel="next">1.2.2</a>, Previous: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="p" rel="prev">1.2</a>, Up: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="u" rel="prev">1.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e2_002e2.xhtml#g_t1_002e2_002e2" accesskey="n" rel="next">1.2.2</a>, Previous: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="p" rel="prev">1.2</a>, Up: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="u" rel="prev">1.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Linear-Recursion-and-Iteration"></a>
 <h4 class="subsection"><span class="secnum">1.2.1</span><span class="sectitle">Linear Recursion and Iteration</span></h4>
 
 <p>We begin by considering the factorial function, defined by
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mi>n</mi>
-  <mo>!</mo>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>⋅<!-- ⋅ --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>2</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>⋯<!-- ⋯ --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>3</mn>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mn>2</mn>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mn>1.</mn>
-  </mrow>
-</math>
+\[ % :5:
+ 
+n! \,=\, {n \cdot (n - 1)} \cdot {(n - 2)} \cdots {3 \cdot 2 \cdot 1.}
+\]
 
 There are many ways to compute factorials.  One way is to make use of the
-observation that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>!</mo>
-  </mrow>
-</math> is equal to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> times <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-    <mo>!</mo>
-  </mrow>
-</math> for any positive
-integer <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>:
+observation that \( {n!} \) is equal to \( n \) times \( {(n - 1)!} \) for any positive
+integer \( n \):
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mi>n</mi>
-  <mo>!</mo>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mo stretchy="false">[</mo>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>⋅<!-- ⋅ --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>2</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>⋯<!-- ⋯ --></mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>3</mn>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mn>2</mn>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mn>1</mn>
-    <mo stretchy="false">]</mo>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-    <mo>!</mo>
-    <mo>.</mo>
-  </mrow>
-</math>
+\[ % :6:
+ 
+n! \,=\, {n \cdot [(n - 1)} \cdot {(n - 2)} \cdots {3 \cdot 2 \cdot 1]} \,=\, {n \cdot (n - 1)!.}
+\]
 
-Thus, we can compute <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>!</mo>
-  </mrow>
-</math> by computing <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>n</mi>
-    <mo>−<!-- − --></mo>
-    <mn>1</mn>
-    <mo stretchy="false">)</mo>
-    <mo>!</mo>
-  </mrow>
-</math> and multiplying the
-result by <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>.  If we add the stipulation that 1! is equal to 1, this
+Thus, we can compute \( {n!} \) by computing \( {(n - 1)!} \) and multiplying the
+result by \( n \).  If we add the stipulation that 1! is equal to 1, this
 observation translates directly into a procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> 
-      </span><span class="lit">1</span><span class="pln"> 
-      </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> n </span><span class="opn">(</span><span class="pln">factorial </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">)))))</span></pre></div>
+<pre class="lisp">(define (factorial n)
+  (if (= n 1) 
+      1 
+      (* n (factorial (- n 1)))))
+</pre></div>
 
 <p>We can use the substitution model of <a href="1_002e1_002e5.xhtml#g_t1_002e1_002e5">1.1.5</a> to watch this
 procedure in action computing 6!, as shown in <a href="#Figure-1_002e3">Figure 1.3</a>.
@@ -181,54 +74,35 @@ procedure in action computing 6!, as shown in <a href="#Figure-1_002e3">Figure 1
 </figure>
 
 <p>Now let’s take a different perspective on computing factorials.  We could
-describe a rule for computing <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>!</mo>
-  </mrow>
-</math> by specifying that we first multiply 1 by
-2, then multiply the result by 3, then by 4, and so on until we reach <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>.
+describe a rule for computing \( {n!} \) by specifying that we first multiply 1 by
+2, then multiply the result by 3, then by 4, and so on until we reach \( n \).
 More formally, we maintain a running product, together with a counter that
-counts from 1 up to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>.  We can describe the computation by saying that the
+counts from 1 up to \( n \).  We can describe the computation by saying that the
 counter and the product simultaneously change from one step to the next
 according to the rule
 </p>
 <div class="example">
-<pre class="example">product <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">←<!-- ← --></mo>
-</math> counter * product
-counter <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mo stretchy="false">←<!-- ← --></mo>
-</math> counter + 1
+<pre class="example">product \( \gets \) counter * product
+counter \( \gets \) counter + 1
 </pre></div>
 
-<p>and stipulating that <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>!</mo>
-  </mrow>
-</math> is the value of the product when the counter
-exceeds <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>.
+<p>and stipulating that \( {n!} \) is the value of the product when the counter
+exceeds \( n \).
 </p>
 <p>Once again, we can recast our description as a procedure for computing
 factorials:<a class="footnote_link" id="DOCF29" href="#FOOT29"><sup>29</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial n</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">fact-iter </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> n</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (factorial n) 
+  (fact-iter 1 1 n))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">fact-iter product counter max-count</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> counter max-count</span><span class="clo">)</span><span class="pln">
+(define (fact-iter product counter max-count)
+  (if (&gt; counter max-count)
       product
-      </span><span class="opn">(</span><span class="pln">fact-iter </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> counter product</span><span class="clo">)</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> counter </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-                 max-count</span><span class="clo">)))</span></pre></div>
+      (fact-iter (* counter product)
+                 (+ counter 1)
+                 max-count)))
+</pre></div>
 
 <p>As before, we can use the substitution model to visualize the process of
 computing 6!, as shown in <a href="#Figure-1_002e4">Figure 1.4</a>.
@@ -244,14 +118,7 @@ computing 6!, as shown in <a href="#Figure-1_002e4">Figure 1.4</a>.
 
 <p>Compare the two processes.  From one point of view, they seem hardly different
 at all.  Both compute the same mathematical function on the same domain, and
-each requires a number of steps proportional to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> to compute <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>!</mo>
-  </mrow>
-</math>.
+each requires a number of steps proportional to \( n \) to compute \( {n!} \).
 Indeed, both processes even carry out the same sequence of multiplications,
 obtaining the same sequence of partial products.  On the other hand, when we
 consider the “shapes” of the two processes, we find that they evolve quite
@@ -266,26 +133,15 @@ as the operations are actually performed.  This type of process, characterized
 by a chain of deferred operations, is called a <a id="index-recursive-process"></a>
 <em>recursive process</em>.
 Carrying out this process requires that the interpreter keep track of the
-operations to be performed later on.  In the computation of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>!</mo>
-  </mrow>
-</math>, the length
+operations to be performed later on.  In the computation of \( {n!} \), the length
 of the chain of deferred multiplications, and hence the amount of information
-needed to keep track of it, grows linearly with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math> (is proportional to
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>), just like the number of steps.  Such a process is called a
+needed to keep track of it, grows linearly with \( n \) (is proportional to
+\( n \)), just like the number of steps.  Such a process is called a
 <a id="index-linear-recursive-process"></a>
 <em>linear recursive process</em>.
 </p>
 <p>By contrast, the second process does not grow and shrink.  At each step, all we
-need to keep track of, for any <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>, are the current values of the variables
+need to keep track of, for any \( n \), are the current values of the variables
 <code>product</code>, <code>counter</code>, and <code>max-count</code>.  We call this an
 <a id="index-iterative-process"></a>
 <em>iterative process</em>.  In general, an iterative process is one whose
@@ -294,14 +150,7 @@ state can be summarized by a fixed number of <a id="index-state-variables"></a>
 together with a fixed rule that describes how the state variables should be
 updated as the process moves from state to state and an (optional) end test
 that specifies conditions under which the process should terminate.  In
-computing <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>n</mi>
-    <mo>!</mo>
-  </mrow>
-</math>, the number of steps required grows linearly with <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>.  Such
+computing \( {n!} \), the number of steps required grows linearly with \( n \).  Such
 a process is called a <a id="index-linear-iterative-process"></a>
 <em>linear iterative process</em>.
 </p>
@@ -354,15 +203,16 @@ procedures <code>inc</code>, which increments its argument by 1, and <code>dec</
 which decrements its argument by 1.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> a </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> 
+<pre class="lisp">(define (+ a b)
+  (if (= a 0) 
       b 
-      </span><span class="opn">(</span><span class="pln">inc </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dec a</span><span class="clo">)</span><span class="pln"> b</span><span class="clo">))))</span><span class="pln">
+      (inc (+ (dec a) b))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> a </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> 
+(define (+ a b)
+  (if (= a 0) 
       b 
-      </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">dec a</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">inc b</span><span class="clo">))))</span></pre></div>
+      (+ (dec a) (inc b))))
+</pre></div>
 
 <p>Using the substitution model, illustrate the process generated by each
 procedure in evaluating <code>(+ 4 5)</code>.  Are these processes iterative or
@@ -374,46 +224,39 @@ recursive?
 a mathematical function called Ackermann’s function.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">A x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> y </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> x </span><span class="lit">0</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> y</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">((</span><span class="pun">=</span><span class="pln"> y </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> </span><span class="lit">2</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">A </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> x </span><span class="lit">1</span><span class="clo">)</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">A x </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> y </span><span class="lit">1</span><span class="clo">))))))</span></pre></div>
+<pre class="lisp">(define (A x y)
+  (cond ((= y 0) 0)
+        ((= x 0) (* 2 y))
+        ((= y 1) 2)
+        (else (A (- x 1)
+                 (A x (- y 1))))))
+</pre></div>
 
 <p>What are the values of the following expressions?
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">A </span><span class="lit">1</span><span class="pln"> </span><span class="lit">10</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">A </span><span class="lit">2</span><span class="pln"> </span><span class="lit">4</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">A </span><span class="lit">3</span><span class="pln"> </span><span class="lit">3</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(A 1 10)
+(A 2 4)
+(A 3 3)
+</pre></div>
 
 <p>Consider the following procedures, where <code>A</code> is the procedure
 defined above:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f n</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">A </span><span class="lit">0</span><span class="pln"> n</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">g n</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">A </span><span class="lit">1</span><span class="pln"> n</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">h n</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">A </span><span class="lit">2</span><span class="pln"> n</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">k n</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="lit">5</span><span class="pln"> n n</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (f n) (A 0 n))
+(define (g n) (A 1 n))
+(define (h n) (A 2 n))
+(define (k n) (* 5 n n))
+</pre></div>
 
 <p>Give concise mathematical definitions for the functions computed by the
 procedures <code>f</code>, <code>g</code>, and <code>h</code> for positive integer values of
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>n</mi>
-</math>.  For example, <code>(k n)</code> computes <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>5</mn>
-    <msup>
-      <mi>n</mi>
-      <mn>2</mn>
-    </msup>
-  </mrow>
-</math>.
+\( n \).  For example, <code>(k n)</code> computes \( {5n^2} \).
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -423,13 +266,14 @@ structure introduced in the last section to hide the definition of
 <code>fact-iter</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">factorial n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">iter product counter</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> counter n</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (factorial n)
+  (define (iter product counter)
+    (if (&gt; counter n)
         product
-        </span><span class="opn">(</span><span class="pln">iter </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> counter product</span><span class="clo">)</span><span class="pln">
-              </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> counter </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">iter </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="clo">))</span></pre></div>
+        (iter (* counter product)
+              (+ counter 1))))
+  (iter 1 1))
+</pre></div>
 
 <p>We avoided doing this here so as to minimize the number of things to think
 about at once.</p>
@@ -454,10 +298,10 @@ way to compile procedure calls (<a href="References.xhtml#Steele-1977">Steele 19
 Scheme requires that Scheme implementations be tail-recursive.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="1_002e2_002e2.xhtml#g_t1_002e2_002e2" accesskey="n" rel="next">1.2.2</a>, Previous: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="p" rel="prev">1.2</a>, Up: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="u" rel="prev">1.2</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e2_002e2.xhtml#g_t1_002e2_002e2" accesskey="n" rel="next">1.2.2</a>, Previous: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="p" rel="prev">1.2</a>, Up: <a href="1_002e2.xhtml#g_t1_002e2" accesskey="u" rel="prev">1.2</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

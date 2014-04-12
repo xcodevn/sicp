@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 1.3.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 1.3.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 1.3.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="1_002e3.xhtml#g_t1_002e3" rel="prev" title="1.3" />
-<link href="1_002e3_002e3.xhtml#g_t1_002e3_002e3" rel="next" title="1.3.3" />
-<link href="1_002e3_002e1.xhtml#g_t1_002e3_002e1" rel="prev" title="1.3.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 1.3.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="1_002e3.xhtml#g_t1_002e3" rel="prev" title="1.3"/>
+<link href="1_002e3_002e3.xhtml#g_t1_002e3_002e3" rel="next" title="1.3.3"/>
+<link href="1_002e3_002e1.xhtml#g_t1_002e3_002e1" rel="prev" title="1.3.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t1_002e3_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="1_002e3_002e3.xhtml#g_t1_002e3_002e3" accesskey="n" rel="next">1.3.3</a>, Previous: <a href="1_002e3_002e1.xhtml#g_t1_002e3_002e1" accesskey="p" rel="prev">1.3.1</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e3_002e3.xhtml#g_t1_002e3_002e3" accesskey="n" rel="next">1.3.3</a>, Previous: <a href="1_002e3_002e1.xhtml#g_t1_002e3_002e1" accesskey="p" rel="prev">1.3.1</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Constructing-Procedures-Using-Lambda"></a>
 <h4 class="subsection"><span class="secnum">1.3.2</span><span class="sectitle">Constructing Procedures Using <code>Lambda</code></span></h4>
@@ -47,50 +45,57 @@ times its input plus 2.”  We can do this by introducing the special form
 what we want as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">4</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(lambda (x) (+ x 4))
+</pre></div>
 
 <p>and
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="lit">1.0</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">2</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(lambda (x) (/ 1.0 (* x (+ x 2))))
+</pre></div>
 
 <p>Then our <code>pi-sum</code> procedure can be expressed without defining any
 auxiliary procedures as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">pi-sum a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">sum </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="lit">1.0</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">2</span><span class="clo">))))</span><span class="pln">
+<pre class="lisp">(define (pi-sum a b)
+  (sum (lambda (x) (/ 1.0 (* x (+ x 2))))
        a
-       </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">4</span><span class="clo">))</span><span class="pln">
-       b</span><span class="clo">))</span></pre></div>
+       (lambda (x) (+ x 4))
+       b))
+</pre></div>
 
 <p>Again using <code>lambda</code>, we can write the <code>integral</code> procedure without
 having to define the auxiliary procedure <code>add-dx</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">integral f a b dx</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum f </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> a </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> dx </span><span class="lit">2.0</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x dx</span><span class="clo">))</span><span class="pln">
-            b</span><span class="clo">)</span><span class="pln">
-     dx</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (integral f a b dx)
+  (* (sum f (+ a (/ dx 2.0))
+            (lambda (x) (+ x dx))
+            b)
+     dx))
+</pre></div>
 
 <p>In general, <code>lambda</code> is used to create procedures in the same way as
 <code>define</code>, except that no name is specified for the procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">formal-parameters</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln"> ⟨</span><var><span class="pln">body</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(lambda (⟨<var>formal-parameters</var>⟩) ⟨<var>body</var>⟩)
+</pre></div>
 
 <p>The resulting procedure is just as much a procedure as one that is created
 using <code>define</code>.  The only difference is that it has not been associated
 with any name in the environment.  In fact,
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">plus4 x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">4</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (plus4 x) (+ x 4))
+</pre></div>
 
 <p>is equivalent to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> plus4 </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">4</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define plus4 (lambda (x) (+ x 4)))
+</pre></div>
 
 <p>We can read a <code>lambda</code> expression as follows:
 </p>
@@ -104,8 +109,8 @@ the procedure of an argument x that adds x and 4
 expression can be used as the operator in a combination such as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x y z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x y </span><span class="opn">(</span><span class="pln">square z</span><span class="clo">)))</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">3</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">12</span></i>
+<pre class="lisp">((lambda (x y z) (+ x y (square z))) 1 2 3)
+<i>12</i>
 </pre></div>
 
 <p>or, more generally, in any context where we would normally use a procedure
@@ -118,199 +123,73 @@ name.<a class="footnote_link" id="DOCF53" href="#FOOT53"><sup>53</sup></a>
 local variables in our procedures other than those that have been bound as
 formal parameters.  For example, suppose we wish to compute the function
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>f</mi>
-    <mo stretchy="false">(</mo>
-    <mi>x</mi>
-    <mo>,</mo>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo>+</mo>
-    <mi>x</mi>
-    <mi>y</mi>
-    <msup>
-      <mo stretchy="false">)</mo>
-      <mn>2</mn>
-    </msup>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>y</mi>
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo>−<!-- − --></mo>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-  <mo>+</mo>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo>+</mo>
-    <mi>x</mi>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-    <mo stretchy="false">(</mo>
-    <mn>1</mn>
-    <mo>−<!-- − --></mo>
-    <mi>y</mi>
-    <mo stretchy="false">)</mo>
-    <mo>,</mo>
-  </mrow>
-</math>
+\[ % :22:
+  
+{f(x,y)} \,=\, {x(1 + xy)^2} + {y(1 - y)} + {(1 + xy)(1 - y),}
+\]
 
 which we could also express as
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mtable columnalign="right center left" rowspacing="3pt" columnspacing="thickmathspace">
-    <mtr>
-      <mtd>
-        <mi>a</mi>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mn>1</mn>
-          <mo>+</mo>
-          <mi>x</mi>
-          <mi>y</mi>
-          <mo>,</mo>
-        </mrow>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mpadded height="0" depth="0">
-            <mphantom>
-              <mo stretchy="false">(</mo>
-              <mi>x</mi>
-              <mo>,</mo>
-              <mi>y</mi>
-              <mo stretchy="false">)</mo>
-            </mphantom>
-          </mpadded>
-        </mrow>
-        <mi>b</mi>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mn>1</mn>
-          <mo>−<!-- − --></mo>
-          <mi>y</mi>
-          <mo>,</mo>
-        </mrow>
-      </mtd>
-    </mtr>
-    <mtr>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>f</mi>
-          <mo stretchy="false">(</mo>
-          <mi>x</mi>
-          <mo>,</mo>
-          <mi>y</mi>
-          <mo stretchy="false">)</mo>
-        </mrow>
-      </mtd>
-      <mtd>
-        <mo>=</mo>
-      </mtd>
-      <mtd>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>x</mi>
-          <msup>
-            <mi>a</mi>
-            <mn>2</mn>
-          </msup>
-        </mrow>
-        <mo>+</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>y</mi>
-          <mi>b</mi>
-        </mrow>
-        <mo>+</mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi>a</mi>
-          <mi>b</mi>
-          <mo>.</mo>
-        </mrow>
-      </mtd>
-    </mtr>
-  </mtable>
-</math>
+\[ % :23:
+ 
+\begin{eqnarray}
+  a                     &amp;=&amp;   {1 + xy,}  \\
+  \hphantom{(x,y)} b    &amp;=&amp;   {1 - y,}   \\
+  {f(x,y)}              &amp;=&amp;   {xa^2} + {yb} + {ab.}
+\end{eqnarray}
+\]
 
-In writing a procedure to compute <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math>, we would like to include as local
-variables not only <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> but also the names of intermediate
-quantities like <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math>.  One way to accomplish this is to use an
+In writing a procedure to compute \( f \), we would like to include as local
+variables not only \( x \) and \( y \) but also the names of intermediate
+quantities like \( a \) and \( b \).  One way to accomplish this is to use an
 auxiliary procedure to bind the local variables:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f-helper a b</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">square a</span><span class="clo">))</span><span class="pln">
-       </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> y b</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> a b</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">f-helper </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln"> 
-            </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> y</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (f x y)
+  (define (f-helper a b)
+    (+ (* x (square a))
+       (* y b)
+       (* a b)))
+  (f-helper (+ 1 (* x y)) 
+            (- 1 y)))
+</pre></div>
 
 <p>Of course, we could use a <code>lambda</code> expression to specify an anonymous
 procedure for binding our local variables.  The body of <code>f</code> then becomes a
 single call to that procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">a b</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">square a</span><span class="clo">))</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> y b</span><span class="clo">)</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> a b</span><span class="clo">)))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x y</span><span class="clo">))</span><span class="pln">
-   </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> y</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (f x y)
+  ((lambda (a b)
+     (+ (* x (square a)) 
+        (* y b) 
+        (* a b)))
+   (+ 1 (* x y))
+   (- 1 y)))
+</pre></div>
 
 <p>This construct is so useful that there is a special form called <code>let</code> to
 make its use more convenient.  Using <code>let</code>, the <code>f</code> procedure could
 be written as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">a </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x y</span><span class="clo">)))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">b </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> y</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">square a</span><span class="clo">))</span><span class="pln">
-       </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> y b</span><span class="clo">)</span><span class="pln">
-       </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> a b</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (f x y)
+  (let ((a (+ 1 (* x y)))
+        (b (- 1 y)))
+    (+ (* x (square a))
+       (* y b)
+       (* a b))))
+</pre></div>
 
 <p>The general form of a <code>let</code> expression is
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">⟨</span><var><span class="pln">var</span><span class="pun">₁</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">exp</span><span class="pun">₁</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">var</span><span class="pun">₂</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">exp</span><span class="pun">₂</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-      </span><span class="roman"><span class="pun">…</span></span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">var</span><span class="pun">ₙ</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">exp</span><span class="pun">ₙ</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-  ⟨</span><var><span class="pln">body</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(let ((⟨<var>var₁</var>⟩ ⟨<var>exp₁</var>⟩)
+      (⟨<var>var₂</var>⟩ ⟨<var>exp₂</var>⟩)
+      <span class="roman">…</span>
+      (⟨<var>varₙ</var>⟩ ⟨<var>expₙ</var>⟩))
+  ⟨<var>body</var>⟩)
+</pre></div>
 
 <p>which can be thought of as saying
 </p>
@@ -329,11 +208,12 @@ names bound as local variables.  The way this happens is that the <code>let</cod
 expression is interpreted as an alternate syntax for
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">((</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">⟨</span><var><span class="pln">var</span><span class="pun">₁</span></var><span class="pln">⟩ </span><span class="roman"><span class="pun">…</span></span><span class="pln"> ⟨</span><var><span class="pln">var</span><span class="pun">ₙ</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-   ⟨</span><var><span class="pln">body</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
- ⟨</span><var><span class="pln">exp</span><span class="pun">₁</span></var><span class="pln">⟩
- </span><span class="roman"><span class="pun">…</span></span><span class="pln">
- ⟨</span><var><span class="pln">exp</span><span class="pun">ₙ</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">((lambda (⟨<var>var₁</var>⟩ <span class="roman">…</span> ⟨<var>varₙ</var>⟩)
+   ⟨<var>body</var>⟩)
+ ⟨<var>exp₁</var>⟩
+ <span class="roman">…</span>
+ ⟨<var>expₙ</var>⟩)
+</pre></div>
 
 <p>No new mechanism is required in the interpreter in order to provide local
 variables.  A <code>let</code> expression is simply syntactic sugar for the
@@ -348,9 +228,10 @@ are to be used.  For example, if the value of <code>x</code> is 5, the value of 
 expression
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">x </span><span class="lit">3</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x </span><span class="lit">10</span><span class="clo">)))</span><span class="pln">
-   x</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(+ (let ((x 3))
+     (+ x (* x 10)))
+   x)
+</pre></div>
 
 <p>is 38.  Here, the <code>x</code> in the body of the <code>let</code> is 3, so the value of
 the <code>let</code> expression is 33.  On the other hand, the <code>x</code> that is the
@@ -362,9 +243,10 @@ variables having the same names as the local variables themselves.  For
 example, if the value of <code>x</code> is 2, the expression
 
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">x </span><span class="lit">3</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">y </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x </span><span class="lit">2</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x y</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(let ((x 3)
+      (y (+ x 2)))
+  (* x y))
+</pre></div>
 
 <p>will have the value 12 because, inside the body of the <code>let</code>, <code>x</code>
 will be 3 and <code>y</code> will be 4 (which is the outer <code>x</code> plus 2).
@@ -375,13 +257,14 @@ will be 3 and <code>y</code> will be 4 (which is the outer <code>x</code> plus 2
 <code>let</code>.  For example, we could have defined the procedure <code>f</code> above as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> a 
-    </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x y</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> b </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> y</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> x </span><span class="opn">(</span><span class="pln">square a</span><span class="clo">))</span><span class="pln">
-     </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> y b</span><span class="clo">)</span><span class="pln">
-     </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> a b</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define (f x y)
+  (define a 
+    (+ 1 (* x y)))
+  (define b (- 1 y))
+  (+ (* x (square a))
+     (* y b)
+     (* a b)))
+</pre></div>
 
 <p>We prefer, however, to use <code>let</code> in situations like this and to use
 internal <code>define</code> only for internal procedures.<a class="footnote_link" id="DOCF54" href="#FOOT54"><sup>54</sup></a>
@@ -390,16 +273,17 @@ internal <code>define</code> only for internal procedures.<a class="footnote_lin
 <p><strong><a id="Exercise-1_002e34"></a>Exercise 1.34:</strong> Suppose we define the procedure
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">f g</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">g </span><span class="lit">2</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (f g) (g 2))
+</pre></div>
 
 <p>Then we have
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">f square</span><span class="clo">)</span><span class="pln">
-</span><i><span class="lit">4</span></i><span class="pln">
+<pre class="lisp">(f square)
+<i>4</i>
 
-</span><span class="opn">(</span><span class="pln">f </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">z</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> z </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> z </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
-</span><i><span class="lit">6</span></i>
+(f (lambda (z) (* z (+ z 1))))
+<i>6</i>
 </pre></div>
 
 <p>What happens if we (perversely) ask the interpreter to evaluate the combination
@@ -407,7 +291,7 @@ internal <code>define</code> only for internal procedures.<a class="footnote_lin
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -431,10 +315,10 @@ definitions of procedures, however.  We will return to this issue in
 <a href="4_002e1_002e6.xhtml#g_t4_002e1_002e6">4.1.6</a>, after we learn more about evaluation.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="1_002e3_002e3.xhtml#g_t1_002e3_002e3" accesskey="n" rel="next">1.3.3</a>, Previous: <a href="1_002e3_002e1.xhtml#g_t1_002e3_002e1" accesskey="p" rel="prev">1.3.1</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="1_002e3_002e3.xhtml#g_t1_002e3_002e3" accesskey="n" rel="next">1.3.3</a>, Previous: <a href="1_002e3_002e1.xhtml#g_t1_002e3_002e1" accesskey="p" rel="prev">1.3.1</a>, Up: <a href="1_002e3.xhtml#g_t1_002e3" accesskey="u" rel="prev">1.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

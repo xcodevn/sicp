@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.5.1</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.5.1</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.5.1" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.5.1" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e5.xhtml#g_t3_002e5" rel="prev" title="3.5" />
-<link href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" rel="next" title="3.5.2" />
-<link href="3_002e5.xhtml#g_t3_002e5" rel="prev" title="3.5" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.5.1"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.5.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e5.xhtml#g_t3_002e5" rel="prev" title="3.5"/>
+<link href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" rel="next" title="3.5.2"/>
+<link href="3_002e5.xhtml#g_t3_002e5" rel="prev" title="3.5"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e5_002e1"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" accesskey="n" rel="next">3.5.2</a>, Previous: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="p" rel="prev">3.5</a>, Up: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="u" rel="prev">3.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" accesskey="n" rel="next">3.5.2</a>, Previous: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="p" rel="prev">3.5</a>, Up: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="u" rel="prev">3.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Streams-Are-Delayed-Lists"></a>
 <h4 class="subsection"><span class="secnum">3.5.1</span><span class="sectitle">Streams Are Delayed Lists</span></h4>
@@ -53,24 +51,26 @@ all the prime numbers in an interval.  The first program is written in standard
 iterative style:<a class="footnote_link" id="DOCF181" href="#FOOT181"><sup>181</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum-primes a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">iter count accum</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pun">&gt;</span><span class="pln"> count b</span><span class="clo">)</span><span class="pln"> accum</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">((</span><span class="pln">prime? count</span><span class="clo">)</span><span class="pln"> 
-             </span><span class="opn">(</span><span class="pln">iter </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> count </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> 
-                   </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> count accum</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">iter </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> count </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> accum</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">iter a </span><span class="lit">0</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (sum-primes a b)
+  (define (iter count accum)
+    (cond ((&gt; count b) accum)
+          ((prime? count) 
+             (iter (+ count 1) 
+                   (+ count accum)))
+          (else (iter (+ count 1) accum))))
+  (iter a 0))
+</pre></div>
 
 <p>The second program performs the same computation using the sequence operations
 of <a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3">2.2.3</a>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">sum-primes a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">accumulate 
-   </span><span class="pun">+</span><span class="pln">
-   </span><span class="lit">0</span><span class="pln">
-   </span><span class="opn">(</span><span class="pln">filter prime? </span><span class="opn">(</span><span class="pln">enumerate-interval a b</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (sum-primes a b)
+  (accumulate 
+   +
+   0
+   (filter prime? (enumerate-interval a b))))
+</pre></div>
 
 <p>In carrying out the computation, the first program needs to store only the sum
 being accumulated.  In contrast, the filter in the second program cannot do any
@@ -86,10 +86,11 @@ sequence paradigm to compute the second prime in the interval from 10,000 to
 1,000,000 by evaluating the expression
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">car</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> 
-      </span><span class="opn">(</span><span class="pln">filter 
+<pre class="lisp">(car (cdr 
+      (filter 
        prime?
-       </span><span class="opn">(</span><span class="pln">enumerate-interval </span><span class="lit">10000</span><span class="pln"> </span><span class="lit">1000000</span><span class="clo">))))</span></pre></div>
+       (enumerate-interval 10000 1000000))))
+</pre></div>
 
 <p>This expression does find the second prime, but the computational overhead is
 outrageous.  We construct a list of almost a million integers, filter this list
@@ -130,35 +131,37 @@ stream analogs of the list operations from <a href="Chapter-2.xhtml#Chapter-2">C
 <code>list-ref</code>, <code>map</code>, and <code>for-each</code>:<a class="footnote_link" id="DOCF183" href="#FOOT183"><sup>183</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-ref s n</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> n </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">stream-ref </span><span class="opn">(</span><span class="pln">stream-cdr s</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> n </span><span class="lit">1</span><span class="clo">))))</span><span class="pln">
+<pre class="lisp">(define (stream-ref s n)
+  (if (= n 0)
+      (stream-car s)
+      (stream-ref (stream-cdr s) (- n 1))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-map proc s</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-null? s</span><span class="clo">)</span><span class="pln">
+(define (stream-map proc s)
+  (if (stream-null? s)
       the-empty-stream
-      </span><span class="opn">(</span><span class="pln">cons-stream 
-       </span><span class="opn">(</span><span class="pln">proc </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">))</span><span class="pln">
-       </span><span class="opn">(</span><span class="pln">stream-map proc </span><span class="opn">(</span><span class="pln">stream-cdr s</span><span class="clo">)))))</span><span class="pln">
+      (cons-stream 
+       (proc (stream-car s))
+       (stream-map proc (stream-cdr s)))))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-for-each proc s</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-null? s</span><span class="clo">)</span><span class="pln">
-      </span><span class="lit">'done</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pln">proc </span><span class="opn">(</span><span class="pln">stream-car s</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">stream-for-each proc 
-                         </span><span class="opn">(</span><span class="pln">stream-cdr s</span><span class="clo">)))))</span></pre></div>
+(define (stream-for-each proc s)
+  (if (stream-null? s)
+      'done
+      (begin 
+        (proc (stream-car s))
+        (stream-for-each proc 
+                         (stream-cdr s)))))
+</pre></div>
 
 <p><code>Stream-for-each</code> is useful for viewing streams:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">display-stream s</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">stream-for-each display-line s</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (display-stream s)
+  (stream-for-each display-line s))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">display-line x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">newline</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">display x</span><span class="clo">))</span></pre></div>
+(define (display-line x)
+  (newline)
+  (display x))
+</pre></div>
 
 <p>To make the stream implementation automatically and transparently interleave
 the construction of a stream with its use, we will arrange for the <code>cdr</code>
@@ -191,12 +194,14 @@ let us use these to construct streams.
 <p><code>Cons-stream</code> is a special form defined so that
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">cons-stream ⟨</span><var><span class="pln">a</span></var><span class="pln">⟩ ⟨</span><var><span class="pln">b</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(cons-stream ⟨<var>a</var>⟩ ⟨<var>b</var>⟩)
+</pre></div>
 
 <p>is equivalent to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> ⟨</span><var><span class="pln">a</span></var><span class="pln">⟩ </span><span class="opn">(</span><span class="kwd">delay</span><span class="pln"> ⟨</span><var><span class="pln">b</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(cons ⟨<var>a</var>⟩ (delay ⟨<var>b</var>⟩))
+</pre></div>
 
 <p>What this means is that we will construct streams using pairs.  However, rather
 than placing the value of the rest of the stream into the <code>cdr</code> of the
@@ -204,11 +209,12 @@ pair we will put there a promise to compute the rest if it is ever requested.
 <code>Stream-car</code> and <code>stream-cdr</code> can now be defined as procedures:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-car stream</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> stream</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (stream-car stream) 
+  (car stream))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-cdr stream</span><span class="clo">)</span><span class="pln"> 
-  </span><span class="opn">(</span><span class="pln">force </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> stream</span><span class="clo">)))</span></pre></div>
+(define (stream-cdr stream) 
+  (force (cdr stream)))
+</pre></div>
 
 <p><code>Stream-car</code> selects the <code>car</code> of the pair; <code>stream-cdr</code> selects
 the <code>cdr</code> of the pair and evaluates the delayed expression found there to
@@ -221,11 +227,12 @@ obtain the rest of the stream.<a class="footnote_link" id="DOCF184" href="#FOOT1
 computation we saw above, reformulated in terms of streams:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">stream-car 
- </span><span class="opn">(</span><span class="pln">stream-cdr
-  </span><span class="opn">(</span><span class="pln">stream-filter 
-   prime? </span><span class="opn">(</span><span class="pln">stream-enumerate-interval 
-           </span><span class="lit">10000</span><span class="pln"> </span><span class="lit">1000000</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(stream-car 
+ (stream-cdr
+  (stream-filter 
+   prime? (stream-enumerate-interval 
+           10000 1000000))))
+</pre></div>
 
 <p>We will see that it does indeed work efficiently.
 </p>
@@ -234,23 +241,25 @@ and 1,000,000.  <code>Stream-enumerate-interval</code> is the stream analog of
 <code>enumerate-interval</code> (<a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3">2.2.3</a>):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-enumerate-interval low high</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&gt;</span><span class="pln"> low high</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define (stream-enumerate-interval low high)
+  (if (&gt; low high)
       the-empty-stream
-      </span><span class="opn">(</span><span class="pln">cons-stream
+      (cons-stream
         low
-        </span><span class="opn">(</span><span class="pln">stream-enumerate-interval </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> low </span><span class="lit">1</span><span class="clo">)</span><span class="pln"> 
-                                   high</span><span class="clo">))))</span></pre></div>
+        (stream-enumerate-interval (+ low 1) 
+                                   high))))
+</pre></div>
 
 <p>and thus the result returned by <code>stream-enumerate-interval</code>, formed by the
 <code>cons-stream</code>, is<a class="footnote_link" id="DOCF185" href="#FOOT185"><sup>185</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">10000</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">delay</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pln">stream-enumerate-interval 
-         </span><span class="lit">10001</span><span class="pln"> 
-         </span><span class="lit">1000000</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(cons 10000
+      (delay 
+        (stream-enumerate-interval 
+         10001 
+         1000000)))
+</pre></div>
 
 <p>That is, <code>stream-enumerate-interval</code> returns a stream represented as a
 pair whose <code>car</code> is 10,000 and whose <code>cdr</code> is a promise to enumerate
@@ -258,18 +267,19 @@ more of the interval if so requested.  This stream is now filtered for primes,
 using the stream analog of the <code>filter</code> procedure (<a href="2_002e2_002e3.xhtml#g_t2_002e2_002e3">2.2.3</a>):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-filter pred stream</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">stream-null? stream</span><span class="clo">)</span><span class="pln"> 
-         the-empty-stream</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">((</span><span class="pln">pred </span><span class="opn">(</span><span class="pln">stream-car stream</span><span class="clo">))</span><span class="pln">
-         </span><span class="opn">(</span><span class="pln">cons-stream 
-          </span><span class="opn">(</span><span class="pln">stream-car stream</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">stream-filter 
+<pre class="lisp">(define (stream-filter pred stream)
+  (cond ((stream-null? stream) 
+         the-empty-stream)
+        ((pred (stream-car stream))
+         (cons-stream 
+          (stream-car stream)
+          (stream-filter 
            pred
-           </span><span class="opn">(</span><span class="pln">stream-cdr stream</span><span class="clo">))))</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-filter 
+           (stream-cdr stream))))
+        (else (stream-filter 
                pred 
-               </span><span class="opn">(</span><span class="pln">stream-cdr stream</span><span class="clo">)))))</span></pre></div>
+               (stream-cdr stream)))))
+</pre></div>
 
 <p><code>Stream-filter</code> tests the <code>stream-car</code> of the stream (the <code>car</code>
 of the pair, which is 10,000).  Since this is not prime, <code>stream-filter</code>
@@ -278,11 +288,12 @@ examines the <code>stream-cdr</code> of its input stream.  The call to
 <code>stream-enumerate-interval</code>, which now returns
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">10001</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">delay</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pln">stream-enumerate-interval 
-         </span><span class="lit">10002</span><span class="pln"> 
-         </span><span class="lit">1000000</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(cons 10001
+      (delay 
+        (stream-enumerate-interval 
+         10002 
+         1000000)))
+</pre></div>
 
 <p><code>Stream-filter</code> now looks at the <code>stream-car</code> of this stream, 10,001,
 sees that this is not prime either, forces another <code>stream-cdr</code>, and so
@@ -290,21 +301,23 @@ on, until <code>stream-enumerate-interval</code> yields the prime 10,007, whereu
 <code>stream-filter</code>, according to its definition, returns
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">cons-stream 
- </span><span class="opn">(</span><span class="pln">stream-car stream</span><span class="clo">)</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">stream-filter pred </span><span class="opn">(</span><span class="pln">stream-cdr stream</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(cons-stream 
+ (stream-car stream)
+ (stream-filter pred (stream-cdr stream)))
+</pre></div>
 
 <p>which in this case is
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">10007</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">delay</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">stream-filter
+<pre class="lisp">(cons 10007
+      (delay
+        (stream-filter
          prime?
-         </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">10008</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">delay</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">stream-enumerate-interval 
-                  </span><span class="lit">10009</span><span class="pln"> </span><span class="lit">1000000</span><span class="clo">))))))</span></pre></div>
+         (cons 10008
+               (delay
+                 (stream-enumerate-interval 
+                  10009 1000000))))))
+</pre></div>
 
 <p>This result is now passed to <code>stream-cdr</code> in our original expression.
 This forces the delayed <code>stream-filter</code>, which in turn keeps forcing the
@@ -313,14 +326,15 @@ is 10,009.  Finally, the result passed to <code>stream-car</code> in our origina
 expression is
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">10009</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">delay</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">stream-filter
+<pre class="lisp">(cons 10009
+      (delay
+        (stream-filter
          prime?
-         </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> </span><span class="lit">10010</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">delay</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">stream-enumerate-interval 
-                  </span><span class="lit">10011</span><span class="pln"> </span><span class="lit">1000000</span><span class="clo">))))))</span></pre></div>
+         (cons 10010
+               (delay
+                 (stream-enumerate-interval 
+                  10011 1000000))))))
+</pre></div>
 
 <p><code>Stream-car</code> returns 10,009, and the computation is complete.  Only as
 many integers were tested for primality as were necessary to find the second
@@ -345,19 +359,22 @@ accomplish this simply by treating the expression as the body of a procedure.
 <code>Delay</code> can be a special form such that
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">delay</span><span class="pln"> ⟨</span><var><span class="pln">exp</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(delay ⟨<var>exp</var>⟩)
+</pre></div>
 
 <p>is syntactic sugar for
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> ⟨</span><var><span class="pln">exp</span></var><span class="pln">⟩</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(lambda () ⟨<var>exp</var>⟩)
+</pre></div>
 
 <p><code>Force</code> simply calls the procedure (of no arguments) produced by
 <code>delay</code>, so we can implement <code>force</code> as a procedure:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">force delayed-object</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">delayed-object</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (force delayed-object)
+  (delayed-object))
+</pre></div>
 
 <p>This implementation suffices for <code>delay</code> and <code>force</code> to work as
 advertised, but there is an important optimization that we can include.  In
@@ -374,20 +391,22 @@ The first time the memoized procedure is run, it saves the computed result.  On
 subsequent evaluations, it simply returns the result.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">memo-proc proc</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">already-run? false</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">result false</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">not already-run?</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> result </span><span class="opn">(</span><span class="pln">proc</span><span class="clo">))</span><span class="pln">
-                 </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> already-run? true</span><span class="clo">)</span><span class="pln">
-                 result</span><span class="clo">)</span><span class="pln">
-          result</span><span class="clo">))))</span></pre></div>
+<pre class="lisp">(define (memo-proc proc)
+  (let ((already-run? false) (result false))
+    (lambda ()
+      (if (not already-run?)
+          (begin (set! result (proc))
+                 (set! already-run? true)
+                 result)
+          result))))
+</pre></div>
 
 <p><code>Delay</code> is then defined so that <code>(delay ⟨<var>exp</var>⟩)</code> is equivalent
 to
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">memo-proc </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="clo">)</span><span class="pln"> ⟨</span><var><span class="pln">exp</span></var><span class="pln">⟩</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(memo-proc (lambda () ⟨<var>exp</var>⟩))
+</pre></div>
 
 <p>and <code>force</code> is as defined previously.<a class="footnote_link" id="DOCF186" href="#FOOT186"><sup>186</sup></a>
 </p>
@@ -398,15 +417,16 @@ multiple arguments, analogous to <code>map</code> in <a href="2_002e2_002e1.xhtm
 <a href="2_002e2_002e1.xhtml#Footnote-78">Footnote 78</a>.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">stream-map proc </span><span class="pun">.</span><span class="pln"> argstreams</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">⟨</span><span class="pun">??</span><span class="pln">⟩ </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> argstreams</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">(define (stream-map proc . argstreams)
+  (if (⟨??⟩ (car argstreams))
       the-empty-stream
-      </span><span class="opn">(</span><span class="pln">⟨</span><span class="pun">??</span><span class="pln">⟩
-       </span><span class="opn">(</span><span class="pln">apply proc </span><span class="opn">(</span><span class="pln">map ⟨</span><span class="pun">??</span><span class="pln">⟩ argstreams</span><span class="clo">))</span><span class="pln">
-       </span><span class="opn">(</span><span class="pln">apply stream-map
-              </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> proc 
-                    </span><span class="opn">(</span><span class="pln">map ⟨</span><span class="pun">??</span><span class="pln">⟩ 
-                         argstreams</span><span class="clo">))))))</span></pre></div>
+      (⟨??⟩
+       (apply proc (map ⟨??⟩ argstreams))
+       (apply stream-map
+              (cons proc 
+                    (map ⟨??⟩ 
+                         argstreams))))))
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -415,21 +435,23 @@ delayed evaluation, we will use the following procedure, which simply returns
 its argument after printing it:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">show x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">display-line x</span><span class="clo">)</span><span class="pln">
-  x</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (show x)
+  (display-line x)
+  x)
+</pre></div>
 
 <p>What does the interpreter print in response to evaluating each expression in
 the following sequence?<a class="footnote_link" id="DOCF187" href="#FOOT187"><sup>187</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> x 
-  </span><span class="opn">(</span><span class="pln">stream-map 
+<pre class="lisp">(define x 
+  (stream-map 
    show 
-   </span><span class="opn">(</span><span class="pln">stream-enumerate-interval </span><span class="lit">0</span><span class="pln"> </span><span class="lit">10</span><span class="clo">)))</span><span class="pln">
+   (stream-enumerate-interval 0 10)))
 
-</span><span class="opn">(</span><span class="pln">stream-ref x </span><span class="lit">5</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">stream-ref x </span><span class="lit">7</span><span class="clo">)</span></pre></div>
+(stream-ref x 5)
+(stream-ref x 7)
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -437,26 +459,27 @@ the following sequence?<a class="footnote_link" id="DOCF187" href="#FOOT187"><su
 expressions
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> sum </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
+<pre class="lisp">(define sum 0)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">accum x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> sum </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> x sum</span><span class="clo">))</span><span class="pln">
-  sum</span><span class="clo">)</span><span class="pln">
+(define (accum x)
+  (set! sum (+ x sum))
+  sum)
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> seq 
-  </span><span class="opn">(</span><span class="pln">stream-map 
+(define seq 
+  (stream-map 
    accum 
-   </span><span class="opn">(</span><span class="pln">stream-enumerate-interval </span><span class="lit">1</span><span class="pln"> </span><span class="lit">20</span><span class="clo">)))</span><span class="pln">
+   (stream-enumerate-interval 1 20)))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> y </span><span class="opn">(</span><span class="pln">stream-filter even? seq</span><span class="clo">))</span><span class="pln">
+(define y (stream-filter even? seq))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> z 
-  </span><span class="opn">(</span><span class="pln">stream-filter 
-   </span><span class="opn">(</span><span class="kwd">lambda</span><span class="pln"> </span><span class="opn">(</span><span class="pln">x</span><span class="clo">)</span><span class="pln"> 
-     </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">remainder x </span><span class="lit">5</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">))</span><span class="pln"> seq</span><span class="clo">))</span><span class="pln">
+(define z 
+  (stream-filter 
+   (lambda (x) 
+     (= (remainder x 5) 0)) seq))
 
-</span><span class="opn">(</span><span class="pln">stream-ref y </span><span class="lit">7</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">display-stream z</span><span class="clo">)</span></pre></div>
+(stream-ref y 7)
+(display-stream z)
+</pre></div>
 
 <p>What is the value of <code>sum</code> after each of the above expressions is
 evaluated?  What is the printed response to evaluating the <code>stream-ref</code>
@@ -466,7 +489,7 @@ without using the optimization provided by <code>memo-proc</code>?  Explain.
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -535,10 +558,10 @@ precisely what we cannot afford to do in the presence of assignment, which
 forces us to be concerned with time and change.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" accesskey="n" rel="next">3.5.2</a>, Previous: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="p" rel="prev">3.5</a>, Up: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="u" rel="prev">3.5</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e5_002e2.xhtml#g_t3_002e5_002e2" accesskey="n" rel="next">3.5.2</a>, Previous: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="p" rel="prev">3.5</a>, Up: <a href="3_002e5.xhtml#g_t3_002e5" accesskey="u" rel="prev">3.5</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 5.3.2</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.3.2</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 5.3.2" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 5.3.2" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="5_002e3.xhtml#g_t5_002e3" rel="prev" title="5.3" />
-<link href="5_002e4.xhtml#g_t5_002e4" rel="next" title="5.4" />
-<link href="5_002e3_002e1.xhtml#g_t5_002e3_002e1" rel="prev" title="5.3.1" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.3.2"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 5.3.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="5_002e3.xhtml#g_t5_002e3" rel="prev" title="5.3"/>
+<link href="5_002e4.xhtml#g_t5_002e4" rel="next" title="5.4"/>
+<link href="5_002e3_002e1.xhtml#g_t5_002e3_002e1" rel="prev" title="5.3.1"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t5_002e3_002e2"></a>
 <nav class="header">
 <p>
-Next: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="n" rel="next">5.4</a>, Previous: <a href="5_002e3_002e1.xhtml#g_t5_002e3_002e1" accesskey="p" rel="prev">5.3.1</a>, Up: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="u" rel="prev">5.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="n" rel="next">5.4</a>, Previous: <a href="5_002e3_002e1.xhtml#g_t5_002e3_002e1" accesskey="p" rel="prev">5.3.1</a>, Up: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="u" rel="prev">5.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Maintaining-the-Illusion-of-Infinite-Memory"></a>
 <h4 class="subsection"><span class="secnum">5.3.2</span><span class="sectitle">Maintaining the Illusion of Infinite Memory</span></h4>
@@ -46,10 +44,11 @@ longer needed—they are <a id="index-garbage"></a>
 <em>garbage</em>.  For instance, the computation
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">accumulate 
- </span><span class="pun">+</span><span class="pln"> 
- </span><span class="lit">0</span><span class="pln">
- </span><span class="opn">(</span><span class="pln">filter odd? </span><span class="opn">(</span><span class="pln">enumerate-interval </span><span class="lit">0</span><span class="pln"> n</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(accumulate 
+ + 
+ 0
+ (filter odd? (enumerate-interval 0 n)))
+</pre></div>
 
 <p>constructs two lists: the enumeration and the result of filtering the
 enumeration.  When the accumulation is complete, these lists are no longer
@@ -170,16 +169,17 @@ install the new pointer as the new <code>root</code> and enter the main loop of 
 garbage collector.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">begin-garbage-collection
-  </span><span class="opn">(</span><span class="pln">assign free </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign scan </span><span class="opn">(</span><span class="pln">const </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign old </span><span class="opn">(</span><span class="pln">reg root</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign relocate-continue 
-          </span><span class="opn">(</span><span class="pln">label reassign-root</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label relocate-old-result-in-new</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">begin-garbage-collection
+  (assign free (const 0))
+  (assign scan (const 0))
+  (assign old (reg root))
+  (assign relocate-continue 
+          (label reassign-root))
+  (goto (label relocate-old-result-in-new))
 reassign-root
-  </span><span class="opn">(</span><span class="pln">assign root </span><span class="opn">(</span><span class="pln">reg new</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gc-loop</span><span class="clo">))</span></pre></div>
+  (assign root (reg new))
+  (goto (label gc-loop))
+</pre></div>
 
 <p>In the main loop of the garbage collector we must determine whether there are
 any more objects to be scanned.  We do this by testing whether the <code>scan</code>
@@ -192,16 +192,17 @@ subroutine to relocate the <code>car</code> of the next pair (by placing the
 set up so that the subroutine will return to update the <code>car</code> pointer.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">gc-loop
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op </span><span class="pun">=</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg scan</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg free</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label gc-flip</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign old 
-          </span><span class="opn">(</span><span class="pln">op vector-ref</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg new-cars</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">reg scan</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign relocate-continue 
-          </span><span class="opn">(</span><span class="pln">label update-car</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label relocate-old-result-in-new</span><span class="clo">))</span></pre></div>
+<pre class="lisp">gc-loop
+  (test (op =) (reg scan) (reg free))
+  (branch (label gc-flip))
+  (assign old 
+          (op vector-ref)
+          (reg new-cars)
+          (reg scan))
+  (assign relocate-continue 
+          (label update-car))
+  (goto (label relocate-old-result-in-new))
+</pre></div>
 
 <p>At <code>update-car</code>, we modify the <code>car</code> pointer of the pair being
 scanned, then proceed to relocate the <code>cdr</code> of the pair.  We return to
@@ -210,25 +211,26 @@ and updating the <code>cdr</code>, we are finished scanning that pair, so we con
 with the main loop.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">update-car
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new-cars</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg scan</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign  old 
-           </span><span class="opn">(</span><span class="pln">op vector-ref</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new-cdrs</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg scan</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign  relocate-continue
-           </span><span class="opn">(</span><span class="pln">label update-cdr</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label relocate-old-result-in-new</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">update-car
+  (perform (op vector-set!)
+           (reg new-cars)
+           (reg scan)
+           (reg new))
+  (assign  old 
+           (op vector-ref)
+           (reg new-cdrs)
+           (reg scan))
+  (assign  relocate-continue
+           (label update-cdr))
+  (goto (label relocate-old-result-in-new))
 update-cdr
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new-cdrs</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg scan</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign  scan </span><span class="opn">(</span><span class="pln">op </span><span class="pun">+</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg scan</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">label gc-loop</span><span class="clo">))</span></pre></div>
+  (perform (op vector-set!)
+           (reg new-cdrs)
+           (reg scan)
+           (reg new))
+  (assign  scan (op +) (reg scan) (const 1))
+  (goto (label gc-loop))
+</pre></div>
 
 <p>The subroutine <code>relocate-old-result-in-new</code> relocates objects as follows:
 If the object to be relocated (pointed at by <code>old</code>) is not a pair, then we
@@ -248,50 +250,51 @@ broken-heart tag and forwarding address at the old location.
 <code>old</code>.<a class="footnote_link" id="DOCF303" href="#FOOT303"><sup>303</sup></a>
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">relocate-old-result-in-new
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op pointer-to-pair?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg old</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch </span><span class="opn">(</span><span class="pln">label pair</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign new </span><span class="opn">(</span><span class="pln">reg old</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg relocate-continue</span><span class="clo">))</span><span class="pln">
+<pre class="lisp">relocate-old-result-in-new
+  (test (op pointer-to-pair?) (reg old))
+  (branch (label pair))
+  (assign new (reg old))
+  (goto (reg relocate-continue))
 pair
-  </span><span class="opn">(</span><span class="pln">assign  oldcr 
-           </span><span class="opn">(</span><span class="pln">op vector-ref</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg the-cars</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg old</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">test </span><span class="opn">(</span><span class="pln">op broken-heart?</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg oldcr</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">branch  </span><span class="opn">(</span><span class="pln">label already-moved</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign  new </span><span class="opn">(</span><span class="pln">reg free</span><span class="clo">))</span><span class="pln"> </span><span class="roman"><span class="com">; new location for pair</span></span><span class="pln">
-  </span><span class="roman"><span class="com">;; Update </span><code><span class="com">free</span></code><span class="com"> pointer.</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign free </span><span class="opn">(</span><span class="pln">op </span><span class="pun">+</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">reg free</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">const </span><span class="lit">1</span><span class="clo">))</span><span class="pln">
-  </span><span class="roman"><span class="com">;; Copy the </span><code><span class="com">car</span></code><span class="com"> and </span><code><span class="com">cdr</span></code><span class="com"> to new memory.</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new-cars</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg oldcr</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign  oldcr 
-           </span><span class="opn">(</span><span class="pln">op vector-ref</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg the-cdrs</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg old</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new-cdrs</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg oldcr</span><span class="clo">))</span><span class="pln">
-  </span><span class="roman"><span class="com">;; Construct the broken heart.</span></span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg the-cars</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg old</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">const broken-heart</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">perform </span><span class="opn">(</span><span class="pln">op vector-set!</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg the-cdrs</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg old</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg new</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg relocate-continue</span><span class="clo">))</span><span class="pln">
+  (assign  oldcr 
+           (op vector-ref)
+           (reg the-cars)
+           (reg old))
+  (test (op broken-heart?) (reg oldcr))
+  (branch  (label already-moved))
+  (assign  new (reg free)) <span class="roman">; new location for pair</span>
+  <span class="roman">;; Update <code>free</code> pointer.</span>
+  (assign free (op +) (reg free) (const 1))
+  <span class="roman">;; Copy the <code>car</code> and <code>cdr</code> to new memory.</span>
+  (perform (op vector-set!)
+           (reg new-cars)
+           (reg new)
+           (reg oldcr))
+  (assign  oldcr 
+           (op vector-ref)
+           (reg the-cdrs)
+           (reg old))
+  (perform (op vector-set!)
+           (reg new-cdrs)
+           (reg new)
+           (reg oldcr))
+  <span class="roman">;; Construct the broken heart.</span>
+  (perform (op vector-set!)
+           (reg the-cars)
+           (reg old)
+           (const broken-heart))
+  (perform (op vector-set!)
+           (reg the-cdrs)
+           (reg old)
+           (reg new))
+  (goto (reg relocate-continue))
 already-moved
-  </span><span class="opn">(</span><span class="pln">assign  new
-           </span><span class="opn">(</span><span class="pln">op vector-ref</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg the-cdrs</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">reg old</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">goto </span><span class="opn">(</span><span class="pln">reg relocate-continue</span><span class="clo">))</span></pre></div>
+  (assign  new
+           (op vector-ref)
+           (reg the-cdrs)
+           (reg old))
+  (goto (reg relocate-continue))
+</pre></div>
 
 <p>At the very end of the garbage-collection process, we interchange the role of
 old and new memories by interchanging pointers: interchanging <code>the-cars</code>
@@ -299,16 +302,17 @@ with <code>new-cars</code>, and <code>the-cdrs</code> with <code>new-cdrs</code>
 be ready to perform another garbage collection the next time memory runs out.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="pln">gc-flip
-  </span><span class="opn">(</span><span class="pln">assign temp </span><span class="opn">(</span><span class="pln">reg the-cdrs</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign the-cdrs </span><span class="opn">(</span><span class="pln">reg new-cdrs</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign new-cdrs </span><span class="opn">(</span><span class="pln">reg temp</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign temp </span><span class="opn">(</span><span class="pln">reg the-cars</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign the-cars </span><span class="opn">(</span><span class="pln">reg new-cars</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">assign new-cars </span><span class="opn">(</span><span class="pln">reg temp</span><span class="clo">))</span></pre></div>
+<pre class="lisp">gc-flip
+  (assign temp (reg the-cdrs))
+  (assign the-cdrs (reg new-cdrs))
+  (assign new-cdrs (reg temp))
+  (assign temp (reg the-cars))
+  (assign the-cars (reg new-cars))
+  (assign new-cars (reg temp))
+</pre></div>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -316,26 +320,8 @@ be ready to perform another garbage collection the next time memory runs out.
 This may not be true eventually, because
 memories may get large enough so that it would be impossible to run out of free
 memory in the lifetime of the computer.  For example, there are about
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>3</mn>
-    <mo>⋅<!-- ⋅ --></mo>
-    <msup>
-      <mn>10</mn>
-      <mrow class="MJX-TeXAtom-ORD">
-        <mn>13</mn>
-      </mrow>
-    </msup>
-  </mrow>
-</math> microseconds in a year, so if we were to <code>cons</code> once per
-microsecond we would need about <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <msup>
-    <mn>10</mn>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mn>15</mn>
-    </mrow>
-  </msup>
-</math> cells of memory to build a machine that
+\( {3\cdot10^{13}} \) microseconds in a year, so if we were to <code>cons</code> once per
+microsecond we would need about \( 10^{15} \) cells of memory to build a machine that
 could operate for 30 years without running out of memory.  That much memory
 seems absurdly large by today’s standards, but it is not physically impossible.
 On the other hand, processors are getting faster and a future computer may have
@@ -400,10 +386,10 @@ For simulation purposes, <code>pointer-to-pair?</code> can be implemented as
 <code>pair?</code>.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="n" rel="next">5.4</a>, Previous: <a href="5_002e3_002e1.xhtml#g_t5_002e3_002e1" accesskey="p" rel="prev">5.3.1</a>, Up: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="u" rel="prev">5.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="5_002e4.xhtml#g_t5_002e4" accesskey="n" rel="next">5.4</a>, Previous: <a href="5_002e3_002e1.xhtml#g_t5_002e3_002e1" accesskey="p" rel="prev">5.3.1</a>, Up: <a href="5_002e3.xhtml#g_t5_002e3" accesskey="u" rel="prev">5.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 

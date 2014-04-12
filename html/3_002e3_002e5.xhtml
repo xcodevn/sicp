@@ -1,37 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <!-- Created by GNU Texinfo 5.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structure and Interpretation of Computer Programs, 2e: 3.3.5</title>
+<title>Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.5</title>
 
-<meta name="description" content="Structure and Interpretation of Computer Programs, 2e: 3.3.5" />
-<meta name="keywords" content="Structure and Interpretation of Computer Programs, 2e: 3.3.5" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="Generator" content="texi2any" />
-<meta charset="utf-8" />
-<link href="index.xhtml#Top" rel="start" title="Top" />
-<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index" />
-<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents" />
-<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3" />
-<link href="3_002e4.xhtml#g_t3_002e4" rel="next" title="3.4" />
-<link href="3_002e3_002e4.xhtml#g_t3_002e3_002e4" rel="prev" title="3.3.4" />
+<meta name="description" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.5"/>
+<meta name="keywords" content="Cau truc va Y nghia cua Chuong Trinh May tinh, 2e: 3.3.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="Generator" content="texi2any"/>
+<meta charset="utf-8"/>
+<link href="index.xhtml#Top" rel="start" title="Top"/>
+<link href="Term-Index.xhtml#Term-Index" rel="index" title="Term Index"/>
+<link href="index.xhtml#SEC_Contents" rel="contents" title="Table of Contents"/>
+<link href="3_002e3.xhtml#g_t3_002e3" rel="prev" title="3.3"/>
+<link href="3_002e4.xhtml#g_t3_002e4" rel="next" title="3.4"/>
+<link href="3_002e3_002e4.xhtml#g_t3_002e3_002e4" rel="prev" title="3.3.4"/>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/prettify.css" rel="stylesheet" type="text/css" />
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/footnotes.js" type="text/javascript"></script>
-<script src="js/browsertest.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/prettify.js" type="text/javascript"></script>
+<script class="prettifier" src="js/highlight/lang-lisp.js" type="text/javascript"></script>
 </head>
 
 <body>
 <section><a id="g_t3_002e3_002e5"></a>
 <nav class="header">
 <p>
-Next: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="n" rel="next">3.4</a>, Previous: <a href="3_002e3_002e4.xhtml#g_t3_002e3_002e4" accesskey="p" rel="prev">3.3.4</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="n" rel="next">3.4</a>, Previous: <a href="3_002e3_002e4.xhtml#g_t3_002e3_002e4" accesskey="p" rel="prev">3.3.4</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
-<hr />
+<hr/>
 
 <a id="Propagation-of-Constraints"></a>
 <h4 class="subsection"><span class="secnum">3.3.5</span><span class="sectitle">Propagation of Constraints</span></h4>
@@ -40,48 +38,17 @@ Next: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="n" rel="next">3.4</a>, Previ
 which perform operations on prespecified arguments to produce desired outputs.
 On the other hand, we often model systems in terms of relations among
 quantities.  For example, a mathematical model of a mechanical structure might
-include the information that the deflection <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>d</mi>
-</math> of a metal rod is related to
-the force <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>F</mi>
-</math> on the rod, the length <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>L</mi>
-</math> of the rod, the cross-sectional
-area <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math>, and the elastic modulus <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>E</mi>
-</math> via the equation
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>d</mi>
-    <mi>A</mi>
-    <mi>E</mi>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>F</mi>
-    <mi>L</mi>
-    <mo>.</mo>
-  </mrow>
-</math>
+include the information that the deflection \( d \) of a metal rod is related to
+the force \( F \) on the rod, the length \( L \) of the rod, the cross-sectional
+area \( A \), and the elastic modulus \( E \) via the equation
+\[ % :61:
+  {dAE} \,=\, {FL.}  \]
 Such an equation is not one-directional.  Given any four of the quantities, we
 can use it to compute the fifth.  Yet translating the equation into a
 traditional computer language would force us to choose one of the quantities to
 be computed in terms of the other four.  Thus, a procedure for computing the
-area <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> could not be used to compute the deflection <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>d</mi>
-</math>, even though the
-computations of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>A</mi>
-</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>d</mi>
-</math> arise from the same
+area \( A \) could not be used to compute the deflection \( d \), even though the
+computations of \( A \) and \( d \) arise from the same
 equation.<a class="footnote_link" id="DOCF159" href="#FOOT159"><sup>159</sup></a>
 </p>
 <p>In this section, we sketch the design of a language that enables us to work in
@@ -89,32 +56,9 @@ terms of relations themselves.  The primitive elements of the language are
 <a id="index-primitive-constraints"></a>
 <em>primitive constraints</em>, which state that certain relations hold
 between quantities.  For example, <code>(adder a b c)</code> specifies that the
-quantities <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>a</mi>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>b</mi>
-</math>, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>c</mi>
-</math> must be related by the equation 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>a</mi>
-    <mo>+</mo>
-    <mi>b</mi>
-    <mo>=</mo>
-    <mi>c</mi>
-  </mrow>
-</math>, <code>(multiplier x y z)</code> expresses the constraint 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mi>x</mi>
-    <mi>y</mi>
-    <mo>=</mo>
-    <mi>z</mi>
-  </mrow>
-</math>, and <code>(constant 3.14 x)</code> says that the value of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math> must be 3.14.
+quantities \( a \), \( b \), and \( c \) must be related by the equation 
+\( {a + b = c} \), <code>(multiplier x y z)</code> expresses the constraint 
+\( {xy = z} \), and <code>(constant 3.14 x)</code> says that the value of \( x \) must be 3.14.
 </p>
 <p>Our language provides a means of combining primitive constraints in order to
 express more complex relations.  We combine constraints by constructing
@@ -124,79 +68,25 @@ express more complex relations.  We combine constraints by constructing
 <em>connectors</em>.  A connector is an object that “holds” a value that may
 participate in one or more constraints.  For example, we know that the
 relationship between Fahrenheit and Celsius temperatures is
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>9</mn>
-    <mi>C</mi>
-  </mrow>
-  <mspace width="thinmathspace"/>
-  <mo>=</mo>
-  <mspace width="thinmathspace"/>
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>5</mn>
-    <mo stretchy="false">(</mo>
-    <mi>F</mi>
-    <mo>−<!-- − --></mo>
-    <mn>32</mn>
-    <mo stretchy="false">)</mo>
-    <mo>.</mo>
-  </mrow>
-</math>
+\[ % :62:
+  {9C} \,=\, {5(F - 32).}  \]
 Such a constraint can be thought of as a network consisting of primitive adder,
 multiplier, and constant constraints (<a href="#Figure-3_002e28">Figure 3.28</a>).  In the figure, we
-see on the left a multiplier box with three terminals, labeled <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>m</mi>
-</math>1, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>m</mi>
-</math>2,
-and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>p</mi>
-</math>.  These connect the multiplier to the rest of the network as follows:
-The <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>m</mi>
-</math>1 terminal is linked to a connector <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>C</mi>
-</math>, which will hold the Celsius
-temperature.  The <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>m</mi>
-</math>2 terminal is linked to a connector <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>w</mi>
-</math>, which is also
-linked to a constant box that holds 9.  The <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>p</mi>
-</math> terminal, which the
-multiplier box constrains to be the product of <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>m</mi>
-</math>1 and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>m</mi>
-</math>2, is linked to
-the <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>p</mi>
-</math> terminal of another multiplier box, whose <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>m</mi>
-</math>2 is connected to a
-constant 5 and whose <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>m</mi>
-</math>1 is connected to one of the terms in a sum.
+see on the left a multiplier box with three terminals, labeled \( m \)1, \( m \)2,
+and \( p \).  These connect the multiplier to the rest of the network as follows:
+The \( m \)1 terminal is linked to a connector \( C \), which will hold the Celsius
+temperature.  The \( m \)2 terminal is linked to a connector \( w \), which is also
+linked to a constant box that holds 9.  The \( p \) terminal, which the
+multiplier box constrains to be the product of \( m \)1 and \( m \)2, is linked to
+the \( p \) terminal of another multiplier box, whose \( m \)2 is connected to a
+constant 5 and whose \( m \)1 is connected to one of the terms in a sum.
 </p>
 <figure class="float">
 <a id="Figure-3_002e28"></a>
 <object style="width: 58.11ex; height: 18.30ex;" data="fig/chap3/Fig3.28.std.svg" type="image/svg+xml">SVG</object>
 
 <figcaption class="float-caption">
-<p><strong>Figure 3.28:</strong> The relation <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>9</mn>
-    <mi>C</mi>
-    <mo>=</mo>
-    <mn>5</mn>
-    <mo stretchy="false">(</mo>
-    <mi>F</mi>
-    <mo>−<!-- − --></mo>
-    <mn>32</mn>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math> expressed as a constraint network.</p>
+<p><strong>Figure 3.28:</strong> The relation \( {9C = 5(F - 32)} \) expressed as a constraint network.</p>
 </figcaption>
 </figure>
 
@@ -207,39 +97,13 @@ it) to inform them that it has a value.  Each awakened constraint box then
 polls its connectors to see if there is enough information to determine a value
 for a connector.  If so, the box sets that connector, which then awakens all of
 its associated constraints, and so on.  For instance, in conversion between
-Celsius and Fahrenheit, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>w</mi>
-</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-</math>, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>y</mi>
-</math> are immediately set by the
+Celsius and Fahrenheit, \( w \), \( x \), and \( y \) are immediately set by the
 constant boxes to 9, 5, and 32, respectively.  The connectors awaken the
 multipliers and the adder, which determine that there is not enough information
-to proceed.  If the user (or some other part of the network) sets <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>C</mi>
-</math> to a
-value (say 25), the leftmost multiplier will be awakened, and it will set <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>u</mi>
-</math>
-to <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mn>25</mn>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mn>9</mn>
-    <mo>=</mo>
-    <mn>225</mn>
-  </mrow>
-</math>.  Then <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>u</mi>
-</math> awakens the second multiplier, which sets <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>v</mi>
-</math> to
-45, and <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>v</mi>
-</math> awakens the adder, which sets <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>f</mi>
-</math> to 77.
+to proceed.  If the user (or some other part of the network) sets \( C \) to a
+value (say 25), the leftmost multiplier will be awakened, and it will set \( u \)
+to \( {25 \cdot 9 = 225} \).  Then \( u \) awakens the second multiplier, which sets \( v \) to
+45, and \( v \) awakens the adder, which sets \( f \) to 77.
 </p>
 <a id="Using-the-constraint-system"></a>
 <h5 class="subsubheading">Using the constraint system</h5>
@@ -250,28 +114,29 @@ constructor <code>make-connector</code>, and link <code>C</code> and <code>F</co
 appropriate network:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> C </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> F </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">celsius-fahrenheit-converter C F</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">ok</span></i>
+<pre class="lisp">(define C (make-connector))
+(define F (make-connector))
+(celsius-fahrenheit-converter C F)
+<i>ok</i>
 </pre></div>
 
 <p>The procedure that creates the network is defined as follows:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">celsius-fahrenheit-converter c f</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">u </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">v </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">w </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">x </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-        </span><span class="opn">(</span><span class="pln">y </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">multiplier c w u</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">multiplier v x u</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">adder v y f</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">constant </span><span class="lit">9</span><span class="pln"> w</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">constant </span><span class="lit">5</span><span class="pln"> x</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">constant </span><span class="lit">32</span><span class="pln"> y</span><span class="clo">)</span><span class="pln">
-    </span><span class="lit">'ok</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (celsius-fahrenheit-converter c f)
+  (let ((u (make-connector))
+        (v (make-connector))
+        (w (make-connector))
+        (x (make-connector))
+        (y (make-connector)))
+    (multiplier c w u)
+    (multiplier v x u)
+    (adder v y f)
+    (constant 9 w)
+    (constant 5 x)
+    (constant 32 y)
+    'ok))
+</pre></div>
 
 <p>This procedure creates the internal connectors <code>u</code>, <code>v</code>, <code>w</code>,
 <code>x</code>, and <code>y</code>, and links them as shown in <a href="#Figure-3_002e28">Figure 3.28</a> using the
@@ -287,18 +152,19 @@ monitor wires in <a href="3_002e3_002e4.xhtml#g_t3_002e3_002e4">3.3.4</a>.  Plac
 cause a message to be printed whenever the connector is given a value:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">probe </span><span class="str">"Celsius temp"</span><span class="pln"> C</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">probe </span><span class="str">"Fahrenheit temp"</span><span class="pln"> F</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(probe &quot;Celsius temp&quot; C)
+(probe &quot;Fahrenheit temp&quot; F)
+</pre></div>
 
 <p>Next we set the value of <code>C</code> to 25.  (The third argument to
 <code>set-value!</code> tells <code>C</code> that this directive comes from the
 <code>user</code>.)
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">set-value! C </span><span class="lit">25</span><span class="pln"> </span><span class="lit">'user</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">Probe</span><span class="pun">:</span><span class="pln"> Celsius temp </span><span class="pun">=</span><span class="pln"> </span><span class="lit">25</span></i><span class="pln">
-</span><i><span class="pln">Probe</span><span class="pun">:</span><span class="pln"> Fahrenheit temp </span><span class="pun">=</span><span class="pln"> </span><span class="lit">77</span></i><span class="pln">
-</span><i><span class="pln">done</span></i>
+<pre class="lisp">(set-value! C 25 'user)
+<i>Probe: Celsius temp = 25</i>
+<i>Probe: Fahrenheit temp = 77</i>
+<i>done</i>
 </pre></div>
 
 <p>The probe on <code>C</code> awakens and reports the value.  <code>C</code> also propagates
@@ -308,8 +174,8 @@ which is reported by the probe on <code>F</code>.
 <p>Now we can try to set <code>F</code> to a new value, say 212:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">set-value! F </span><span class="lit">212</span><span class="pln"> </span><span class="lit">'user</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">Error! Contradiction </span><span class="opn">(</span><span class="lit">77</span><span class="pln"> </span><span class="lit">212</span><span class="clo">)</span></i>
+<pre class="lisp">(set-value! F 212 'user)
+<i>Error! Contradiction (77 212)</i>
 </pre></div>
 
 <p>The connector complains that it has sensed a contradiction: Its value is 77,
@@ -317,10 +183,10 @@ and someone is trying to set it to 212.  If we really want to reuse the network
 with new values, we can tell <code>C</code> to forget its old value:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">forget-value! C </span><span class="lit">'user</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">Probe</span><span class="pun">:</span><span class="pln"> Celsius temp </span><span class="pun">=</span><span class="pln"> </span><span class="pun">?</span></i><span class="pln">
-</span><i><span class="pln">Probe</span><span class="pun">:</span><span class="pln"> Fahrenheit temp </span><span class="pun">=</span><span class="pln"> </span><span class="pun">?</span></i><span class="pln">
-</span><i><span class="pln">done</span></i>
+<pre class="lisp">(forget-value! C 'user)
+<i>Probe: Celsius temp = ?</i>
+<i>Probe: Fahrenheit temp = ?</i>
+<i>done</i>
 </pre></div>
 
 <p><code>C</code> finds that the <code>user</code>, who set its value originally, is now
@@ -333,10 +199,10 @@ its value, as shown by the probe.
 <p>Now that <code>F</code> has no value, we are free to set it to 212:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">set-value! F </span><span class="lit">212</span><span class="pln"> </span><span class="lit">'user</span><span class="clo">)</span><span class="pln">
-</span><i><span class="pln">Probe</span><span class="pun">:</span><span class="pln"> Fahrenheit temp </span><span class="pun">=</span><span class="pln"> </span><span class="lit">212</span></i><span class="pln">
-</span><i><span class="pln">Probe</span><span class="pun">:</span><span class="pln"> Celsius temp </span><span class="pun">=</span><span class="pln"> </span><span class="lit">100</span></i><span class="pln">
-</span><i><span class="pln">done</span></i>
+<pre class="lisp">(set-value! F 212 'user)
+<i>Probe: Fahrenheit temp = 212</i>
+<i>Probe: Celsius temp = 100</i>
+<i>done</i>
 </pre></div>
 
 <p>This new value, when propagated through the network, forces <code>C</code> to have a
@@ -383,42 +249,43 @@ and <code>a2</code> and a <code>sum</code> connector.  An adder is implemented a
 procedure with local state (the procedure <code>me</code> below):
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">adder a1 a2 sum</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? a1</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">has-value? a2</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-value! sum
-                       </span><span class="opn">(</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value a1</span><span class="clo">)</span><span class="pln"> 
-                          </span><span class="opn">(</span><span class="pln">get-value a2</span><span class="clo">))</span><span class="pln">
-                       me</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? a1</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">has-value? sum</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-value! a2
-                       </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value sum</span><span class="clo">)</span><span class="pln"> 
-                          </span><span class="opn">(</span><span class="pln">get-value a1</span><span class="clo">))</span><span class="pln">
-                       me</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? a2</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">has-value? sum</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-value! a1
-                       </span><span class="opn">(</span><span class="pun">-</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value sum</span><span class="clo">)</span><span class="pln"> 
-                          </span><span class="opn">(</span><span class="pln">get-value a2</span><span class="clo">))</span><span class="pln">
-                       me</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">process-forget-value</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">forget-value! sum me</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">forget-value! a1 me</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">forget-value! a2 me</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">me request</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'I-have-a-value</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'I-lost-my-value</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">process-forget-value</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                        ADDER"</span><span class="pln"> request</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connect a1 me</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connect a2 me</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connect sum me</span><span class="clo">)</span><span class="pln">
-  me</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (adder a1 a2 sum)
+  (define (process-new-value)
+    (cond ((and (has-value? a1) 
+                (has-value? a2))
+           (set-value! sum
+                       (+ (get-value a1) 
+                          (get-value a2))
+                       me))
+          ((and (has-value? a1) 
+                (has-value? sum))
+           (set-value! a2
+                       (- (get-value sum) 
+                          (get-value a1))
+                       me))
+          ((and (has-value? a2) 
+                (has-value? sum))
+           (set-value! a1
+                       (- (get-value sum) 
+                          (get-value a2))
+                       me))))
+  (define (process-forget-value)
+    (forget-value! sum me)
+    (forget-value! a1 me)
+    (forget-value! a2 me)
+    (process-new-value))
+  (define (me request)
+    (cond ((eq? request 'I-have-a-value)
+           (process-new-value))
+          ((eq? request 'I-lost-my-value)
+           (process-forget-value))
+          (else (error &quot;Unknown request: 
+                        ADDER&quot; request))))
+  (connect a1 me)
+  (connect a2 me)
+  (connect sum me)
+  me)
+</pre></div>
 
 <p><code>Adder</code> connects the new adder to the designated connectors and returns it
 as its value.  The procedure <code>me</code>, which represents the adder, acts as a
@@ -427,10 +294,11 @@ dispatch to the local procedures.  The following “syntax interfaces” (see
 the dispatch:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">inform-about-value constraint</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">constraint </span><span class="lit">'I-have-a-value</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">inform-about-no-value constraint</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">constraint </span><span class="lit">'I-lost-my-value</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (inform-about-value constraint)
+  (constraint 'I-have-a-value))
+(define (inform-about-no-value constraint)
+  (constraint 'I-lost-my-value))
+</pre></div>
 
 <p>The adder’s local procedure <code>process-new-value</code> is called when the adder
 is informed that one of its connectors has a value. The adder first checks to
@@ -452,85 +320,88 @@ and these values may need to be propagated back through the adder.
 if either of the factors is 0, even if the other factor is not known.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">multiplier m1 m2 product</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">or</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? m1</span><span class="clo">)</span><span class="pln"> 
-                    </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value m1</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">))</span><span class="pln">
-               </span><span class="opn">(</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? m2</span><span class="clo">)</span><span class="pln"> 
-                    </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value m2</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">)))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-value! product </span><span class="lit">0</span><span class="pln"> me</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? m1</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">has-value? m2</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-value! product
-                       </span><span class="opn">(</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value m1</span><span class="clo">)</span><span class="pln"> 
-                          </span><span class="opn">(</span><span class="pln">get-value m2</span><span class="clo">))</span><span class="pln">
-                       me</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? product</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">has-value? m1</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-value! m2
-                       </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value product</span><span class="clo">)</span><span class="pln"> 
-                          </span><span class="opn">(</span><span class="pln">get-value m1</span><span class="clo">))</span><span class="pln">
-                       me</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">and</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? product</span><span class="clo">)</span><span class="pln"> 
-                </span><span class="opn">(</span><span class="pln">has-value? m2</span><span class="clo">))</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">set-value! m1
-                       </span><span class="opn">(</span><span class="pun">/</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value product</span><span class="clo">)</span><span class="pln"> 
-                          </span><span class="opn">(</span><span class="pln">get-value m2</span><span class="clo">))</span><span class="pln">
-                       me</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">process-forget-value</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">forget-value! product me</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">forget-value! m1 me</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">forget-value! m2 me</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">me request</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'I-have-a-value</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'I-lost-my-value</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">process-forget-value</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln">
-           </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                   MULTIPLIER"</span><span class="pln"> 
-                  request</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connect m1 me</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connect m2 me</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connect product me</span><span class="clo">)</span><span class="pln">
-  me</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (multiplier m1 m2 product)
+  (define (process-new-value)
+    (cond ((or (and (has-value? m1) 
+                    (= (get-value m1) 0))
+               (and (has-value? m2) 
+                    (= (get-value m2) 0)))
+           (set-value! product 0 me))
+          ((and (has-value? m1) 
+                (has-value? m2))
+           (set-value! product
+                       (* (get-value m1) 
+                          (get-value m2))
+                       me))
+          ((and (has-value? product) 
+                (has-value? m1))
+           (set-value! m2
+                       (/ (get-value product) 
+                          (get-value m1))
+                       me))
+          ((and (has-value? product) 
+                (has-value? m2))
+           (set-value! m1
+                       (/ (get-value product) 
+                          (get-value m2))
+                       me))))
+  (define (process-forget-value)
+    (forget-value! product me)
+    (forget-value! m1 me)
+    (forget-value! m2 me)
+    (process-new-value))
+  (define (me request)
+    (cond ((eq? request 'I-have-a-value)
+           (process-new-value))
+          ((eq? request 'I-lost-my-value)
+           (process-forget-value))
+          (else
+           (error &quot;Unknown request: 
+                   MULTIPLIER&quot; 
+                  request))))
+  (connect m1 me)
+  (connect m2 me)
+  (connect product me)
+  me)
+</pre></div>
 
 <p>A <code>constant</code> constructor simply sets the value of the designated
 connector.  Any <code>I-have-a-value</code> or <code>I-lost-my-value</code> message sent to
 the constant box will produce an error.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">constant value connector</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">me request</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: CONSTANT"</span><span class="pln"> 
-           request</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connect connector me</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">set-value! connector value me</span><span class="clo">)</span><span class="pln">
-  me</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (constant value connector)
+  (define (me request)
+    (error &quot;Unknown request: CONSTANT&quot; 
+           request))
+  (connect connector me)
+  (set-value! connector value me)
+  me)
+</pre></div>
 
 <p>Finally, a probe prints a message about the setting or unsetting of
 the designated connector:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">probe name connector</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">print-probe value</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">newline</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">display </span><span class="str">"Probe: "</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">display name</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">display </span><span class="str">" = "</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">display value</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">print-probe </span><span class="opn">(</span><span class="pln">get-value connector</span><span class="clo">)))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">process-forget-value</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">print-probe </span><span class="str">"?"</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">me request</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'I-have-a-value</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'I-lost-my-value</span><span class="clo">)</span><span class="pln">
-           </span><span class="opn">(</span><span class="pln">process-forget-value</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown request: 
-                        PROBE"</span><span class="pln"> request</span><span class="clo">))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connect connector me</span><span class="clo">)</span><span class="pln">
-  me</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (probe name connector)
+  (define (print-probe value)
+    (newline) (display &quot;Probe: &quot;)
+    (display name) (display &quot; = &quot;)
+    (display value))
+  (define (process-new-value)
+    (print-probe (get-value connector)))
+  (define (process-forget-value)
+    (print-probe &quot;?&quot;))
+  (define (me request)
+    (cond ((eq? request 'I-have-a-value)
+           (process-new-value))
+          ((eq? request 'I-lost-my-value)
+           (process-forget-value))
+          (else (error &quot;Unknown request: 
+                        PROBE&quot; request))))
+  (connect connector me)
+  me)
+</pre></div>
 
 <a id="Representing-connectors"></a>
 <h5 class="subsubheading">Representing connectors</h5>
@@ -541,52 +412,53 @@ that set the connector’s value; and <code>constraints</code>, a list of the
 constraints in which the connector participates.
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">value false</span><span class="clo">)</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pln">informant false</span><span class="clo">)</span><span class="pln"> 
-        </span><span class="opn">(</span><span class="pln">constraints </span><span class="lit">'</span><span class="opn">(</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-my-value newval setter</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">not </span><span class="opn">(</span><span class="pln">has-value? me</span><span class="clo">))</span><span class="pln">
-             </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> value newval</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> informant setter</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="pln">for-each-except 
+<pre class="lisp">(define (make-connector)
+  (let ((value false) 
+        (informant false) 
+        (constraints '()))
+    (define (set-my-value newval setter)
+      (cond ((not (has-value? me))
+             (set! value newval)
+             (set! informant setter)
+             (for-each-except 
               setter
               inform-about-value
-              constraints</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="pln">not </span><span class="opn">(</span><span class="pun">=</span><span class="pln"> value newval</span><span class="clo">))</span><span class="pln">
-             </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Contradiction"</span><span class="pln"> 
-                    </span><span class="opn">(</span><span class="pln">list value newval</span><span class="clo">)))</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="lit">'ignored</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">forget-my-value retractor</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> retractor informant</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">begin</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> informant false</span><span class="clo">)</span><span class="pln">
-                 </span><span class="opn">(</span><span class="pln">for-each-except 
+              constraints))
+            ((not (= value newval))
+             (error &quot;Contradiction&quot; 
+                    (list value newval)))
+            (else 'ignored)))
+    (define (forget-my-value retractor)
+      (if (eq? retractor informant)
+          (begin (set! informant false)
+                 (for-each-except 
                   retractor
                   inform-about-no-value
-                  constraints</span><span class="clo">))</span><span class="pln">
-          </span><span class="lit">'ignored</span><span class="clo">))</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">connect new-constraint</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">not </span><span class="opn">(</span><span class="pln">memq new-constraint 
-                     constraints</span><span class="clo">))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">set</span><span class="pun">!</span><span class="pln"> constraints
-                </span><span class="opn">(</span><span class="kwd">cons</span><span class="pln"> new-constraint 
-                      constraints</span><span class="clo">)))</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? me</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">(</span><span class="pln">inform-about-value new-constraint</span><span class="clo">))</span><span class="pln">
-      </span><span class="lit">'done</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">me request</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'has-value?</span><span class="clo">)</span><span class="pln">
-             </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> informant true false</span><span class="clo">))</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'value</span><span class="clo">)</span><span class="pln"> value</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'set-value!</span><span class="clo">)</span><span class="pln"> 
-             set-my-value</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'forget</span><span class="clo">)</span><span class="pln"> 
-             forget-my-value</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> request </span><span class="lit">'connect</span><span class="clo">)</span><span class="pln"> connect</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"Unknown operation: 
-                          CONNECTOR"</span><span class="pln">
-                         request</span><span class="clo">))))</span><span class="pln">
-    me</span><span class="clo">))</span></pre></div>
+                  constraints))
+          'ignored))
+    (define (connect new-constraint)
+      (if (not (memq new-constraint 
+                     constraints))
+          (set! constraints
+                (cons new-constraint 
+                      constraints)))
+      (if (has-value? me)
+          (inform-about-value new-constraint))
+      'done)
+    (define (me request)
+      (cond ((eq? request 'has-value?)
+             (if informant true false))
+            ((eq? request 'value) value)
+            ((eq? request 'set-value!) 
+             set-my-value)
+            ((eq? request 'forget) 
+             forget-my-value)
+            ((eq? request 'connect) connect)
+            (else (error &quot;Unknown operation: 
+                          CONNECTOR&quot;
+                         request))))
+    me))
+</pre></div>
 
 <p>The connector’s local procedure <code>set-my-value</code> is called when there is a
 request to set the connector’s value.  If the connector does not currently have
@@ -597,16 +469,17 @@ accomplished using the following iterator, which applies a designated procedure
 to all items in a list except a given one:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">for-each-except exception 
+<pre class="lisp">(define (for-each-except exception 
                          procedure 
-                         list</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">loop items</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">cond</span><span class="pln"> </span><span class="opn">((</span><span class="pln">null? items</span><span class="clo">)</span><span class="pln"> </span><span class="lit">'done</span><span class="clo">)</span><span class="pln">
-          </span><span class="opn">((</span><span class="kwd">eq</span><span class="pun">?</span><span class="pln"> </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> items</span><span class="clo">)</span><span class="pln"> exception</span><span class="clo">)</span><span class="pln"> 
-           </span><span class="opn">(</span><span class="pln">loop </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> items</span><span class="clo">)))</span><span class="pln">
-          </span><span class="opn">(</span><span class="kwd">else</span><span class="pln"> </span><span class="opn">(</span><span class="pln">procedure </span><span class="opn">(</span><span class="kwd">car</span><span class="pln"> items</span><span class="clo">))</span><span class="pln">
-                </span><span class="opn">(</span><span class="pln">loop </span><span class="opn">(</span><span class="kwd">cdr</span><span class="pln"> items</span><span class="clo">)))))</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">loop list</span><span class="clo">))</span></pre></div>
+                         list)
+  (define (loop items)
+    (cond ((null? items) 'done)
+          ((eq? (car items) exception) 
+           (loop (cdr items)))
+          (else (procedure (car items))
+                (loop (cdr items)))))
+  (loop list))
+</pre></div>
 
 <p>If a connector is asked to forget its value, it runs the local procedure
 <code>forget-my-value</code>, which first checks to make sure that the request is
@@ -622,20 +495,21 @@ procedures and also represents the connector as an object.  The following
 procedures provide a syntax interface for the dispatch:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? connector</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connector </span><span class="lit">'has-value?</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value connector</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">connector </span><span class="lit">'value</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">set-value! connector 
+<pre class="lisp">(define (has-value? connector)
+  (connector 'has-value?))
+(define (get-value connector)
+  (connector 'value))
+(define (set-value! connector 
                     new-value 
-                    informant</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">connector </span><span class="lit">'set-value!</span><span class="clo">)</span><span class="pln"> 
+                    informant)
+  ((connector 'set-value!) 
    new-value 
-   informant</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">forget-value! connector retractor</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">connector </span><span class="lit">'forget</span><span class="clo">)</span><span class="pln"> retractor</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">connect connector new-constraint</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">((</span><span class="pln">connector </span><span class="lit">'connect</span><span class="clo">)</span><span class="pln"> new-constraint</span><span class="clo">))</span></pre></div>
+   informant))
+(define (forget-value! connector retractor)
+  ((connector 'forget) retractor))
+(define (connect connector new-constraint)
+  ((connector 'connect) new-constraint))
+</pre></div>
 
 <blockquote>
 <p><strong><a id="Exercise-3_002e33"></a>Exercise 3.33:</strong> Using primitive multiplier,
@@ -653,7 +527,8 @@ value <code>a</code> on the first terminal.  He proposes the following simple de
 made from a multiplier:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">squarer a b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">multiplier a a b</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (squarer a b) (multiplier a a b))
+</pre></div>
 
 <p>There is a serious flaw in this idea.  Explain.
 </p></blockquote>
@@ -665,19 +540,20 @@ new primitive constraint.  Fill in the missing portions in Ben’s outline for a
 procedure to implement such a constraint:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">squarer a b</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">process-new-value</span><span class="clo">)</span><span class="pln">
-    </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pln">has-value? b</span><span class="clo">)</span><span class="pln">
-        </span><span class="opn">(</span><span class="kwd">if</span><span class="pln"> </span><span class="opn">(</span><span class="pun">&lt;</span><span class="pln"> </span><span class="opn">(</span><span class="pln">get-value b</span><span class="clo">)</span><span class="pln"> </span><span class="lit">0</span><span class="clo">)</span><span class="pln">
-            </span><span class="opn">(</span><span class="err">error</span><span class="pln"> </span><span class="str">"square less than 0: 
-                    SQUARER"</span><span class="pln"> 
-                   </span><span class="opn">(</span><span class="pln">get-value b</span><span class="clo">))</span><span class="pln">
-            ⟨</span><var><span class="pln">alternative1</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-        ⟨</span><var><span class="pln">alternative2</span></var><span class="pln">⟩</span><span class="clo">))</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">process-forget-value</span><span class="clo">)</span><span class="pln"> ⟨</span><var><span class="pln">body1</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">me request</span><span class="clo">)</span><span class="pln"> ⟨</span><var><span class="pln">body2</span></var><span class="pln">⟩</span><span class="clo">)</span><span class="pln">
-  ⟨</span><var><span class="pln">rest of definition</span></var><span class="pln">⟩
-  me</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define (squarer a b)
+  (define (process-new-value)
+    (if (has-value? b)
+        (if (&lt; (get-value b) 0)
+            (error &quot;square less than 0: 
+                    SQUARER&quot; 
+                   (get-value b))
+            ⟨<var>alternative1</var>⟩)
+        ⟨<var>alternative2</var>⟩))
+  (define (process-forget-value) ⟨<var>body1</var>⟩)
+  (define (me request) ⟨<var>body2</var>⟩)
+  ⟨<var>rest of definition</var>⟩
+  me)
+</pre></div>
 </blockquote>
 
 <blockquote>
@@ -685,16 +561,18 @@ procedure to implement such a constraint:
 sequence of expressions in the global environment:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> a </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> b </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">set-value! a </span><span class="lit">10</span><span class="pln"> </span><span class="lit">'user</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(define a (make-connector))
+(define b (make-connector))
+(set-value! a 10 'user)
+</pre></div>
 
 <p>At some time during evaluation of the <code>set-value!</code>, the following
 expression from the connector’s local procedure is evaluated:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">for-each-except 
-  setter inform-about-value constraints</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(for-each-except 
+  setter inform-about-value constraints)
+</pre></div>
 
 <p>Draw an environment diagram showing the environment in which the above
 expression is evaluated.
@@ -706,13 +584,14 @@ expression is evaluated.
 a more expression-oriented style of definition, such as
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">celsius-fahrenheit-converter x</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="pln">c</span><span class="pun">+</span><span class="pln"> </span><span class="opn">(</span><span class="pln">c</span><span class="pun">*</span><span class="pln"> </span><span class="opn">(</span><span class="pln">c</span><span class="pun">/</span><span class="pln"> </span><span class="opn">(</span><span class="pln">cv </span><span class="lit">9</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">cv </span><span class="lit">5</span><span class="clo">))</span><span class="pln">
-          x</span><span class="clo">)</span><span class="pln">
-      </span><span class="opn">(</span><span class="pln">cv </span><span class="lit">32</span><span class="clo">)))</span><span class="pln">
+<pre class="lisp">(define (celsius-fahrenheit-converter x)
+  (c+ (c* (c/ (cv 9) (cv 5))
+          x)
+      (cv 32)))
 
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> C </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">))</span><span class="pln">
-</span><span class="opn">(</span><span class="kwd">define</span><span class="pln"> F </span><span class="opn">(</span><span class="pln">celsius-fahrenheit-converter C</span><span class="clo">))</span></pre></div>
+(define C (make-connector))
+(define F (celsius-fahrenheit-converter C))
+</pre></div>
 
 <p>Here <code>c+</code>, <code>c*</code>, etc. are the “constraint” versions of the
 arithmetic operations.  For example, <code>c+</code> takes two connectors as
@@ -720,10 +599,11 @@ arguments and returns a connector that is related to these by an adder
 constraint:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> </span><span class="opn">(</span><span class="pln">c</span><span class="pun">+</span><span class="pln"> x y</span><span class="clo">)</span><span class="pln">
-  </span><span class="opn">(</span><span class="kwd">let</span><span class="pln"> </span><span class="opn">((</span><span class="pln">z </span><span class="opn">(</span><span class="pln">make-connector</span><span class="clo">)))</span><span class="pln">
-    </span><span class="opn">(</span><span class="pln">adder x y z</span><span class="clo">)</span><span class="pln">
-    z</span><span class="clo">))</span></pre></div>
+<pre class="lisp">(define (c+ x y)
+  (let ((z (make-connector)))
+    (adder x y z)
+    z))
+</pre></div>
 
 <p>Define analogous procedures <code>c-</code>, <code>c*</code>, <code>c/</code>, and <code>cv</code>
 (constant value) that enable us to define compound constraints as in the
@@ -731,7 +611,7 @@ converter example above.<a class="footnote_link" id="DOCF161" href="#FOOT161"><s
 </p></blockquote>
 
 <div class="footnote">
-<hr />
+<hr/>
 
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -756,36 +636,24 @@ because it avoids the need to name the intermediate expressions in a
 computation.  Our original formulation of the constraint language is cumbersome
 in the same way that many languages are cumbersome when dealing with operations
 on compound data.  For example, if we wanted to compute the product 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mrow class="MJX-TeXAtom-ORD">
-    <mo stretchy="false">(</mo>
-    <mi>a</mi>
-    <mo>+</mo>
-    <mi>b</mi>
-    <mo stretchy="false">)</mo>
-    <mo>⋅<!-- ⋅ --></mo>
-    <mo stretchy="false">(</mo>
-    <mi>c</mi>
-    <mo>+</mo>
-    <mi>d</mi>
-    <mo stretchy="false">)</mo>
-  </mrow>
-</math>, where the variables represent vectors, we could work
+\( {(a + b) \cdot (c + d)} \), where the variables represent vectors, we could work
 in “imperative style,” using procedures that set the values of designated
 vector arguments but do not themselves return vectors as values:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="pln">v-sum a b temp1</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">v-sum c d temp2</span><span class="clo">)</span><span class="pln">
-</span><span class="opn">(</span><span class="pln">v-prod temp1 temp2 answer</span><span class="clo">)</span></pre></div>
+<pre class="lisp">(v-sum a b temp1)
+(v-sum c d temp2)
+(v-prod temp1 temp2 answer)
+</pre></div>
 
 <p>Alternatively, we could deal with expressions, using procedures that return
 vectors as values, and thus avoid explicitly mentioning <code>temp1</code> and
 <code>temp2</code>:
 </p>
 <div class="lisp">
-<pre class="lisp prettyprinted" style=""><span class="opn">(</span><span class="kwd">define</span><span class="pln"> answer 
-  </span><span class="opn">(</span><span class="pln">v-prod </span><span class="opn">(</span><span class="pln">v-sum a b</span><span class="clo">)</span><span class="pln"> </span><span class="opn">(</span><span class="pln">v-sum c d</span><span class="clo">)))</span></pre></div>
+<pre class="lisp">(define answer 
+  (v-prod (v-sum a b) (v-sum c d)))
+</pre></div>
 
 <p>Since Lisp allows us to return compound objects as values of procedures, we can
 transform our imperative-style constraint language into an expression-oriented
@@ -804,10 +672,10 @@ expression-oriented style in terms of the imperative implementation, it is very
 difficult to do the converse.</p>
 </div>
 </div>
-<hr />
+<hr/>
 <nav class="header">
 <p>
-Next: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="n" rel="next">3.4</a>, Previous: <a href="3_002e3_002e4.xhtml#g_t3_002e3_002e4" accesskey="p" rel="prev">3.3.4</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a>   [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
+Next: <a href="3_002e4.xhtml#g_t3_002e4" accesskey="n" rel="next">3.4</a>, Previous: <a href="3_002e3_002e4.xhtml#g_t3_002e3_002e4" accesskey="p" rel="prev">3.3.4</a>, Up: <a href="3_002e3.xhtml#g_t3_002e3" accesskey="u" rel="prev">3.3</a> &#160; [<a href="index.xhtml#SEC_Contents" title="Table of contents" accesskey="c" rel="contents">Contents</a>][<a href="Term-Index.xhtml#Term-Index" title="Index" accesskey="i" rel="index">Index</a>]</p>
 </nav>
 
 
