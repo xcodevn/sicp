@@ -929,58 +929,59 @@ from @abbr{DARPA}, made possible by Bob Kahn.
 @chapter Xây dựng Trừu tượng với Thủ tục (Building Abstractions with Procedures)
 
 @quotation
-The acts of the mind, wherein it exerts its power over simple ideas, are
-chiefly these three: @w{1. Combining} several simple ideas into one compound one,
-and thus all complex ideas are made.  @w{2. The second} is bringing two ideas,
-whether simple or complex, together, and setting them by one another so as to
-take a view of them at once, without uniting them into one, by which it gets
-all its ideas of relations.  @w{3. The third} is separating them from all other
-ideas that accompany them in their real existence: this is called abstraction,
-and thus all its general ideas are made.
+Hoạt động của trí não, nơi tiêu tốn năng lượng trên những ý tưởng đơn giản,
+chủ yếu gồm ba thứ: @w{1. Kết hợp} nhiều ý tưởng đơn giản thành một ý tưởng tổng hợp, mọi
+ý tưởng phức tạp được tạo ra nhờ đây. @w{2. Cái thứ hai}  là việc mang hai ý tưởng, dù đơn
+giản hay phức tạp, cùng nhau, và đặt chúng bên cạnh nhau, sao cho ta có thể nhìn
+cả hai cùng đồng thời, bằng cách này ta được ý tưởng về mối quan hệ giữa chúng với nhau. @w{3. Cái thứ ba}  
+là tách ý tưởng khỏi các ý tưởng đi cùng nó trong thực tế tồn tại: điều này
+được gọi là sự trừu tượng hóa, và đây là cách các ý tưởng tổng quát được tạo ra.
 
----John Locke, @cite{An Essay Concerning Human Understanding} (1690)
+---John Locke, @cite{Một Bài Luận Về Hoạt Động Hiểu Biết Của Con Người} (1690)
 @end quotation
 
 
 @noindent
-We are about to study the idea of a @newterm{computational process}.
-Computational processes are abstract beings that inhabit computers.  As they
+Chúng ta nghiên cứu ý tưởng về @newterm{quá trình tính toán}.
+Quá trình tính toán là những sinh vật trừu tượng sống trong máy tính. Khi 
+chúng phát triển, những quá trình này thao tác trên một vật thể trừu tượng được
+gọi là @newterm{dữ liệu}. Quá trình phát triển của một quá trình được chỉ dẫn trực
+tiếp bởi một mẫu của những luật được gọi là một @newterm{chương trình}. Người ta
+tạo ra chương trình để điều khiển những quá trình. Kết quả là, 
+
+ As they
 evolve, processes manipulate other abstract things called @newterm{data}.  The
 evolution of a process is directed by a pattern of rules called a
 @newterm{program}.  People create programs to direct processes.  In effect, we
-conjure the spirits of the computer with our spells.
+dùng bùa phép để điều khiển những linh hồn trong máy tính.
 
-A computational process is indeed much like a sorcerer's idea of a spirit.  It
-cannot be seen or touched.  It is not composed of matter at all.  However, it
-is very real.  It can perform intellectual work.  It can answer questions.  It
-can affect the world by disbursing money at a bank or by controlling a robot
-arm in a factory.  The programs we use to conjure processes are like a
-sorcerer's spells.  They are carefully composed from symbolic expressions in
-arcane and esoteric @newterm{programming languages} that prescribe the tasks we
-want our processes to perform.
+Một quá trình tính toán thật ra rất giống với ý tưởng của thầy phù thủy về 
+linh hồn. Nó không thể thấy hay chạm tới. Nó không được tạo thành bởi vậy chất.
+Tuy nhiên, nó rất thật. Nó có thể thực hiện những công việc trí tuệ. Nó có thể
+trả lời các câu hỏi. Nó có thể tác động tới thế giới bằng cách rút tiền tại một
+ngân hàng hay là điều khiển cách tay rô-bôt trong nhà máy. Những chương trình mà 
+chúng ta dùng để điều khiển các quá trình giống với những bùa phép của thầy
+phù thủy. Chúng được cẩn thận soạn ra từ những biểu thức biểu tượng của 
+những ngôn @newterm{lập trình} bí truyền mô tả công việc mà chúng ta muốn
+các quá trình thực hiện.
 
-A computational process, in a correctly working computer, executes programs
-precisely and accurately.  Thus, like the sorcerer's apprentice, novice
-programmers must learn to understand and to anticipate the consequences of
-their conjuring.  Even small errors (usually called @newterm{bugs} or
-@newterm{glitches}) in programs can have complex and unanticipated
-consequences.
+Một quá trình tính toán, trong một máy tính đang hoạt động, thực thi những chương 
+trình một cách tỉ mỉ và chính xác. Do vậy, cũng giống như một thầy phù thủy học việc, 
+các lập trình viên mới phải học để hiểu và dự đoán được tác dụng của bùa chú. Chỉ với
+một lỗi nhỏ (thường được gọi là @newterm{bọ} hay @newterm{trục trặc}) trong chương trình
+có thể dẫn đến hậu quả phức tạp khó lường.
 
-Fortunately, learning to program is considerably less dangerous than learning
-sorcery, because the spirits we deal with are conveniently contained in a
-secure way.  Real-world programming, however, requires care, expertise, and
-wisdom.  A small bug in a computer-aided design program, for example, can lead
-to the catastrophic collapse of an airplane or a dam or the self-destruction of
-an industrial robot.
+May mắn, học lập trình được xem là ít nguy hiểm hơn so với học phép thuật, bởi vì nhưng linh hồn mà chúng ta giao thiệp thường được để những chỗ an toàn. Tuy nhiên, lập trình trong thực tế cuộc sống, yêu cầu sự cẩn trọng, chuyên môn, và trí thông minh. Một lỗi nhỏ trong một chương trình thiết kế (CAD), ví dụ, có thể dẫn đến va chạm máy bay hay vỡ đập hay sự tự hư hỏng của một robot công nghiệp.
 
-Master software engineers have the ability to organize programs so that they
-can be reasonably sure that the resulting processes will perform the tasks
-intended.  They can visualize the behavior of their systems in advance.  They
-know how to structure programs so that unanticipated problems do not lead to
-catastrophic consequences, and when problems do arise, they can @newterm{debug}
-their programs.  Well-designed computational systems, like well-designed
-automobiles or nuclear reactors, are designed in a modular manner, so that the
-parts can be constructed, replaced, and debugged separately.
+Những kỹ sư phần mềm chuyên nghiệp có năng lực tổ chức các chương trình sao cho chúng
+có thể được đảm bảo rằng kết quả là các quá trình sẽ thực hiện những tác vụ 
+được dự đinh. Họ có thể trực quan hóa hành vi của hệ thống. Họ biết được làm sao
+để cấu trúc những chương trình sao cho những vấn đề không lường trước được sẽ 
+không dẫn đến thảm họa, và khi các vấn đề nảy sinh, họ có thể @newterm{debug} (tìm lỗi)
+chương trình của mình. Một hệ thống tính toán được thiết kế tốt, giống
+như một chiếc ôtô hay một nhà máy hạt nhân được thiết kế tốt, sẽ được thiết kế
+theo mô-dun, nhờ vậy các bộ phận có thể được tạo ra, thay thế hay tìm lỗi một cách
+độc lập.
 
 @subsubheading Programming in Lisp
 
