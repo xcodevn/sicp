@@ -515,58 +515,60 @@ cứu những chương trình được viết bằng ngôn ngữ Lisp thực thi
 Sử dụng Lisp chúng ta không giới hạn những chương trình có thể lập trình mà chỉ giới
 hạn là những ký hiệu dùng để mô tả chương trình.
 
-Our traffic with the subject matter of this book involves us with three foci of
-phenomena: the human mind, collections of computer programs, and the computer.
-Every computer program is a model, hatched in the mind, of a real or mental
-process.  These processes, arising from human experience and thought, are huge
-in number, intricate in detail, and at any time only partially understood.
-They are modeled to our permanent satisfaction rarely by our computer programs.
-Thus even though our programs are carefully handcrafted discrete collections of
-symbols, mosaics of interlocking functions, they continually evolve: we change
-them as our perception of the model deepens, enlarges, generalizes until the
-model ultimately attains a metastable place within still another model with
-which we struggle.  The source of the exhilaration associated with computer
-programming is the continual unfolding within the mind and on the computer of
-mechanisms expressed as programs and the explosion of perception they generate.
-If art interprets our dreams, the computer executes them in the guise of
-programs!
+Khi đi vào chủ đề của quyển sách này chúng ta sẽ liên quan tới ba đối tượng: 
+trí não con người, tập hợp những chương trình máy tính, và chiếc máy tính. Mọi
+chương trình máy tính là một mô hình, xuất hiện trong trí não, của một quá trình
+diễn ra trên thực tế hay trong trí não. Những quá trình này, xuất hiện qua trãi
+nghiệm và suy nghĩ của con người, có số lượng rất lớn, nhiều chi tiết phức tạp, và
+tại mọi thời điểm chỉ hiểu được một phần nào đó. Chúng được mô hình hóa, cho những thoản mãn
+hiếm khi kéo dài của chúng ta, bằng các chương trình máy tính. Vậy nên mặc dù là
+tập hợp của những biểu tượng được được cẩn thận sắp xếp lại với nhau, tạo thành
+bức phù điêu, chúng vẫn phát triển không ngừng: chúng ta thay đổi chúng khi nhận
+thức của ta về mô hình trở nên sâu hơn, rộng hơn, tổng quát hơn cho đến khi 
+mô hình đạt được trạng thái siêu ổn định thì vẫn có những mô hình khác mà ta 
+gặp trở ngại. Nguồn gốc của niềm vui thích khi lập trình máy tính là do sự mở
+mang không ngừng của trí não, của những cơ chế biểu diễn chương trình trên máy
+tính và sự bùng nỗ về nhận thức mà chúng sinh ra. Nếu nghệ thuật diễn dịch
+ước mơ của chúng ta thì máy tính thực hiện chúng dưới vỏ bọc của những chương trình.
 
-For all its power, the computer is a harsh taskmaster.  Its programs must be
-correct, and what we wish to say must be said accurately in every detail.  As
-in every other symbolic activity, we become convinced of program truth through
-argument.  Lisp itself can be assigned a semantics (another model, by the way),
-and if a program's function can be specified, say, in the predicate calculus,
-the proof methods of logic can be used to make an acceptable correctness
-argument.  Unfortunately, as programs get large and complicated, as they almost
-always do, the adequacy, consistency, and correctness of the specifications
-themselves become open to doubt, so that complete formal arguments of
-correctness seldom accompany large programs.  Since large programs grow from
-small ones, it is crucial that we develop an arsenal of standard program
-structures of whose correctness we have become sure---we call them idioms---and
-learn to combine them into larger structures using organizational techniques of
-proven value.  These techniques are treated at length in this book, and
-understanding them is essential to participation in the Promethean enterprise
-called programming.  More than anything else, the uncovering and mastery of
-powerful organizational techniques accelerates our ability to create large,
-significant programs.  Conversely, since writing large programs is very taxing,
-we are stimulated to invent new methods of reducing the mass of function and
-detail to be fitted into large programs.
+Với tất cả khả năng của mình, máy tính là một đốc công khắc nghiệt. Chương trình 
+của nó phải đúng, và cái chúng ta muốn nói phải được nói một cách chính xác
+trong từng chi tiết.  Như mọi hoạt động mang tính biểu tượng (symbolic activity), 
+ chúng ta đảm bảo tính đúng đắn của chương trình thông qua lập luận. Lisp có thể
+ được gán ngữ nghĩa, và nếu một chức năng của chương trình có thể được đặc tả,
+ ví như, bằng lôgic vị từ, những phương thức chứng minh của lôgic có thể được dùng
+ để lập luận về tính đúng đắn. Không may là, khi chương trình trở lên lớn và
+ phức tạp, luôn là vậy, thì tính đúng đắn của chính bản đặc tả lại trở nên
+ đáng nghi ngờ, do vậy nên suy luận tính đúng đắn của dùng lập luận hình thức
+ khó mà áp dụng cho các chương trình lớn. Do những chương trình lớn phát triển
+ từ những cái nhỏ hơn, nên rất quan trọng khi ta phát triển một bộ những
+ cấu trúc chương trình tiêu chuẩn mà ta chắc chắn về tính đúng đắn---ta gọi 
+ nó là những thành ngữ---và học cách để kết hợp chúng thành những cấu trúc lớn
+ hơn bằng việc dùng các kỹ thuật tổ chức chương trình đã được chứng minh hiệu quả.
+ Những kỹ thuật này được trình bày xuyên suốt quyển sách này, và việc hiểu rõ
+ chúng là rất quan trọng để có thể bước vào vương quốc lập trình. Hơn những điều
+ khác, hiểu rõ và nắm vững các kỹ thuật mạnh mẽ để tổ chức chương trình sẽ giúp
+ ích đáng kể trong việc tạo những chương trình lớn và quan trọng.
+Ngược lại, kể từ khi việc viết chương trình lớn trở nên tốn kém, chúng ta bị
+thúc đẩy để tìm ra những phương cách mới để giảm thiểu số lượng tính năng và
+chi tiết được gắn vào các chương trình lớn.
 
-Unlike programs, computers must obey the laws of physics.  If they wish to
-perform rapidly---a few nanoseconds per state change---they must transmit
-electrons only small distances (at most @math{{1 {1\over2}}} feet). The heat generated by
-the huge number of devices so concentrated in space has to be removed.  An
-exquisite engineering art has been developed balancing between multiplicity of
-function and density of devices.  In any event, hardware always operates at a
-level more primitive than that at which we care to program.  The processes that
-transform our Lisp programs to ``machine'' programs are themselves abstract
-models which we program.  Their study and creation give a great deal of insight
-into the organizational programs associated with programming arbitrary models.
-Of course the computer itself can be so modeled.  Think of it: the behavior of
-the smallest physical switching element is modeled by quantum mechanics
-described by differential equations whose detailed behavior is captured by
-numerical approximations represented in computer programs executing on
-computers composed of @dots{}!
+Không giống như các chương trình, máy tính phải tuân theo những quy luật
+của vật lý. Nếu chúng muốn thực hiện nhanh chóng---một vài nano-giây trên
+mỗi thay đổi trang thái---chúng phải truyền tải electrons ở khoảng cách nhỏ
+(tối đa @math{{1 {1\over2}}} feet). Lượng nhiệt được sinh ra bởi số lượng
+khổng lồ các linh kiện cần phải được loại bỏ. Một nghệ thuật kĩ thuật tinh tế đã
+được phát triển để cần bằng giữa sự đang dạng về chức năng với mật độ của các
+linh kiện điện tử. Tại bất kì sự kiện nào, phần cứng luôn luôn hoạt động tại 
+tầm căn bản hơn so với cái mà chúng ta quan tâm về chương trình. Các quá trình
+chuyển đổi chương trình Lisp của chúng ta thành các chương trình ``máy'' cũng 
+là những mô hình trừu được được ta lập trình ra. Sự tạo ra và nghiên cứu những 
+quá trình này cho chúng ta hiểu biết rõ hơn về cấu trúc của những chương trình
+có thể kết hợp với bất kì mô hình lập trình nào. Dĩ nhiên là máy tính cũng
+có thể được mô hình hóa. Hãy suy nghĩ: hành vi của các công tắc vật lý nhỏ nhất
+được mô hình bởi cơ học lương tử bằng các phương trình vi phân mà các hành vi
+chi tiếc được nắm bắt bởi các xấp xỉ số học dduwocwj biểu diễn trong những
+chương trình máy tính được thực thi trên những máy tính tạo bởi @dots{}!
 
 It is not merely a matter of tactical convenience to separately identify the
 three foci.  Even though, as they say, it's all in the head, this logical
