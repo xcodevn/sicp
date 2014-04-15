@@ -570,6 +570,17 @@ có thể được mô hình hóa. Hãy suy nghĩ: hành vi của các công t�
 chi tiếc được nắm bắt bởi các xấp xỉ số học dduwocwj biểu diễn trong những
 chương trình máy tính được thực thi trên những máy tính tạo bởi @dots{}!
 
+Không phải là vấn đề về thuận lợi khi phân biệt ba khái niệm. Thậm chí,
+như người ta nói, tất tả đều ở trong đầu, sự phân biệt này góp phần đáng kể
+vào việc trao đổi biểu tượng giữa ba khái niệm bao gồm tính đa dạng, sức sống,
+và tiềm năng thì vượt quá kinh nghiệm con người chỉ bằng sự lớn lên của 
+chính nó. Tốt nhất, những mối quan hệ giữa các khái niệm trọng tâm là siêu ổn định.
+ Máy tính không bao giờ đủ lớn và đủ nhanh. Mỗi đột phá trong công nghệ phần
+cứng lại dẫn đến những mức độ lập trình lớn hơn, những nguyên tắc tổ chức mới,
+và thêm vào những mô hình trừa tượng. Người đọc nên thường xuyên tự hỏi
+``Hướng về cái cuối nào, hướng về cái cuối nào?''---nhưng đừng hỏi quá thường 
+xuyên vì sợ rằng bạn sẽ đánh mất niềm vui lập trình.
+
 It is not merely a matter of tactical convenience to separately identify the
 three foci.  Even though, as they say, it's all in the head, this logical
 separation induces an acceleration of symbolic traffic between these foci whose
@@ -582,87 +593,85 @@ models.  Every reader should ask himself periodically ``Toward what end, toward
 what end?''---but do not ask it too often lest you pass up the fun of
 programming for the constipation of bittersweet philosophy.
 
-Among the programs we write, some (but never enough) perform a precise
-mathematical function such as sorting or finding the maximum of a sequence of
-numbers, determining primality, or finding the square root.  We call such
-programs algorithms, and a great deal is known of their optimal behavior,
-particularly with respect to the two important parameters of execution time and
-data storage requirements.  A programmer should acquire good algorithms and
-idioms.  Even though some programs resist precise specifications, it is the
-responsibility of the programmer to estimate, and always to attempt to improve,
-their performance.
+Trong số chương trình chúng ta viết, một vài (nhưng không bao giờ đủ) thực
+hiện các chức năng toán học thuần túy như là sắp xếp hay tìm phần tử lớn nhất
+của một chuỗi soosl, kiểm tra số nguyên tố, hay tìm căn bậc hai. Chúng ta gọi
+những chương trình như vậy là thuật toán, và một cái rất quan trọng là biết
+được hành vi tối ưu của chúng, ta đặc biệt quan tâm tới hai tham số của thời
+gian thực thi và yêu cầu lưu trữ dữ liệu. Một người lập trình nên biết những
+thuật toán tốt và những thành ngữ (idioms).  Mặc dù một vài chương trình không
+thể đặc tả chính xác, thì trách nhiệm của người lập trình là xấp xĩ, và luôn 
+cố gắng cải thiện hiệu năng của chúng.
 
-Lisp is a survivor, having been in use for about a quarter of a century.  Among
-the active programming languages only Fortran has had a longer life.  Both
-languages have supported the programming needs of important areas of
-application, Fortran for scientific and engineering computation and Lisp for
-artificial intelligence.  These two areas continue to be important, and their
-programmers are so devoted to these two languages that Lisp and Fortran may
-well continue in active use for at least another quarter-century.
 
-Lisp changes.  The Scheme dialect used in this text has evolved from the
-original Lisp and differs from the latter in several important ways, including
-static scoping for variable binding and permitting functions to yield functions
-as values.  In its semantic structure Scheme is as closely akin to Algol 60 as
-to early Lisps.  Algol 60, never to be an active language again, lives on in
-the genes of Scheme and Pascal.  It would be difficult to find two languages
-that are the communicating coin of two more different cultures than those
-gathered around these two languages.  Pascal is for building
-pyramids---imposing, breathtaking, static structures built by armies pushing
-heavy blocks into place.  Lisp is for building organisms---imposing,
-breathtaking, dynamic structures built by squads fitting fluctuating myriads of
-simpler organisms into place.  The organizing principles used are the same in
-both cases, except for one extraordinarily important difference: The
-discretionary exportable functionality entrusted to the individual Lisp
-programmer is more than an order of magnitude greater than that to be found
-within Pascal enterprises.  Lisp programs inflate libraries with functions
-whose utility transcends the application that produced them.  The list, Lisp's
-native data structure, is largely responsible for such growth of utility.  The
-simple structure and natural applicability of lists are reflected in functions
-that are amazingly nonidiosyncratic.  In Pascal the plethora of declarable data
-structures induces a specialization within functions that inhibits and
-penalizes casual cooperation.  It is better to have 100 functions operate on
-one data structure than to have 10 functions operate on 10 data structures.  As
-a result the pyramid must stand unchanged for a millennium; the organism must
-evolve or perish.
+Lisp đã sống sót qua một phần tư thế kỉ. Trong số các ngôn ngữ đang được dùng
+chỉ có Fortran là có tuổi thọ lớn hơn. Cả hai ngôn ngữ đều hỗ trợ cho nhu cầu
+lập trình ở những lĩnh vực ứng dụng quan trọng, Fotran dành cho khoa học
+và kĩ thuật tính toán; Lisp dành cho trí tuệ nhân tạo. Hai lĩnh vực này tiếp 
+tục là những lĩnh vực quan trong, và những lập trình viên dùng hai Lisp và
+Fortran có thể tiếp tục dùng chúng trong ít nhất một phần tư thế kỉ nữa.
 
-To illustrate this difference, compare the treatment of material and exercises
-within this book with that in any first-course text using Pascal.  Do not labor
-under the illusion that this is a text digestible at @abbr{MIT} only,
-peculiar to the breed found there.  It is precisely what a serious book on
-programming Lisp must be, no matter who the student is or where it is used.
+Lisp đã thay đổi. Ngôn ngữ Scheme được dùng trong sách này đã được phát triển
+thì Lisp nguyên bản và khác với Lisp ở vài yếu tố quan trọng, bao gồm tầm vực
+tĩnh cho việc gán biến (variable binding) và cho phép các hàm sinh ra giá trị
+kết quả là một hàm khác. Trong cấu trúc ngữ nghĩa Scheme gần giống với
+Algol 60. Algo 60, không bao giờ có thể được sống lại lần nữa, đã sống với gen
+của Scheme và Pascal. Khó mà có thể tìm được hai ngôn ngữ mà có sự giao thiệp
+giữa hai cộng đồng hoàn toàn khác nhau như hai ngôn ngữ trên. Pascal dành để
+xây dựng kim tự tháp---hùng vĩ, tuyệt đẹp, cấu trúc tĩnh được những đội quân 
+xây dựng bằng cách đặt những tảng đá lớn vào đúng vị trí. Lisp dùng để tạo các
+sinh vật sống---hùng vĩ, tuyệt đẹp, cấu trúc động được tạo bởi việc sắp xếp
+đội hình cho vô số các sinh vật nhỏ hơn vào đúng chỗ. Những nguyên tắc tổ chức
+được sử dụng cho cả hai trường hợp, ngoại trừ một sự khác biết rất quan trọng: 
+Những những lập trình Lisp khả năng chia sẻ những tính năng đã được hiện thực
+tốt hơn hẵn so với đế chế Pascel. Chương trình Lisp tạo ra những thư viện với
+nhiều chức năng mà tiện ích vượt qua cả ứng dụng sinh ra chúng. Danh sách, cấu
+trúc dữ liệu nguyên thủy của Lisp, có vai trò chính trong việc tiện ích vượt
+trội này. Cấu trúc đơn giản và tính ứng dụng một cách tự nhiên của các danh sách
+được thể hiện quả những chức năng rất tổng quát. Trong Pascal việc có thể khai
+báo các cấu trức dữ liệu dẫn đến việc các chức năng chỉ sử dụng cho các mục đích
+riêng lẻ, ngăn cản sự hợp tác. Sẽ là tốt hơn nếu có một 100 chức năng làm việc
+trên một câu trức dữ liệu hơn là có 10 chức năng làm việc trên 10 cấu trúc dữ
+liệu. Như một hệ quả, các kim tự tháp phải đứng vững hàng thiên niên kỉ; các sinh
+vật phải tiến hóa hoặc chết.
 
-Note that this is a text about programming, unlike most Lisp books, which are
-used as a preparation for work in artificial intelligence.  After all, the
-critical programming concerns of software engineering and artificial
-intelligence tend to coalesce as the systems under investigation become larger.
-This explains why there is such growing interest in Lisp outside of artificial
-intelligence.
+Để minh họa sự khác nhau này, so sánh phần tài liệu và bài tập trong sách này
+với bất kì sách nhập môn nào sử dụng Pascal. Đừng lười biết dưới ảo tưởng rằng
+đây là sách chỉ ở @abbr{MIT}, peculiar to the breed found there.  
+Đây chính xác là cái mà một sách nghiêm túc về lập trình Lisp phải có, bất kể
+học sinh nào hay nơi nào dùng nó.
 
-As one would expect from its goals, artificial intelligence research generates
-many significant programming problems.  In other programming cultures this
-spate of problems spawns new languages.  Indeed, in any very large programming
-task a useful organizing principle is to control and isolate traffic within the
-task modules via the invention of language.  These languages tend to become
-less primitive as one approaches the boundaries of the system where we humans
-interact most often.  As a result, such systems contain complex
-language-processing functions replicated many times.  Lisp has such a simple
-syntax and semantics that parsing can be treated as an elementary task.  Thus
-parsing technology plays almost no role in Lisp programs, and the construction
-of language processors is rarely an impediment to the rate of growth and change
-of large Lisp systems.  Finally, it is this very simplicity of syntax and
-semantics that is responsible for the burden and freedom borne by all Lisp
-programmers.  No Lisp program of any size beyond a few lines can be written
-without being saturated with discretionary functions.  Invent and fit; have
-fits and reinvent!  We toast the Lisp programmer who pens his thoughts within
-nests of parentheses.
+Lưu ý rằng sách này là sách về lập trình, không giống đa phần sách về Lisp,
+những sách được dùng để chuẩn bị cho công việc trong lĩnh vực trí tuệ nhân tạo.
+Sau cùng, những quan tâm về lập trình của kĩ nghệ phần mềm và trí tuệ nhân tạo
+có xư hướng làm cho hệ thống bên dưới trở nên lớn hơn.
+Điều này giải thích vì sao sự quan tâm đến Lisp được mở rộng đến cách lĩnh vực
+ngoài trí tuệ nhân tạo.
+
+Như một ai kì vọng về mục tiêu của nó, nghiên cứu về trí tuệ nhân tạo đã tạo
+ra nhiều bài toán lập trình quan trọng. Trong những lĩnh vực khác, việc xuất 
+hiện những vấn đề mới lại sản sinh ra các ngôn ngữ mới. Thật sự, trong những công
+việc lập trình lớn thì nguyên lý tổ chức là điều khiển và cô lập sự tương tác 
+giữa các mô-đun thông qua các cơ chế của ngôn ngữ. Các ngôn ngữ này có xu hướng
+trở nên ít đơn giản khi một ai đó tiếp cận đến giới hạn của hệ thống nơi mà 
+chúng ta người thường xuyên tiếp xúc. Như một hệ quả, những hệ thống như vậy 
+chứa đựng những chức năng xử lý ngôn ngữ được lập lại nhiều lần. Lisp có một
+ngữ pháp và ngữ nghĩa đơn giản nên việc phân tích được xem như công việc cơ
+bản. Do đó những kĩ thuật phân tích ngôn ngữ gần như không đóng vai trò gì 
+trong chương trình Lisp, và việc xây dựng bộ xử lý ngôn ngữ hiếm khi ảnh hướng
+đến sự phát triển và thay đổi của những hệ thống Lisp lớn. Cuối cùng, với sự
+đơn giản của ngữ pháp và ngữ nghĩa, Lisp tạo ra sự tự cũng như gánh nặng cho
+mọi người lập trình Lisp. Không có chương trình Lisp, với bất kì kích thước nào,
+ nằm ngoài vài dòng có thể được viết, mà không bị bão hòa bởi các chức năng
+sẳn có.  Invent and fit; have fits and reinvent! 
+We toast the Lisp programmer who pens his thoughts within nests of parentheses.
 
 @noindent
 Alan J. Perlis@*
 New Haven, Connecticut
 
 @node    Preface, Preface 1e, Foreword, Top
-@unnumbered Lời mới đầu cho lần xuất bản thứ hai
+@unnumbered Lời nói đầu 2nd
 
 @quotation
 Is it possible that software is not like anything else, that it is meant to be
