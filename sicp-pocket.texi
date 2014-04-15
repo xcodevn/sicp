@@ -515,58 +515,71 @@ cứu những chương trình được viết bằng ngôn ngữ Lisp thực thi
 Sử dụng Lisp chúng ta không giới hạn những chương trình có thể lập trình mà chỉ giới
 hạn là những ký hiệu dùng để mô tả chương trình.
 
-Our traffic with the subject matter of this book involves us with three foci of
-phenomena: the human mind, collections of computer programs, and the computer.
-Every computer program is a model, hatched in the mind, of a real or mental
-process.  These processes, arising from human experience and thought, are huge
-in number, intricate in detail, and at any time only partially understood.
-They are modeled to our permanent satisfaction rarely by our computer programs.
-Thus even though our programs are carefully handcrafted discrete collections of
-symbols, mosaics of interlocking functions, they continually evolve: we change
-them as our perception of the model deepens, enlarges, generalizes until the
-model ultimately attains a metastable place within still another model with
-which we struggle.  The source of the exhilaration associated with computer
-programming is the continual unfolding within the mind and on the computer of
-mechanisms expressed as programs and the explosion of perception they generate.
-If art interprets our dreams, the computer executes them in the guise of
-programs!
+Khi đi vào chủ đề của quyển sách này chúng ta sẽ liên quan tới ba đối tượng: 
+trí não con người, tập hợp những chương trình máy tính, và chiếc máy tính. Mọi
+chương trình máy tính là một mô hình, xuất hiện trong trí não, của một quá trình
+diễn ra trên thực tế hay trong trí não. Những quá trình này, xuất hiện qua trãi
+nghiệm và suy nghĩ của con người, có số lượng rất lớn, nhiều chi tiết phức tạp, và
+tại mọi thời điểm chỉ hiểu được một phần nào đó. Chúng được mô hình hóa, cho những thoản mãn
+hiếm khi kéo dài của chúng ta, bằng các chương trình máy tính. Vậy nên mặc dù là
+tập hợp của những biểu tượng được được cẩn thận sắp xếp lại với nhau, tạo thành
+bức phù điêu, chúng vẫn phát triển không ngừng: chúng ta thay đổi chúng khi nhận
+thức của ta về mô hình trở nên sâu hơn, rộng hơn, tổng quát hơn cho đến khi 
+mô hình đạt được trạng thái siêu ổn định thì vẫn có những mô hình khác mà ta 
+gặp trở ngại. Nguồn gốc của niềm vui thích khi lập trình máy tính là do sự mở
+mang không ngừng của trí não, của những cơ chế biểu diễn chương trình trên máy
+tính và sự bùng nỗ về nhận thức mà chúng sinh ra. Nếu nghệ thuật diễn dịch
+ước mơ của chúng ta thì máy tính thực hiện chúng dưới vỏ bọc của những chương trình.
 
-For all its power, the computer is a harsh taskmaster.  Its programs must be
-correct, and what we wish to say must be said accurately in every detail.  As
-in every other symbolic activity, we become convinced of program truth through
-argument.  Lisp itself can be assigned a semantics (another model, by the way),
-and if a program's function can be specified, say, in the predicate calculus,
-the proof methods of logic can be used to make an acceptable correctness
-argument.  Unfortunately, as programs get large and complicated, as they almost
-always do, the adequacy, consistency, and correctness of the specifications
-themselves become open to doubt, so that complete formal arguments of
-correctness seldom accompany large programs.  Since large programs grow from
-small ones, it is crucial that we develop an arsenal of standard program
-structures of whose correctness we have become sure---we call them idioms---and
-learn to combine them into larger structures using organizational techniques of
-proven value.  These techniques are treated at length in this book, and
-understanding them is essential to participation in the Promethean enterprise
-called programming.  More than anything else, the uncovering and mastery of
-powerful organizational techniques accelerates our ability to create large,
-significant programs.  Conversely, since writing large programs is very taxing,
-we are stimulated to invent new methods of reducing the mass of function and
-detail to be fitted into large programs.
+Với tất cả khả năng của mình, máy tính là một đốc công khắc nghiệt. Chương trình 
+của nó phải đúng, và cái chúng ta muốn nói phải được nói một cách chính xác
+trong từng chi tiết.  Như mọi hoạt động mang tính biểu tượng (symbolic activity), 
+ chúng ta đảm bảo tính đúng đắn của chương trình thông qua lập luận. Lisp có thể
+ được gán ngữ nghĩa, và nếu một chức năng của chương trình có thể được đặc tả,
+ ví như, bằng lôgic vị từ, những phương thức chứng minh của lôgic có thể được dùng
+ để lập luận về tính đúng đắn. Không may là, khi chương trình trở lên lớn và
+ phức tạp, luôn là vậy, thì tính đúng đắn của chính bản đặc tả lại trở nên
+ đáng nghi ngờ, do vậy nên suy luận tính đúng đắn của dùng lập luận hình thức
+ khó mà áp dụng cho các chương trình lớn. Do những chương trình lớn phát triển
+ từ những cái nhỏ hơn, nên rất quan trọng khi ta phát triển một bộ những
+ cấu trúc chương trình tiêu chuẩn mà ta chắc chắn về tính đúng đắn---ta gọi 
+ nó là những thành ngữ---và học cách để kết hợp chúng thành những cấu trúc lớn
+ hơn bằng việc dùng các kỹ thuật tổ chức chương trình đã được chứng minh hiệu quả.
+ Những kỹ thuật này được trình bày xuyên suốt quyển sách này, và việc hiểu rõ
+ chúng là rất quan trọng để có thể bước vào vương quốc lập trình. Hơn những điều
+ khác, hiểu rõ và nắm vững các kỹ thuật mạnh mẽ để tổ chức chương trình sẽ giúp
+ ích đáng kể trong việc tạo những chương trình lớn và quan trọng.
+Ngược lại, kể từ khi việc viết chương trình lớn trở nên tốn kém, chúng ta bị
+thúc đẩy để tìm ra những phương cách mới để giảm thiểu số lượng tính năng và
+chi tiết được gắn vào các chương trình lớn.
 
-Unlike programs, computers must obey the laws of physics.  If they wish to
-perform rapidly---a few nanoseconds per state change---they must transmit
-electrons only small distances (at most @math{{1 {1\over2}}} feet). The heat generated by
-the huge number of devices so concentrated in space has to be removed.  An
-exquisite engineering art has been developed balancing between multiplicity of
-function and density of devices.  In any event, hardware always operates at a
-level more primitive than that at which we care to program.  The processes that
-transform our Lisp programs to ``machine'' programs are themselves abstract
-models which we program.  Their study and creation give a great deal of insight
-into the organizational programs associated with programming arbitrary models.
-Of course the computer itself can be so modeled.  Think of it: the behavior of
-the smallest physical switching element is modeled by quantum mechanics
-described by differential equations whose detailed behavior is captured by
-numerical approximations represented in computer programs executing on
-computers composed of @dots{}!
+Không giống như các chương trình, máy tính phải tuân theo những quy luật
+của vật lý. Nếu chúng muốn thực hiện nhanh chóng---một vài nano-giây trên
+mỗi thay đổi trang thái---chúng phải truyền tải electrons ở khoảng cách nhỏ
+(tối đa @math{{1 {1\over2}}} feet). Lượng nhiệt được sinh ra bởi số lượng
+khổng lồ các linh kiện cần phải được loại bỏ. Một nghệ thuật kĩ thuật tinh tế đã
+được phát triển để cần bằng giữa sự đang dạng về chức năng với mật độ của các
+linh kiện điện tử. Tại bất kì sự kiện nào, phần cứng luôn luôn hoạt động tại 
+tầm căn bản hơn so với cái mà chúng ta quan tâm về chương trình. Các quá trình
+chuyển đổi chương trình Lisp của chúng ta thành các chương trình ``máy'' cũng 
+là những mô hình trừu được được ta lập trình ra. Sự tạo ra và nghiên cứu những 
+quá trình này cho chúng ta hiểu biết rõ hơn về cấu trúc của những chương trình
+có thể kết hợp với bất kì mô hình lập trình nào. Dĩ nhiên là máy tính cũng
+có thể được mô hình hóa. Hãy suy nghĩ: hành vi của các công tắc vật lý nhỏ nhất
+được mô hình bởi cơ học lương tử bằng các phương trình vi phân mà các hành vi
+chi tiếc được nắm bắt bởi các xấp xỉ số học dduwocwj biểu diễn trong những
+chương trình máy tính được thực thi trên những máy tính tạo bởi @dots{}!
+
+Không phải là vấn đề về thuận lợi khi phân biệt ba khái niệm. Thậm chí,
+như người ta nói, tất tả đều ở trong đầu, sự phân biệt này góp phần đáng kể
+vào việc trao đổi biểu tượng giữa ba khái niệm bao gồm tính đa dạng, sức sống,
+và tiềm năng thì vượt quá kinh nghiệm con người chỉ bằng sự lớn lên của 
+chính nó. Tốt nhất, những mối quan hệ giữa các khái niệm trọng tâm là siêu ổn định.
+ Máy tính không bao giờ đủ lớn và đủ nhanh. Mỗi đột phá trong công nghệ phần
+cứng lại dẫn đến những mức độ lập trình lớn hơn, những nguyên tắc tổ chức mới,
+và thêm vào những mô hình trừa tượng. Người đọc nên thường xuyên tự hỏi
+``Hướng về cái cuối nào, hướng về cái cuối nào?''---nhưng đừng hỏi quá thường 
+xuyên vì sợ rằng bạn sẽ đánh mất niềm vui lập trình.
 
 It is not merely a matter of tactical convenience to separately identify the
 three foci.  Even though, as they say, it's all in the head, this logical
@@ -580,87 +593,85 @@ models.  Every reader should ask himself periodically ``Toward what end, toward
 what end?''---but do not ask it too often lest you pass up the fun of
 programming for the constipation of bittersweet philosophy.
 
-Among the programs we write, some (but never enough) perform a precise
-mathematical function such as sorting or finding the maximum of a sequence of
-numbers, determining primality, or finding the square root.  We call such
-programs algorithms, and a great deal is known of their optimal behavior,
-particularly with respect to the two important parameters of execution time and
-data storage requirements.  A programmer should acquire good algorithms and
-idioms.  Even though some programs resist precise specifications, it is the
-responsibility of the programmer to estimate, and always to attempt to improve,
-their performance.
+Trong số chương trình chúng ta viết, một vài (nhưng không bao giờ đủ) thực
+hiện các chức năng toán học thuần túy như là sắp xếp hay tìm phần tử lớn nhất
+của một chuỗi soosl, kiểm tra số nguyên tố, hay tìm căn bậc hai. Chúng ta gọi
+những chương trình như vậy là thuật toán, và một cái rất quan trọng là biết
+được hành vi tối ưu của chúng, ta đặc biệt quan tâm tới hai tham số của thời
+gian thực thi và yêu cầu lưu trữ dữ liệu. Một người lập trình nên biết những
+thuật toán tốt và những thành ngữ (idioms).  Mặc dù một vài chương trình không
+thể đặc tả chính xác, thì trách nhiệm của người lập trình là xấp xĩ, và luôn 
+cố gắng cải thiện hiệu năng của chúng.
 
-Lisp is a survivor, having been in use for about a quarter of a century.  Among
-the active programming languages only Fortran has had a longer life.  Both
-languages have supported the programming needs of important areas of
-application, Fortran for scientific and engineering computation and Lisp for
-artificial intelligence.  These two areas continue to be important, and their
-programmers are so devoted to these two languages that Lisp and Fortran may
-well continue in active use for at least another quarter-century.
 
-Lisp changes.  The Scheme dialect used in this text has evolved from the
-original Lisp and differs from the latter in several important ways, including
-static scoping for variable binding and permitting functions to yield functions
-as values.  In its semantic structure Scheme is as closely akin to Algol 60 as
-to early Lisps.  Algol 60, never to be an active language again, lives on in
-the genes of Scheme and Pascal.  It would be difficult to find two languages
-that are the communicating coin of two more different cultures than those
-gathered around these two languages.  Pascal is for building
-pyramids---imposing, breathtaking, static structures built by armies pushing
-heavy blocks into place.  Lisp is for building organisms---imposing,
-breathtaking, dynamic structures built by squads fitting fluctuating myriads of
-simpler organisms into place.  The organizing principles used are the same in
-both cases, except for one extraordinarily important difference: The
-discretionary exportable functionality entrusted to the individual Lisp
-programmer is more than an order of magnitude greater than that to be found
-within Pascal enterprises.  Lisp programs inflate libraries with functions
-whose utility transcends the application that produced them.  The list, Lisp's
-native data structure, is largely responsible for such growth of utility.  The
-simple structure and natural applicability of lists are reflected in functions
-that are amazingly nonidiosyncratic.  In Pascal the plethora of declarable data
-structures induces a specialization within functions that inhibits and
-penalizes casual cooperation.  It is better to have 100 functions operate on
-one data structure than to have 10 functions operate on 10 data structures.  As
-a result the pyramid must stand unchanged for a millennium; the organism must
-evolve or perish.
+Lisp đã sống sót qua một phần tư thế kỉ. Trong số các ngôn ngữ đang được dùng
+chỉ có Fortran là có tuổi thọ lớn hơn. Cả hai ngôn ngữ đều hỗ trợ cho nhu cầu
+lập trình ở những lĩnh vực ứng dụng quan trọng, Fotran dành cho khoa học
+và kĩ thuật tính toán; Lisp dành cho trí tuệ nhân tạo. Hai lĩnh vực này tiếp 
+tục là những lĩnh vực quan trong, và những lập trình viên dùng hai Lisp và
+Fortran có thể tiếp tục dùng chúng trong ít nhất một phần tư thế kỉ nữa.
 
-To illustrate this difference, compare the treatment of material and exercises
-within this book with that in any first-course text using Pascal.  Do not labor
-under the illusion that this is a text digestible at @abbr{MIT} only,
-peculiar to the breed found there.  It is precisely what a serious book on
-programming Lisp must be, no matter who the student is or where it is used.
+Lisp đã thay đổi. Ngôn ngữ Scheme được dùng trong sách này đã được phát triển
+thì Lisp nguyên bản và khác với Lisp ở vài yếu tố quan trọng, bao gồm tầm vực
+tĩnh cho việc gán biến (variable binding) và cho phép các hàm sinh ra giá trị
+kết quả là một hàm khác. Trong cấu trúc ngữ nghĩa Scheme gần giống với
+Algol 60. Algo 60, không bao giờ có thể được sống lại lần nữa, đã sống với gen
+của Scheme và Pascal. Khó mà có thể tìm được hai ngôn ngữ mà có sự giao thiệp
+giữa hai cộng đồng hoàn toàn khác nhau như hai ngôn ngữ trên. Pascal dành để
+xây dựng kim tự tháp---hùng vĩ, tuyệt đẹp, cấu trúc tĩnh được những đội quân 
+xây dựng bằng cách đặt những tảng đá lớn vào đúng vị trí. Lisp dùng để tạo các
+sinh vật sống---hùng vĩ, tuyệt đẹp, cấu trúc động được tạo bởi việc sắp xếp
+đội hình cho vô số các sinh vật nhỏ hơn vào đúng chỗ. Những nguyên tắc tổ chức
+được sử dụng cho cả hai trường hợp, ngoại trừ một sự khác biết rất quan trọng: 
+Những những lập trình Lisp khả năng chia sẻ những tính năng đã được hiện thực
+tốt hơn hẵn so với đế chế Pascel. Chương trình Lisp tạo ra những thư viện với
+nhiều chức năng mà tiện ích vượt qua cả ứng dụng sinh ra chúng. Danh sách, cấu
+trúc dữ liệu nguyên thủy của Lisp, có vai trò chính trong việc tiện ích vượt
+trội này. Cấu trúc đơn giản và tính ứng dụng một cách tự nhiên của các danh sách
+được thể hiện quả những chức năng rất tổng quát. Trong Pascal việc có thể khai
+báo các cấu trức dữ liệu dẫn đến việc các chức năng chỉ sử dụng cho các mục đích
+riêng lẻ, ngăn cản sự hợp tác. Sẽ là tốt hơn nếu có một 100 chức năng làm việc
+trên một câu trức dữ liệu hơn là có 10 chức năng làm việc trên 10 cấu trúc dữ
+liệu. Như một hệ quả, các kim tự tháp phải đứng vững hàng thiên niên kỉ; các sinh
+vật phải tiến hóa hoặc chết.
 
-Note that this is a text about programming, unlike most Lisp books, which are
-used as a preparation for work in artificial intelligence.  After all, the
-critical programming concerns of software engineering and artificial
-intelligence tend to coalesce as the systems under investigation become larger.
-This explains why there is such growing interest in Lisp outside of artificial
-intelligence.
+Để minh họa sự khác nhau này, so sánh phần tài liệu và bài tập trong sách này
+với bất kì sách nhập môn nào sử dụng Pascal. Đừng lười biết dưới ảo tưởng rằng
+đây là sách chỉ ở @abbr{MIT}, peculiar to the breed found there.  
+Đây chính xác là cái mà một sách nghiêm túc về lập trình Lisp phải có, bất kể
+học sinh nào hay nơi nào dùng nó.
 
-As one would expect from its goals, artificial intelligence research generates
-many significant programming problems.  In other programming cultures this
-spate of problems spawns new languages.  Indeed, in any very large programming
-task a useful organizing principle is to control and isolate traffic within the
-task modules via the invention of language.  These languages tend to become
-less primitive as one approaches the boundaries of the system where we humans
-interact most often.  As a result, such systems contain complex
-language-processing functions replicated many times.  Lisp has such a simple
-syntax and semantics that parsing can be treated as an elementary task.  Thus
-parsing technology plays almost no role in Lisp programs, and the construction
-of language processors is rarely an impediment to the rate of growth and change
-of large Lisp systems.  Finally, it is this very simplicity of syntax and
-semantics that is responsible for the burden and freedom borne by all Lisp
-programmers.  No Lisp program of any size beyond a few lines can be written
-without being saturated with discretionary functions.  Invent and fit; have
-fits and reinvent!  We toast the Lisp programmer who pens his thoughts within
-nests of parentheses.
+Lưu ý rằng sách này là sách về lập trình, không giống đa phần sách về Lisp,
+những sách được dùng để chuẩn bị cho công việc trong lĩnh vực trí tuệ nhân tạo.
+Sau cùng, những quan tâm về lập trình của kĩ nghệ phần mềm và trí tuệ nhân tạo
+có xư hướng làm cho hệ thống bên dưới trở nên lớn hơn.
+Điều này giải thích vì sao sự quan tâm đến Lisp được mở rộng đến cách lĩnh vực
+ngoài trí tuệ nhân tạo.
+
+Như một ai kì vọng về mục tiêu của nó, nghiên cứu về trí tuệ nhân tạo đã tạo
+ra nhiều bài toán lập trình quan trọng. Trong những lĩnh vực khác, việc xuất 
+hiện những vấn đề mới lại sản sinh ra các ngôn ngữ mới. Thật sự, trong những công
+việc lập trình lớn thì nguyên lý tổ chức là điều khiển và cô lập sự tương tác 
+giữa các mô-đun thông qua các cơ chế của ngôn ngữ. Các ngôn ngữ này có xu hướng
+trở nên ít đơn giản khi một ai đó tiếp cận đến giới hạn của hệ thống nơi mà 
+chúng ta người thường xuyên tiếp xúc. Như một hệ quả, những hệ thống như vậy 
+chứa đựng những chức năng xử lý ngôn ngữ được lập lại nhiều lần. Lisp có một
+ngữ pháp và ngữ nghĩa đơn giản nên việc phân tích được xem như công việc cơ
+bản. Do đó những kĩ thuật phân tích ngôn ngữ gần như không đóng vai trò gì 
+trong chương trình Lisp, và việc xây dựng bộ xử lý ngôn ngữ hiếm khi ảnh hướng
+đến sự phát triển và thay đổi của những hệ thống Lisp lớn. Cuối cùng, với sự
+đơn giản của ngữ pháp và ngữ nghĩa, Lisp tạo ra sự tự cũng như gánh nặng cho
+mọi người lập trình Lisp. Không có chương trình Lisp, với bất kì kích thước nào,
+ nằm ngoài vài dòng có thể được viết, mà không bị bão hòa bởi các chức năng
+sẳn có.  Invent and fit; have fits and reinvent! 
+We toast the Lisp programmer who pens his thoughts within nests of parentheses.
 
 @noindent
 Alan J. Perlis@*
 New Haven, Connecticut
 
 @node    Preface, Preface 1e, Foreword, Top
-@unnumbered Lời mới đầu cho lần xuất bản thứ hai
+@unnumbered Lời nói đầu 2nd
 
 @quotation
 Is it possible that software is not like anything else, that it is meant to be
@@ -929,58 +940,59 @@ from @abbr{DARPA}, made possible by Bob Kahn.
 @chapter Xây dựng Trừu tượng với Thủ tục (Building Abstractions with Procedures)
 
 @quotation
-The acts of the mind, wherein it exerts its power over simple ideas, are
-chiefly these three: @w{1. Combining} several simple ideas into one compound one,
-and thus all complex ideas are made.  @w{2. The second} is bringing two ideas,
-whether simple or complex, together, and setting them by one another so as to
-take a view of them at once, without uniting them into one, by which it gets
-all its ideas of relations.  @w{3. The third} is separating them from all other
-ideas that accompany them in their real existence: this is called abstraction,
-and thus all its general ideas are made.
+Hoạt động của trí não, nơi tiêu tốn năng lượng trên những ý tưởng đơn giản,
+chủ yếu gồm ba thứ: @w{1. Kết hợp} nhiều ý tưởng đơn giản thành một ý tưởng tổng hợp, mọi
+ý tưởng phức tạp được tạo ra nhờ đây. @w{2. Cái thứ hai}  là việc mang hai ý tưởng, dù đơn
+giản hay phức tạp, cùng nhau, và đặt chúng bên cạnh nhau, sao cho ta có thể nhìn
+cả hai cùng đồng thời, bằng cách này ta được ý tưởng về mối quan hệ giữa chúng với nhau. @w{3. Cái thứ ba}  
+là tách ý tưởng khỏi các ý tưởng đi cùng nó trong thực tế tồn tại: điều này
+được gọi là sự trừu tượng hóa, và đây là cách các ý tưởng tổng quát được tạo ra.
 
----John Locke, @cite{An Essay Concerning Human Understanding} (1690)
+---John Locke, @cite{Một Bài Luận Về Hoạt Động Hiểu Biết Của Con Người} (1690)
 @end quotation
 
 
 @noindent
-We are about to study the idea of a @newterm{computational process}.
-Computational processes are abstract beings that inhabit computers.  As they
+Chúng ta nghiên cứu ý tưởng về @newterm{quá trình tính toán}.
+Quá trình tính toán là những sinh vật trừu tượng sống trong máy tính. Khi 
+chúng phát triển, những quá trình này thao tác trên một vật thể trừu tượng được
+gọi là @newterm{dữ liệu}. Quá trình phát triển của một quá trình được chỉ dẫn trực
+tiếp bởi một mẫu của những luật được gọi là một @newterm{chương trình}. Người ta
+tạo ra chương trình để điều khiển những quá trình. Kết quả là, 
+
+ As they
 evolve, processes manipulate other abstract things called @newterm{data}.  The
 evolution of a process is directed by a pattern of rules called a
 @newterm{program}.  People create programs to direct processes.  In effect, we
-conjure the spirits of the computer with our spells.
+dùng bùa phép để điều khiển những linh hồn trong máy tính.
 
-A computational process is indeed much like a sorcerer's idea of a spirit.  It
-cannot be seen or touched.  It is not composed of matter at all.  However, it
-is very real.  It can perform intellectual work.  It can answer questions.  It
-can affect the world by disbursing money at a bank or by controlling a robot
-arm in a factory.  The programs we use to conjure processes are like a
-sorcerer's spells.  They are carefully composed from symbolic expressions in
-arcane and esoteric @newterm{programming languages} that prescribe the tasks we
-want our processes to perform.
+Một quá trình tính toán thật ra rất giống với ý tưởng của thầy phù thủy về 
+linh hồn. Nó không thể thấy hay chạm tới. Nó không được tạo thành bởi vậy chất.
+Tuy nhiên, nó rất thật. Nó có thể thực hiện những công việc trí tuệ. Nó có thể
+trả lời các câu hỏi. Nó có thể tác động tới thế giới bằng cách rút tiền tại một
+ngân hàng hay là điều khiển cách tay rô-bôt trong nhà máy. Những chương trình mà 
+chúng ta dùng để điều khiển các quá trình giống với những bùa phép của thầy
+phù thủy. Chúng được cẩn thận soạn ra từ những biểu thức biểu tượng của 
+những ngôn @newterm{lập trình} bí truyền mô tả công việc mà chúng ta muốn
+các quá trình thực hiện.
 
-A computational process, in a correctly working computer, executes programs
-precisely and accurately.  Thus, like the sorcerer's apprentice, novice
-programmers must learn to understand and to anticipate the consequences of
-their conjuring.  Even small errors (usually called @newterm{bugs} or
-@newterm{glitches}) in programs can have complex and unanticipated
-consequences.
+Một quá trình tính toán, trong một máy tính đang hoạt động, thực thi những chương 
+trình một cách tỉ mỉ và chính xác. Do vậy, cũng giống như một thầy phù thủy học việc, 
+các lập trình viên mới phải học để hiểu và dự đoán được tác dụng của bùa chú. Chỉ với
+một lỗi nhỏ (thường được gọi là @newterm{bọ} hay @newterm{trục trặc}) trong chương trình
+có thể dẫn đến hậu quả phức tạp khó lường.
 
-Fortunately, learning to program is considerably less dangerous than learning
-sorcery, because the spirits we deal with are conveniently contained in a
-secure way.  Real-world programming, however, requires care, expertise, and
-wisdom.  A small bug in a computer-aided design program, for example, can lead
-to the catastrophic collapse of an airplane or a dam or the self-destruction of
-an industrial robot.
+May mắn, học lập trình được xem là ít nguy hiểm hơn so với học phép thuật, bởi vì nhưng linh hồn mà chúng ta giao thiệp thường được để những chỗ an toàn. Tuy nhiên, lập trình trong thực tế cuộc sống, yêu cầu sự cẩn trọng, chuyên môn, và trí thông minh. Một lỗi nhỏ trong một chương trình thiết kế (CAD), ví dụ, có thể dẫn đến va chạm máy bay hay vỡ đập hay sự tự hư hỏng của một robot công nghiệp.
 
-Master software engineers have the ability to organize programs so that they
-can be reasonably sure that the resulting processes will perform the tasks
-intended.  They can visualize the behavior of their systems in advance.  They
-know how to structure programs so that unanticipated problems do not lead to
-catastrophic consequences, and when problems do arise, they can @newterm{debug}
-their programs.  Well-designed computational systems, like well-designed
-automobiles or nuclear reactors, are designed in a modular manner, so that the
-parts can be constructed, replaced, and debugged separately.
+Những kỹ sư phần mềm chuyên nghiệp có năng lực tổ chức các chương trình sao cho chúng
+có thể được đảm bảo rằng kết quả là các quá trình sẽ thực hiện những tác vụ 
+được dự đinh. Họ có thể trực quan hóa hành vi của hệ thống. Họ biết được làm sao
+để cấu trúc những chương trình sao cho những vấn đề không lường trước được sẽ 
+không dẫn đến thảm họa, và khi các vấn đề nảy sinh, họ có thể @newterm{debug} (tìm lỗi)
+chương trình của mình. Một hệ thống tính toán được thiết kế tốt, giống
+như một chiếc ôtô hay một nhà máy hạt nhân được thiết kế tốt, sẽ được thiết kế
+theo mô-dun, nhờ vậy các bộ phận có thể được tạo ra, thay thế hay tìm lỗi một cách
+độc lập.
 
 @subsubheading Programming in Lisp
 
